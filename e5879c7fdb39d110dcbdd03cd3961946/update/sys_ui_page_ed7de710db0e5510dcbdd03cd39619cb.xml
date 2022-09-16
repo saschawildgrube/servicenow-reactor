@@ -48,12 +48,27 @@
 		<g2:no_escape>$[
 			docapi.RenderInstallationInstructionsAppInstall();
 		]</g2:no_escape>		
-		<li>TODO: Add further steps required for installation...</li>
 	</ol>
-	
+
+	<h2>Setup a React app</h2>
+	<ol>
+		<li>Create a new UI Script to contain the main React component.</li>
+		<li>Use the edit macro "react" to get started.</li>
+		<li>Create a Reactor Component and refer to the UI Script. The component name and the class name of the React component must be identical.</li>
+		<li>Create a UI Page and add the following code into the html body:
+			<pre>
+				<g2:no_escape>$[
+					x_snc_reactor.GetUIPageDemoScript();	
+				]</g2:no_escape>					
+			</pre>
+		</li>
+		<li>Ajust the code for your new React component.</li>
+		<li>Test the UI page.</li>
+	</ol>
+			
 	<h2>React Documentation</h2>
 	<ul>
-		<li><a href="https://reactjs.org" target="_blank">reactjs.org</a></li>
+		<li><a href="https://reactjs.org" target="_blank">ReactJS.org</a></li>
 		<li><a href="https://reactjs.org/docs/react-api.html" target="_blank">React API</a></li>
 	</ul>
 
@@ -115,13 +130,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 13:55:46</sys_created_on>
         <sys_id>ed7de710db0e5510dcbdd03cd39619cb</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_page_ed7de710db0e5510dcbdd03cd39619cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-16 22:06:50</sys_updated_on>
+        <sys_updated_on>2022-09-16 23:20:14</sys_updated_on>
     </sys_ui_page>
 </record_update>
