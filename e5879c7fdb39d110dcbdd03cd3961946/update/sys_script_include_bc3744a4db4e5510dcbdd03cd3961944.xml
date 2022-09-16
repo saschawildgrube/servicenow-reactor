@@ -17,8 +17,13 @@
 	var HtmlRenderError = x_snc_devtools.HtmlRenderError;
 	var HtmlRenderScript = x_snc_devtools.HtmlRenderScript;
 	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
+	var IsObject = x_snc_devtools.IsObject;
 	
 	strComponent = GetStringValue(strComponent);
+	if (IsObject(props) == false)
+	{
+		props = {};
+	}
 
 	var strHtml = '';
 		
@@ -65,7 +70,8 @@
 		var strElementId = 'reactor_' + nComponent; 
 		
 		strHtml += '<div id="'+strElementId+'"/>';
-		strHtml += HtmlRenderScript('ReactDOM.render(e('+strComponent+'),document.getElementById("'+strElementId+'"));');
+		strHtml += HtmlRenderScript(
+			'ReactDOM.render(e('+strComponent+','+JSON.stringify(props)+'),document.getElementById("'+strElementId+'"));');
 
 	}
 	
@@ -75,13 +81,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 15:52:03</sys_created_on>
         <sys_id>bc3744a4db4e5510dcbdd03cd3961944</sys_id>
-        <sys_mod_count>18</sys_mod_count>
+        <sys_mod_count>20</sys_mod_count>
         <sys_name>Render</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_script_include_bc3744a4db4e5510dcbdd03cd3961944</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-16 19:42:35</sys_updated_on>
+        <sys_updated_on>2022-09-16 21:29:54</sys_updated_on>
     </sys_script_include>
 </record_update>
