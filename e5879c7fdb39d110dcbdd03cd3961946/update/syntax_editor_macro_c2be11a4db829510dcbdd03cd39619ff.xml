@@ -6,20 +6,20 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 22:10:35</sys_created_on>
         <sys_id>c2be11a4db829510dcbdd03cd39619ff</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>react</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>syntax_editor_macro_c2be11a4db829510dcbdd03cd39619ff</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-16 22:10:35</sys_updated_on>
+        <sys_updated_on>2022-09-16 23:01:46</sys_updated_on>
         <text>class NewComponent extends React.Component&#13;
 {&#13;
 	constructor(props)&#13;
 	{&#13;
 		super(props);&#13;
-		this.state.clicked = false;&#13;
+		this.state = { clicked: false };&#13;
 		this.onClick = this.onClick.bind(this);&#13;
 	}&#13;
 	&#13;
