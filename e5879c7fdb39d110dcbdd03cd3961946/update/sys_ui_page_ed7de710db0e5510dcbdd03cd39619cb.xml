@@ -14,10 +14,10 @@
 		docapi.RenderHeader();
 	]</g2:no_escape>
 	
-	<p>Welcome to TODO: Enter the name of the app here! - created and maintained by&#160;<a href="mailto:john.doe@example.com">TODO: Enter the name of the maintainer here</a>.</p>
+	<p>Welcome to Reactor - created and maintained by&#160;<a href="mailto:sascha.wildgrube@servicenow.com">Sascha Wildgrube</a>.</p>
 
 	<h2>Features</h2> 
-	<p>TODO: Document the features of the app here...</p>
+	<p>Use Reactor to create React based applications in ServiceNow.</p>
 
 	<h2>Disclaimer</h2>
 	<g2:no_escape>$[docapi.RenderDisclaimer()]</g2:no_escape>	
@@ -42,8 +42,8 @@
 		]</g2:no_escape>
 		<g2:no_escape>$[
 			docapi.RenderInstallationInstructionsImportFromSourceControl(
-				'TODO: Add app name and repo url here',
-				'https://github.com/githubusername/reponame');
+				'Reactor',
+				'https://github.com/saschawildgrube/servicenow-reactor');
 		]</g2:no_escape>		
 		<g2:no_escape>$[
 			docapi.RenderInstallationInstructionsAppInstall();
@@ -58,7 +58,7 @@
 	
 	<h3>Roles</h3>
 	<g2:no_escape>$[docapi.RenderRoles()]</g2:no_escape>		
-
+<!--
 	<h3>UI Actions</h3>
 	<g2:no_escape>$[docapi.RenderUIActions()]</g2:no_escape>		
 	
@@ -76,18 +76,18 @@
 
 	<h3>Business Rules</h3>
 	<g2:no_escape>$[docapi.RenderBusinessRules()]</g2:no_escape>	
-	
+-->	
 	<h2>License</h2>
-	<g2:no_escape>$[docapi.RenderCopyright(2022,'TODO: Add name of copyright holder')]</g2:no_escape>
+	<g2:no_escape>$[docapi.RenderCopyright(2022,'Sascha Wildgrube')]</g2:no_escape>
 	<g2:no_escape>$[docapi.RenderLicense()]</g2:no_escape>
 	
 	<h2>Release Notes</h2>
-
+<!--
 	<h3>1.1.0 - 2022-TODO</h3>
 	<ol>
 		<li>TODO: document changes here</li>
 	</ol>
-
+-->
 	<h3>1.0.0 - 2022-TODO</h3>
 	<p>First baselined version</p>
 
@@ -100,13 +100,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 13:55:46</sys_created_on>
         <sys_id>ed7de710db0e5510dcbdd03cd39619cb</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_page_ed7de710db0e5510dcbdd03cd39619cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-16 13:55:46</sys_updated_on>
+        <sys_updated_on>2022-09-16 14:14:48</sys_updated_on>
     </sys_ui_page>
 </record_update>
