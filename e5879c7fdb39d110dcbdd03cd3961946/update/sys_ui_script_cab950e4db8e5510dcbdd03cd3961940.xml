@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>Demonstrates the capability of Reactor to embedd React components into a ServiceNow UI Page.</description>
+        <global>false</global>
+        <name>x_snc_reactor.ReactorDemo</name>
+        <script><![CDATA[class ReactorDemo extends React.Component
+{
+	constructor(props)
+	{
+		super(props);
+	}
+	
+	onButtonClicked()
+	{
+		alert('ReactorButton: Button has been clicked');
+	}
+	
+	render()
+	{
+		var aComponents = [];
+		aComponents.push(e(Clock, { key: 'clock' },null));
+		aComponents.push(e(Button,{ key: 'button', text: 'A Button', callbackOnClick: this.onButtonClicked },null));
+		return e('div',null,aComponents);
+	}
+	
+}]]></script>
+        <script_name>ReactorDemo</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-16 17:09:30</sys_created_on>
+        <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>x_snc_reactor.ReactorDemo</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-16 20:03:22</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>

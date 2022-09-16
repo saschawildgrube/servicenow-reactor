@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_reactor.GetComponentDependencies</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Returns the an array of component names of components the given component depends on. </description>
+        <name>GetComponentDependencies</name>
+        <script><![CDATA[function GetComponentDependencies(strComponent)
+{
+	var GetRecord = x_snc_devtools.GetRecord;
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var GetArrayValue = x_snc_devtools.GetArrayValue;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var Merge = x_snc_devtools.Merge;
+
+	var grComponent = GetComponentRecord(strComponent);
+	if (IsValidRecord(grComponent) == false)
+	{
+		return [];
+	}
+		
+	var aResult = [];
+	
+	var aDependencies = GetArrayValue(grComponent.dependencies);
+	for (var nDependencies = 0; nDependencies < aDependencies.length; nDependencies++)
+	{
+		var grDependency = GetComponentRecord(aDependencies[nDependencies]);
+		if (IsValidRecord(grDependency))
+		{
+			aResult = Merge(aResult,[GetStringValue(grDependency.name)]);
+			aResult = Merge(aResult,GetComponentDependencies(aDependencies[nDependencies]));	
+		}
+	}
+	return aResult;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-16 19:00:15</sys_created_on>
+        <sys_id>7ed2f0acdbce5510dcbdd03cd39619eb</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>GetComponentDependencies</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_script_include_7ed2f0acdbce5510dcbdd03cd39619eb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-16 19:31:48</sys_updated_on>
+    </sys_script_include>
+</record_update>
