@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>Demonstrates the capability of Reactor to embedd React components into a ServiceNow UI Page.</description>
+        <global>false</global>
+        <name>x_snc_reactor.ReactorDemo</name>
+        <script><![CDATA[class ReactorDemo extends React.Component
+{
+	constructor(props)
+	{
+		super(props);
+		this.state = {
+			state: 'button',
+			ruler_value: 50
+		};
+		
+		this.onButtonButtonClick = this.onButtonButtonClick.bind(this);
+		this.onClockButtonClick = this.onClockButtonClick.bind(this);
+		this.onRulerButtonClick = this.onRulerButtonClick.bind(this);
+		
+		this.onButtonClick = this.onButtonClick.bind(this);
+		this.onRulerChange = this.onRulerChange.bind(this);
+	}
+
+	onButtonButtonClick()
+	{
+		this.setState( {state: 'button' } );
+	}
+	
+	onClockButtonClick()
+	{
+		this.setState( {state: 'clock' } );
+	}
+	onRulerButtonClick()
+	{
+		this.setState( {state: 'ruler' } );
+	}
+	
+	onButtonClick()
+	{
+		DoModalMessage('Reactor','The button has been clicked!',function(){});		
+	}
+	onRulerChange(nNewValue)
+	{
+		this.setState( { ruler_value: nNewValue} );
+	}	
+	
+	render()
+	{
+		var strText = GetStringValue(this.props.text);
+		if (strText == '')
+		{
+			strText = 'This is a demonstration of the Reactor app capability to embedd React components in ServiceNow.';
+		}
+		var aComponents = [];
+		aComponents.push(e('p',
+			{
+				key: 'text'
+			}, strText));
+		
+		var aButtons = [];
+		aButtons.push(e(Button,
+			{
+				key: 'button_button',
+				text: 'Show Button',
+				callbackOnClick: this.onButtonButtonClick
+			},null));		
+		aButtons.push(e(Button,
+			{
+				key: 'button_clock',
+				text: 'Show Clock',
+				callbackOnClick: this.onClockButtonClick
+			},null));
+		aButtons.push(e(Button,
+			{
+				key: 'button_ruler',
+				text: 'Show Ruler',
+				callbackOnClick: this.onRulerButtonClick
+			},null));
+		aComponents.push(e('div',{ key: 'buttons' }, aButtons));
+
+		
+		aComponents.push(e('br',{ key: 'br1' },null));
+
+		if (this.state.state == 'button')
+		{
+			aComponents.push(e(Button,
+				{
+					key: 'button',
+					text: 'Please click this button',
+					className: 'btn btn-primary',
+					callbackOnClick: this.onButtonClick 
+				}, null));
+		}
+		else if (this.state.state == 'clock')
+		{
+			aComponents.push(e(Clock,
+				{
+					key: 'clock'
+				}, null));
+		}
+		else if (this.state.state == 'ruler')
+		{
+			aComponents.push(e(Ruler,
+				{
+					key: 'ruler', 
+					max: 100,
+					value: this.state.ruler_value,
+					callbackOnChange: this.onRulerChange
+				}, null));
+			aComponents.push(e('div',{ key: 'ruler_value' },'The value is '+this.state.ruler_value));	
+		}
+		
+		return e('div',null,aComponents);
+	}
+	
+}]]></script>
+        <script_name>ReactorDemo</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-16 17:09:30</sys_created_on>
+        <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
+        <sys_mod_count>40</sys_mod_count>
+        <sys_name>x_snc_reactor.ReactorDemo</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-16 23:00:15</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>

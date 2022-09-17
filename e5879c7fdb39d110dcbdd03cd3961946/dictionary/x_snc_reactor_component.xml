@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="update_synch=true" extends="sys_metadata" label="Component" max_length="40" name="x_snc_reactor_component" type="collection">
+        <element label="Dependencies" max_length="4000" name="dependencies" reference="x_snc_reactor_component" type="glide_list"/>
+        <element label="Description" max_length="2000" name="description" read_only="true" type="string_full_utf8"/>
+        <element display="true" label="Name" mandatory="true" max_length="100" name="name" type="string"/>
+        <element label="Script" max_length="65000" name="script" read_only="true" type="script_plain"/>
+        <element label="UI Script" mandatory="true" max_length="32" name="ui_script" reference="sys_ui_script" type="reference"/>
+        <index name="index">
+            <element name="ui_script"/>
+        </index>
+    </element>
+</database>

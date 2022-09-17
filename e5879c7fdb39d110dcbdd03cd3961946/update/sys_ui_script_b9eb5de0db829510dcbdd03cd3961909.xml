@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>A react component that displays a ruler element.</description>
+        <global>false</global>
+        <name>x_snc_reactor.Ruler</name>
+        <script><![CDATA[class Ruler extends React.Component
+{
+	constructor(props)
+	{
+		super(props);
+		this.onChange = this.onChange.bind(this);
+	}
+	
+	onChange(event)
+	{
+		var nNewValue = event.target.value;
+		console.log(nNewValue);
+		if (typeof this.props.callbackOnChange == 'function')
+		{
+			this.props.callbackOnChange(nNewValue);
+		}
+	}
+	
+	render()
+	{
+		return e('input',
+			{
+				type: 'range',
+				min: this.props.min,
+				max: this.props.max,
+				step: this.props.step,
+				value: this.props.value,	
+				onChange: this.onChange
+			},
+			null);	
+	}	
+}]]></script>
+        <script_name>Ruler</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-16 21:58:55</sys_created_on>
+        <sys_id>b9eb5de0db829510dcbdd03cd3961909</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>x_snc_reactor.Ruler</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_b9eb5de0db829510dcbdd03cd3961909</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-16 22:54:31</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>

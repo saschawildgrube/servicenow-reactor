@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_reactor.Render</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Renders the specified React component using the given properties.  </description>
+        <name>Render</name>
+        <script><![CDATA[function Render(strComponent, props)
+{
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var GetArrayValue = x_snc_devtools.GetArrayValue;
+	var GetBoolValue = x_snc_devtools.GetBoolValue;
+	var ArrayValueExists = x_snc_devtools.ArrayValueExists;
+	var ArrayPushUnique = x_snc_devtools.ArrayPushUnique;
+	var HtmlRenderError = x_snc_devtools.HtmlRenderError;
+	var HtmlRenderScript = x_snc_devtools.HtmlRenderScript;
+	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
+	var IsObject = x_snc_devtools.IsObject;
+	
+	strComponent = GetStringValue(strComponent);
+	if (IsObject(props) == false)
+	{
+		props = {};
+	}
+
+	var strHtml = '';
+		
+	var strScript = GetComponentScript(strComponent);
+	if (strScript == false)
+	{
+		strHtml = HtmlRenderError('ERROR: The referenced component could not be loaded.');
+	}
+	else
+	{
+	
+		
+		var cache = new x_snc_devtools.TransactionCacheAPI('REACTOR');
+		var bInitialized = GetBoolValue(cache.GetItem('initialized'));
+		if (bInitialized == false)
+		{
+			strHtml += '\t<script src="https://unpkg.com/react@16/umd/react.development.js"></script>\n';
+			strHtml += '\t<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>\n';
+			strHtml += HtmlRenderScript('const e = React.createElement;');
+			cache.SetItem('initialized',true);
+		}
+
+
+		var aComponents = GetArrayValue(cache.GetItem('components'));
+
+		if (ArrayValueExists(aComponents,strComponent) == false)
+		{
+			strHtml += HtmlRenderScript(strScript);
+			aComponents = ArrayPushUnique(aComponents,strComponent);
+		}
+		
+		var aDependencies = GetComponentDependencies(strComponent);
+		for (var nDependency = 0; nDependency < aDependencies.length; nDependency++)
+		{
+			strHtml += HtmlRenderScript(GetComponentScript(aDependencies[nDependency]));
+			aComponents = ArrayPushUnique(aComponents,aDependencies[nDependency]);		
+		}
+		
+		cache.SetItem('components',aComponents);
+		
+		var nComponent = GetIntegerValue(cache.GetItem('component_count'));
+		nComponent++;
+		cache.SetItem('component_count',nComponent);
+		var strElementId = 'reactor_' + nComponent; 
+		
+		strHtml += '<div id="'+strElementId+'"/>';
+		strHtml += HtmlRenderScript(
+			'ReactDOM.render(e('+strComponent+','+JSON.stringify(props)+'),document.getElementById("'+strElementId+'"));');
+
+	}
+	
+	return strHtml;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-16 15:52:03</sys_created_on>
+        <sys_id>bc3744a4db4e5510dcbdd03cd3961944</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>Render</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_script_include_bc3744a4db4e5510dcbdd03cd3961944</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-16 21:29:54</sys_updated_on>
+    </sys_script_include>
+</record_update>

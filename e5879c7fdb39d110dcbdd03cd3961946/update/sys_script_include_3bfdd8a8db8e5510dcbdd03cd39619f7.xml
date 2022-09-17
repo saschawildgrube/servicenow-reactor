@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_reactor.HtmlRenderReactorComponents</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Renders descriptions of React components contained in an app.</description>
+        <name>HtmlRenderReactorComponents</name>
+        <script><![CDATA[function HtmlRenderReactorComponents(strAppSysIdOrScope)
+{
+	var GetAppRecord = x_snc_devtools.GetAppRecord;
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var GetInstanceRecordPath = x_snc_devtools.GetInstanceRecordPath;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+		
+	var grApp = GetAppRecord(strAppSysIdOrScope);
+	if (IsValidRecord(grApp) == false)
+	{
+		grApp = GetAppRecord('x_snc_reactor');
+	}
+	if (IsValidRecord(grApp) == false)
+	{
+		return '<p>Could not load app!</p>';
+	}
+	
+	
+	function RenderListItem(strItem, strURL, strText)
+	{
+		var GetStringValue = x_snc_devtools.GetStringValue;
+		var HtmlRenderLink = x_snc_devtools.HtmlRenderLink;
+
+		strURL = GetStringValue(strURL);
+		strText = GetStringValue(strText);
+		var strHTML = '';
+		strHTML += '<li>';
+		if (strURL != '')
+		{
+			strHTML += HtmlRenderLink(strURL,strItem,true);
+		}
+		else
+		{
+			strHTML += '<b>'+strItem +'</b>&#160;';
+		}
+		if (strText != '')
+		{
+			strHTML += '<p>'+strText+'</p>';
+		}
+		strHTML += '</li>';		
+		return strHTML;
+	}	
+	
+	var strHtml = '';
+
+	strHtml += '<ul>';
+	
+	var grComponent = new GlideRecord('x_snc_reactor_component');
+	grComponent.addQuery('sys_scope','=',grApp.sys_id);
+	grComponent.orderBy('name');
+	grComponent.addActiveQuery();
+	grComponent.query();
+
+	while (grComponent.next())
+	{
+		var strName = GetStringValue(grComponent.getValue('name'));
+		var strDesc = GetStringValue(grComponent.getValue('description'));
+
+		strHtml += RenderListItem(
+			strName,
+			GetInstanceRecordPath('x_snc_reactor_component',grComponent.sys_id),
+			strDesc);
+	}
+	strHtml += '</ul>';
+	
+	return strHtml;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-16 17:29:32</sys_created_on>
+        <sys_id>3bfdd8a8db8e5510dcbdd03cd39619f7</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>HtmlRenderReactorComponents</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_script_include_3bfdd8a8db8e5510dcbdd03cd39619f7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-16 17:45:57</sys_updated_on>
+    </sys_script_include>
+</record_update>

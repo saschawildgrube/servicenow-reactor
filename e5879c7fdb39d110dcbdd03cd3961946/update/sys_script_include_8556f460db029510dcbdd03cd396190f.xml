@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_reactor.GetComponentRecord</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Returns the record of a component.</description>
+        <name>GetComponentRecord</name>
+        <script><![CDATA[function GetComponentRecord(strComponent)
+{
+	var GetRecord = x_snc_devtools.GetRecord;
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+
+	strComponent = GetStringValue(strComponent);
+
+	var grComponent = GetRecord('x_snc_reactor_component',strComponent);
+	if (IsValidRecord(grComponent) == true)
+	{
+		return grComponent;
+	}
+	grComponent = new GlideRecord('x_snc_reactor_component');
+	grComponent.addQuery('name','=',strComponent);
+	grComponent.query();
+	if (grComponent.next())
+	{
+		return grComponent;
+	}
+	return false;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-16 19:14:07</sys_created_on>
+        <sys_id>8556f460db029510dcbdd03cd396190f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>GetComponentRecord</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_script_include_8556f460db029510dcbdd03cd396190f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-16 19:14:41</sys_updated_on>
+    </sys_script_include>
+</record_update>
