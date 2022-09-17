@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_reactor.HtmlRenderReactScript</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Renders a script block containing a React component with JSX support if required.</description>
+        <name>HtmlRenderReactScript</name>
+        <script><![CDATA[function HtmlRenderReactScript(strComponent)
+{
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var GetBoolValue = x_snc_devtools.GetBoolValue;
+	var GetRecord = x_snc_devtools.GetRecord;
+	var HtmlRenderError = x_snc_devtools.HtmlRenderError;
+	var HtmlRenderScript = x_snc_devtools.HtmlRenderScript;
+	
+	var strScript = '';
+	var bJSX = false;
+	
+	var grComponent = GetComponentRecord(strComponent);
+	if (IsValidRecord(grComponent) == false)
+	{
+		return HtmlRenderError('The component "'+strComponent+'" could not be loaded.');
+	}
+	var grUIS = GetRecord('sys_ui_script',grComponent.ui_script);
+	if (IsValidRecord(grUIS) == false)
+	{
+		return HtmlRenderError('The component "'+strComponent+'" refers to a UI Script that could not be loaded.');
+	}
+	
+	strScript = GetStringValue(grUIS.script);
+	bJSX = GetBoolValue(grComponent.jsx);
+	
+	if (bJSX == false)
+	{
+		return HtmlRenderScript(strScript); 
+	}
+	
+	if (IsJSXSupported() == false)
+	{
+		return HtmlRenderError('The component "'+strComponent+'" requires JSX support, but JSX support is inactive.');
+	}
+
+	var strHtml = '';
+
+	
+	var cache = new x_snc_devtools.TransactionCacheAPI('REACTOR');
+	var bJSXIncluded = GetBoolValue(cache.GetItem('jsx_included'));
+	if (bJSXIncluded == false)
+	{
+		//var strBabelUrl = 'https://unpkg.com/babel-standalone@6/babel.min.js';
+		//var strBabelUrl = 'https://unpkg.com/babel-standalone@6.26.0/babel.min.js';
+		
+		//var strBabelUrl = '';
+		
+		var strBabelUrl = 'https://unpkg.com/@babel/standalone@7.19.2/babel.min.js';
+		//var strBabelUrl = 'https://unpkg.com/@babel/standalone/babel.min.js';
+	
+		strHtml += '<script src="'+strBabelUrl+'"></script>\n';
+		cache.SetItem('jsx_included',true);
+	}		
+
+	//text/babel
+	//text/jsx
+	strHtml += '<script type="text/babel">'+strScript+'</script>';
+
+	return strHtml;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-17 14:13:55</sys_created_on>
+        <sys_id>3afa34bcdb8e55109232dad1f39619ca</sys_id>
+        <sys_mod_count>29</sys_mod_count>
+        <sys_name>HtmlRenderReactScript</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_script_include_3afa34bcdb8e55109232dad1f39619ca</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-17 15:46:32</sys_updated_on>
+    </sys_script_include>
+</record_update>

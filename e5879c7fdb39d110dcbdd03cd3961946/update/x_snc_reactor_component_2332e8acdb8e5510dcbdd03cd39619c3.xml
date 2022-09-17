@@ -1,27 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
     <x_snc_reactor_component action="INSERT_OR_UPDATE">
-        <dependencies>e7d38ca0db4e5510dcbdd03cd3961911,cf54ac20dbce5510dcbdd03cd396197a,b11cdde0db829510dcbdd03cd39619f3</dependencies>
+        <dependencies>e7d38ca0db4e5510dcbdd03cd3961911,cf54ac20dbce5510dcbdd03cd396197a,b11cdde0db829510dcbdd03cd39619f3,96785174db0295109232dad1f39619fb</dependencies>
         <description>Demonstrates the capability of Reactor to embedd React components into a ServiceNow UI Page.</description>
+        <jsx>false</jsx>
         <name>ReactorDemo</name>
         <script><![CDATA[class ReactorDemo extends React.Component
 {
 	constructor(props)
 	{
 		super(props);
-		this.state.state = 'clock';
-		this.state.ruler_state = 50;
+		this.state = {
+			state: 'button',
+			ruler_value: 50
+		};
+		
+		this.onButtonButtonClick = this.onButtonButtonClick.bind(this);
+		this.onClockButtonClick = this.onClockButtonClick.bind(this);
+		this.onRulerButtonClick = this.onRulerButtonClick.bind(this);
+		this.onJSXButtonClick = this.onJSXButtonClick.bind(this);
+		
+		this.onButtonClick = this.onButtonClick.bind(this);
+		this.onRulerChange = this.onRulerChange.bind(this);
 	}
-	
-	onClockButtonClicked()
+
+	onButtonButtonClick()
+	{
+		this.setState( {state: 'button' } );
+	}
+	onClockButtonClick()
 	{
 		this.setState( {state: 'clock' } );
-		//DoModalMessage('Reactor','The button has been clicked!',function(){});
 	}
-	onRulerButtonClicked()
+	onRulerButtonClick()
 	{
 		this.setState( {state: 'ruler' } );
-		//DoModalMessage('Reactor','The button has been clicked!',function(){});
 	}
+	onJSXButtonClick()
+	{
+		this.setState( {state: 'jsx' } );
+	}
+	
+	onButtonClick()
+	{
+		DoModalMessage('Reactor','The button has been clicked!',function(){});		
+	}
+	onRulerChange(nNewValue)
+	{
+		this.setState( { ruler_value: nNewValue} );
+	}	
 	
 	render()
 	{
@@ -35,20 +61,48 @@
 			{
 				key: 'text'
 			}, strText));
-		aComponents.push(e(Button,
+		
+		var aButtons = [];
+		aButtons.push(e(Button,
+			{
+				key: 'button_button',
+				text: 'Show Button',
+				callbackOnClick: this.onButtonButtonClick
+			},null));		
+		aButtons.push(e(Button,
 			{
 				key: 'button_clock',
 				text: 'Show Clock',
-				callbackOnClick: this.onClockButtonClicked
+				callbackOnClick: this.onClockButtonClick
 			},null));
-		aComponents.push(e(Button,
+		aButtons.push(e(Button,
 			{
 				key: 'button_ruler',
 				text: 'Show Ruler',
-				callbackOnClick: this.onRulerButtonClicked
+				callbackOnClick: this.onRulerButtonClick
 			},null));
+		aButtons.push(e(Button,
+			{
+				key: 'button_jsx',
+				text: 'Show ReactorJSXDemo',
+				callbackOnClick: this.onJSXButtonClick
+			},null));		
+		aComponents.push(e('div',{ key: 'buttons' }, aButtons));
+
 		
-		if (this.state.state == 'clock')
+		aComponents.push(e('br',{ key: 'br1' },null));
+
+		if (this.state.state == 'button')
+		{
+			aComponents.push(e(Button,
+				{
+					key: 'button',
+					text: 'Please click this button',
+					className: 'btn btn-primary',
+					callbackOnClick: this.onButtonClick 
+				}, null));
+		}
+		else if (this.state.state == 'clock')
 		{
 			aComponents.push(e(Clock,
 				{
@@ -64,7 +118,14 @@
 					value: this.state.ruler_value,
 					callbackOnChange: this.onRulerChange
 				}, null));
+			aComponents.push(e('div',{ key: 'ruler_value' },'The value is '+this.state.ruler_value));	
 		}
+		else if (this.state.state == 'jsx')
+		{
+			//aComponents.push( <ReactorJSXDemo key="jsx" label="A button that can be clicked" /> );
+			aComponents.push(e(ReactorJSXDemo,{ key: 'jsx', label: 'A button that can be clicked' },null));	
+
+		}		
 		
 		return e('div',null,aComponents);
 	}
@@ -74,14 +135,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:46:33</sys_created_on>
         <sys_id>2332e8acdb8e5510dcbdd03cd39619c3</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>ReactorDemo</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_2332e8acdb8e5510dcbdd03cd39619c3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-16 21:59:36</sys_updated_on>
+        <sys_updated_on>2022-09-17 16:28:25</sys_updated_on>
         <ui_script display_value="x_snc_reactor.ReactorDemo">cab950e4db8e5510dcbdd03cd3961940</ui_script>
     </x_snc_reactor_component>
 </record_update>

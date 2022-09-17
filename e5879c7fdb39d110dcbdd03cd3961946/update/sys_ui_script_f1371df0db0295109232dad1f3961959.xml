@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>A demo component that uses JSX syntax.</description>
+        <global>false</global>
+        <name>x_snc_reactor.ReactorJSXDemo</name>
+        <script><![CDATA[class ReactorJSXDemo extends React.Component
+{
+	onClick()
+	{
+		alert('The JSX button has been clicked!');
+	}
+	
+	render()
+	{
+		return (
+			<div>
+				<button onClick={ this.onClick }> {this.props.label} </button>
+			</div>
+		)	
+	}	
+}]]></script>
+        <script_name>ReactorJSXDemo</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-17 16:18:34</sys_created_on>
+        <sys_id>f1371df0db0295109232dad1f3961959</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>x_snc_reactor.ReactorJSXDemo</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_f1371df0db0295109232dad1f3961959</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-17 16:32:46</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>
