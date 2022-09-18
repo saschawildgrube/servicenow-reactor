@@ -1,43 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
     <x_snc_reactor_component action="INSERT_OR_UPDATE">
-        <dependencies>e7d38ca0db4e5510dcbdd03cd3961911,cf54ac20dbce5510dcbdd03cd396197a,b11cdde0db829510dcbdd03cd39619f3,96785174db0295109232dad1f39619fb</dependencies>
+        <content_css/>
+        <dependencies>e7d38ca0db4e5510dcbdd03cd3961911,cf54ac20dbce5510dcbdd03cd396197a,b11cdde0db829510dcbdd03cd39619f3,96785174db0295109232dad1f39619fb,39f6fa3cdb0695109232dad1f39619ed</dependencies>
         <description>Demonstrates the capability of Reactor to embedd React components into a ServiceNow UI Page.</description>
         <jsx>false</jsx>
-        <name>ReactorDemo</name>
-        <script><![CDATA[class ReactorDemo extends React.Component
+        <name>ReactorDemoApp</name>
+        <role>app</role>
+        <script><![CDATA[class AppReactorDemo extends React.Component
 {
 	constructor(props)
 	{
 		super(props);
 		this.state = {
-			state: 'button',
+			state: 'home',
 			ruler_value: 50
 		};
 		
-		this.onButtonButtonClick = this.onButtonButtonClick.bind(this);
-		this.onClockButtonClick = this.onClockButtonClick.bind(this);
-		this.onRulerButtonClick = this.onRulerButtonClick.bind(this);
-		this.onJSXButtonClick = this.onJSXButtonClick.bind(this);
+		this.onHeaderMenuClick = this.onHeaderMenuClick.bind(this);
 		
 		this.onButtonClick = this.onButtonClick.bind(this);
 		this.onRulerChange = this.onRulerChange.bind(this);
 	}
 
-	onButtonButtonClick()
+	onHeaderMenuClick(strOption)
 	{
-		this.setState( {state: 'button' } );
-	}
-	onClockButtonClick()
-	{
-		this.setState( {state: 'clock' } );
-	}
-	onRulerButtonClick()
-	{
-		this.setState( {state: 'ruler' } );
-	}
-	onJSXButtonClick()
-	{
-		this.setState( {state: 'jsx' } );
+		this.setState( {state: strOption } );
 	}
 	
 	onButtonClick()
@@ -56,43 +43,30 @@
 		{
 			strText = 'This is a demonstration of the Reactor app capability to embedd React components in ServiceNow.';
 		}
+
+		
+		var aMenuItems = [];
+		aMenuItems.push({ label: 'Home', option: 'home' });
+		aMenuItems.push({ label: 'Button', option: 'button' });
+		aMenuItems.push({ label: 'Clock', option: 'clock' });
+		aMenuItems.push({ label: 'Ruler', option: 'ruler' });
+		aMenuItems.push({ label: 'ReactorJSXDemo', option: 'jsx' });
+			
 		var aComponents = [];
-		aComponents.push(e('p',
+		aComponents.push(e(HeaderMenu,
 			{
-				key: 'text'
-			}, strText));
+				key: 'header_menu',
+				items: aMenuItems,
+				active: this.state.state,
+				callbackOnClick: this.onHeaderMenuClick
+			}, null));
+	
 		
-		var aButtons = [];
-		aButtons.push(e(Button,
-			{
-				key: 'button_button',
-				text: 'Show Button',
-				callbackOnClick: this.onButtonButtonClick
-			},null));		
-		aButtons.push(e(Button,
-			{
-				key: 'button_clock',
-				text: 'Show Clock',
-				callbackOnClick: this.onClockButtonClick
-			},null));
-		aButtons.push(e(Button,
-			{
-				key: 'button_ruler',
-				text: 'Show Ruler',
-				callbackOnClick: this.onRulerButtonClick
-			},null));
-		aButtons.push(e(Button,
-			{
-				key: 'button_jsx',
-				text: 'Show ReactorJSXDemo',
-				callbackOnClick: this.onJSXButtonClick
-			},null));		
-		aComponents.push(e('div',{ key: 'buttons' }, aButtons));
-
-		
-		aComponents.push(e('br',{ key: 'br1' },null));
-
-		if (this.state.state == 'button')
+		if (this.state.state == 'home')
+		{
+			aComponents.push(e('p', { key: 'text' }, strText));
+		}
+		else if (this.state.state == 'button')
 		{
 			aComponents.push(e(Button,
 				{
@@ -123,7 +97,7 @@
 		else if (this.state.state == 'jsx')
 		{
 			//aComponents.push( <ReactorJSXDemo key="jsx" label="A button that can be clicked" /> );
-			aComponents.push(e(ReactorJSXDemo,{ key: 'jsx', label: 'A button that can be clicked' },null));	
+			aComponents.push(e(ReactorJSXDemo,{ key: 'jsx', label: 'A button made with JSX' },null));	
 
 		}		
 		
@@ -131,18 +105,21 @@
 	}
 	
 }]]></script>
+        <source_type>ui_script</source_type>
         <sys_class_name>x_snc_reactor_component</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:46:33</sys_created_on>
         <sys_id>2332e8acdb8e5510dcbdd03cd39619c3</sys_id>
-        <sys_mod_count>7</sys_mod_count>
-        <sys_name>ReactorDemo</sys_name>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_2332e8acdb8e5510dcbdd03cd39619c3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-17 16:28:25</sys_updated_on>
-        <ui_script display_value="x_snc_reactor.ReactorDemo">cab950e4db8e5510dcbdd03cd3961940</ui_script>
+        <sys_updated_on>2022-09-18 09:52:00</sys_updated_on>
+        <type>script</type>
+        <ui_script display_value="x_snc_reactor.ReactorDemoApp">cab950e4db8e5510dcbdd03cd3961940</ui_script>
+        <url/>
     </x_snc_reactor_component>
 </record_update>

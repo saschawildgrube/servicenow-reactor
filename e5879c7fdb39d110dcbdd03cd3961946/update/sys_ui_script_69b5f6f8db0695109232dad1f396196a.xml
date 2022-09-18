@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>A react component that render a header menu.</description>
+        <global>false</global>
+        <name>x_snc_reactor.HeaderMenu</name>
+        <script><![CDATA[class HeaderMenu extends React.Component
+{
+	constructor(props)
+	{
+		super(props);
+		this.onClick = this.onClick.bind(this);
+	}
+	
+	onClick(event)
+	{
+		var strOption = GetStringValue(event.target.attributes.value.value);
+		console.log(strOption);
+		if (typeof this.props.callbackOnClick == 'function')
+		{
+			this.props.callbackOnClick(strOption);
+		}
+	}
+	
+	render()
+	{
+		var aItems = GetArrayValue(this.props.items);
+		var aLinkComponents = [];
+		for (var nItem = 0; nItem < aItems.length; nItem++)
+		{
+			var strLabel = GetValue(aItems,nItem,'label');
+			var strOption = GetValue(aItems,nItem,'option');
+			aLinkComponents.push(e('a',{
+				onClick:this.onClick,
+				value: strOption,
+				},strLabel));
+		}
+		
+		return e('div',{ className: 'headermenu' },aLinkComponents);
+		
+/*		
+		return (
+		<div style="
+			top: 0px;
+			width: 100%;
+			position: absolute;
+			background-color: blue;
+			height: 50px;
+			vertical-align: center;
+			text-color: white;
+			">
+			Hello world!
+		</div>
+		);
+*/
+		/*return e('button',
+			{
+				onClick: this.onClick
+			},
+			this.props.text);*/
+	
+	
+	}	
+}]]></script>
+        <script_name>HeaderMenu</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-17 23:14:30</sys_created_on>
+        <sys_id>69b5f6f8db0695109232dad1f396196a</sys_id>
+        <sys_mod_count>48</sys_mod_count>
+        <sys_name>x_snc_reactor.HeaderMenu</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_69b5f6f8db0695109232dad1f396196a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-18 10:39:40</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>

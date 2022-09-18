@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_dictionary action="INSERT_OR_UPDATE" element="description" table="x_snc_reactor_component">
+    <sys_dictionary action="INSERT_OR_UPDATE" element="content_css" table="x_snc_reactor_component">
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
@@ -14,7 +14,7 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Description</column_label>
+        <column_label>Stylesheet</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -27,20 +27,20 @@
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>description</element>
+        <element>content_css</element>
         <element_reference>false</element_reference>
         <foreign_database/>
         <function_definition/>
         <function_field>false</function_field>
-        <internal_type display_value="">string_full_utf8</internal_type>
+        <internal_type display_value="Reference">reference</internal_type>
         <mandatory>false</mandatory>
-        <max_length>2000</max_length>
+        <max_length>32</max_length>
         <name>x_snc_reactor_component</name>
         <next_element/>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
-        <reference/>
+        <reference display_value="" name="content_css">content_css</reference>
         <reference_cascade_rule/>
         <reference_floats>false</reference_floats>
         <reference_key/>
@@ -52,16 +52,16 @@
         <staged>false</staged>
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2022-09-16 18:26:16</sys_created_on>
-        <sys_id>3e4b2ca4dbce5510dcbdd03cd3961920</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>Description</sys_name>
+        <sys_created_on>2022-09-18 09:58:57</sys_created_on>
+        <sys_id>005a4909dbcad510dcbdd03cd39619fa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Stylesheet</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
-        <sys_update_name>sys_dictionary_x_snc_reactor_component_description</sys_update_name>
+        <sys_update_name>sys_dictionary_x_snc_reactor_component_content_css</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-18 10:11:06</sys_updated_on>
+        <sys_updated_on>2022-09-18 09:58:57</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

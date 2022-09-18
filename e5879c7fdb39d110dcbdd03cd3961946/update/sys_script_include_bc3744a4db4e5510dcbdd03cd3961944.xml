@@ -38,6 +38,11 @@
 	{
 		return HtmlRenderError('The referenced component could not be loaded.');
 	}
+	
+	if (grComponent.type != 'script')
+	{
+		return HtmlRenderError('The root component must be of type "script".');
+	}
 
 	var strHtml = '';
 	
@@ -59,14 +64,15 @@
 
 	if (ArrayValueExists(aComponents,strComponent) == false)
 	{
-		strHtml += HtmlRenderReactScript(strComponent);
+		
+		strHtml += HtmlRenderReactorComponent(strComponent);
 		aComponents = ArrayPushUnique(aComponents,strComponent);
 	}
 
 	var aDependencies = GetComponentDependencies(strComponent);
 	for (var nDependency = 0; nDependency < aDependencies.length; nDependency++)
 	{
-		strHtml += HtmlRenderReactScript(aDependencies[nDependency]);
+		strHtml += HtmlRenderReactorComponent(aDependencies[nDependency]);
 		aComponents = ArrayPushUnique(aComponents,aDependencies[nDependency]);		
 	}
 
@@ -104,13 +110,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 15:52:03</sys_created_on>
         <sys_id>bc3744a4db4e5510dcbdd03cd3961944</sys_id>
-        <sys_mod_count>33</sys_mod_count>
+        <sys_mod_count>35</sys_mod_count>
         <sys_name>Render</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_script_include_bc3744a4db4e5510dcbdd03cd3961944</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-17 16:10:57</sys_updated_on>
+        <sys_updated_on>2022-09-18 10:33:55</sys_updated_on>
     </sys_script_include>
 </record_update>
