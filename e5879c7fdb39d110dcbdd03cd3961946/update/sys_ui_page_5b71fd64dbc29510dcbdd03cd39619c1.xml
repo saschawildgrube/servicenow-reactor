@@ -9,7 +9,7 @@
 <j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
 	<h1>Reactor Demo</h1>
 	<g2:no_escape>$[
-		x_snc_reactor.Render('ReactorDemo',{ text: 'This is a demonstration of the Reactor app...' });
+		x_snc_reactor.Render('ReactorDemoApp',{ text: 'This is a demonstration of the Reactor app...' });
 	]</g2:no_escape>
 </j:jelly>]]></html>
         <name>demo</name>
@@ -18,13 +18,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 23:33:25</sys_created_on>
         <sys_id>5b71fd64dbc29510dcbdd03cd39619c1</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>demo</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_page_5b71fd64dbc29510dcbdd03cd39619c1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-16 23:35:38</sys_updated_on>
+        <sys_updated_on>2022-09-18 09:51:50</sys_updated_on>
     </sys_ui_page>
 </record_update>

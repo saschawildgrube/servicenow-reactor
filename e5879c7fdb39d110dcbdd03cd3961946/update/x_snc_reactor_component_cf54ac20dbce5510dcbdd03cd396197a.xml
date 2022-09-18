@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
     <x_snc_reactor_component action="INSERT_OR_UPDATE">
+        <content_css/>
         <dependencies/>
         <description>A React components the creates a button that can be clicked.</description>
         <jsx>false</jsx>
         <name>Button</name>
+        <role>element</role>
         <script><![CDATA[class Button extends React.Component
 {
 	constructor(props)
@@ -34,14 +36,15 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:55:49</sys_created_on>
         <sys_id>cf54ac20dbce5510dcbdd03cd396197a</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Button</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_cf54ac20dbce5510dcbdd03cd396197a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-17 22:51:01</sys_updated_on>
+        <sys_updated_on>2022-09-18 09:46:19</sys_updated_on>
+        <type>script</type>
         <ui_script display_value="x_snc_reactor.Button">30042820dbce5510dcbdd03cd396197e</ui_script>
         <url/>
     </x_snc_reactor_component>

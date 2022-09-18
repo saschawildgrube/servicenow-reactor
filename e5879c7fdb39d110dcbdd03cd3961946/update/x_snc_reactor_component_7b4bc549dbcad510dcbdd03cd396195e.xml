@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
+    <x_snc_reactor_component action="INSERT_OR_UPDATE">
+        <content_css display_value="HeaderMenu">0a784d85dbcad510dcbdd03cd396191d</content_css>
+        <dependencies/>
+        <description/>
+        <jsx>false</jsx>
+        <name>HeaderMenuCSS</name>
+        <role>element</role>
+        <script/>
+        <source_type>content_css</source_type>
+        <sys_class_name>x_snc_reactor_component</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-18 10:03:13</sys_created_on>
+        <sys_id>7b4bc549dbcad510dcbdd03cd396195e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>HeaderMenuCSS</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_component_7b4bc549dbcad510dcbdd03cd396195e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-18 10:03:25</sys_updated_on>
+        <type>stylesheet</type>
+        <ui_script/>
+        <url/>
+    </x_snc_reactor_component>
+</record_update>
