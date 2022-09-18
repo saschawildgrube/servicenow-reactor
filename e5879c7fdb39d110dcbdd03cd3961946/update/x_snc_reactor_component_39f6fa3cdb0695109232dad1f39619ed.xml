@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
     <x_snc_reactor_component action="INSERT_OR_UPDATE">
         <content_css/>
-        <dependencies/>
+        <dependencies>7b4bc549dbcad510dcbdd03cd396195e</dependencies>
         <description>A react component that render a header menu.</description>
         <jsx>false</jsx>
         <name>HeaderMenu</name>
@@ -17,7 +17,7 @@ div.headermenu
 	margin-bottom: 10px;
 }
 
-a.headermenu
+.headermenu a
 {
 	float: left;
 	color: #f2f2f2;
@@ -26,12 +26,12 @@ a.headermenu
 	text-decoration: none;
 	font-size: 17px;	
 }
-a.headermenu:hover
+.headermenu a:hover
 {
 	background-color: #ddd;
 	color: black;
 }
-a.headermenu:active
+.headermenu a:active
 {
 	background-color: #04AA6D;
 	color: white;
@@ -68,7 +68,6 @@ class HeaderMenu extends React.Component
 			aLinkComponents.push(e('a',{
 				onClick:this.onClick,
 				value: strOption,
-				className: 'headermenu'
 				},strLabel));
 		}
 		
@@ -103,15 +102,15 @@ class HeaderMenu extends React.Component
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-17 23:14:53</sys_created_on>
         <sys_id>39f6fa3cdb0695109232dad1f39619ed</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>HeaderMenu</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_39f6fa3cdb0695109232dad1f39619ed</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-18 09:46:30</sys_updated_on>
-        <type/>
+        <sys_updated_on>2022-09-18 10:39:16</sys_updated_on>
+        <type>script</type>
         <ui_script display_value="x_snc_reactor.HeaderMenu">69b5f6f8db0695109232dad1f396196a</ui_script>
         <url/>
     </x_snc_reactor_component>
