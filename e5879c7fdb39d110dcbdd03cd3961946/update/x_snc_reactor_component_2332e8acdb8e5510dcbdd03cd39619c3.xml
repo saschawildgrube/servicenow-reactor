@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
     <x_snc_reactor_component action="INSERT_OR_UPDATE">
-        <dependencies>e7d38ca0db4e5510dcbdd03cd3961911,cf54ac20dbce5510dcbdd03cd396197a,b11cdde0db829510dcbdd03cd39619f3,96785174db0295109232dad1f39619fb</dependencies>
+        <dependencies>e7d38ca0db4e5510dcbdd03cd3961911,cf54ac20dbce5510dcbdd03cd396197a,b11cdde0db829510dcbdd03cd39619f3,96785174db0295109232dad1f39619fb,39f6fa3cdb0695109232dad1f39619ed</dependencies>
         <description>Demonstrates the capability of Reactor to embedd React components into a ServiceNow UI Page.</description>
         <jsx>false</jsx>
         <name>ReactorDemo</name>
@@ -123,7 +123,7 @@
 		else if (this.state.state == 'jsx')
 		{
 			//aComponents.push( <ReactorJSXDemo key="jsx" label="A button that can be clicked" /> );
-			aComponents.push(e(ReactorJSXDemo,{ key: 'jsx', label: 'A button that can be clicked' },null));	
+			aComponents.push(e(ReactorJSXDemo,{ key: 'jsx', label: 'A button made with JSX' },null));	
 
 		}		
 		
@@ -131,18 +131,20 @@
 	}
 	
 }]]></script>
+        <source_type>ui_script</source_type>
         <sys_class_name>x_snc_reactor_component</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:46:33</sys_created_on>
         <sys_id>2332e8acdb8e5510dcbdd03cd39619c3</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>ReactorDemo</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_2332e8acdb8e5510dcbdd03cd39619c3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-17 16:28:25</sys_updated_on>
+        <sys_updated_on>2022-09-17 23:15:05</sys_updated_on>
         <ui_script display_value="x_snc_reactor.ReactorDemo">cab950e4db8e5510dcbdd03cd3961940</ui_script>
+        <url/>
     </x_snc_reactor_component>
 </record_update>

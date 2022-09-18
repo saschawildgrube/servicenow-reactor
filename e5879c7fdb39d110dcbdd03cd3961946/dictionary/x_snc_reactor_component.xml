@@ -5,7 +5,14 @@
         <element label="JSX" max_length="40" name="jsx" type="boolean"/>
         <element display="true" label="Name" mandatory="true" max_length="100" name="name" type="string"/>
         <element label="Script" max_length="65000" name="script" read_only="true" type="script_plain"/>
-        <element label="UI Script" mandatory="true" max_length="32" name="ui_script" reference="sys_ui_script" type="reference"/>
+        <element choice="3" label="Source Type" mandatory="true" max_length="40" name="source_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="UI Script" sequence="1" value="ui_script"/>
+                <element inactive_on_update="false" label="URL" sequence="2" value="url"/>
+            </choice>
+        </element>
+        <element label="UI Script" max_length="32" name="ui_script" reference="sys_ui_script" type="reference"/>
+        <element label="URL" max_length="1024" name="url" type="url"/>
         <index name="index">
             <element name="ui_script"/>
         </index>
