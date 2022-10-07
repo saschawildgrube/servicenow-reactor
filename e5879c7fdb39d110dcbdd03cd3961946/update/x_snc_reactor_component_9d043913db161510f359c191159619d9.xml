@@ -4,7 +4,7 @@
         <dependencies/>
         <description>Includes the Fontawesome css hosted from the same instance</description>
         <jsx>false</jsx>
-        <name>Fontawesome</name>
+        <name>FontawesomeCSS</name>
         <role>element</role>
         <script/>
         <source_type>content_css</source_type>
@@ -12,14 +12,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-10-07 23:04:32</sys_created_on>
         <sys_id>9d043913db161510f359c191159619d9</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>Fontawesome</sys_name>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>FontawesomeCSS</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_9d043913db161510f359c191159619d9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-10-07 23:11:03</sys_updated_on>
+        <sys_updated_on>2022-10-07 23:30:15</sys_updated_on>
         <type>stylesheet</type>
         <ui_script/>
         <url>/scripts/icon-fonts/font-awesome/css/font-awesome.css?v=</url>

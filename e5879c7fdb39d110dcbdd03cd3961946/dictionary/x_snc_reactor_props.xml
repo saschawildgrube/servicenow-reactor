@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Props" max_length="40" name="x_snc_reactor_props" type="collection">
+        <element label="Component" mandatory="true" max_length="32" name="component" read_only="true" reference="x_snc_reactor_component" type="reference"/>
+        <element label="Description" max_length="400" name="description" type="string"/>
+        <element label="Mandatory" max_length="40" name="mandatory" type="boolean"/>
+        <element display="true" label="Name" mandatory="true" max_length="40" name="name" type="string"/>
+        <index name="index">
+            <element name="component"/>
+        </index>
+    </element>
+</database>
