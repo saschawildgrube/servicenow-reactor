@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_props">
+    <x_snc_reactor_props action="INSERT_OR_UPDATE">
+        <component display_value="HeaderMenu">39f6fa3cdb0695109232dad1f39619ed</component>
+        <description>An array of objects, that specify the menu option.&#13;
+Each object should contain the keys "option" and "label". "label" is the screen text used for the menu items. "option" is a string value passed to the callback function when the menu item is clicked.</description>
+        <mandatory>false</mandatory>
+        <name>items</name>
+        <sys_class_name>x_snc_reactor_props</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-08 13:59:52</sys_created_on>
+        <sys_id>02310127db5e1510f359c191159619b6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>items</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_props_02310127db5e1510f359c191159619b6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-10-08 14:13:38</sys_updated_on>
+        <type>array</type>
+    </x_snc_reactor_props>
+</record_update>

@@ -10,8 +10,9 @@
                 <element inactive_on_update="false" label="Integer" sequence="2" value="integer"/>
                 <element inactive_on_update="false" label="Boolean" sequence="3" value="bool"/>
                 <element inactive_on_update="false" label="Float" sequence="4" value="float"/>
-                <element inactive_on_update="false" label="Object" sequence="5" value="object"/>
-                <element inactive_on_update="false" label="Function" sequence="6" value="function"/>
+                <element inactive_on_update="false" label="Array" sequence="5" value="array"/>
+                <element inactive_on_update="false" label="Object" sequence="6" value="object"/>
+                <element inactive_on_update="false" label="Function" sequence="7" value="function"/>
             </choice>
         </element>
         <index name="index">
