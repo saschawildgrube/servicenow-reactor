@@ -19,7 +19,7 @@
 	<h2>Features</h2> 
 	<p>Use Reactor to create React based applications in ServiceNow. Check out the&#160;<a href="/x_snc_reactor_demo.do" target="_blank">Demo</a>!</p>
 	<p>In React its all about React components. With Reactor its all about Reacter components.</p>
-	<p>A Reactor component may contain a React component class, but its more than that. Reactor components manage the dependencies between the components. Also stylesheets are also Reactor components. Think of them as an umbrella of everything you want to make part of your app on the client side.</p>
+	<p>A Reactor component may contain a React component class, but its more than that. Reactor components manage the dependencies between the components. Stylesheets are also Reactor components. Think of them as an umbrella of everything you want to make part of your app on the client side.</p>
 	<p>Reactor components have a "role" - a category that gives a hint about what it really is. Since React does not dictate any sort of separation of concerns - we have to make up for it. We are well advised to create React components not as a mix of logic and html footprint, but to create components that are for user interaction, others for application logic, etc. Reactor helps you getting there.</p>
 	<p>A caveat however is the use of CDN provided JavaScript libraries (React and Babel for JSX support). This may NOT be compliant with GDPR requirements.</p>
 
@@ -162,13 +162,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 13:55:46</sys_created_on>
         <sys_id>ed7de710db0e5510dcbdd03cd39619cb</sys_id>
-        <sys_mod_count>39</sys_mod_count>
+        <sys_mod_count>40</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_page_ed7de710db0e5510dcbdd03cd39619cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-10-07 23:56:08</sys_updated_on>
+        <sys_updated_on>2022-10-08 00:04:22</sys_updated_on>
     </sys_ui_page>
 </record_update>
