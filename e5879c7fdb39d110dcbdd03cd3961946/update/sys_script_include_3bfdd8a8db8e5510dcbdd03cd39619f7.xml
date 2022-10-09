@@ -13,64 +13,122 @@
 	var IsValidRecord = x_snc_devtools.IsValidRecord;
 	var GetInstanceRecordPath = x_snc_devtools.GetInstanceRecordPath;
 	var GetStringValue = x_snc_devtools.GetStringValue;
-		
+	var IsValidSysId = x_snc_devtools.IsValidSysId;	
+	
 	var grApp = GetAppRecord(strAppSysIdOrScope);
-	if (IsValidRecord(grApp) == false)
+	var strAppSysId = '';
+	if (IsValidRecord(grApp) == true)
 	{
-		grApp = GetAppRecord('x_snc_reactor');
-	}
-	if (IsValidRecord(grApp) == false)
-	{
-		return '<p>Could not load app!</p>';
+		strAppSysId = GetStringValue(grApp.sys_id);
 	}
 	
-	
-	function RenderListItem(strItem, strURL, strText)
+	function HtmlRenderReactorComponentDoc(strItem, strURL, strDesc, strProps)
 	{
 		var GetStringValue = x_snc_devtools.GetStringValue;
 		var HtmlRenderLink = x_snc_devtools.HtmlRenderLink;
 
 		strURL = GetStringValue(strURL);
-		strText = GetStringValue(strText);
+		strDesc = GetStringValue(strDesc);
 		var strHTML = '';
-		strHTML += '<li>';
+		//strHTML += '<li>';
 		if (strURL != '')
 		{
-			strHTML += HtmlRenderLink(strURL,strItem,true);
+			strHTML += '<h4>'+HtmlRenderLink(strURL,strItem,true)+'</h4>';
 		}
 		else
 		{
-			strHTML += '<b>'+strItem +'</b>&#160;';
+			strHTML += '<h4>'+strItem +'</4>&#160;';
 		}
-		if (strText != '')
+		strHTML += '<div style="padding-left: 20px;">';
+		if (strDesc != '')
 		{
-			strHTML += '<p>'+strText+'</p>';
+			strHTML += '<p>'+strDesc+'</p>';
 		}
-		strHTML += '</li>';		
+		if (strProps != '')
+		{
+			strHTML += strProps;
+		}
+		strHTML += '</div>';
+		//strHTML += '</li>';		
 		return strHTML;
 	}	
 	
-	var strHtml = '';
-
-	strHtml += '<ul>';
-	
-	var grComponent = new GlideRecord('x_snc_reactor_component');
-	grComponent.addQuery('sys_scope','=',grApp.sys_id);
-	grComponent.orderBy('name');
-	grComponent.addActiveQuery();
-	grComponent.query();
-
-	while (grComponent.next())
+	function HtmlRenderReactorComponentsByRole(strRole)
 	{
-		var strName = GetStringValue(grComponent.getValue('name'));
-		var strDesc = GetStringValue(grComponent.getValue('description'));
+		var strHtml = '';
+		
+	
+		var grComponent = new GlideRecord('x_snc_reactor_component');
+		if (IsValidSysId(strAppSysId) == true)
+		{
+			grComponent.addQuery('sys_scope','=',grApp.sys_id);
+		}
+		grComponent.addQuery('role','=',strRole);
+		grComponent.orderBy('name');
+		grComponent.addActiveQuery();
+		grComponent.query();
 
-		strHtml += RenderListItem(
-			strName,
-			GetInstanceRecordPath('x_snc_reactor_component',grComponent.sys_id),
-			strDesc);
+		if (grComponent.getRowCount() > 0)
+		{
+			var strRoleName = strRole;
+			var grChoice = new GlideRecord('sys_choice');
+			grChoice.addQuery('name','=','x_snc_reactor_component');
+			grChoice.addQuery('element','=','role');
+			grChoice.addQuery('language','=','en');
+			grChoice.addQuery('value','=',strRole);
+			grChoice.query();
+			if (grChoice.next())
+			{
+				strRoleName = grChoice.label;
+			}
+			
+			strHtml += '<h3>'+strRoleName+'</h3>';
+			//strHtml += '<ul>';			
+		
+			while (grComponent.next())
+			{
+				var strName = GetStringValue(grComponent.getValue('name'));
+				var strDesc = GetStringValue(grComponent.getValue('description'));
+				var strProps = '';
+
+				var grProp = new GlideRecord('x_snc_reactor_props');
+				grProp.addQuery('component','=',grComponent.sys_id);
+				grProp.orderBy('name');
+				grProp.query();
+				if (grProp.getRowCount() > 0)
+				{
+					strProps += '<table style="border-collapse: separate; vertical-align: top;"><tbody>';
+					while (grProp.next())
+					{
+						strProps += '<tr>';
+						strProps += '<td style="vertical-align: top; padding-right: 5px;">'+grProp.name+'</td>';
+						strProps += '<td style="vertical-align: top; padding-right: 5px;">'+grProp.type+'</td>';
+						strProps += '<td style="vertical-align: top; padding-right: 5px;">'+((grProp.mandatory)?('mandatory'):(''))+'</td>';
+						strProps += '<td style="vertical-align: top; padding-right: 5px;">'+grProp.description+'</td>';
+						strProps += '</tr>';
+					}
+					strProps += '</tbody></table>';
+				}
+
+				strHtml += HtmlRenderReactorComponentDoc(
+					strName,
+					GetInstanceRecordPath('x_snc_reactor_component',grComponent.sys_id),
+					strDesc,
+					strProps
+				);
+			}
+			//strHtml += '</ul>';
+		}
+		return strHtml;		
 	}
-	strHtml += '</ul>';
+	
+	var strHtml = '';
+	
+	strHtml += HtmlRenderReactorComponentsByRole('api');
+	strHtml += HtmlRenderReactorComponentsByRole('app');
+	strHtml += HtmlRenderReactorComponentsByRole('controller');
+	strHtml += HtmlRenderReactorComponentsByRole('page');
+	strHtml += HtmlRenderReactorComponentsByRole('element');
 	
 	return strHtml;
 }]]></script>
@@ -78,13 +136,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:29:32</sys_created_on>
         <sys_id>3bfdd8a8db8e5510dcbdd03cd39619f7</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>36</sys_mod_count>
         <sys_name>HtmlRenderReactorComponents</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_script_include_3bfdd8a8db8e5510dcbdd03cd39619f7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-16 17:45:57</sys_updated_on>
+        <sys_updated_on>2022-10-09 17:04:43</sys_updated_on>
     </sys_script_include>
 </record_update>
