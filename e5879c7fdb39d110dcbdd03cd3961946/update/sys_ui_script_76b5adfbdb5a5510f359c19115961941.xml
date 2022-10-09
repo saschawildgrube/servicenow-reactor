@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>Contains the ReactorComponent class which can be used as a base class for React components and some useful utilities.&#13;
+This component is always loaded, even if no other component defines a dependency to it.</description>
+        <global>false</global>
+        <name>x_snc_reactor.Reactor</name>
+        <script><![CDATA[class ReactorComponent extends React.Component
+{
+	constructor(props)
+	{
+		super(props);
+	}
+}
+const e = React.createElement;]]></script>
+        <script_name>Reactor</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-09 11:18:27</sys_created_on>
+        <sys_id>76b5adfbdb5a5510f359c19115961941</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>x_snc_reactor.Reactor</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_76b5adfbdb5a5510f359c19115961941</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-10-09 11:21:10</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>

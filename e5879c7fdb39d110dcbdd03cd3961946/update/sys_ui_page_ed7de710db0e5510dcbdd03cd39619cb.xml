@@ -18,10 +18,10 @@
 
 	<h2>Features</h2> 
 	<p>Use Reactor to create React based applications in ServiceNow. Check out the&#160;<a href="/x_snc_reactor_demo.do" target="_blank">Demo</a>!</p>
-	<p>In React its all about React components. With Reactor its all about Reacter components.</p>
-	<p>A Reactor component may contain a React component class, but its more than that. Reactor components manage the dependencies between the components. Also stylesheets are also Reactor components. Think of them as an umbrella of everything you want to make part of your app on the client side.</p>
+	<p>In React its all about React components. With Reactor its all about Reactor components.</p>
+	<p>A Reactor component may contain a React component class, but its more than that. Reactor components manage the dependencies between the components. Stylesheets are also Reactor components. Think of them as an umbrella of everything you want to make part of your app on the client side.</p>
 	<p>Reactor components have a "role" - a category that gives a hint about what it really is. Since React does not dictate any sort of separation of concerns - we have to make up for it. We are well advised to create React components not as a mix of logic and html footprint, but to create components that are for user interaction, others for application logic, etc. Reactor helps you getting there.</p>
-	<p>A caveat however is the use of CDN provided JavaScript libraries (React and Babel for JSX support). This may NOT be compliant with GDPR requirements.</p>
+	<p>Please note: Currently the JavaScript libraries for React (and Babel for JSX support) are loaded from a CDN. This may NOT be compliant with GDPR requirements - so watch out for a future version that supports locally stored libraries.</p>
 
 	<h2>Disclaimer</h2>
 	<g2:no_escape>$[docapi.RenderDisclaimer()]</g2:no_escape>	
@@ -77,12 +77,10 @@
 		<li><a href="https://babeljs.io/repl" target="_blank">Babel</a></li>
 	</ul>
 
-	
+	<h2>React(or) Components</h2>
+	<g2:no_escape>$[HtmlRenderReactorComponents('x_snc_reactor')]</g2:no_escape>			
 
 	<h2>Reference</h2>
-
-	<h3>React(or) Components</h3>
-	<g2:no_escape>$[HtmlRenderReactorComponents()]</g2:no_escape>		
 	
 	<h3>Roles</h3>
 	<g2:no_escape>$[docapi.RenderRoles()]</g2:no_escape>		
@@ -122,6 +120,19 @@
 		<li>TODO: document changes here</li>
 	</ol>
 -->
+	
+	<h3>1.3.0 - 2022-10-09</h3>
+	<ol>
+		<li>Added new entity "Component Properties" to properly document the input properties of each Reactor component.</li>
+		<li>Added component IFrame.</li>
+		<li>Added component Waiting.</li>
+		<li>Added component Icon.</li>
+		<li>Added component FontawesomeCSS.</li>
+		<li>Introduced the Reactor component which contains the ReactorComponent class (derived from React.Component) that serves as a base class for all other React(or) component classes.</li>
+		<li>Added ability to load stylesheets from a URL.</li>
+		<li>Reactor components are now grouped by their role in the manual.</li>
+	</ol>	
+	
 	<h3>1.2.0 - 2022-09-18</h3>
 	<ol>
 		<li>DevTools 1.44.0 is now required.</li>
@@ -151,13 +162,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 13:55:46</sys_created_on>
         <sys_id>ed7de710db0e5510dcbdd03cd39619cb</sys_id>
-        <sys_mod_count>34</sys_mod_count>
+        <sys_mod_count>46</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_page_ed7de710db0e5510dcbdd03cd39619cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-18 14:11:42</sys_updated_on>
+        <sys_updated_on>2022-10-09 17:33:37</sys_updated_on>
     </sys_ui_page>
 </record_update>
