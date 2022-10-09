@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
+    <x_snc_reactor_component action="INSERT_OR_UPDATE">
+        <content_css/>
+        <dependencies/>
+        <description>A base class for React components and some useful utilities.</description>
+        <jsx>false</jsx>
+        <name>Reactor</name>
+        <role>api</role>
+        <script><![CDATA[class ReactorComponent extends React.Component
+{
+	constructor(props)
+	{
+		super(props);
+	}
+}
+const e = React.createElement;]]></script>
+        <source_type>ui_script</source_type>
+        <sys_class_name>x_snc_reactor_component</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-09 11:19:18</sys_created_on>
+        <sys_id>8d16a13fdb5a5510f359c1911596192c</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Reactor</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_component_8d16a13fdb5a5510f359c1911596192c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-10-09 11:24:35</sys_updated_on>
+        <type>script</type>
+        <ui_script display_value="x_snc_reactor.Reactor">76b5adfbdb5a5510f359c19115961941</ui_script>
+        <url/>
+    </x_snc_reactor_component>
+</record_update>

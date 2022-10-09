@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="update_synch=true" extends="sys_metadata" label="Component" max_length="40" name="x_snc_reactor_component" sizeclass="5" type="collection">
+    <element attributes="update_synch=true" extends="sys_metadata" label="Reactor Component" max_length="40" name="x_snc_reactor_component" sizeclass="16" type="collection">
         <element label="Stylesheet" max_length="32" name="content_css" reference="content_css" type="reference"/>
         <element attributes="no_truncate=true" label="Dependencies" max_length="4000" name="dependencies" reference="x_snc_reactor_component" type="glide_list"/>
         <element label="Description" max_length="2000" name="description" type="string_full_utf8"/>
@@ -11,6 +11,7 @@
                 <element inactive_on_update="false" label="Page" sequence="2" value="page"/>
                 <element inactive_on_update="false" label="Controller" sequence="3" value="controller"/>
                 <element inactive_on_update="false" label="UI Element" sequence="4" value="element"/>
+                <element inactive_on_update="false" label="API" sequence="6" value="api"/>
             </choice>
         </element>
         <element label="Script" max_length="65000" name="script" read_only="true" type="script_plain"/>
