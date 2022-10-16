@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
     <x_snc_reactor_component action="INSERT_OR_UPDATE">
         <content_css/>
-        <dependencies>e7d38ca0db4e5510dcbdd03cd3961911,cf54ac20dbce5510dcbdd03cd396197a,b11cdde0db829510dcbdd03cd39619f3,96785174db0295109232dad1f39619fb,39f6fa3cdb0695109232dad1f39619ed,1fb0773edb92d110f359c1911596194d,2c0168dfdbded110f359c1911596195f</dependencies>
+        <dependencies>e7d38ca0db4e5510dcbdd03cd3961911,cf54ac20dbce5510dcbdd03cd396197a,b11cdde0db829510dcbdd03cd39619f3,96785174db0295109232dad1f39619fb,39f6fa3cdb0695109232dad1f39619ed,1fb0773edb92d110f359c1911596194d,2c0168dfdbded110f359c1911596195f,2edf5ac6476a1110a4b0d4fe536d433c</dependencies>
         <description>Demonstrates the capability of Reactor to embedd React components into a ServiceNow UI Page.</description>
         <jsx>false</jsx>
         <name>ReactorDemoApp</name>
         <role>app</role>
-        <script><![CDATA[class ReactorDemoApp extends React.Component
+        <script><![CDATA[class ReactorDemoApp extends ReactorComponent
 {
 	constructor(props)
 	{
@@ -35,6 +35,10 @@
 	{
 		this.setState( { ruler_value: nNewValue} );
 	}	
+	onIFrameLoad(strUrl)
+	{
+		DoModalMessage('Reactor','We can respond to the onLoad event of the iFrame:\n'+strUrl);
+	}
 	
 	render()
 	{
@@ -103,14 +107,22 @@
 		else if (this.state.state == 'iframe')
 		{
 			aComponents.push(
-				e('div', { width: '100%', height: '100%' },
-					e(IFrame,{ key: 'iframe', url: '/incident_list.do' },null)
-				)
+				e(IFrame,
+					{
+						key: 'iframe',
+						url: '/incident_list.do',
+						callbackOnLoad: this.onIFrameLoad
+					},null)
 			);	
 
 		}		
 		
-		return e('div',null,aComponents);
+		return e('div', {
+			style: {
+				display: 'block',
+				height: '80vh'
+				}
+			},aComponents);
 	}
 	
 }]]></script>
@@ -119,14 +131,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:46:33</sys_created_on>
         <sys_id>2332e8acdb8e5510dcbdd03cd39619c3</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_2332e8acdb8e5510dcbdd03cd39619c3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-10-07 17:01:58</sys_updated_on>
+        <sys_updated_on>2022-10-16 15:22:59</sys_updated_on>
         <type>script</type>
         <ui_script display_value="x_snc_reactor.ReactorDemoApp">cab950e4db8e5510dcbdd03cd3961940</ui_script>
         <url/>

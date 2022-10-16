@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>The React component loads information on all tables in the instance and displays the tables.</description>
+        <global>false</global>
+        <name>x_snc_reactor.AllTables</name>
+        <script><![CDATA[class AllTables extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+		this.state = { loaded: false, tables: {} };
+		this.onServerRequestGetAllTables = this.onServerRequestGetAllTables.bind(this);
+	}
+	
+	onServerRequestGetAllTables(response)
+	{
+		this.setState(
+			{
+				loaded: true,
+				tables: response
+			}
+		);
+	}
+
+	renderTable(table,nLevel)
+	{
+		var aComponents = [];
+		
+		var strUrl = '/'+table.name+'_list.do';
+		var strPaddingLeft = ((nLevel+1)*20)+'px;';
+		
+		aComponents.push(
+			<>
+				<div style={{ paddingLeft: strPaddingLeft }} ><a href={strUrl} target="_blank">{ table.name }</a></div>
+					
+			</>
+		);
+		return aComponents;
+	}
+	
+	render()
+	{
+		if (this.state.loaded == false)
+		{
+			ServerRequest('x_snc_devtools.DevToolsClientAPI','GetAllTables',{ extended_tables: true },this.onServerRequestGetAllTables);
+			return e(Waiting,{ text: 'Loading Table Data...' });
+		}
+		var tables = this.state.tables;
+/*		if (IsObject(tables) == false)
+		{
+			return e('div',{ }, 'Error: tables is not an object.');
+		}*/
+		
+		var aTables = GetKeys(tables);
+		if (aTables.length == 0)
+		{
+			return '';
+		}
+		
+		var aComponents = [];
+
+		for (var nTable = 0; nTable < aTables.length; nTable++)
+		{
+			var strTable = aTables[nTable];
+			var table = tables[strTable];
+			var strSuperClass = GetStringValue(GetValue(table,'super_class'));
+			if (strSuperClass == '')
+			{
+				aComponents = ArrayAppend(aComponents,this.RenderTable(table,1));
+			}
+		}
+		return e('div',{},aComponents);	
+	}	
+}]]></script>
+        <script_name>AllTables</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-16 15:20:58</sys_created_on>
+        <sys_id>2d00eac6476a1110a4b0d4fe536d43a6</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>x_snc_reactor.AllTables</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_2d00eac6476a1110a4b0d4fe536d43a6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-10-16 16:17:30</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>
