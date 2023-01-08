@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_devtools_dependency">
+    <x_snc_devtools_dependency action="DELETE">
+        <dependency display_value="Parcel WORK IN PROGRESS" source="x_snc_parcel">bd2d377cdb92cd10b652edb305961975</dependency>
+        <documentation_url>https://www.wildgrube.com/servicenow-parcel</documentation_url>
+        <name>Parcel</name>
+        <repo_url>https://github.com/saschawildgrube/servicenow-parcel.git</repo_url>
+        <sys_class_name>x_snc_devtools_dependency</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-21 14:52:30</sys_created_on>
+        <sys_id>1303d213dbf391506a03dad1f39619ab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Parcel</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_devtools_dependency_1303d213dbf391506a03dad1f39619ab</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-12-21 14:52:30</sys_updated_on>
+        <versions>1.1.0</versions>
+    </x_snc_devtools_dependency>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</application>
+        <file_path/>
+        <instance_id>01bfa2ffdb5ecd104d2bac44d496195a</instance_id>
+        <instance_name>wildgrubetestsandiego</instance_name>
+        <name>x_snc_devtools_dependency_1303d213dbf391506a03dad1f39619ab</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_devtools_dependency"><x_snc_devtools_dependency action="INSERT_OR_UPDATE"><dependency display_value="Parcel WORK IN PROGRESS" source="x_snc_parcel">bd2d377cdb92cd10b652edb305961975</dependency><documentation_url>https://www.wildgrube.com/servicenow-parcel</documentation_url><name>Parcel</name><repo_url>https://github.com/saschawildgrube/servicenow-parcel.git</repo_url><sys_class_name>x_snc_devtools_dependency</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2022-12-21 14:52:30</sys_created_on><sys_id>1303d213dbf391506a03dad1f39619ab</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Parcel</sys_name><sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package><sys_policy/><sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope><sys_update_name>x_snc_devtools_dependency_1303d213dbf391506a03dad1f39619ab</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2022-12-21 14:52:30</sys_updated_on><versions>1.1.0</versions></x_snc_devtools_dependency></record_update>]]></payload>
+        <payload_hash>-967671786</payload_hash>
+        <record_name>Parcel</record_name>
+        <reverted_from/>
+        <source>305ff9e8dbc651106a03dad1f39619ef</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-21 14:52:30</sys_created_on>
+        <sys_id>bc131613dbf391506a03dad1f39619c5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>185352bf2580000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-12-21 14:52:30</sys_updated_on>
+        <type>Dependency</type>
+        <update_guid>f413161330f39150180bcc7af2494cc5</update_guid>
+        <update_guid_history>f413161330f39150180bcc7af2494cc5:-967671786</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Parcel">7c535a13dbf391506a03dad1f3961980</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-12-21 14:53:36</sys_created_on>
+        <sys_db_object display_value="" name="x_snc_devtools_dependency">x_snc_devtools_dependency</sys_db_object>
+        <sys_id>6be3773093ec40ee9b8b0d87d74591c1</sys_id>
+        <sys_metadata>1303d213dbf391506a03dad1f39619ab</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Parcel</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_scope_delete display_value="">15e7e2e9ba6d4c1aa140dfcee66950e9</sys_scope_delete>
+        <sys_update_name>x_snc_devtools_dependency_1303d213dbf391506a03dad1f39619ab</sys_update_name>
+        <sys_update_version display_value="x_snc_devtools_dependency_1303d213dbf391506a03dad1f39619ab">bc131613dbf391506a03dad1f39619c5</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-12-21 14:53:36</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
