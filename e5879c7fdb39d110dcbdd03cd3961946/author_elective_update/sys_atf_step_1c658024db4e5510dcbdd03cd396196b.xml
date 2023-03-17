@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <copied_from/>
+        <description>Checks if the scoped app "DevTools" is installed in a compatible version to: 1.44.0
+</description>
+        <display_name>DevTools - Check scoped app dependency</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>1</order>
+        <snapshot/>
+        <step_config display_value="DevTools - Check scoped app dependency">c3f56886db3da490ba15a353059619ff</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-16 15:40:46</sys_created_on>
+        <sys_id>1c658024db4e5510dcbdd03cd396196b</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>DevTools - Check scoped app dependency</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_atf_step_1c658024db4e5510dcbdd03cd396196b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-17 22:59:54</sys_updated_on>
+        <table/>
+        <test display_value="Reactor - Installation">317de710db0e5510dcbdd03cd39619d4</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=1c658024db4e5510dcbdd03cd396196b"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>1c658024db4e5510dcbdd03cd396196b</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-16 15:40:47</sys_created_on>
+        <sys_id>3f754024db4e5510dcbdd03cd39619aa</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-17 22:59:54</sys_updated_on>
+        <value>1.44.0</value>
+        <variable display_value="Versions">fc5964cadb3da490ba15a353059619b3</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>1c658024db4e5510dcbdd03cd396196b</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-16 15:40:47</sys_created_on>
+        <sys_id>b7754024db4e5510dcbdd03cd39619ab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-16 15:40:47</sys_updated_on>
+        <value>d689f6901bd38450a89720a8ec4bcbfd</value>
+        <variable display_value="Application">7cf8ac8adb3da490ba15a353059619f5</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="table=var__m_atf_input_variable_c3f56886db3da490ba15a353059619ff^id=1c658024db4e5510dcbdd03cd396196b"/>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</application>
+        <file_path/>
+        <instance_id>01bfa2ffdb5ecd104d2bac44d496195a</instance_id>
+        <instance_name>wildgrubetestsandiego</instance_name>
+        <name>sys_atf_step_1c658024db4e5510dcbdd03cd396196b</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Checks if the scoped app "DevTools" is installed in a compatible version to: 1.44.0
+</description>
+        <display_name>DevTools - Check scoped app dependency</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>1</order>
+        <snapshot/>
+        <step_config display_value="DevTools - Check scoped app dependency">c3f56886db3da490ba15a353059619ff</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-16 15:40:46</sys_created_on>
+        <sys_id>1c658024db4e5510dcbdd03cd396196b</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>DevTools - Check scoped app dependency</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_atf_step_1c658024db4e5510dcbdd03cd396196b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-17 22:59:54</sys_updated_on>
+        <table/>
+        <test display_value="Reactor - Installation">317de710db0e5510dcbdd03cd39619d4</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=1c658024db4e5510dcbdd03cd396196b"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>1c658024db4e5510dcbdd03cd396196b</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-16 15:40:47</sys_created_on>
+        <sys_id>3f754024db4e5510dcbdd03cd39619aa</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-17 22:59:54</sys_updated_on>
+        <value>1.44.0</value>
+        <variable display_value="Versions">fc5964cadb3da490ba15a353059619b3</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>1c658024db4e5510dcbdd03cd396196b</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-16 15:40:47</sys_created_on>
+        <sys_id>b7754024db4e5510dcbdd03cd39619ab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-16 15:40:47</sys_updated_on>
+        <value>d689f6901bd38450a89720a8ec4bcbfd</value>
+        <variable display_value="Application">7cf8ac8adb3da490ba15a353059619f5</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_atf_input_variable_c3f56886db3da490ba15a353059619ff^id=1c658024db4e5510dcbdd03cd396196b"/>
+</record_update>]]></payload>
+        <payload_hash>403517732</payload_hash>
+        <record_name>DevTools - Check scoped app dependency</record_name>
+        <reverted_from/>
+        <source>e3d28a411b0219105b76777d8b4bcb72</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-18 14:05:40</sys_created_on>
+        <sys_id>cee28e411b0219105b76777d8b4bcb00</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18350eb4a4c0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-18 14:05:40</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>0ee28e418f021910385845996c84ff00</update_guid>
+        <update_guid_history>0ee28e418f021910385845996c84ff00:0,2e0e716869c65110bc0211132a1e24ee:-995095228</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-17 15:23:18</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>17cdd8b6ebf145ae870a69b7ae754024</sys_id>
+        <sys_metadata>1c658024db4e5510dcbdd03cd396196b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DevTools - Check scoped app dependency</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_scope_delete display_value="">15e7e2e9ba6d4c1aa140dfcee66950e9</sys_scope_delete>
+        <sys_update_name>sys_atf_step_1c658024db4e5510dcbdd03cd396196b</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_1c658024db4e5510dcbdd03cd396196b">cee28e411b0219105b76777d8b4bcb00</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-17 15:23:18</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
