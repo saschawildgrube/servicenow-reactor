@@ -52,6 +52,7 @@
 		aMenuItems.push({ label: 'Home', option: 'home' });
 		aMenuItems.push({ label: 'Button', option: 'button' });
 		aMenuItems.push({ label: 'Messages', option: 'messages' });
+		aMenuItems.push({ label: 'Table', option: 'table' });
 		aMenuItems.push({ label: 'Clock', option: 'clock' });
 		aMenuItems.push({ label: 'Ruler', option: 'ruler' });
 		aMenuItems.push({ label: 'ReactorJSXDemo', option: 'jsx' });
@@ -97,6 +98,54 @@
 					text: 'This is an info message' 
 				}, null));		
 		}		
+		else if (this.state.state == 'table')
+		{
+			var aCells = [];
+			
+			aCells.push(
+				[
+					{
+						header: true,
+						content: 'Column 1'
+					},
+					{
+						header: true,
+						content: 'Column 2'
+					},
+					{
+						header: true,
+						content: 'Column 3'
+					}
+				]
+			);
+			
+			aCells.push(
+				[
+					{
+						content: 'Row 1, Column 1'
+					},
+					'Row 1, Column 2',
+					{
+						content: 'Row 1, Column 3',
+						header: false
+					}
+				]
+			);			
+			
+			aCells.push(
+				[
+					'Row 2, Column 1',
+					'Row 2, Column 2',
+					'Row 2, Column 3'
+				]
+			);					
+			
+			aComponents.push(e(TableComponent,
+				{
+					cells: aCells,
+					classname: ''
+				}, null));
+		}
 		else if (this.state.state == 'clock')
 		{
 			aComponents.push(e(Clock,
@@ -117,7 +166,7 @@
 		}
 		else if (this.state.state == 'jsx')
 		{
-			aComponents.push(e(ReactorJSXDemo,{ key: 'jsx', label: 'A button made with JSX' },null));	
+			aComponents.push(e(ReactorJSXDemoController,{ key: 'jsx', label: 'A button made with JSX' },null));	
 
 		}		
 		else if (this.state.state == 'iframe')
@@ -157,14 +206,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:09:30</sys_created_on>
         <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
-        <sys_mod_count>76</sys_mod_count>
+        <sys_mod_count>85</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-05-29 12:54:03</sys_updated_on>
+        <sys_updated_on>2023-06-04 17:49:58</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>

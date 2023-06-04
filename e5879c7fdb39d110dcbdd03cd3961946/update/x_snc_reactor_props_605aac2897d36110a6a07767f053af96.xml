@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_props">
+    <x_snc_reactor_props action="INSERT_OR_UPDATE">
+        <component display_value="IDEAppSelectorController">eb1de5e21b03e510cd6153d16b4bcb6b</component>
+        <description>Sets the application scope to start with.&#13;
+If set the selection contains a "Cancel" button that returns the provided application scope.</description>
+        <mandatory>false</mandatory>
+        <name>app</name>
+        <sys_class_name>x_snc_reactor_props</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-04 17:51:42</sys_created_on>
+        <sys_id>605aac2897d36110a6a07767f053af96</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>app</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_props_605aac2897d36110a6a07767f053af96</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-04 17:54:13</sys_updated_on>
+        <type>string</type>
+    </x_snc_reactor_props>
+</record_update>

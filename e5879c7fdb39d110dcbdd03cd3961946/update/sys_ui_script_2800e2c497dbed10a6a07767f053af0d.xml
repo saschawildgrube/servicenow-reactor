@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>Renders a table.</description>
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_snc_reactor.TableComponent</name>
+        <script><![CDATA[class TableComponent extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+	}
+
+	componentDidMount()
+	{
+	}
+
+	componentWillUnmount()
+	{
+	}
+
+	render()
+	{
+
+		var aCells = GetArrayValue(this.props.cells);
+		var strClassName = GetStringValue(this.props.classname);
+		if (strClassName == '')
+		{
+			strClassName = 'default';
+		}
+		//var strStyles = GetStringValue(this.props.styles);
+	
+		var aRowComponents = [];
+		for (var nRow = 0; nRow < aCells.length; nRow++)
+		{
+			var aRow = GetArrayValue(aCells[nRow]);
+
+			var aCellComponents = [];
+		
+			for (var nCol = 0; nCol < aRow.length; nCol++)
+			{
+				var bHeader = false;
+				var strHorizontal = 'left';
+				var content = null;
+				var cell = aRow[nCol];
+				if (IsObject(cell))
+				{
+					bHeader = GetBoolValue(GetValue(cell,'header'));
+					strHorizontal = GetStringValue(GetValue(cell,'horizontal'));
+					content = GetValue(cell,'content');
+				}
+				else
+				{
+					content = cell;
+				}
+				var strTextAlign = (strHorizontal == 'right') ? ('right') : ('left');
+				
+				/*var strStyle = '';
+				if (strTextAlign != 'left')
+				{
+					strStyle = ' style="text-align: '+strTextAlign+';"';
+				}
+				*/
+				var cellComponent = null;
+				if (bHeader == true)
+				{
+					cellComponent = e('th',{ className: strClassName },content);
+				}
+				else
+				{
+					cellComponent = e('td',{ className: strClassName },content);
+				}
+				
+				aCellComponents.push(cellComponent);
+			}
+			
+			var rowComponent = e('tr',{ className: strClassName },aCellComponents);
+			
+			aRowComponents.push(rowComponent);
+		}		
+		
+		var tableBodyComponent = e('tbody',{ className: strClassName },aRowComponents);
+		var tableComponent = e('table',{ className: strClassName },tableBodyComponent);
+		return tableComponent;
+	}	
+}]]></script>
+        <script_name>TableComponent</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-03 13:11:18</sys_created_on>
+        <sys_id>2800e2c497dbed10a6a07767f053af0d</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>x_snc_reactor.TableComponent</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_2800e2c497dbed10a6a07767f053af0d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-03 20:30:47</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>
