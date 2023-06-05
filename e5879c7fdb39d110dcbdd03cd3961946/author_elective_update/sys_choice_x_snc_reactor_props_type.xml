@@ -6,7 +6,6 @@
             <sys_class_name>sys_choice_set</sys_class_name>
             <sys_created_by>admin</sys_created_by>
             <sys_created_on>2022-10-08 13:50:31</sys_created_on>
-            <sys_id>033ff4a3db5e1510f359c191159619c6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>type</sys_name>
             <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
@@ -30,7 +29,6 @@
             <sys_created_on>2022-10-08 13:50:31</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>f72ff4a3db5e1510f359c19115961911</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2022-10-08 13:50:31</sys_updated_on>
@@ -50,7 +48,6 @@
             <sys_created_on>2022-10-08 13:50:58</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>424f38a3db5e1510f359c19115961950</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2022-10-08 13:50:58</sys_updated_on>
@@ -70,7 +67,6 @@
             <sys_created_on>2022-10-08 13:51:12</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>996f38a3db5e1510f359c1911596197b</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2022-10-08 13:51:12</sys_updated_on>
@@ -90,7 +86,6 @@
             <sys_created_on>2022-10-08 13:51:25</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>d07ff4a3db5e1510f359c191159619fd</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2022-10-08 13:51:25</sys_updated_on>
@@ -110,7 +105,6 @@
             <sys_created_on>2022-10-08 13:57:51</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>48e04de3db5e1510f359c19115961925</sys_id>
             <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2022-10-08 13:58:03</sys_updated_on>
@@ -130,7 +124,6 @@
             <sys_created_on>2022-10-08 13:51:40</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>448fb8a3db5e1510f359c19115961946</sys_id>
             <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2022-10-08 13:58:06</sys_updated_on>
@@ -150,11 +143,29 @@
             <sys_created_on>2022-10-08 13:51:55</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>eb8fb8a3db5e1510f359c19115961963</sys_id>
             <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2022-10-08 13:58:09</sys_updated_on>
             <value>function</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Component</label>
+            <language>en</language>
+            <name>x_snc_reactor_props</name>
+            <sequence>8</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-06-05 06:33:11</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-06-05 06:33:26</sys_updated_on>
+            <value>component</value>
         </sys_choice>
     </sys_choice>
 </record_update>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
     <sys_ui_script action="INSERT_OR_UPDATE">
         <active>true</active>
-        <description>A UI Element component that provides a framework for a typical workspace with a menu, toolbar, breadcrump navigation, tabbed content, side bar navigation, a multi-purpose side bar, output/result area on the bottom and a status bar at the bottom of the screen. </description>
+        <description>A UI Element component that provides a framework for a typical workspace with a menu, toolbar, content area, side bar navigation, a multi-purpose side bar, output/result area on the bottom and a status bar at the bottom of the screen. </description>
         <global>false</global>
         <ignore_in_now_experience>false</ignore_in_now_experience>
         <name>x_snc_reactor.Workspace</name>
@@ -15,11 +15,10 @@
 	render()
 	{
 		
-		var aComponents = [];
-		
 		var logo = e('div',
 			{
-				style: {
+				style:
+				{
 					backgroundColor: '#eeeeee',
 					float: 'left',
 					minWidth: '20'
@@ -29,14 +28,16 @@
 		
 		var menu = e('div',
 			{
-				style: {
+				style:
+				{
 					backgroundColor: '#dddddd',
 				}
 			},this.props.menu);		
 		
 		var user = e('div',
 			{
-				style: {
+				style:
+				{
 					backgroundColor: '#eeeeee',
 					float: 'right',
 					minWidth: '20'
@@ -45,7 +46,8 @@
 		
 		var headerbar = e('div',
 			{
-				style: {
+				style:
+				{
 					width: '100%'
 				}
 			},[
@@ -55,14 +57,53 @@
 			]);
 		
 
-		var toolbar = e('div', { backgroundColor: '#bbbbbb' }, this.props.toolbar);
+		var toolbar = e('div', { style: { backgroundColor: '#bbbbbb' }}, this.props.toolbar);
 		
 		
-		var status = e('div',{ backgroundColor: '#aaaaa'},this.props.status);
+		var navigation = e('div',
+			{
+				style: 
+				{
+					float: 'left',
+					height: '100%',
+					width: '100px'
+				}
+			}, this.props.navigation);
+		
+		var sidebar = e('div',
+			{
+				style: 
+				{
+					float: 'right',
+					height: '100%',
+					width: '100px'
+				}
+			}, this.props.sidebar);	
+		
+		var content = e('div',
+			{
+				style:
+				{
+					height: '100%'
+				}
+			},this.props.content);
+		
+		var mainarea = e('div',
+			{
+				style:
+				{
+					flexGrow: '1',
+					width: '100%',
+					backgroundColor: '#ebebeb'
+				}
+			},[navigation,sidebar,content]);
+		
+		var status = e('div',{ style: { backgroundColor: '#aaaaa' }},this.props.status);
 		
 		var footerbar = e('div',
 			{
-				style: {
+				style:
+				{
 					backgroundColor: '#eeeeee',
 					width: '100%',
 					position: 'absolute',
@@ -72,12 +113,24 @@
 				status
 			]);
 		
+		var framework = e('div',
+			{
+				style:
+				{
+					display: 'flex',
+					flexDirection: 'column',
+					width: '100%',
+					height: '100%'
+				}
+			},
+			[
+				headerbar,
+				toolbar,
+				footerbar,
+				mainarea
+			]);
 		
-		aComponents.push(headerbar);
-		aComponents.push(toolbar);
-		aComponents.push(footerbar);
-		
-		return e(Fullscreen,{},aComponents);	
+		return e(Fullscreen,{},framework);	
 	}	
 }]]></script>
         <script_name>Workspace</script_name>
@@ -85,14 +138,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-04 18:09:19</sys_created_on>
         <sys_id>ea6d64e897d36110a6a07767f053afe4</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>25</sys_mod_count>
         <sys_name>x_snc_reactor.Workspace</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_ea6d64e897d36110a6a07767f053afe4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-04 19:44:49</sys_updated_on>
+        <sys_updated_on>2023-06-05 06:40:31</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>
