@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_props">
+    <x_snc_reactor_props action="INSERT_OR_UPDATE">
+        <component display_value="ToolBar">95aa25b11b1be110cd6153d16b4bcb0f</component>
+        <description>The callback functon to be called when a tool has been clicked. It receives the tool's value as a parameter.</description>
+        <mandatory>true</mandatory>
+        <name>callbackOnClick</name>
+        <sys_class_name>x_snc_reactor_props</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-08 19:50:11</sys_created_on>
+        <sys_id>39aba5b11b1be110cd6153d16b4bcbd0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>callbackOnClick</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_props_39aba5b11b1be110cd6153d16b4bcbd0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 19:50:11</sys_updated_on>
+        <type>function</type>
+    </x_snc_reactor_props>
+</record_update>
