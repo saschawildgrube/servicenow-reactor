@@ -18,6 +18,7 @@
 		this.onHeaderMenuClick = this.onHeaderMenuClick.bind(this);
 		this.onButtonClick = this.onButtonClick.bind(this);
 		this.onToolBarClick = this.onToolBarClick.bind(this);
+		this.onTreeNavigationClick = this.onTreeNavigationClick.bind(this);
 		this.onRulerChange = this.onRulerChange.bind(this);
 	}
 
@@ -34,6 +35,10 @@
 	{
 		DoModalMessage('Reactor','The Tool has been clicked: '+strValue,function(){});		
 	}
+	onTreeNavigationClick(strValue)
+	{
+		DoModalMessage('Reactor','The following TreeNavigation item has been clicked: '+strValue,function(){});		
+	}	
 	onRulerChange(nNewValue)
 	{
 		this.setState( { ruler_value: nNewValue} );
@@ -56,6 +61,7 @@
 		aMenuItems.push({ label: 'Home', option: 'home' });
 		aMenuItems.push({ label: 'Button', option: 'button' });
 		aMenuItems.push({ label: 'ToolBar', option: 'toolbar' });
+		aMenuItems.push({ label: 'TreeNavigation', option: 'treenavigation' });
 		aMenuItems.push({ label: 'Messages', option: 'messages' });
 		aMenuItems.push({ label: 'Table', option: 'table' });
 		aMenuItems.push({ label: 'Clock', option: 'clock' });
@@ -117,6 +123,45 @@
 				{
 					tools: aTools,
 					callbackOnClick: this.onToolBarClick 
+				}, null));
+		}		
+		else if (this.state.state == 'treenavigation')
+		{
+			var treenavigation = {
+				bogus: 'hello world',
+				items: [
+					{
+						label: 'Item 1',
+						items: [
+							{ label: 'Item 1.1', value: '1.1' },
+							{ label: 'Item 1.2', value: '1.2' },
+							{ label: 'Item 1.3', value: '1.3' }
+						]
+					},
+					{
+						label: 'Item 2',
+						items: [
+							{
+								label: 'Item 2.1',
+								items: [
+									{ label: 'Item 2.1.1', value: '2.1.1' },
+									{ label: 'Item 2.1.2', value: '2.1.2' },
+									{ label: 'Item 2.1.3', value: '2.1.3' }
+								]},
+							{
+								label: 'Item 2.2', value: '2.2'
+							},
+							{
+								label: 'Item 2.3', value: '2.3'
+							}
+						]
+					}
+				]
+			};
+			aComponents.push(e(TreeNavigation,
+				{
+					treenavigation: treenavigation,
+					callbackOnClick: this.onTreeNavigationClick 
 				}, null));
 		}		
 		else if (this.state.state == 'messages')
@@ -286,14 +331,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:09:30</sys_created_on>
         <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
-        <sys_mod_count>98</sys_mod_count>
+        <sys_mod_count>101</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-08 20:33:20</sys_updated_on>
+        <sys_updated_on>2023-06-10 14:13:47</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>

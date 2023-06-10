@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>The React component renders a collapsable and expandable tree of navigation options.</description>
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_snc_reactor.TreeNavigation</name>
+        <script><![CDATA[class TreeNavigation extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+		this.state = { treenavigation: this.props.treenavigation };
+		this.onClick = this.onClick.bind(this);
+		this.onClickCollapse = this.onClickCollapse.bind(this);
+		this.onClickExpand = this.onClickExpand.bind(this);
+	}
+
+	onClick()
+	{
+		var strValue = GetStringValue(event.target.attributes.value.value);
+		if (typeof this.props.callbackOnClick == 'function')
+		{
+			this.props.callbackOnClick(strValue);
+		}
+	}
+	
+	onClickCollapse()
+	{
+		var strValue = GetStringValue(event.target.attributes.value.value);
+		//DoModalMessage('Collapse: '+strValue);
+	}	
+	
+	onClickExpand()
+	{
+		var strValue = GetStringValue(event.target.attributes.value.value);
+		//DoModalMessage('Expand: '+strValue);
+	}		
+
+	renderNavigationRow(nLevel,children)
+	{
+		return e('div',
+			{
+				style:
+				{
+					flex: '0 0 auto',
+					marginLeft: (nLevel * 15) + 'px'
+				}
+			},children);
+	}
+	
+	
+	render()
+	{
+		//console.log(this.state);
+		var treenavigation = this.state.treenavigation;
+		
+		var aLinkComponents = [];
+		
+		function RenderNavigationTree(THIS, treenavigation,nLevel,aPath)
+		{
+			nLevel = GetIntegerValue(nLevel);
+			aPath = GetArrayValue(aPath);
+			var aItems = GetArrayValue(GetValue(treenavigation,'items'));
+			for (var nItem = 0; nItem < aItems.length; nItem++)
+			{
+				var item = aItems[nItem];
+				var strLabel = GetStringValue(GetValue(item,'label'));
+				if (strLabel != '')
+				{
+					var bHasSubItems = false;
+					var aSubItems = GetArrayValue(GetValue(item,'items'));
+					if (aSubItems.length > 0)
+					{
+						bHasSubItems = true;
+					}
+					
+					if (bHasSubItems == false)
+					{
+						var strValue = GetStringValue(GetValue(item,'value'));
+						aLinkComponents.push(
+							THIS.renderNavigationRow(
+								nLevel,
+								e('a',
+								{
+									style: {
+										borderLeft: (nLevel * 5) + 'px'
+									},
+									onClick: THIS.onClick,
+									value: strValue,
+								},strLabel)
+							));
+					}
+					else
+					{
+						aLinkComponents.push(
+							THIS.renderNavigationRow(
+								nLevel,
+								e('span',
+									{
+										style: {
+											fontWeight: 'bold',
+										}
+									},
+									strLabel)
+								));			
+						/*
+						var bCollapsed = GetBoolValue(GetValue(item,'collapsed'));
+						if (bCollapsed == true)
+						{
+							aLinkComponents.push(
+								THIS.renderNavigationRow(
+									nLevel,
+									e('a',
+									{
+										style: {
+											fontWeight: 'bold',
+										},
+										onClick: THIS.onClickExpand,
+										value: 'expand',
+									},strLabel)
+								));					
+						}
+						else
+						{
+							aLinkComponents.push(						
+								THIS.renderNavigationRow(
+									nLevel,
+									e('a',
+									{
+										style: {
+											fontWeight: 'bold',
+											},
+										onClick: THIS.onClickCollapse,
+										value: 'collapse',
+									},strLabel)
+									
+								));									
+						}*/
+						RenderNavigationTree(THIS,item,nLevel+1,aPath.push(nItem));
+					}
+				}
+			}			
+		}
+		
+		RenderNavigationTree(this,treenavigation);
+				
+		return e('div',
+			{
+				className: 'treenavigation',
+				style:
+				{
+					display: 'flex',
+					flexDirection: 'column',
+					//flexBasis: 'inherit',
+					
+					//height: '100%',
+					//width: '100%',
+					overflowY: 'auto',
+					overflowX: 'auto',
+
+					display: 'table-cell'
+					
+					
+									
+					/*overflow: 'auto'*//*, flex: '1 1 auto'*/ 
+				}
+			},aLinkComponents);		
+	}	
+}]]></script>
+        <script_name>TreeNavigation</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-10 13:52:45</sys_created_on>
+        <sys_id>ecc8aa5297d36910a6a07767f053af4f</sys_id>
+        <sys_mod_count>43</sys_mod_count>
+        <sys_name>x_snc_reactor.TreeNavigation</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_ecc8aa5297d36910a6a07767f053af4f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-10 21:56:23</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>
