@@ -11,6 +11,27 @@
 	{
 		super(props);
 	}
+	
+	componentDidMount()
+	{
+		$j(document).ready(function() { this.WorkspaceHeightAlign(); });
+		$j(window).resize(function() { this.WorkspaceHeightAlign();	});		
+		this.WorkspaceHeightAlign();
+	}	
+	
+	WorkspaceHeightAlign()
+	{
+
+		var nHeaderHeight = $j('#framework_header').height();
+		var nToolBarHeight = $j('#framework_toolbar').height();
+		var nFooterHeight = $j('#framework_footer').height();
+
+		var nNonMainAreaHeight = nHeaderHeight + nToolBarHeight + nFooterHeight;
+
+		console.log('WorkspaceHeightAlign: '+nNonMainAreaHeight);
+
+		$j('#framework_mainarea').css('height', 'calc(100vh - ' + nNonMainAreaHeight  + 'px');
+	}	
 
 	render()
 	{
@@ -50,9 +71,10 @@
 				}
 			},this.props.user);		
 		
-		var headerbar = e('div',
+		var header = e('div',
 			{
-				className: 'framework_headerbar',
+				id: 'framework_header',
+				className: 'framework_header',
 				style:
 				{
 					flex: 'none',
@@ -71,6 +93,7 @@
 
 		var toolbar = e('div',
 			{
+				id: 'framework_toolbar',
 				className: 'framework_toolbar',
 				style:
 				{
@@ -113,21 +136,25 @@
 				}
 			},this.props.content);	
 		
-		var sidebar = e('div',
-			{
-				className: 'framework_sidebar',
-				style: 
+		var sidebar = null;
+		if (this.props.sidebar != null)
+		{
+			sidebar = e('div',
 				{
-					flex: '0 1 auto',
-					minWidth: '200px',
-					
-					backgroundColor: '#dddddd'
-				}
-			}, this.props.sidebar);	
-		
+					className: 'framework_sidebar',
+					style: 
+					{
+						flex: '0 1 auto',
+						minWidth: '200px',
+
+						backgroundColor: '#dddddd'
+					}
+				}, this.props.sidebar);	
+		}
 		
 		var mainarea = e('div',
 			{
+				id: 'framework_mainarea',
 				className: 'framework_mainarea',
 				style:
 				{
@@ -150,9 +177,10 @@
 				}
 			},this.props.status);
 		
-		var footerbar = e('div',
+		var footer = e('div',
 			{
-				className: 'framework_footerbar',
+				id: 'framework_footer',
+				className: 'framework_footer',
 				style:
 				{
 					flex: 'none',
@@ -185,10 +213,10 @@
 				}
 			},
 			[
-				headerbar,
+				header,
 				toolbar,
 				mainarea,
-				footerbar
+				footer
 			]);
 		
 		return e(Fullscreen,{},framework);	
@@ -199,14 +227,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-04 18:09:19</sys_created_on>
         <sys_id>ea6d64e897d36110a6a07767f053afe4</sys_id>
-        <sys_mod_count>82</sys_mod_count>
+        <sys_mod_count>94</sys_mod_count>
         <sys_name>x_snc_reactor.Workspace</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_ea6d64e897d36110a6a07767f053afe4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-11 12:28:26</sys_updated_on>
+        <sys_updated_on>2023-06-11 21:45:31</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>
