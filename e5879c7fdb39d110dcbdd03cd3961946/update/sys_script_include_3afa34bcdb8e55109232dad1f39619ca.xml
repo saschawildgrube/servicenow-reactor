@@ -30,6 +30,7 @@
 	
 	var strType = GetStringValue(grComponent.type);
 	var strSourceType = GetStringValue(grComponent.source_type);
+	var bModule = GetBoolValue(grComponent.module);
 	
 	if (strType == 'script')
 	{
@@ -44,7 +45,7 @@
 		}
 		else if (strSourceType == 'url')
 		{
-			strHtml += HtmlRenderScriptUrl(grComponent.url);
+			strHtml += HtmlRenderScriptUrl(grComponent.url,bModule);
 		}
 		else
 		{
@@ -54,7 +55,7 @@
 		bJSX = GetBoolValue(grComponent.jsx);
 		if (bJSX == false)
 		{
-			strHtml += HtmlRenderScript(strScript);
+			strHtml += HtmlRenderScript(strScript,bModule);
 		}
 		else
 		{
@@ -98,7 +99,6 @@
 				return HtmlRenderError('The Stylesheet "'+strComponent+'" uses an unsupported type: "'+strStyleSheetType+'".');
 	
 			}
-			//strStylesheet = GetStringValue(grCSS.script);
 		}
 		else
 		{
@@ -116,13 +116,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-17 14:13:55</sys_created_on>
         <sys_id>3afa34bcdb8e55109232dad1f39619ca</sys_id>
-        <sys_mod_count>37</sys_mod_count>
+        <sys_mod_count>39</sys_mod_count>
         <sys_name>HtmlRenderReactorComponent</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_script_include_3afa34bcdb8e55109232dad1f39619ca</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-10-07 23:12:35</sys_updated_on>
+        <sys_updated_on>2023-08-04 21:40:28</sys_updated_on>
     </sys_script_include>
 </record_update>

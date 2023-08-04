@@ -4,13 +4,13 @@
             <element>.begin_split</element>
             <position>0</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>9abacd09dbcad510dcbdd03cd39619cd</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>8492ab401b683d10cd6153d16b4bcba4</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type>.begin_split</type>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>name</element>
             <position>1</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>1ebacd09dbcad510dcbdd03cd39619cd</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>0892ab401b683d10cd6153d16b4bcba4</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -32,13 +32,13 @@
             <element>type</element>
             <position>2</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>9ebacd09dbcad510dcbdd03cd39619cd</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>8892ab401b683d10cd6153d16b4bcba4</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -46,13 +46,13 @@
             <element>.split</element>
             <position>3</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>12bacd09dbcad510dcbdd03cd39619ce</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>0c92ab401b683d10cd6153d16b4bcba4</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
@@ -60,13 +60,13 @@
             <element>sys_scope</element>
             <position>4</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>92bacd09dbcad510dcbdd03cd39619ce</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>8c92ab401b683d10cd6153d16b4bcba4</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -74,13 +74,13 @@
             <element>role</element>
             <position>5</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>16bacd09dbcad510dcbdd03cd39619ce</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>0092ab401b683d10cd6153d16b4bcba5</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -88,13 +88,13 @@
             <element>.end_split</element>
             <position>6</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>96bacd09dbcad510dcbdd03cd39619ce</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>8092ab401b683d10cd6153d16b4bcba5</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
@@ -102,13 +102,13 @@
             <element>.begin_split</element>
             <position>7</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>1abacd09dbcad510dcbdd03cd39619ce</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>0492ab401b683d10cd6153d16b4bcba5</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type>.begin_split</type>
         </sys_ui_element>
@@ -116,139 +116,153 @@
             <element>source_type</element>
             <position>8</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>9abacd09dbcad510dcbdd03cd39619ce</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>8492ab401b683d10cd6153d16b4bcba5</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>dependencies</element>
+            <position>9</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>0892ab401b683d10cd6153d16b4bcba5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
-            <position>9</position>
+            <position>10</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>1ebacd09dbcad510dcbdd03cd39619ce</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>8892ab401b683d10cd6153d16b4bcba5</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>ui_script</element>
-            <position>10</position>
+            <position>11</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>9ebacd09dbcad510dcbdd03cd39619ce</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>0c92ab401b683d10cd6153d16b4bcba5</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>url</element>
-            <position>11</position>
+            <position>12</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>12bacd09dbcad510dcbdd03cd39619cf</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>8c92ab401b683d10cd6153d16b4bcba5</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>content_css</element>
-            <position>12</position>
+            <position>13</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>92bacd09dbcad510dcbdd03cd39619cf</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>0092ab401b683d10cd6153d16b4bcba6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>module</element>
+            <position>14</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>8092ab401b683d10cd6153d16b4bcba6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.end_split</element>
-            <position>13</position>
+            <position>15</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>16bacd09dbcad510dcbdd03cd39619cf</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>0492ab401b683d10cd6153d16b4bcba6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>dependencies</element>
-            <position>14</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>96bacd09dbcad510dcbdd03cd39619cf</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
             <element>description</element>
-            <position>15</position>
+            <position>16</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>1abacd09dbcad510dcbdd03cd39619cf</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>8492ab401b683d10cd6153d16b4bcba6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>script</element>
-            <position>16</position>
+            <position>17</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>9abacd09dbcad510dcbdd03cd39619cf</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>0892ab401b683d10cd6153d16b4bcba6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>jsx</element>
-            <position>17</position>
+            <position>18</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:00:12</sys_created_on>
-            <sys_id>1ebacd09dbcad510dcbdd03cd39619cf</sys_id>
+            <sys_created_on>2023-08-04 21:17:47</sys_created_on>
+            <sys_id>4892eb401b683d10cd6153d16b4bcb16</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_reactor_component" sys_domain="global" view="Default view">67d30ca0db4e5510dcbdd03cd3961903</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:00:12</sys_updated_on>
+            <sys_updated_on>2023-08-04 21:17:47</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

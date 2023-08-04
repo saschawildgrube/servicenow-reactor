@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="update_synch=true" extends="sys_metadata" label="Reactor Component" max_length="40" name="x_snc_reactor_component" sizeclass="16" type="collection">
+    <element attributes="update_synch=true" db_object_id="9d840c601b8e151009d2dc61ab4bcb8d" extends="sys_metadata" label="Reactor Component" max_length="40" name="x_snc_reactor_component" type="collection">
         <element label="Stylesheet" max_length="32" name="content_css" reference="content_css" type="reference"/>
         <element attributes="no_truncate=true" label="Dependencies" max_length="4000" name="dependencies" reference="x_snc_reactor_component" type="glide_list"/>
         <element label="Description" max_length="2000" name="description" type="string_full_utf8"/>
         <element label="JSX" max_length="40" name="jsx" type="boolean"/>
+        <element label="Module" max_length="40" name="module" type="boolean"/>
         <element display="true" label="Name" mandatory="true" max_length="100" name="name" type="string"/>
         <element choice="3" label="Role" mandatory="true" max_length="40" name="role" type="choice">
             <choice>
@@ -31,10 +32,10 @@
         <element label="UI Script" max_length="32" name="ui_script" reference="sys_ui_script" type="reference"/>
         <element label="URL" max_length="1024" name="url" type="url"/>
         <index name="index">
-            <element name="ui_script"/>
+            <element name="content_css"/>
         </index>
         <index name="index2">
-            <element name="content_css"/>
+            <element name="ui_script"/>
         </index>
     </element>
 </database>
