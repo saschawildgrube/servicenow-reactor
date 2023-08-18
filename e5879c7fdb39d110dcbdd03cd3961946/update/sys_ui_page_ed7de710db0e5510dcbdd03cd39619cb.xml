@@ -30,7 +30,7 @@
 	<ul>
 		<g2:no_escape>$[
 			docapi.RenderSystemRequirements(
-				'San Diego,Tokyo',
+				'Tokyo,Utah',
 				true,
 				AppGetDependencies());
 		]</g2:no_escape>	
@@ -116,11 +116,28 @@
 	
 	<h2>Release Notes</h2>
 <!--
-	<h3>1.2.0 - 2023-TODO</h3>
+	<h3>1.X.0 - 2023-TODO</h3>
 	<ol>
 		<li>TODO: document changes here</li>
 	</ol>
 -->
+
+	<h3>1.5.0 - 2023-08-18</h3>
+	<ol>
+		<li>DevTools 1.66.0 is now required.</li>
+		<li>Reactor has been fully tested on Utah.</li>
+		<li>San Diego is no longer actively supported.</li>
+		<li>Reactor components can now contain "module" scripts.</li>
+		<li>Added component ToolBar.</li>
+		<li>Added component TreeNavigation.</li>
+		<li>Added component InfoMessage.</li>
+		<li>Added component WarningMessage.</li>
+		<li>Added component Fullscreen.</li>
+		<li>Added component Workspace.</li>
+		<li>Added component Centered.</li>
+		<li>Renamed AllTables to AllTablesController but AllTables is still available for backward compatibility.</li>
+	</ol>
+
 	
 	<h3>1.4.0 - 2023-03-24</h3>
 	<ol>
@@ -173,13 +190,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 13:55:46</sys_created_on>
         <sys_id>ed7de710db0e5510dcbdd03cd39619cb</sys_id>
-        <sys_mod_count>56</sys_mod_count>
+        <sys_mod_count>68</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_page_ed7de710db0e5510dcbdd03cd39619cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-24 07:48:03</sys_updated_on>
+        <sys_updated_on>2023-08-18 07:57:09</sys_updated_on>
     </sys_ui_page>
 </record_update>

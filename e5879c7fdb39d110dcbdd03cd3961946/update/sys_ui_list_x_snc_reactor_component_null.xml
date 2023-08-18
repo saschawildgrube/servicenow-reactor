@@ -3,122 +3,152 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>name</element>
-            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2da211cddbcad510dcbdd03cd3961901</list_id>
+            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">6c1a16901b607d10cd6153d16b4bcbc4</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:34:49</sys_created_on>
-            <sys_id>e9a211cddbcad510dcbdd03cd3961902</sys_id>
+            <sys_created_on>2023-08-05 10:39:33</sys_created_on>
+            <sys_id>641a16901b607d10cd6153d16b4bcbc6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:34:49</sys_updated_on>
+            <sys_updated_on>2023-08-05 10:39:33</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>type</element>
-            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2da211cddbcad510dcbdd03cd3961901</list_id>
+            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">6c1a16901b607d10cd6153d16b4bcbc4</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:34:49</sys_created_on>
-            <sys_id>61a211cddbcad510dcbdd03cd3961903</sys_id>
+            <sys_created_on>2023-08-05 10:39:33</sys_created_on>
+            <sys_id>e81a16901b607d10cd6153d16b4bcbc6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:34:49</sys_updated_on>
+            <sys_updated_on>2023-08-05 10:39:33</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>role</element>
-            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2da211cddbcad510dcbdd03cd3961901</list_id>
+            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">6c1a16901b607d10cd6153d16b4bcbc4</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>2</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:34:49</sys_created_on>
-            <sys_id>e1a211cddbcad510dcbdd03cd3961903</sys_id>
+            <sys_created_on>2023-08-05 10:39:33</sys_created_on>
+            <sys_id>6c1a16901b607d10cd6153d16b4bcbc6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:34:49</sys_updated_on>
+            <sys_updated_on>2023-08-05 10:39:33</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>dependencies</element>
-            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2da211cddbcad510dcbdd03cd3961901</list_id>
+            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">6c1a16901b607d10cd6153d16b4bcbc4</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>3</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:34:49</sys_created_on>
-            <sys_id>65a211cddbcad510dcbdd03cd3961903</sys_id>
+            <sys_created_on>2023-08-05 10:39:33</sys_created_on>
+            <sys_id>ec1a16901b607d10cd6153d16b4bcbc6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:34:49</sys_updated_on>
+            <sys_updated_on>2023-08-05 10:39:33</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>source_type</element>
-            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2da211cddbcad510dcbdd03cd3961901</list_id>
+            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">6c1a16901b607d10cd6153d16b4bcbc4</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>4</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:34:49</sys_created_on>
-            <sys_id>e5a211cddbcad510dcbdd03cd3961903</sys_id>
+            <sys_created_on>2023-08-05 10:39:33</sys_created_on>
+            <sys_id>601a16901b607d10cd6153d16b4bcbc7</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:34:49</sys_updated_on>
+            <sys_updated_on>2023-08-05 10:39:33</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>ui_script</element>
-            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2da211cddbcad510dcbdd03cd3961901</list_id>
+            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">6c1a16901b607d10cd6153d16b4bcbc4</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>5</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:34:49</sys_created_on>
-            <sys_id>2da251cddbcad510dcbdd03cd3961908</sys_id>
+            <sys_created_on>2023-08-05 10:39:33</sys_created_on>
+            <sys_id>e01a16901b607d10cd6153d16b4bcbc7</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:34:49</sys_updated_on>
+            <sys_updated_on>2023-08-05 10:39:33</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>url</element>
-            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2da211cddbcad510dcbdd03cd3961901</list_id>
+            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">6c1a16901b607d10cd6153d16b4bcbc4</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>6</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:34:49</sys_created_on>
-            <sys_id>ada251cddbcad510dcbdd03cd3961908</sys_id>
+            <sys_created_on>2023-08-05 10:39:33</sys_created_on>
+            <sys_id>641a16901b607d10cd6153d16b4bcbc7</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:34:49</sys_updated_on>
+            <sys_updated_on>2023-08-05 10:39:33</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>sys_scope</element>
-            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2da211cddbcad510dcbdd03cd3961901</list_id>
+            <element>module</element>
+            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">6c1a16901b607d10cd6153d16b4bcbc4</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>7</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:34:49</sys_created_on>
-            <sys_id>21a251cddbcad510dcbdd03cd3961909</sys_id>
+            <sys_created_on>2023-08-05 10:39:33</sys_created_on>
+            <sys_id>e41a16901b607d10cd6153d16b4bcbc7</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:34:49</sys_updated_on>
+            <sys_updated_on>2023-08-05 10:39:33</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>jsx</element>
+            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">6c1a16901b607d10cd6153d16b4bcbc4</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>8</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-08-05 10:39:33</sys_created_on>
+            <sys_id>681a16901b607d10cd6153d16b4bcbc7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-08-05 10:39:33</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_scope</element>
+            <list_id display_value="x_snc_reactor_component" element="NULL" name="x_snc_reactor_component" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">6c1a16901b607d10cd6153d16b4bcbc4</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>9</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-08-05 10:39:33</sys_created_on>
+            <sys_id>e81a16901b607d10cd6153d16b4bcbc7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-08-05 10:39:33</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
@@ -132,10 +162,10 @@
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-09-18 10:34:49</sys_created_on>
+            <sys_created_on>2023-08-05 10:39:33</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>2da211cddbcad510dcbdd03cd3961901</sys_id>
+            <sys_id>6c1a16901b607d10cd6153d16b4bcbc4</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>x_snc_reactor_component</sys_name>
             <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
@@ -143,7 +173,7 @@
             <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
             <sys_update_name>sys_ui_list_x_snc_reactor_component_null</sys_update_name>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-09-18 10:34:49</sys_updated_on>
+            <sys_updated_on>2023-08-05 10:39:33</sys_updated_on>
             <sys_user/>
             <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>

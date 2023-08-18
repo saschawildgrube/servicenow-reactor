@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="update_synch=true" extends="sys_metadata" label="Component Properties" max_length="40" name="x_snc_reactor_props" sizeclass="4" type="collection">
+    <element attributes="update_synch=true" db_object_id="b090206497831910a6a07767f053af2a" extends="sys_metadata" label="Component Properties" max_length="40" name="x_snc_reactor_props" type="collection">
         <element label="Component" mandatory="true" max_length="32" name="component" read_only="true" reference="x_snc_reactor_component" type="reference"/>
         <element label="Description" max_length="2000" name="description" type="string_full_utf8"/>
         <element label="Mandatory" max_length="40" name="mandatory" type="boolean"/>
@@ -13,6 +13,7 @@
                 <element inactive_on_update="false" label="Array" sequence="5" value="array"/>
                 <element inactive_on_update="false" label="Object" sequence="6" value="object"/>
                 <element inactive_on_update="false" label="Function" sequence="7" value="function"/>
+                <element inactive_on_update="false" label="Component" sequence="8" value="component"/>
             </choice>
         </element>
         <index name="index">

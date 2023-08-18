@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>This React component renders the containing elements in its vertical and horizontal center.</description>
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_snc_reactor.Centered</name>
+        <script><![CDATA[class Centered extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+	}
+
+	render()
+	{
+		return e('div',
+			{
+				style:
+				{
+					height: '100%',
+					width: '100%',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center'					
+				}
+			},
+			this.props.children);	
+	}	
+}]]></script>
+        <script_name>Centered</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-08 17:54:06</sys_created_on>
+        <sys_id>49f091311bd7e110cd6153d16b4bcb16</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>x_snc_reactor.Centered</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_49f091311bd7e110cd6153d16b4bcb16</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 18:16:07</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="content_css">
+    <content_css action="INSERT_OR_UPDATE">
+        <name>TableComponent</name>
+        <style>table.default, th.default, td.default&#13;
+{&#13;
+   border: 1px solid;&#13;
+   padding: 2px;&#13;
+   vertical-align: top&#13;
+}</style>
+        <sys_class_name>content_css</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-03 20:28:21</sys_created_on>
+        <sys_id>2e5440dc97d32110a6a07767f053afac</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>TableComponent</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>content_css_2e5440dc97d32110a6a07767f053afac</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-03 20:44:30</sys_updated_on>
+        <type>local</type>
+        <url/>
+    </content_css>
+</record_update>

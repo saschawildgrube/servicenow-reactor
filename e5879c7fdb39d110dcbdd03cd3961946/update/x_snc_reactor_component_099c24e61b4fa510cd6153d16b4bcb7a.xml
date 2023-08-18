@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
+    <x_snc_reactor_component action="INSERT_OR_UPDATE">
+        <content_css/>
+        <dependencies/>
+        <description>A react component displaying a warning message.</description>
+        <jsx>false</jsx>
+        <name>WarningMessage</name>
+        <role>element</role>
+        <script><![CDATA[class WarningMessage extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+	}
+
+	render()
+	{
+		var strText = GetStringValue(this.props.text);
+		if (strText == '')
+		{
+			return e('div',{});
+		}
+		return e('div',
+				{
+					className: 'outputmsg outputmsg_warning notification notification-warning'
+				},
+				[
+					e('div',
+						{
+							className: 'outputmsg_text'
+						},
+						strText)
+				]);
+	}	
+}]]></script>
+        <source_type>ui_script</source_type>
+        <sys_class_name>x_snc_reactor_component</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-29 12:53:37</sys_created_on>
+        <sys_id>099c24e61b4fa510cd6153d16b4bcb7a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>WarningMessage</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_component_099c24e61b4fa510cd6153d16b4bcb7a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-29 12:53:37</sys_updated_on>
+        <type>script</type>
+        <ui_script display_value="x_snc_reactor.WarningMessage">ef4c20e61b4fa510cd6153d16b4bcb12</ui_script>
+        <url/>
+    </x_snc_reactor_component>
+</record_update>

@@ -4,9 +4,9 @@
         <dependencies>9191395fdbd21510f359c191159619ef</dependencies>
         <description>The React component loads information on all tables in the instance and displays the tables.</description>
         <jsx>true</jsx>
-        <name>AllTables</name>
+        <name>AllTablesController</name>
         <role>controller</role>
-        <script><![CDATA[class AllTables extends ReactorComponent
+        <script><![CDATA[class AllTablesController extends ReactorComponent
 {
 	constructor(props)
 	{
@@ -14,7 +14,7 @@
 		this.state = { loaded: false, tables: {} };
 		this.onServerRequestGetAllTables = this.onServerRequestGetAllTables.bind(this);
 	}
-	
+
 	onServerRequestGetAllTables(response)
 	{
 		this.setState(
@@ -27,14 +27,47 @@
 
 	renderTable(table,nLevel)
 	{
-		return '';
+		var aComponents = [];
+		
+		var strUrl = '/'+table.name+'_list.do';
+		var strPaddingLeft = ((nLevel)*20)+'px';
+/*		
+		aComponents.push(
+			<>
+				<div style={{ paddingLeft: strPaddingLeft }} ><a href={strUrl} target="_blank">{ table.name }</a></div>
+					
+			</>
+		);
+*/
+		aComponents.push(
+			e('div',
+				{
+					style: { paddingLeft: strPaddingLeft } 
+				},
+				e('a',
+					{
+						href: strUrl,
+						target: '_blank'
+					},
+					table.name))
+			);
+	
+		var aExtendingTables = GetArrayValue(GetValue(table,'extending_tables'));
+		for (var nExtendingTable = 0; nExtendingTable < aExtendingTables.length; nExtendingTable++)
+		{
+			var strExtendingTable = aExtendingTables[nExtendingTable];
+			aComponents = ArrayAppend(aComponents,this.renderTable(this.state.tables[strExtendingTable],nLevel+1));
+		}
+		
+		
+		return aComponents;
 	}
 	
 	render()
 	{
 		if (this.state.loaded == false)
 		{
-			ServerRequest('x_snc_devtools.DevToolsClientAPI','GetAllTables',{ extended_tables: true },this.onServerRequestGetAllTables);
+			ServerRequest('x_snc_devtools.DevToolsClientAPI','GetAllTables',{ extending_tables: true },this.onServerRequestGetAllTables);
 			return e(Waiting,{ text: 'Loading Table Data...' });
 		}
 		var tables = this.state.tables;
@@ -53,45 +86,33 @@
 
 		for (var nTable = 0; nTable < aTables.length; nTable++)
 		{
-			var table = tables[nTable];
+			var strTable = aTables[nTable];
+			var table = tables[strTable];
 			var strSuperClass = GetStringValue(GetValue(table,'super_class'));
 			if (strSuperClass == '')
 			{
-				//var strUrl = '/'+table.name+'_list.do';
-				
-				aComponents.push(
-					<>
-					<div style={{ paddingLeft: "20px;" }} ><a href={strUrl} target="_blank">{ table.name }</a></div>
-					//<TableList super_class={table.name} key={table.name}></TableList>
-					</>
-				);
+				aComponents = ArrayAppend(aComponents,this.renderTable(table,1));
 			}
-			
-
-
 		}
 		return e('div',{},aComponents);	
-		
-		
-		//return e('div',{},''+aTables.length);
-		
 	}	
-}]]></script>
+}
+var AllTables = AllTablesController;]]></script>
         <source_type>ui_script</source_type>
         <sys_class_name>x_snc_reactor_component</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-10-16 15:22:32</sys_created_on>
         <sys_id>2edf5ac6476a1110a4b0d4fe536d433c</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>AllTables</sys_name>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>AllTablesController</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_2edf5ac6476a1110a4b0d4fe536d433c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-10-16 16:08:15</sys_updated_on>
+        <sys_updated_on>2023-06-04 17:55:02</sys_updated_on>
         <type>script</type>
-        <ui_script display_value="x_snc_reactor.AllTables">2d00eac6476a1110a4b0d4fe536d43a6</ui_script>
+        <ui_script display_value="x_snc_reactor.AllTablesController">2d00eac6476a1110a4b0d4fe536d43a6</ui_script>
         <url/>
     </x_snc_reactor_component>
 </record_update>

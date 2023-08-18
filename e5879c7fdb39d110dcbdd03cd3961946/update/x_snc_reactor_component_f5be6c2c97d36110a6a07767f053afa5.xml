@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
+    <x_snc_reactor_component action="INSERT_OR_UPDATE">
+        <content_css/>
+        <dependencies>f5d7d9261bcfa510cd6153d16b4bcb15</dependencies>
+        <description>A UI Element component that provides a framework for a typical workspace with a menu, toolbar, tabbed content, tree navigation, a multi-purpose side bar, output/result area on the bottom and a status bar at the bottom of the screen. </description>
+        <jsx>false</jsx>
+        <name>Workspace</name>
+        <role>element</role>
+        <script><![CDATA[class Workspace extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+	}
+
+	render()
+	{
+		
+		var logo = e('div',
+			{
+				style:
+				{
+					backgroundColor: '#eeeeee',
+					float: 'left',
+					minWidth: '20'
+				}
+			},this.props.logo);		
+
+		
+		var menu = e('div',
+			{
+				style:
+				{
+					backgroundColor: '#dddddd',
+				}
+			},this.props.menu);		
+		
+		var user = e('div',
+			{
+				style:
+				{
+					backgroundColor: '#eeeeee',
+					float: 'right',
+					minWidth: '20'
+				}
+			},this.props.user);		
+		
+		var headerbar = e('div',
+			{
+				style:
+				{
+					width: '100%'
+				}
+			},[
+				logo,
+				user,
+				menu
+			]);
+		
+
+		var toolbar = e('div', { style: { backgroundColor: '#bbbbbb' }}, this.props.toolbar);
+		
+		
+		var treenavigation = e('div',
+			{
+				style: 
+				{
+					float: 'left',
+					height: '100%',
+					width: '100px'
+				}
+			}, this.props.treenavigation);
+		
+		var sidebar = e('div',
+			{
+				style: 
+				{
+					float: 'right',
+					height: '100%',
+					width: '100px'
+				}
+			}, this.props.sidebar);	
+		
+		var content = e('div',
+			{
+				style:
+				{
+					height: '100%'
+				}
+			},this.props.content);
+		
+		var mainarea = e('div',
+			{
+				style:
+				{
+					flexGrow: '1',
+					width: '100%',
+					backgroundColor: '#ebebeb'
+				}
+			},[treenavigation,sidebar,content]);
+		
+		var status = e('div',{ style: { backgroundColor: '#aaaaa' }},this.props.status);
+		
+		var footerbar = e('div',
+			{
+				style:
+				{
+					backgroundColor: '#eeeeee',
+					width: '100%',
+					position: 'absolute',
+					bottom: '0'
+				}
+			},[
+				status
+			]);
+		
+		var framework = e('div',
+			{
+				style:
+				{
+					display: 'flex',
+					flexDirection: 'column',
+					width: '100%',
+					height: '100%'
+				}
+			},
+			[
+				headerbar,
+				toolbar,
+				footerbar,
+				mainarea
+			]);
+		
+		return e(Fullscreen,{},framework);	
+	}	
+}]]></script>
+        <source_type>ui_script</source_type>
+        <sys_class_name>x_snc_reactor_component</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-04 18:10:53</sys_created_on>
+        <sys_id>f5be6c2c97d36110a6a07767f053afa5</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Workspace</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_component_f5be6c2c97d36110a6a07767f053afa5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-10 15:23:30</sys_updated_on>
+        <type>script</type>
+        <ui_script display_value="x_snc_reactor.Workspace">ea6d64e897d36110a6a07767f053afe4</ui_script>
+        <url/>
+    </x_snc_reactor_component>
+</record_update>

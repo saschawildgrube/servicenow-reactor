@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_props">
+    <x_snc_reactor_props action="INSERT_OR_UPDATE">
+        <component display_value="TableComponent">8572ee00971fed10a6a07767f053af21</component>
+        <description>The "cells" property is an array of arrays containing objects or strings representing the cell contents.&#13;
+The object can contain the "content", "horizontal" and "header" fields.&#13;
+"content" conatins the contents of the cell.&#13;
+"horizontal" defines the horizontal text alignment. Options are "left" and "right". "left" is the default.&#13;
+"header" is either true or false.</description>
+        <mandatory>true</mandatory>
+        <name>cells</name>
+        <sys_class_name>x_snc_reactor_props</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-11 10:04:05</sys_created_on>
+        <sys_id>1ae107261b57a510cd6153d16b4bcb54</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>cells</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_props_1ae107261b57a510cd6153d16b4bcb54</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-11 10:04:05</sys_updated_on>
+        <type>array</type>
+    </x_snc_reactor_props>
+</record_update>

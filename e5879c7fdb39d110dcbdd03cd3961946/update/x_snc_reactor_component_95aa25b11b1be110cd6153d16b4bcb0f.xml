@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
+    <x_snc_reactor_component action="INSERT_OR_UPDATE">
+        <content_css/>
+        <dependencies>cf54ac20dbce5510dcbdd03cd396197a,b9f7f157db161510f359c191159619e1</dependencies>
+        <description>The ToolBar component renders a series of buttons with icons and/or text and returns the clicked button via a callback function.</description>
+        <jsx>false</jsx>
+        <name>ToolBar</name>
+        <role>element</role>
+        <script><![CDATA[class ToolBar extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+		this.onClick = this.onClick.bind(this);
+	}
+
+	onClick()
+	{
+		
+		this.setState( {clicked: true} );
+		if (typeof this.props.callbackOnClick == 'function')
+		{
+			this.props.callbackOnClick();
+		}
+	}
+
+	render()
+	{
+		var aButtons = [];
+		
+		var tools = this.props.tools;
+		
+		
+		aButtons.push(e(Button,{},null));
+		
+		//onClick: this.onClick
+		
+		return e('div',
+			{
+				
+			},
+			aButtons);	
+	}	
+}]]></script>
+        <source_type>ui_script</source_type>
+        <sys_class_name>x_snc_reactor_component</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-08 19:45:23</sys_created_on>
+        <sys_id>95aa25b11b1be110cd6153d16b4bcb0f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ToolBar</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_component_95aa25b11b1be110cd6153d16b4bcb0f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-08 19:45:23</sys_updated_on>
+        <type>script</type>
+        <ui_script display_value="x_snc_reactor.ToolBar">85f899751bd7e110cd6153d16b4bcbab</ui_script>
+        <url/>
+    </x_snc_reactor_component>
+</record_update>

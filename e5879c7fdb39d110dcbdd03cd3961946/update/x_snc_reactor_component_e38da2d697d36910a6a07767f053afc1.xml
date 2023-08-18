@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
+    <x_snc_reactor_component action="INSERT_OR_UPDATE">
+        <content_css/>
+        <dependencies/>
+        <description>The React component renders a collapsable and expandable tree of navigation options.</description>
+        <jsx>false</jsx>
+        <name>TreeNavigation</name>
+        <role>element</role>
+        <script><![CDATA[class NewComponent extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+		this.state = { navigationtree: this.props.navigationtree };
+		this.onClick = this.onClick.bind(this);
+		this.onClickCollapse = this.onClickCollapse.bind(this);
+		this.onClickExpand = this.onClickExpand.bind(this);
+	}
+
+	onClick()
+	{
+		var strValue = GetStringValue(event.target.attributes.value.value);
+		if (typeof this.props.callbackOnClick == 'function')
+		{
+			this.props.callbackOnClick(strValue);
+		}
+	}
+	
+	onClickCollapse()
+	{
+		var strValue = GetStringValue(event.target.attributes.value.value);
+		DoModalMessage('Collapse: '+strValue);
+	}	
+	onClickExpand()
+	{
+		var strValue = GetStringValue(event.target.attributes.value.value);
+		DoModalMessage('Expand: '+strValue);
+	}		
+
+	render()
+	{
+		var navigationtree = GetArrayValue(this.state.navigationtree);
+		
+		var aLinkComponents = [];
+		
+		function RenderNavigationTree(navigationtree,nLevel,aPath)
+		{
+			nLevel = GetIntegerValue(nLevel);
+			aPath = GetArrayValue(aPath);
+			var aItems = GetArrayValue(GetValue(navigationtree,'items');
+			for (var nItem = 0; nItem < aItems.length; nItem++)
+			{
+				var item = aItems[nItem];
+				var strLabel = GetStringValue(GetValue(item,'label'));
+				if (strLabel != '')
+				{
+					var bHasSubItems = false;
+					var aSubItems = GetArrayValue(GetValue(item,'items'));
+					if (aSubItems.length > 0)
+					{
+						bHasSubItems = true;
+					}
+					
+					if (bHasSubItems == false)
+					{
+						var strValue = GetStringValue(GetValue(item,'value'));
+						aLinkComponents.push(
+							e('a',
+							{
+								style: {
+									borderLeft: (nLevel * 5) + 'px'
+								},
+								onClick: this.onClick,
+								value: strValue,
+							},strLabel));
+					}
+					else
+					{
+						var bCollapsed = GetBoolValue(GetValue(item,'collapsed'));
+						if (bCollapsed == true)
+						{
+							aLinkComponents.push(
+								e('a',
+								{
+									style: {
+										borderLeft: (nLevel * 5) + 'px'
+									},
+									onClickExpand: this.onClickExpand,
+									value: GetStringValue(aPath),
+								},strLabel));						
+							
+						}
+						RenderNavigationTree(aSubItems,nLevel+1,aPath.push(nItem));
+					}
+				}
+			}			
+		}
+		
+		RenderNavigationTree(navigationtree);
+				
+		return e('div',{ className: 'navigationtree' },aLinkComponents);		
+	}	
+}]]></script>
+        <source_type>ui_script</source_type>
+        <sys_class_name>x_snc_reactor_component</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-10 13:54:24</sys_created_on>
+        <sys_id>e38da2d697d36910a6a07767f053afc1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>TreeNavigation</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_component_e38da2d697d36910a6a07767f053afc1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-10 13:54:24</sys_updated_on>
+        <type>script</type>
+        <ui_script display_value="x_snc_reactor.TreeNavigation">ecc8aa5297d36910a6a07767f053af4f</ui_script>
+        <url/>
+    </x_snc_reactor_component>
+</record_update>
