@@ -10,10 +10,11 @@
 	constructor(props)
 	{
 		super(props);
-		this.state = { treenavigation: this.props.treenavigation };
-		this.onClick = this.onClick.bind(this);
-		this.onClickCollapse = this.onClickCollapse.bind(this);
-		this.onClickExpand = this.onClickExpand.bind(this);
+		this.state = {
+			treenavigation: this.props.treenavigation,
+			filter: this.props.filter
+		};
+		BindAllFunctionsToThis(this);
 	}
 
 	onClick()
@@ -35,7 +36,15 @@
 	{
 		var strValue = GetStringValue(event.target.attributes.value.value);
 		//DoModalMessage('Expand: '+strValue);
-	}		
+	}	
+	
+	onInputFilter()
+	{
+		var strValue = GetStringValue(event.target.value);
+		console.log('TreeNavigation::onInputFilter: '+strValue);
+		
+		this.setState( { filter: strValue });
+	}
 
 	renderNavigationRow(nLevel,children)
 	{
@@ -53,13 +62,27 @@
 	
 	render()
 	{
-		//console.log(this.state);
 		var treenavigation = this.state.treenavigation;
+
 		
 		var aLinkComponents = [];
 		
-		function RenderNavigationTree(THIS, treenavigation,nLevel,aPath)
+		if (this.props.filter_active == true)
 		{
+			var componentFilterInput = e('input',{
+				style: { width: '100%'},
+				value: this.state.filter,
+				onInput: this.onInputFilter,
+				},null);
+
+			aLinkComponents.push(componentFilterInput);
+		}	
+		
+		
+		
+		function RenderNavigationTree(THIS,treenavigation,nLevel,aPath)
+		{
+			var bVisibleItems = false;
 			nLevel = GetIntegerValue(nLevel);
 			aPath = GetArrayValue(aPath);
 			var aItems = GetArrayValue(GetValue(treenavigation,'items'));
@@ -78,19 +101,36 @@
 					
 					if (bHasSubItems == false)
 					{
-						var strValue = GetStringValue(GetValue(item,'value'));
-						aLinkComponents.push(
-							THIS.renderNavigationRow(
-								nLevel,
-								e('a',
-								{
-									style: {
-										borderLeft: (nLevel * 5) + 'px'
-									},
-									onClick: THIS.onClick,
-									value: strValue,
-								},strLabel)
-							));
+						var strFilter = GetStringValue(THIS.state.filter); 
+						strFilter = strFilter.toLowerCase();
+						var bVisible = true;
+						if (strFilter != '')
+						{
+							var strLabelLowerCase = strLabel.toLowerCase();
+							if (strLabelLowerCase.indexOf(strFilter) == -1)
+							{
+								bVisible = false;
+							}
+						}
+						
+						if (bVisible == true)
+						{
+							
+							var strValue = GetStringValue(GetValue(item,'value'));
+							aLinkComponents.push(
+								THIS.renderNavigationRow(
+									nLevel,
+									e('a',
+									{
+										style: {
+											borderLeft: (nLevel * 5) + 'px'
+										},
+										onClick: THIS.onClick,
+										value: strValue,
+									},strLabel)
+								));
+							bVisibleItems = true;
+						}
 					}
 					else
 					{
@@ -141,32 +181,25 @@
 						RenderNavigationTree(THIS,item,nLevel+1,aPath.push(nItem));
 					}
 				}
-			}			
+			}
+			return bVisibleItems;
 		}
 		
 		RenderNavigationTree(this,treenavigation);
-				
+
+		
 		return e('div',
 			{
 				className: 'treenavigation',
 				style:
 				{
-					//display: 'flex',
 					display: 'table-cell',
 					flexDirection: 'column',
-					//flexBasis: 'inherit',
-					
-					//height: '100%',
-					//width: '100%',
+
 					overflowY: 'auto',
 					overflowX: 'auto',
 
 					paddingLeft: '10px'
-					
-					
-					
-									
-					/*overflow: 'auto'*//*, flex: '1 1 auto'*/ 
 				}
 			},aLinkComponents);		
 	}	
@@ -176,14 +209,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-10 13:52:45</sys_created_on>
         <sys_id>ecc8aa5297d36910a6a07767f053af4f</sys_id>
-        <sys_mod_count>47</sys_mod_count>
+        <sys_mod_count>71</sys_mod_count>
         <sys_name>x_snc_reactor.TreeNavigation</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_ecc8aa5297d36910a6a07767f053af4f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-12 06:40:40</sys_updated_on>
+        <sys_updated_on>2023-09-22 21:38:05</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>
