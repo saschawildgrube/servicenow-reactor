@@ -63,12 +63,13 @@
 	render()
 	{
 		var treenavigation = this.state.treenavigation;
-
 		
 		var aLinkComponents = [];
 		
-		if (this.props.filter_active == true)
+		var strFilter = '';
+		if (this.props.filter_show == true)
 		{
+			strFilter = GetStringValue(this.state.filter); 
 			var componentFilterInput = e('input',{
 				style: { width: '100%'},
 				value: this.state.filter,
@@ -76,9 +77,12 @@
 				},null);
 
 			aLinkComponents.push(componentFilterInput);
-		}	
-		
-		
+		}
+		else
+		{
+			strFilter = GetStringValue(this.props.filter); 
+			strFilter = strFilter.toLowerCase();	
+		}
 		
 		function RenderNavigationTree(THIS,treenavigation,nLevel,aPath)
 		{
@@ -101,8 +105,6 @@
 					
 					if (bHasSubItems == false)
 					{
-						var strFilter = GetStringValue(THIS.state.filter); 
-						strFilter = strFilter.toLowerCase();
 						var bVisible = true;
 						if (strFilter != '')
 						{
@@ -209,14 +211,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-10 13:52:45</sys_created_on>
         <sys_id>ecc8aa5297d36910a6a07767f053af4f</sys_id>
-        <sys_mod_count>71</sys_mod_count>
+        <sys_mod_count>79</sys_mod_count>
         <sys_name>x_snc_reactor.TreeNavigation</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_ecc8aa5297d36910a6a07767f053af4f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-09-22 21:38:05</sys_updated_on>
+        <sys_updated_on>2023-09-23 11:20:40</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>
