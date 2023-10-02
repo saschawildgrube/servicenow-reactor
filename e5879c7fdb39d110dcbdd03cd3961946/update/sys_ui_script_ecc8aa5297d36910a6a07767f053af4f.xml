@@ -29,19 +29,54 @@
 	onClickCollapse()
 	{
 		var strValue = GetStringValue(event.target.attributes.value.value);
-		//DoModalMessage('Collapse: '+strValue);
+		this.setCollapsed(strValue,true);
 	}	
 	
 	onClickExpand()
 	{
 		var strValue = GetStringValue(event.target.attributes.value.value);
-		//DoModalMessage('Expand: '+strValue);
-	}	
+		this.setCollapsed(strValue,false);
+	}
+	
+	setCollapsed(strValue,bCollapsed)
+	{
+		var aPath = GetArrayValue(strValue);
+		for (var nKey = 0; nKey < aPath.length; nKey++)
+		{
+			aPath[nKey] = GetIntegerValue(aPath[nKey]);
+		}
+		console.log(aPath);
+		var treenavigation = this.state.treenavigation;
+		
+		if (aPath.length == 1)
+		{
+			treenavigation = SetValue(bCollapsed,treenavigation,
+				'items',GetValue(aPath,0),
+				'collapsed');
+		}
+		else if (aPath.length == 2)
+		{
+			treenavigation = SetValue(bCollapsed,treenavigation,
+				'items',GetValue(aPath,0),
+				'items',GetValue(aPath,1),
+				'collapsed');
+		}
+		else if (aPath.length == 3)
+		{
+			treenavigation = SetValue(bCollapsed,treenavigation,
+				'items',GetValue(aPath,0),
+				'items',GetValue(aPath,1),
+				'items',GetValue(aPath,2),
+				'collapsed');
+		}
+		console.log(treenavigation);
+		this.setState( { treenavigation: treenavigation });	
+	}
 	
 	onInputFilter()
 	{
 		var strValue = GetStringValue(event.target.value);
-		console.log('TreeNavigation::onInputFilter: '+strValue);
+		//console.log('TreeNavigation::onInputFilter: '+strValue);
 		
 		this.setState( { filter: strValue });
 	}
@@ -92,6 +127,10 @@
 			var aItems = GetArrayValue(GetValue(treenavigation,'items'));
 			for (var nItem = 0; nItem < aItems.length; nItem++)
 			{
+				var aPathClone = Clone(aPath);
+				//console.log(aPathClone);
+				aPathClone.push(nItem);				
+				
 				var item = aItems[nItem];
 				var strLabel = GetStringValue(GetValue(item,'label'));
 				if (strLabel != '')
@@ -136,6 +175,45 @@
 					}
 					else
 					{
+						var componentLinkCollapse = null;
+						var bCollapsed = GetBoolValue(GetValue(item,'collapsed'));
+						if (bCollapsed == true)
+						{
+							componentLinkCollapse = 
+								e('a',
+									{
+										style:
+										{
+											fontWeight: 'bold',
+										},
+										onClick: THIS.onClickExpand,
+										value: aPathClone,
+									},
+									[
+										e(Icon, { icon: 'caret-right' }),
+										strLabel
+									]
+								 );
+						}
+						else
+						{
+							componentLinkCollapse = 
+								e('a',
+									{
+										style:
+										{
+											fontWeight: 'bold',
+										},
+										onClick: THIS.onClickCollapse,
+										value: aPathClone,
+									},
+									[
+										e(Icon, { icon: 'caret-down' }),
+										strLabel
+									]
+								 );
+						}
+						/*
 						aLinkComponents.push(
 							THIS.renderNavigationRow(
 								nLevel,
@@ -145,42 +223,20 @@
 											fontWeight: 'bold',
 										}
 									},
-									strLabel)
-								));			
-						/*
-						var bCollapsed = GetBoolValue(GetValue(item,'collapsed'));
-						if (bCollapsed == true)
+									[componentLinkCollapse,strLabel])
+								));
+						*/
+
+						aLinkComponents.push(
+							THIS.renderNavigationRow(
+								nLevel,
+								componentLinkCollapse));
+														
+						componentLinkCollapse
+						if (bCollapsed == false)
 						{
-							aLinkComponents.push(
-								THIS.renderNavigationRow(
-									nLevel,
-									e('a',
-									{
-										style: {
-											fontWeight: 'bold',
-										},
-										onClick: THIS.onClickExpand,
-										value: 'expand',
-									},strLabel)
-								));					
+							RenderNavigationTree(THIS,item,nLevel+1,aPathClone);							
 						}
-						else
-						{
-							aLinkComponents.push(						
-								THIS.renderNavigationRow(
-									nLevel,
-									e('a',
-									{
-										style: {
-											fontWeight: 'bold',
-											},
-										onClick: THIS.onClickCollapse,
-										value: 'collapse',
-									},strLabel)
-									
-								));									
-						}*/
-						RenderNavigationTree(THIS,item,nLevel+1,aPath.push(nItem));
 					}
 				}
 			}
@@ -211,14 +267,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-10 13:52:45</sys_created_on>
         <sys_id>ecc8aa5297d36910a6a07767f053af4f</sys_id>
-        <sys_mod_count>79</sys_mod_count>
+        <sys_mod_count>98</sys_mod_count>
         <sys_name>x_snc_reactor.TreeNavigation</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_ecc8aa5297d36910a6a07767f053af4f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-09-23 11:20:40</sys_updated_on>
+        <sys_updated_on>2023-10-02 14:17:45</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>
