@@ -10,16 +10,23 @@
 	constructor(props)
 	{
 		super(props);
+		var strCollapseMode = GetStringValue(this.props.collapse_mode);
+		if (strCollapseMode == '')
+		{
+			strCollapseMode = 'all';
+		}
 		this.state = {
 			treenavigation: this.props.treenavigation,
-			filter: this.props.filter
+			filter: GetStringValue(this.props.filter),
+			collapse_mode: strCollapseMode,
+			collapse_all_level: GetIntegerValue(this.props.collapse_all_level)
 		};
 		BindAllFunctionsToThis(this);
 	}
 
 	onClick()
 	{
-		var strValue = GetStringValue(event.target.attributes.value.value);
+		var strValue = GetStringValue(event.target.parentElement.attributes.value.value);
 		if (typeof this.props.callbackOnClick == 'function')
 		{
 			this.props.callbackOnClick(strValue);
@@ -28,13 +35,13 @@
 	
 	onClickCollapse()
 	{
-		var strValue = GetStringValue(event.target.attributes.value.value);
+		var strValue = GetStringValue(event.target.parentElement.attributes.value.value);
 		this.setCollapsed(strValue,true);
 	}	
 	
 	onClickExpand()
 	{
-		var strValue = GetStringValue(event.target.attributes.value.value);
+		var strValue = GetStringValue(event.target.parentElement.attributes.value.value);
 		this.setCollapsed(strValue,false);
 	}
 	
@@ -45,7 +52,6 @@
 		{
 			aPath[nKey] = GetIntegerValue(aPath[nKey]);
 		}
-		console.log(aPath);
 		var treenavigation = this.state.treenavigation;
 		
 		if (aPath.length == 1)
@@ -78,18 +84,45 @@
 				'items',GetValue(aPath,3),
 				'collapsed');
 		}		
-		console.log(treenavigation);
-		this.setState( { treenavigation: treenavigation });	
+		this.setState( { treenavigation: treenavigation, collapse_mode: 'user' });	
+	}
+	
+	onClickCollapseAll()
+	{
+		this.setState( { collapse_mode: 'all' });
+	}	
+	
+	onClickExpandAll()
+	{
+		this.setState( { collapse_mode: 'none' });
+	}	
+	
+	onClickRecover()
+	{
+		this.setState( { collapse_mode: 'user' });
 	}
 	
 	onInputFilter()
 	{
 		var strValue = GetStringValue(event.target.value);
-		//console.log('TreeNavigation::onInputFilter: '+strValue);
-		
 		this.setState( { filter: strValue });
 	}
+	
+	renderIconCollapsed()
+	{
+		return e(Icon, { icon: 'caret-down' });
+	}
 
+	renderIconExpanded()
+	{
+		return e(Icon, { icon: 'caret-right' });
+	}	
+	
+	renderIconRecover()
+	{
+		return e(Icon, { icon: 'caret-square-o-down' });
+	}		
+	
 	renderNavigationRow(nLevel,children)
 	{
 		return e('div',
@@ -108,7 +141,7 @@
 	{
 		var treenavigation = this.state.treenavigation;
 		
-		var aLinkComponents = [];
+		var aComponents = [];
 		
 		var strFilter = '';
 		if (this.props.filter_show == true)
@@ -120,13 +153,52 @@
 				onInput: this.onInputFilter,
 				},null);
 
-			aLinkComponents.push(componentFilterInput);
+			aComponents.push(componentFilterInput);
 		}
 		else
 		{
 			strFilter = GetStringValue(this.props.filter); 
 			strFilter = strFilter.toLowerCase();	
 		}
+		
+
+		var componentLinkCollapseAll = e('a',
+			{
+				onClick: this.onClickCollapseAll
+			}, this.renderIconExpanded());
+		var componentLinkRecover = e('a',
+			{
+				onClick: this.onClickRecover
+			}, this.renderIconRecover());			
+		var componentLinkExpandAll = e('a',
+			{
+				onClick: this.onClickExpandAll
+			}, this.renderIconCollapsed());		
+		
+		var aTools = [];
+		if (this.state.collapse_mode != 'all')
+		{
+			aTools.push(componentLinkCollapseAll);
+		}
+		if (this.state.collapse_mode != 'user')
+		{
+			aTools.push(componentLinkRecover);
+		}
+		if (this.state.collapse_mode != 'none')
+		{
+			aTools.push(componentLinkExpandAll);
+		}		
+		
+		var componentTools = e('div',
+			{
+				style: { width: '100%', textAlign: 'right'}
+			},
+			aTools);
+
+		aComponents.push(componentTools);
+		
+		
+		
 		
 		function RenderNavigationTree(THIS,treenavigation,nLevel,aPath)
 		{
@@ -137,11 +209,11 @@
 			for (var nItem = 0; nItem < aItems.length; nItem++)
 			{
 				var aPathClone = Clone(aPath);
-				//console.log(aPathClone);
 				aPathClone.push(nItem);				
 				
 				var item = aItems[nItem];
 				var strLabel = GetStringValue(GetValue(item,'label'));
+				var componentLabel = e('span',{},strLabel);
 				if (strLabel != '')
 				{
 					var bHasSubItems = false;
@@ -167,7 +239,7 @@
 						{
 							
 							var strValue = GetStringValue(GetValue(item,'value'));
-							aLinkComponents.push(
+							aComponents.push(
 								THIS.renderNavigationRow(
 									nLevel,
 									e('a',
@@ -177,7 +249,7 @@
 										},
 										onClick: THIS.onClick,
 										value: strValue,
-									},strLabel)
+									},componentLabel)
 								));
 							bVisibleItems = true;
 						}
@@ -186,6 +258,18 @@
 					{
 						var componentLinkCollapse = null;
 						var bCollapsed = GetBoolValue(GetValue(item,'collapsed'));
+						if (THIS.state.collapse_mode == 'all')
+						{
+							bCollapsed = true;
+							if (GetIntegerValue(THIS.state.collapse_all_level) > nLevel)
+							{
+								bCollapsed = false;
+							}
+						}
+						if (THIS.state.collapse_mode == 'none')
+						{
+							bCollapsed = false;
+						}						
 						if (bCollapsed == true)
 						{
 							componentLinkCollapse = 
@@ -199,8 +283,8 @@
 										value: aPathClone,
 									},
 									[
-										e(Icon, { icon: 'caret-right' }),
-										strLabel
+										THIS.renderIconCollapsed(),
+										componentLabel
 									]
 								 );
 						}
@@ -217,26 +301,13 @@
 										value: aPathClone,
 									},
 									[
-										e(Icon, { icon: 'caret-down' }),
-										strLabel
+										THIS.renderIconExpanded(),
+										componentLabel
 									]
 								 );
 						}
-						/*
-						aLinkComponents.push(
-							THIS.renderNavigationRow(
-								nLevel,
-								e('span',
-									{
-										style: {
-											fontWeight: 'bold',
-										}
-									},
-									[componentLinkCollapse,strLabel])
-								));
-						*/
 
-						aLinkComponents.push(
+						aComponents.push(
 							THIS.renderNavigationRow(
 								nLevel,
 								componentLinkCollapse));
@@ -268,7 +339,7 @@
 
 					paddingLeft: '10px'
 				}
-			},aLinkComponents);		
+			},aComponents);		
 	}	
 }]]></script>
         <script_name>TreeNavigation</script_name>
@@ -276,14 +347,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-10 13:52:45</sys_created_on>
         <sys_id>ecc8aa5297d36910a6a07767f053af4f</sys_id>
-        <sys_mod_count>99</sys_mod_count>
+        <sys_mod_count>120</sys_mod_count>
         <sys_name>x_snc_reactor.TreeNavigation</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_ecc8aa5297d36910a6a07767f053af4f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-10-03 17:54:10</sys_updated_on>
+        <sys_updated_on>2023-10-03 18:46:01</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>
