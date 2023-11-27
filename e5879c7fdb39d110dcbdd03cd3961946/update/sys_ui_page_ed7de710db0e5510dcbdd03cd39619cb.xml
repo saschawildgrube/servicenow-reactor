@@ -128,6 +128,7 @@
 		<li>Reactor has been fully tested in Vancouver.</li>
 		<li>DevTools 1.71.0 is now required because of the use of BindAllFunctionsToThis() (introduced in 1.67.0) and the additional parameter support in GetValue() and SetValue(). BindAllFunctionsToThis() is now used in the constructor of ReactorComponent.</li>
 		<li>Now using React 18.</li>
+		<li>Added a new Reactor Component role: "Theme / Fonts / CSS" and assigned the "Fontawesome" component to that new role.</li>
 		<li>The TreeNavigation component now supports text filtering.</li>
 		<li>The TreeNavigation component now supports menu collapse and expand.</li>
 		<li>The TreeNavigation component also supports to collapse all and expand all menu items and to return to the last user selection.</li>
@@ -207,13 +208,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 13:55:46</sys_created_on>
         <sys_id>ed7de710db0e5510dcbdd03cd39619cb</sys_id>
-        <sys_mod_count>81</sys_mod_count>
+        <sys_mod_count>82</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_page_ed7de710db0e5510dcbdd03cd39619cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-11-27 14:58:50</sys_updated_on>
+        <sys_updated_on>2023-11-27 15:00:23</sys_updated_on>
     </sys_ui_page>
 </record_update>
