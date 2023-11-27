@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="syntax_editor_macro">
     <syntax_editor_macro action="INSERT_OR_UPDATE">
-        <comments>Creates the pattern "this.onClick = this.onClick.bind(this);" which is to be used in the constructor in a React component class to access the "this" object in a member functions (yes, JavaScript is broken). </comments>
+        <comments>Creates the pattern "this.onClick = this.onClick.bind(this);" which is to be used in the constructor in a React component class to access the "this" object in a member function (yes, JavaScript is broken). &#13;
+However, the use of this pattern should no longer be required as the BindAllFunctionsToThis() function is used in the constructor of the ReactorComponent class.</comments>
         <name>bind</name>
         <sys_class_name>syntax_editor_macro</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 22:01:33</sys_created_on>
         <sys_id>c66c9524db829510dcbdd03cd39619dc</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>bind</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>syntax_editor_macro_c66c9524db829510dcbdd03cd39619dc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-16 22:07:52</sys_updated_on>
+        <sys_updated_on>2023-11-27 14:41:13</sys_updated_on>
         <text>this.onClick = this.onClick.bind(this);</text>
     </syntax_editor_macro>
 </record_update>
