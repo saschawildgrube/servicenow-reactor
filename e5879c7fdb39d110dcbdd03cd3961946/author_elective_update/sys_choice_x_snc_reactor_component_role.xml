@@ -6,7 +6,6 @@
             <sys_class_name>sys_choice_set</sys_class_name>
             <sys_created_by>admin</sys_created_by>
             <sys_created_on>2022-09-18 09:43:04</sys_created_on>
-            <sys_id>dfc64545dbcad510dcbdd03cd3961977</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>role</sys_name>
             <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
@@ -30,7 +29,6 @@
             <sys_created_on>2022-09-18 09:43:04</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>15c64545dbcad510dcbdd03cd3961926</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2022-09-18 09:43:04</sys_updated_on>
@@ -50,7 +48,6 @@
             <sys_created_on>2022-09-18 09:43:29</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>8dd60545dbcad510dcbdd03cd39619fa</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2022-09-18 09:43:29</sys_updated_on>
@@ -70,7 +67,6 @@
             <sys_created_on>2022-09-18 09:43:44</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>f2e64545dbcad510dcbdd03cd3961984</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2022-09-18 09:43:44</sys_updated_on>
@@ -90,7 +86,6 @@
             <sys_created_on>2022-09-18 09:44:37</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>66074945dbcad510dcbdd03cd3961942</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2022-09-18 09:44:37</sys_updated_on>
@@ -110,11 +105,29 @@
             <sys_created_on>2022-10-09 11:23:13</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>d207ad3fdb5a5510f359c19115961923</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2022-10-09 11:23:13</sys_updated_on>
             <value>api</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>role</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Theme / Fonts / CSS</label>
+            <language>en</language>
+            <name>x_snc_reactor_component</name>
+            <sequence>7</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-11-27 14:51:28</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-11-27 14:51:28</sys_updated_on>
+            <value>theme</value>
         </sys_choice>
     </sys_choice>
 </record_update>
