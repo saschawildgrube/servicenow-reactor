@@ -4,6 +4,7 @@
         <dependencies>9191395fdbd21510f359c191159619ef</dependencies>
         <description>The React component loads information on all tables in the instance and displays the tables.</description>
         <jsx>true</jsx>
+        <module>false</module>
         <name>AllTablesController</name>
         <role>controller</role>
         <script><![CDATA[class AllTablesController extends ReactorComponent
@@ -12,7 +13,7 @@
 	{
 		super(props);
 		this.state = { loaded: false, tables: {} };
-		this.onServerRequestGetAllTables = this.onServerRequestGetAllTables.bind(this);
+		BindAllFunctionsToThis(this);
 	}
 
 	onServerRequestGetAllTables(response)
@@ -103,14 +104,14 @@ var AllTables = AllTablesController;]]></script>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-10-16 15:22:32</sys_created_on>
         <sys_id>2edf5ac6476a1110a4b0d4fe536d433c</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>AllTablesController</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_2edf5ac6476a1110a4b0d4fe536d433c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-04 17:55:02</sys_updated_on>
+        <sys_updated_on>2023-11-27 14:46:49</sys_updated_on>
         <type>script</type>
         <ui_script display_value="x_snc_reactor.AllTablesController">2d00eac6476a1110a4b0d4fe536d43a6</ui_script>
         <url/>

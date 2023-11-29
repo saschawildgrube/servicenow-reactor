@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_props">
+    <x_snc_reactor_props action="INSERT_OR_UPDATE">
+        <component display_value="Workspace">f5be6c2c97d36110a6a07767f053afa5</component>
+        <description>The top area in the left bar.</description>
+        <mandatory>false</mandatory>
+        <name>leftbarheader</name>
+        <sys_class_name>x_snc_reactor_props</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-09-22 21:58:20</sys_created_on>
+        <sys_id>29a10c001bed3150cd6153d16b4bcbb1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>leftbarheader</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_props_29a10c001bed3150cd6153d16b4bcbb1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-09-22 21:58:20</sys_updated_on>
+        <type>component</type>
+    </x_snc_reactor_props>
+</record_update>

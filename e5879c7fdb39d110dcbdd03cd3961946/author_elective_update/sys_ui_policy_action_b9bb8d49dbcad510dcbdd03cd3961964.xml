@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="DELETE">
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field>script</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-18 10:04:49</sys_created_on>
+        <sys_id>b9bb8d49dbcad510dcbdd03cd3961964</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>script</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_policy_action_b9bb8d49dbcad510dcbdd03cd3961964</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-18 10:04:49</sys_updated_on>
+        <table>x_snc_reactor_component</table>
+        <ui_policy display_value="Component Type Script">869b0d49dbcad510dcbdd03cd3961968</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</application>
+        <file_path/>
+        <instance_id>84975bb2db8d919c4d2bac44d4961989</instance_id>
+        <instance_name>wildgrubetokyo</instance_name>
+        <name>sys_ui_policy_action_b9bb8d49dbcad510dcbdd03cd3961964</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field>script</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-18 10:04:49</sys_created_on>
+        <sys_id>b9bb8d49dbcad510dcbdd03cd3961964</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>script</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_policy_action_b9bb8d49dbcad510dcbdd03cd3961964</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-18 10:04:49</sys_updated_on>
+        <table>x_snc_reactor_component</table>
+        <ui_policy display_value="Component Type Script">869b0d49dbcad510dcbdd03cd3961968</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+</record_update>]]></payload>
+        <payload_hash>-54104971</payload_hash>
+        <record_name>script</record_name>
+        <reverted_from/>
+        <source>5890ec2497831910a6a07767f053afbf</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-11-05 10:42:04</sys_created_on>
+        <sys_id>3390a46497831910a6a07767f053af29</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>184476224330000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-11-05 10:42:04</sys_updated_on>
+        <type>UI Policy Action</type>
+        <update_guid>ff90a464c2831910ebb8af13f1b4b128</update_guid>
+        <update_guid_history>ff90a464c2831910ebb8af13f1b4b128:-54104971</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-08-31 14:44:22</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy_action">sys_ui_policy_action</sys_db_object>
+        <sys_id>8a2c092ab8b649a0b9f3d94ceb709c40</sys_id>
+        <sys_metadata>b9bb8d49dbcad510dcbdd03cd3961964</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>script</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_parent display_value="Component Type Script">869b0d49dbcad510dcbdd03cd3961968</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_scope_delete display_value="">15e7e2e9ba6d4c1aa140dfcee66950e9</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_action_b9bb8d49dbcad510dcbdd03cd3961964</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_action_b9bb8d49dbcad510dcbdd03cd3961964">3390a46497831910a6a07767f053af29</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-08-31 14:44:22</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

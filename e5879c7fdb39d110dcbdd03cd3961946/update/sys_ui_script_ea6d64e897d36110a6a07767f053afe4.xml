@@ -14,7 +14,7 @@
 	
 	componentDidMount()
 	{
-		$j(window).resize(function() { this.adjustWorkspaceHeight();	});		
+		$j(window).resize(function() { this.adjustWorkspaceHeight(); });		
 		this.adjustWorkspaceHeight();
 	}	
 	
@@ -100,6 +100,36 @@
 				}
 			}, this.props.toolbar);
 		
+		var toolbar = e('div',
+			{
+				id: 'framework_toolbar',
+				className: 'framework_toolbar',
+				style:
+				{
+					flex: '0 1 auto',
+					width: '100%',
+					
+					backgroundColor: '#bbbbbb'
+				}
+			}, this.props.toolbar);		
+	
+		var leftbarheader = e('div',
+			{
+				className: 'framework_leftbar_header',
+				style: 
+				{
+					flex: '0 1 auto',
+					//minWidth: '250px',
+					//maxWidth: '400px',
+					//height: '100%',
+					//overflowY: 'auto',
+					
+					display: 'flex',
+					flexDirection: 'column',
+					
+					backgroundColor: '#aaaaaa'
+				}
+			},this.props.leftbarheader);		
 		
 		var treenavigation = e('div',
 			{
@@ -118,6 +148,24 @@
 					backgroundColor: '#dddddd'
 				}
 			},this.props.treenavigation);
+		
+		var leftbar = e('div',
+			{
+				className: 'framework_leftbar',
+				style: 
+				{
+					flex: '0 1 auto',
+					minWidth: '250px',
+					maxWidth: '400px',
+					height: '100%',
+					//overflowY: 'auto',
+					
+					display: 'flex',
+					flexDirection: 'column',
+					
+					backgroundColor: '#dddddd'
+				}
+			},[leftbarheader,treenavigation]);		
 
 		var content = e('div',
 			{
@@ -161,7 +209,7 @@
 					
 					backgroundColor: '#ebebeb'
 				}
-			},[treenavigation,content,sidebar]);
+			},[leftbar,content,sidebar]);
 		
 		var status = e('div',
 			{
@@ -223,15 +271,16 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-04 18:09:19</sys_created_on>
         <sys_id>ea6d64e897d36110a6a07767f053afe4</sys_id>
-        <sys_mod_count>111</sys_mod_count>
+        <sys_mod_count>117</sys_mod_count>
         <sys_name>x_snc_reactor.Workspace</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_ea6d64e897d36110a6a07767f053afe4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-14 19:11:55</sys_updated_on>
+        <sys_updated_on>2023-11-27 14:33:22</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
+        <x_snc_devtools_global>false</x_snc_devtools_global>
     </sys_ui_script>
 </record_update>
