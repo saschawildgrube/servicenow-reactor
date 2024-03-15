@@ -21,16 +21,6 @@
   
 	render()
 	{
-		var nHeight = 600;   
-		var nWidth = 800;
-		if (this.props['height'] > 0)
-		{
-			nHeight = this.props['height'];
-		}
-		if (this.props['width'] > 0)
-		{
-			nWidth = this.props['width'];
-		}
 		return e(
 			'div', 
 			{
@@ -39,11 +29,6 @@
 				{
 					height: '100%',
 					width: '100%'
-
-					/*
-					height: nHeight,
-					width: nWidth
-					*/
 				}
 			},
 			null);
@@ -53,18 +38,19 @@
 	{
 		this.RenderGoogleMaps(''+this.m_strId, this.props);
 	}
-  
+	
+ 
 	RenderGoogleMaps(strSelector,aProps)
 	{
-		var fLat = GetValue(aProps,'latitude');
-		if (fLat == null)
+		var fCenterLatitude = GetValue(aProps,'latitude');
+		if (fCenterLatitude == null)
 		{
-			fLat = 30;
+			fCenterLatitude = 30;
 		}
-		var fLong = GetValue(aProps,'longitude');
-		if (fLong == null)
+		var fCenterLongitude = GetValue(aProps,'longitude');
+		if (fCenterLongitude == null)
 		{
-			fLong = 0;
+			fCenterLongitude = 0;
 		}
 			
 		var nZoom = GetValue(aProps,'zoom');
@@ -91,86 +77,256 @@
 			bStreetViewControl = true;
 		}
 	
-		var aMarkers = GetValue(aProps,'markers');
-		if (aMarkers == null)
-		{
-			aMarkers = [];
-		}	
-
-		function onClickMarker()
-		{
-			var strLink = GetStringValue(GetValue(this,'link'));
-			if (strLink != '')
-			{
-				//console.log(strLink);
-				//window.alert(strLink);
-				RedirectToUrl(strLink,true);
-				//window.location.href = strLink;
-			}
-		}
-	
 		var map = new google.maps.Map(
 			document.getElementById(strSelector),
 			{
 				zoom: nZoom, 
-				center: new google.maps.LatLng(fLat,fLong),  
+				center: new google.maps.LatLng(fCenterLatitude,fCenterLongitude),  
 				mapTypeId: strType,
 				mapTypeControl: bTypeControl,
 				streetViewControl: bStreetViewControl
 			});
 
-		console.log(map);
 
+		// MARKERS
+		
+		var aMarkers = GetValue(aProps,'markers');
+		if (aMarkers == null)
+		{
+			aMarkers = [];
+		}	
+		
+
+		var aGoogleMapsMarkers = [];
 		for (var nMarker = 0; nMarker < aMarkers.length; nMarker++)
 		{
 			var marker = aMarkers[nMarker];
-		
-			var strToolTip = GetStringValue(GetValue(marker,'tooltip'));
-			var strLink = GetStringValue(GetValue(marker,'link'));
 			
-			var position = new google.maps.LatLng(GetValue(marker,'latitude'),GetValue(marker,'longitude'));
-			
-			var fSize = GetValue(marker,'size');
-			if (fSize < 0 || fSize > 1)
+			function CreateMarker(THIS,marker)
 			{
-				fSize = 1.0;
-			}
-	
-			var fOpacity = GetIntegerValue(GetValue(marker,'opacity'));
-			if (fOpacity < 0 || fOpacity > 1)
-			{
-				fOpacity = 1.0;
-			}
-			
-			var fScale = 10.0 + (40.0 * fSize);
-			
-			var strColor = GetStringValue(GetValue(marker,'color'));
-			if (strColor == '')
-			{
-				strColor = 'red';
-			}
-			
-			var gm_marker = new google.maps.Marker(
+				var strToolTip = GetStringValue(GetValue(marker,'tooltip'));
+				var strLink = GetStringValue(GetValue(marker,'link'));
+				var bLinkNewWindow = GetBoolValue(GetValue(marker,'link_new_window'));
+				var strInfoWindowHtml = GetStringValue(GetValue(marker,'infowindow_html'));
+				var strId = GetStringValue(GetValue(marker,'id'));
+
+				var position = new google.maps.LatLng(GetValue(marker,'latitude'),GetValue(marker,'longitude'));
+
+				var fSize = GetValue(marker,'size');
+				if (fSize < 0 || fSize > 1)
 				{
-					map: map,
-					position: position,
-					title: strToolTip,
-					/*icon:
+					fSize = 1.0;
+				}
+
+				var fOpacity = GetIntegerValue(GetValue(marker,'opacity'));
+				if (fOpacity < 0 || fOpacity > 1)
+				{
+					fOpacity = 1.0;
+				}
+
+				var fScale = 10.0 + (40.0 * fSize);
+
+				var strColor = GetStringValue(GetValue(marker,'color'));
+				if (strColor == '')
+				{
+					strColor = 'red';
+				}
+				
+				var icon = GetValue(marker,'icon');
+
+				var markerConfig =
 					{
-						path: google.maps.SymbolPath.CIRCLE,
-						scale: fScale,
-						fillColor: strColor, 
-						fillOpacity: fOpacity,
-						strokeWeight: 0.4
-					}*/ 
-				});
-			
-			if (strLink != '')
+						map: map,
+						position: position,
+						title: strToolTip
+					};
+				
+				if (IsObject(icon) == true)
+				{
+					if (GetValue(icon,'path') == 'CIRCLE')
+					{
+						icon.path = google.maps.SymbolPath.CIRCLE;
+					}
+					markerConfig.icon = icon;
+				}
+				
+				var gm_marker = new google.maps.Marker(markerConfig);
+
+				if (strLink != '')
+				{
+					gm_marker.link = strLink;
+				}
+
+				var callbackOnClickMarker = THIS.props.callbackOnClickMarker;
+				var infoWindow = new google.maps.InfoWindow();
+
+				if (strInfoWindowHtml != '')
+				{
+					gm_marker.addListener('click', function(event)
+						{
+							infoWindow.setContent(strInfoWindowHtml);
+							infoWindow.open(map, gm_marker);
+						});
+
+				}
+				else if (IsValidUrl(strLink) == true)
+				{
+					gm_marker.addListener('click', function(event)
+						{
+							RedirectToUrl(strLink,bLinkNewWindow);
+						});
+				}
+				else if (IsFunction(callbackOnClickMarker) == true)
+				{
+					gm_marker.addListener('click', function(event)
+						{
+							callbackOnClickMarker(strId);
+						});				
+				}
+			}
+			CreateMarker(this,marker);
+		}
+		
+		
+		// HEATMAP
+		// https://developers.google.com/maps/documentation/javascript/heatmaplayer
+		
+		var aHeatmap = GetValue(aProps,'heatmap');
+		if (aHeatmap == null)
+		{
+			aHeatmap = [];
+		}	
+		
+		var aHeatmapProcessed = [];
+		for (var nHeatmap = 0; nHeatmap < aHeatmap.length; nHeatmap++)
+		{
+			var heatmapPoint = aHeatmap[nHeatmap];
+			var fLatitude = GetFloatValue(GetValue(heatmapPoint,'latitude'));
+			var fLongitude = GetFloatValue(GetValue(heatmapPoint,'longitude'));
+			var fWeight = GetFloatValue(GetValue(heatmapPoint,'weight'));
+			if (fLatitude != 0 && fLongitude != 0 && fWeight != 0)
 			{
-				gm_marker.link = strLink;
-				gm_marker.addListener('click', onClickMarker);
+				aHeatmapProcessed.push(
+					{
+						location: new google.maps.LatLng(fLatitude, fLongitude),
+						weight: fWeight
+					});
 			}
 		}
+		
+		if (aHeatmapProcessed.length > 0)
+		{
+			var aPoints = new google.maps.MVCArray(aHeatmapProcessed);
+			var heatmapConfig =
+				{
+					data: aPoints,
+				};
+			
+			heatmapConfig.dissipating = true;
+
+			//var aGradient = [];
+			//heatmapConfig.gradient = aGradient;
+			// heatmapConfig.maxIntensity = 1;
+			
+			heatmapConfig.radius = 20;
+			heatmapConfig.opacity = 0.9;
+			
+			var heatmap = new google.maps.visualization.HeatmapLayer(heatmapConfig);	
+			heatmap.setMap(map);
+		}	
+		
+		
+		// POLYLINES
+		// https://developers.google.com/maps/documentation/javascript/examples/polyline-simple
+		
+		var aPolylines = GetValue(aProps,'polylines');
+		if (aPolylines == null)
+		{
+			aPolylines = [];
+		}	
+	
+		for (var nPolyline = 0; nPolyline < aPolylines.length; nPolyline++)
+		{
+			var polylineData = aPolylines[nPolyline];
+			
+			var aPath = GetArrayValue(GetValue(polylineData,'path'));
+			var aPathProcessed = [];
+			if (aPath.length > 1)
+			{
+				for (var nPoint = 0; nPoint < aPath.length; nPoint++)
+				{
+					var pathPoint = aPath[nPoint];
+					var fLatitude = GetFloatValue(GetValue(pathPoint,'latitude'));
+					var fLongitude = GetFloatValue(GetValue(pathPoint,'longitude'));
+					if (fLatitude != 0 && fLongitude != 0)
+					{
+						aPathProcessed.push(new google.maps.LatLng(fLatitude, fLongitude));
+					}				
+				}
+				if (aPathProcessed.length > 0)
+				{
+					var polylineConfig = {
+						path: aPathProcessed,
+					};
+					polylineConfig.geodesic = true;
+					//polylineConfig.strokeColor = '#FF0000';
+					//polylineConfig.strokeOpacity = 1.0;
+					//polylineConfig.strokeWeight = 1;
+					var polyline = new google.maps.Polyline(polylineConfig);
+					polyline.setMap(map);
+				}
+			}
+		}		
+		
+		
+		
+		/*
+		var flightPlanCoordinates = [];
+        
+        var shipment = scope.data.shipments[i];
+        flightPlanCoordinates.push(new google.maps.LatLng(shipment.source.latitude, shipment.source.longitude));
+        flightPlanCoordinates.push(new google.maps.LatLng(shipment.destination.latitude, shipment.destination.longitude));
+        
+        var flightPath = new google.maps.Polyline({
+          path: flightPlanCoordinates,
+          geodesic: true,
+          strokeColor: "#FF0000",
+          strokeOpacity: 1.0,
+          strokeWeight: 1,
+        });
+        flightPath.setMap(map);
+      }
+
+      // dotted line
+      var lineSymbol = {
+        path: 'M 0,-1 0,1',
+        strokeOpacity: 1,
+        scale: 3
+      };
+
+      // Create the polyline, passing the symbol in the 'icons' property.
+      // Give the line an opacity of 0.
+      // Repeat the symbol at intervals of 20 pixels to create the dashed effect.
+      var line = new google.maps.Polyline({
+        path: [
+          {lat: -18.142, lng: 178.431}, 
+          {lat: -27.467, lng: 153.027}
+        ],
+        strokeOpacity: 0,
+        strokeWeight: 1,
+        strokeColor: "#FF0000",
+        geodesic: true,
+        icons: [{
+          icon: lineSymbol,
+          offset: '0',
+          repeat: '20px'
+        }],
+        map: map
+      });
+
+      */		
+		
+		
 
 	}
   
@@ -180,14 +336,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-03-08 12:44:06</sys_created_on>
         <sys_id>aecd83bddb388610f0f1d03cd39619fe</sys_id>
-        <sys_mod_count>21</sys_mod_count>
+        <sys_mod_count>59</sys_mod_count>
         <sys_name>x_snc_reactor.GoogleMaps</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_aecd83bddb388610f0f1d03cd39619fe</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-08 15:59:58</sys_updated_on>
+        <sys_updated_by>sascha.wildgrube</sys_updated_by>
+        <sys_updated_on>2024-03-12 15:59:52</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
