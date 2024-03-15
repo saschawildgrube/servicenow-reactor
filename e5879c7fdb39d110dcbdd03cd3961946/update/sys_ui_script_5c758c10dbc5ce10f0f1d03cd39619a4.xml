@@ -2,9 +2,9 @@
     <sys_ui_script action="INSERT_OR_UPDATE">
         <active>true</active>
         <description>https://unpkg.com/react@18.2.0/umd/react.production.min.js</description>
-        <global>false</global>
+        <global>true</global>
         <ignore_in_now_experience>false</ignore_in_now_experience>
-        <name>x_snc_reactor.react-production-min</name>
+        <name>x_snc_reactor.react_production_min</name>
         <script><![CDATA[/**
  * @license React
  * react.production.min.js
@@ -36,19 +36,19 @@ compare:void 0===b?null:b}};c.startTransition=function(a,b){b=J.transition;J.tra
 b)};c.useId=function(){return g.current.useId()};c.useImperativeHandle=function(a,b,c){return g.current.useImperativeHandle(a,b,c)};c.useInsertionEffect=function(a,b){return g.current.useInsertionEffect(a,b)};c.useLayoutEffect=function(a,b){return g.current.useLayoutEffect(a,b)};c.useMemo=function(a,b){return g.current.useMemo(a,b)};c.useReducer=function(a,b,c){return g.current.useReducer(a,b,c)};c.useRef=function(a){return g.current.useRef(a)};c.useState=function(a){return g.current.useState(a)};
 c.useSyncExternalStore=function(a,b,c){return g.current.useSyncExternalStore(a,b,c)};c.useTransition=function(){return g.current.useTransition()};c.version="18.2.0"});
 })();]]></script>
-        <script_name>react-production-min</script_name>
+        <script_name>react_production_min</script_name>
         <sys_class_name>sys_ui_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-03-15 16:33:42</sys_created_on>
         <sys_id>5c758c10dbc5ce10f0f1d03cd39619a4</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>x_snc_reactor.react-production-min</sys_name>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>x_snc_reactor.react_production_min</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_5c758c10dbc5ce10f0f1d03cd39619a4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-15 16:57:02</sys_updated_on>
+        <sys_updated_on>2024-03-15 17:46:14</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>true</x_snc_devtools_global>

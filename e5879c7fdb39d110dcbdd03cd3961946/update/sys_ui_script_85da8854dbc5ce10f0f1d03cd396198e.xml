@@ -2,9 +2,9 @@
     <sys_ui_script action="INSERT_OR_UPDATE">
         <active>true</active>
         <description>https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js</description>
-        <global>false</global>
+        <global>true</global>
         <ignore_in_now_experience>false</ignore_in_now_experience>
-        <name>x_snc_reactor.react-dom-production-min</name>
+        <name>x_snc_reactor.react_dom_production_min</name>
         <script><![CDATA[/**
  * @license React
  * react-dom.production.min.js
@@ -272,19 +272,19 @@ c,!1,d,e);a[Ja]=b.current;sc(8===a.nodeType?a.parentNode:a);return new Xf(b)};Q.
 var d=null!=c&&c.hydratedSources||null,e=!1,f="",g=bj;null!==c&&void 0!==c&&(!0===c.unstable_strictMode&&(e=!0),void 0!==c.identifierPrefix&&(f=c.identifierPrefix),void 0!==c.onRecoverableError&&(g=c.onRecoverableError));b=Xi(b,null,a,1,null!=c?c:null,e,!1,f,g);a[Ja]=b.current;sc(a);if(d)for(a=0;a<d.length;a++)c=d[a],e=c._getVersion,e=e(c._source),null==b.mutableSourceEagerHydrationData?b.mutableSourceEagerHydrationData=[c,e]:b.mutableSourceEagerHydrationData.push(c,e);return new Ud(b)};Q.render=
 function(a,b,c){if(!Vd(b))throw Error(n(200));return Wd(null,a,b,!1,c)};Q.unmountComponentAtNode=function(a){if(!Vd(a))throw Error(n(40));return a._reactRootContainer?(zb(function(){Wd(null,null,a,!1,function(){a._reactRootContainer=null;a[Ja]=null})}),!0):!1};Q.unstable_batchedUpdates=Tf;Q.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!Vd(c))throw Error(n(200));if(null==a||void 0===a._reactInternals)throw Error(n(38));return Wd(a,b,c,!1,d)};Q.version="18.2.0-next-9e3b772b8-20220608"});
 })();]]></script>
-        <script_name>react-dom-production-min</script_name>
+        <script_name>react_dom_production_min</script_name>
         <sys_class_name>sys_ui_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-03-15 16:56:46</sys_created_on>
         <sys_id>85da8854dbc5ce10f0f1d03cd396198e</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>x_snc_reactor.react-dom-production-min</sys_name>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>x_snc_reactor.react_dom_production_min</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_85da8854dbc5ce10f0f1d03cd396198e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-15 16:57:59</sys_updated_on>
+        <sys_updated_on>2024-03-15 17:46:12</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>true</x_snc_devtools_global>
