@@ -38,26 +38,104 @@
 	{
 		this.RenderGoogleMaps(''+this.m_strId, this.props);
 	}
+
+
+	DegreesToRadians(fDegrees)
+	{
+		return fDegrees * Math.PI / 180;
+	}
+
+ 	CalculateGeographicalCenter(aCoordinates)
+	{
+		if (aCoordinates.length === 0)
+		{
+			return null; // Return null if the coordinates array is empty
+		}
+
+		var totalX = 0;
+		var totalY = 0;
+		var totalZ = 0;
+		
+		for (var nCoordinate = 0; nCoordinate < aCoordinates.length; nCoordinate++)
+		{
+			var coordinate = aCoordinates[nCoordinate];
+			var latRad = this.DegreesToRadians(coordinate.latitude);
+			var lngRad = this.DegreesToRadians(coordinate.longitude);
+
+			totalX += Math.cos(latRad) * Math.cos(lngRad);
+			totalY += Math.cos(latRad) * Math.sin(lngRad);
+			totalZ += Math.sin(latRad);
+		};
+
+		// Average of Cartesian coordinates
+		var avgX = totalX / aCoordinates.length;
+		var avgY = totalY / aCoordinates.length;
+		var avgZ = totalZ / aCoordinates.length;
+
+		// Convert average Cartesian coordinates back to latitude and longitude
+		var lng = Math.atan2(avgY, avgX);
+		var hyp = Math.sqrt(avgX * avgX + avgY * avgY);
+		var lat = Math.atan2(avgZ, hyp);
+
+		// Convert latitude and longitude back to degrees
+		var centerLatitude = lat * 180 / Math.PI;
+		var centerLongitude = lng * 180 / Math.PI;
+
+		return { latitude: centerLatitude, longitude: centerLongitude };
+	}
+
+// Example usage:
+/*var coordinates = [
+    { latitude: 35.6895, longitude: 139.6917 }, // Tokyo
+    { latitude: 21.3069, longitude: -157.8583 } // Hawaii
+];
+*/
+
+//var center = calculateGeographicalCenter(coordinates);
+//console.log("Geographical center:", center);	
 	
  
 	RenderGoogleMaps(strSelector,aProps)
 	{
-		var fCenterLatitude = GetValue(aProps,'latitude');
-		if (fCenterLatitude == null)
-		{
-			fCenterLatitude = 30;
-		}
-		var fCenterLongitude = GetValue(aProps,'longitude');
-		if (fCenterLongitude == null)
-		{
-			fCenterLongitude = 0;
-		}
-			
+		var center = GetValue(aProps,'center');
+		var fCenterLatitude = GetValue(center,'latitude');
+		var fCenterLongitude = GetValue(center,'longitude');
 		var nZoom = GetValue(aProps,'zoom');
-		if (nZoom == null)
+		var aMarkers = GetValue(aProps,'markers');
+		if (aMarkers == null)
 		{
-			nZoom = 2;
+			aMarkers = [];
+		}			
+
+		if (fCenterLatitude == null || fCenterLatitude == null || nZoom == null)
+		{
+			var aCoordinates = [];
+			for (var nMarker = 0; nMarker < aMarkers.length; nMarker++)
+			{
+				var marker = aMarkers[nMarker];
+				var fLatitude = GetValue(marker,'latitude');
+				var fLongitude = GetValue(marker,'longitude');
+				if (fLatitude != 0 && fLongitude != 0)
+				{
+					aCoordinates.push( { latitude: fLatitude, longitude: fLongitude } );
+				}
+			}
+
+			if (fCenterLatitude == null || fCenterLatitude == null)
+			{
+				center = this.CalculateGeographicalCenter(aCoordinates);
+			}
+
+
+			if (nZoom == null)
+			{
+				nZoom = 5;
+			}
+
 		}
+		
+
+
 			
 		var strType = GetValue(aProps,'type');
 		if (strType == null)
@@ -81,7 +159,7 @@
 			document.getElementById(strSelector),
 			{
 				zoom: nZoom, 
-				center: new google.maps.LatLng(fCenterLatitude,fCenterLongitude),  
+				center: new google.maps.LatLng(center.latitude,center.longitude),  
 				mapTypeId: strType,
 				mapTypeControl: bTypeControl,
 				streetViewControl: bStreetViewControl
@@ -89,14 +167,7 @@
 
 
 		// MARKERS
-		
-		var aMarkers = GetValue(aProps,'markers');
-		if (aMarkers == null)
-		{
-			aMarkers = [];
-		}	
-		
-
+	
 		var aGoogleMapsMarkers = [];
 		for (var nMarker = 0; nMarker < aMarkers.length; nMarker++)
 		{
@@ -336,14 +407,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-03-08 12:44:06</sys_created_on>
         <sys_id>aecd83bddb388610f0f1d03cd39619fe</sys_id>
-        <sys_mod_count>59</sys_mod_count>
+        <sys_mod_count>73</sys_mod_count>
         <sys_name>x_snc_reactor.GoogleMaps</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_aecd83bddb388610f0f1d03cd39619fe</sys_update_name>
-        <sys_updated_by>sascha.wildgrube</sys_updated_by>
-        <sys_updated_on>2024-03-12 15:59:52</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-03-20 16:11:52</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
