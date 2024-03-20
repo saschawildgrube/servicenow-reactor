@@ -39,6 +39,64 @@
 		this.RenderGoogleMaps(''+this.m_strId, this.props);
 	}
 
+ 	// To calculate distance between two points using Haversine formula
+    Haversine(lat1, lon1, lat2, lon2)
+	{
+        const R = 6371; // Radius of the Earth in km
+        const dLat = (lat2 - lat1) * Math.PI / 180; // Convert degrees to radians
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                  Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                  Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const d = R * c; // Distance in km
+        return d;
+    }
+
+	CalculateZoomLevel(aCoordinates)
+	{
+		if (aCoordinates.length < 2)
+		{
+			return 5;
+		}
+
+		// Find the maximum and minimum latitude and longitude
+		let maxLat = GetValue(aCoordinates,0,'latitude');
+		let minLat = GetValue(aCoordinates,0,'latitude');
+		let maxLng = GetValue(aCoordinates,0,'longitude');
+		let minLng = GetValue(aCoordinates,0,'longitude');
+
+		aCoordinates.forEach(coord => {
+			maxLat = Math.max(maxLat, GetValue(coord,'latitude'));
+			minLat = Math.min(minLat, GetValue(coord,'latitude'));
+			maxLng = Math.max(maxLng, GetValue(coord,'longitude'));
+			minLng = Math.min(minLng, GetValue(coord,'longitude'));
+		});
+
+		// Calculate the distance between the farthest points
+		const maxDistance = this.Haversine(maxLat, minLng, minLat, maxLng);
+
+		// Set the zoom level based on the distance (you can adjust this according to your needs)
+		const nZoom = Math.floor(8 - Math.log2(maxDistance / 300));
+
+		return nZoom;
+	}
+
+/*
+// Example usage:
+const coordinates = [
+    [40.7128, -74.0060], // New York City
+    [34.0522, -118.2437], // Los Angeles
+    [41.8781, -87.6298] // Chicago
+];
+
+const zoomLevel = calculateZoomLevel(coordinates);
+console.log("Center:", zoomLevel.center);
+console.log("Zoom Level:", zoomLevel.zoom);
+
+*/
+
+
 
 	DegreesToRadians(fDegrees)
 	{
@@ -129,7 +187,7 @@
 
 			if (nZoom == null)
 			{
-				nZoom = 5;
+				nZoom = this.CalculateZoomLevel(aCoordinates);
 			}
 
 		}
@@ -407,14 +465,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-03-08 12:44:06</sys_created_on>
         <sys_id>aecd83bddb388610f0f1d03cd39619fe</sys_id>
-        <sys_mod_count>73</sys_mod_count>
+        <sys_mod_count>82</sys_mod_count>
         <sys_name>x_snc_reactor.GoogleMaps</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_aecd83bddb388610f0f1d03cd39619fe</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-20 16:11:52</sys_updated_on>
+        <sys_updated_on>2024-03-20 16:45:50</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>

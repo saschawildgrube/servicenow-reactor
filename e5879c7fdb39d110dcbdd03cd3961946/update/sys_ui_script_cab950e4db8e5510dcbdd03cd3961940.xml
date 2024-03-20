@@ -327,14 +327,14 @@
 					longitude: -0.461389,
 					icon: iconAirport,
 					link: 'https://en.wikipedia.org/wiki/Heathrow_Airport'
-				},
+				}/*,
 				{
 					tooltip: 'New York La Guardia (KLGA)',
 					latitude: 40.775,
 					longitude:  -73.875,
 					icon: iconAirport,
 					link: 'https://en.wikipedia.org/wiki/LaGuardia_Airport'
-				}		
+				}*/
 
 			]
 
@@ -342,7 +342,7 @@
 				e(GoogleMaps,
 					{
 						//center: { latitude: 30, longitude: 20 },
-						zoom: 3,
+						//zoom: 3,
 						markers: aMarkers,
 					},null)
 			);	
@@ -378,14 +378,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:09:30</sys_created_on>
         <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
-        <sys_mod_count>119</sys_mod_count>
+        <sys_mod_count>123</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-20 16:14:06</sys_updated_on>
+        <sys_updated_on>2024-03-20 16:46:09</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
