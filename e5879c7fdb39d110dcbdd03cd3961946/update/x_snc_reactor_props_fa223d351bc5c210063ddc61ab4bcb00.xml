@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_props">
+    <x_snc_reactor_props action="INSERT_OR_UPDATE">
+        <component display_value="GoogleMaps">f40e87bddb388610f0f1d03cd39619b7</component>
+        <description>An object containing the value "longitude" and "latitude" to specify the center of the map.</description>
+        <mandatory>false</mandatory>
+        <name>center</name>
+        <sys_class_name>x_snc_reactor_props</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-03-20 16:19:06</sys_created_on>
+        <sys_id>fa223d351bc5c210063ddc61ab4bcb00</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>center</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_props_fa223d351bc5c210063ddc61ab4bcb00</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-03-20 16:19:06</sys_updated_on>
+        <type>object</type>
+    </x_snc_reactor_props>
+</record_update>
