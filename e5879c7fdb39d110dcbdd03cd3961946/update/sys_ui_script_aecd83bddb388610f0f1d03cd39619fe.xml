@@ -107,7 +107,7 @@ console.log("Zoom Level:", zoomLevel.zoom);
 	{
 		if (aCoordinates.length === 0)
 		{
-			return null; // Return null if the coordinates array is empty
+			return { longitude: 0, latitude: 50} ; 
 		}
 
 		var totalX = 0;
@@ -465,14 +465,14 @@ console.log("Zoom Level:", zoomLevel.zoom);
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-03-08 12:44:06</sys_created_on>
         <sys_id>aecd83bddb388610f0f1d03cd39619fe</sys_id>
-        <sys_mod_count>82</sys_mod_count>
+        <sys_mod_count>84</sys_mod_count>
         <sys_name>x_snc_reactor.GoogleMaps</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_aecd83bddb388610f0f1d03cd39619fe</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-20 16:45:50</sys_updated_on>
+        <sys_updated_on>2024-03-22 06:14:45</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
