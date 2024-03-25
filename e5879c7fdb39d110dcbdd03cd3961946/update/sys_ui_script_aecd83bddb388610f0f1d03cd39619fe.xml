@@ -419,13 +419,18 @@ console.log("Zoom Level:", zoomLevel.zoom);
 					var strStrokeDashRepeat = GetStringValue(GetValue(polylineData,'strokeDashRepeat'));
 					if (strStrokeDashRepeat != '')
 					{
+						var vStrokeDashScale = GetValue(polylineData,'strokeDashScale');
+						if (vStrokeDashScale == null)
+						{
+							vStrokeDashScale = 4;
+						}
 						Debug('strStrokeDashRepeat: '+strStrokeDashRepeat);
 						const iconLine =
 							{
 								path: 'M 0,-1 0,1',
 								strokeOpacity: 1,
 								strokeColor: polylineConfig.strokeColor,
-								scale: 4
+								scale: vStrokeDashScale
 							};
 						polylineConfig.strokeOpacity = 0;
 						aIcons.push(
@@ -465,73 +470,21 @@ console.log("Zoom Level:", zoomLevel.zoom);
 				}
 			}
 		}		
-		
-		
-		
-		/*
-		var flightPlanCoordinates = [];
-        
-        var shipment = scope.data.shipments[i];
-        flightPlanCoordinates.push(new google.maps.LatLng(shipment.source.latitude, shipment.source.longitude));
-        flightPlanCoordinates.push(new google.maps.LatLng(shipment.destination.latitude, shipment.destination.longitude));
-        
-        var flightPath = new google.maps.Polyline({
-          path: flightPlanCoordinates,
-          geodesic: true,
-          strokeColor: "#FF0000",
-          strokeOpacity: 1.0,
-          strokeWeight: 1,
-        });
-        flightPath.setMap(map);
-      }
-
-      // dotted line
-      var lineSymbol = {
-        path: 'M 0,-1 0,1',
-        strokeOpacity: 1,
-        scale: 3
-      };
-
-      // Create the polyline, passing the symbol in the 'icons' property.
-      // Give the line an opacity of 0.
-      // Repeat the symbol at intervals of 20 pixels to create the dashed effect.
-      var line = new google.maps.Polyline({
-        path: [
-          {lat: -18.142, lng: 178.431}, 
-          {lat: -27.467, lng: 153.027}
-        ],
-        strokeOpacity: 0,
-        strokeWeight: 1,
-        strokeColor: "#FF0000",
-        geodesic: true,
-        icons: [{
-          icon: lineSymbol,
-          offset: '0',
-          repeat: '20px'
-        }],
-        map: map
-      });
-
-      */		
-		
-		
-
 	}
-  
 }]]></script>
         <script_name>GoogleMaps</script_name>
         <sys_class_name>sys_ui_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-03-08 12:44:06</sys_created_on>
         <sys_id>aecd83bddb388610f0f1d03cd39619fe</sys_id>
-        <sys_mod_count>109</sys_mod_count>
+        <sys_mod_count>111</sys_mod_count>
         <sys_name>x_snc_reactor.GoogleMaps</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_aecd83bddb388610f0f1d03cd39619fe</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-25 12:59:34</sys_updated_on>
+        <sys_updated_on>2024-03-25 13:07:38</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
