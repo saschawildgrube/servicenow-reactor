@@ -103,6 +103,19 @@ console.log("Zoom Level:", zoomLevel.zoom);
 		return fDegrees * Math.PI / 180;
 	}
 
+	GetGoogleMapSymbolPath(vPath)
+	{
+		if (vPath == 'CIRCLE')
+		{
+			return google.maps.SymbolPath.CIRCLE;
+		}			
+		if (vPath == 'FORWARD_CLOSED_ARROW' || vPath == 'ARROW')
+		{
+			return google.maps.SymbolPath.FORWARD_CLOSED_ARROW;
+		}
+		return vPath;
+	}
+
  	CalculateGeographicalCenter(aCoordinates)
 	{
 		if (aCoordinates.length === 0)
@@ -273,10 +286,7 @@ console.log("Zoom Level:", zoomLevel.zoom);
 				var icon = GetValue(marker,'icon');
 				if (IsObject(icon) == true)
 				{
-					if (GetValue(icon,'path') == 'CIRCLE')
-					{
-						icon.path = google.maps.SymbolPath.CIRCLE;
-					}
+					icon.path = THIS.GetGoogleMapSymbolPath(GetValue(icon,'path'));
 					markerConfig.icon = icon;
 				}
 				
@@ -395,6 +405,7 @@ console.log("Zoom Level:", zoomLevel.zoom);
 				}
 				if (aPathProcessed.length > 0)
 				{
+					var aIcons = [];
 					var polylineConfig = {
 						path: aPathProcessed,
 					};
@@ -403,20 +414,40 @@ console.log("Zoom Level:", zoomLevel.zoom);
 					polylineConfig.strokeOpacity = GetValue(polylineData,'strokeOpacity');
 					polylineConfig.strokeWeight = GetValue(polylineData,'strokeWeight');
 					polylineConfig.zIndex = GetValue(polylineData,'zIndex');
+
+					// Dashed line
+					var strStrokeDashRepeat = GetStringValue(GetValue(polylineData,'strokeDashRepeat'));
+					if (strStrokeDashRepeat != '')
+					{
+						Debug('strStrokeDashRepeat: '+strStrokeDashRepeat);
+						const iconLine =
+							{
+								path: 'M 0,-1 0,1',
+								strokeOpacity: 1,
+								strokeColor: polylineConfig.strokeColor,
+								scale: 4
+							};
+						polylineConfig.strokeOpacity = 0;
+						aIcons.push(
+							{
+								icon: iconLine,
+								repeat: strStrokeDashRepeat,
+								offset: '0'
+							});
+					}
+
+
+					
+					
 					var polyline = new google.maps.Polyline(polylineConfig);
 					polyline.setMap(map);
 
-					var aIcons = [];
 					var iconEnd = GetValue(polylineData,'iconEnd');
 					if (IsObject(iconEnd) == true)
 					{
 						var iconEndProcessed = iconEnd;
 						var iconpath = GetValue(iconEndProcessed,'path');
-						if (iconpath == 'FORWARD_CLOSED_ARROW' || iconpath == 'ARROW')
-						{
-							Debug(google.maps.SymbolPath.FORWARD_CLOSED_ARROW);
-							iconEndProcessed.path = google.maps.SymbolPath.FORWARD_CLOSED_ARROW;
-						}
+						iconEndProcessed.path = this.GetGoogleMapSymbolPath(iconpath);
 						aIcons.push(
 							{
 								icon: iconEndProcessed,
@@ -493,14 +524,14 @@ console.log("Zoom Level:", zoomLevel.zoom);
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-03-08 12:44:06</sys_created_on>
         <sys_id>aecd83bddb388610f0f1d03cd39619fe</sys_id>
-        <sys_mod_count>98</sys_mod_count>
+        <sys_mod_count>109</sys_mod_count>
         <sys_name>x_snc_reactor.GoogleMaps</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_aecd83bddb388610f0f1d03cd39619fe</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-25 10:56:13</sys_updated_on>
+        <sys_updated_on>2024-03-25 12:59:34</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
