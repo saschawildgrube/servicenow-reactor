@@ -300,11 +300,11 @@
 		{
 			var iconAirport = {
 				path: 'CIRCLE',
-				fillColor: 'red',
+				fillColor: 'blue',
 				scale: 10,
 				fillOpacity: 1,
 				strokeWeight: 5,
-				strokeColor: 'grey',	
+				strokeColor: 'black',	
 			};
 			var aMarkers = [
 				{
@@ -327,23 +327,51 @@
 					longitude: -0.461389,
 					icon: iconAirport,
 					link: 'https://en.wikipedia.org/wiki/Heathrow_Airport'
-				}/*,
+				},
 				{
 					tooltip: 'New York La Guardia (KLGA)',
 					latitude: 40.775,
 					longitude:  -73.875,
 					icon: iconAirport,
 					link: 'https://en.wikipedia.org/wiki/LaGuardia_Airport'
-				}*/
+				}
+			];
 
-			]
+			var iconEnd =
+				{
+					path: 'FORWARD_CLOSED_ARROW',
+					scale: 6,
+					strokeColor: 'black',
+					strokeWeight: 2,
+					fillOpacity: 1,
+					fillColor: 'blue',
+				};
 
+			var aPolylines = [
+				{
+					zIndex: 9999,
+					strokeColor: 'blue',
+					iconEnd: iconEnd,
+					path: [
+						{
+							latitude: 50.033333,
+							longitude: 8.570556,
+						},
+						{
+							latitude: 45.3975,
+							longitude: 6.634444,
+						}
+					]
+				}
+			];
+	
 			aComponents.push(
 				e(GoogleMaps,
 					{
 						//center: { latitude: 30, longitude: 20 },
 						//zoom: 3,
-						//markers: aMarkers,
+						markers: aMarkers,
+						polylines: aPolylines,
 					},null)
 			);	
 
@@ -378,14 +406,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:09:30</sys_created_on>
         <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
-        <sys_mod_count>124</sys_mod_count>
+        <sys_mod_count>143</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-22 06:11:41</sys_updated_on>
+        <sys_updated_on>2024-03-25 10:54:24</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>

@@ -255,14 +255,14 @@ console.log("Zoom Level:", zoomLevel.zoom);
 
 				var fScale = 10.0 + (40.0 * fSize);
 
+/*
 				var strColor = GetStringValue(GetValue(marker,'color'));
 				if (strColor == '')
 				{
 					strColor = 'red';
 				}
+*/
 				
-				var icon = GetValue(marker,'icon');
-
 				var markerConfig =
 					{
 						map: map,
@@ -270,6 +270,7 @@ console.log("Zoom Level:", zoomLevel.zoom);
 						title: strToolTip
 					};
 				
+				var icon = GetValue(marker,'icon');
 				if (IsObject(icon) == true)
 				{
 					if (GetValue(icon,'path') == 'CIRCLE')
@@ -398,11 +399,38 @@ console.log("Zoom Level:", zoomLevel.zoom);
 						path: aPathProcessed,
 					};
 					polylineConfig.geodesic = true;
-					//polylineConfig.strokeColor = '#FF0000';
-					//polylineConfig.strokeOpacity = 1.0;
-					//polylineConfig.strokeWeight = 1;
+					polylineConfig.strokeColor = GetValue(polylineData,'strokeColor');
+					polylineConfig.strokeOpacity = GetValue(polylineData,'strokeOpacity');
+					polylineConfig.strokeWeight = GetValue(polylineData,'strokeWeight');
+					polylineConfig.zIndex = GetValue(polylineData,'zIndex');
 					var polyline = new google.maps.Polyline(polylineConfig);
 					polyline.setMap(map);
+
+					var aIcons = [];
+					var iconEnd = GetValue(polylineData,'iconEnd');
+					if (IsObject(iconEnd) == true)
+					{
+						var iconEndProcessed = iconEnd;
+						var iconpath = GetValue(iconEndProcessed,'path');
+						if (iconpath == 'FORWARD_CLOSED_ARROW' || iconpath == 'ARROW')
+						{
+							Debug(google.maps.SymbolPath.FORWARD_CLOSED_ARROW);
+							iconEndProcessed.path = google.maps.SymbolPath.FORWARD_CLOSED_ARROW;
+						}
+						aIcons.push(
+							{
+								icon: iconEndProcessed,
+								offset: '100%'
+							});
+					}
+
+					if (aIcons.length > 0)
+					{
+						polyline.setOptions(
+							{
+        						icons: aIcons
+							});
+					}
 				}
 			}
 		}		
@@ -465,14 +493,14 @@ console.log("Zoom Level:", zoomLevel.zoom);
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-03-08 12:44:06</sys_created_on>
         <sys_id>aecd83bddb388610f0f1d03cd39619fe</sys_id>
-        <sys_mod_count>84</sys_mod_count>
+        <sys_mod_count>98</sys_mod_count>
         <sys_name>x_snc_reactor.GoogleMaps</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_aecd83bddb388610f0f1d03cd39619fe</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-22 06:14:45</sys_updated_on>
+        <sys_updated_on>2024-03-25 10:56:13</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
