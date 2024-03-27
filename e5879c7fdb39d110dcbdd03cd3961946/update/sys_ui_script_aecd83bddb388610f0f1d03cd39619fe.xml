@@ -328,51 +328,66 @@ console.log("Zoom Level:", zoomLevel.zoom);
 		}
 		
 		
-		// HEATMAP
+		// HEATMAPS
 		// https://developers.google.com/maps/documentation/javascript/heatmaplayer
 		
-		var aHeatmap = GetValue(aProps,'heatmap');
-		if (aHeatmap == null)
+		var aHeatmaps = GetValue(aProps,'heatmaps');
+		if (aHeatmaps == null)
 		{
-			aHeatmap = [];
+			aHeatmaps = [];
 		}	
 		
-		var aHeatmapProcessed = [];
-		for (var nHeatmap = 0; nHeatmap < aHeatmap.length; nHeatmap++)
+		for (var nHeatmap = 0; nHeatmap < aHeatmaps.length; nHeatmap++)
 		{
-			var heatmapPoint = aHeatmap[nHeatmap];
-			var fLatitude = GetFloatValue(GetValue(heatmapPoint,'latitude'));
-			var fLongitude = GetFloatValue(GetValue(heatmapPoint,'longitude'));
-			var fWeight = GetFloatValue(GetValue(heatmapPoint,'weight'));
-			if (fLatitude != 0 && fLongitude != 0 && fWeight != 0)
+			var aHeatmapData = GetValue(aHeatmaps,nHeatmap,'data');
+			var aHeatmapDataProcessed = [];
+			for (var nHeatmapData = 0; nHeatmapData < aHeatmapData.length; nHeatmapData++)
 			{
-				aHeatmapProcessed.push(
-					{
-						location: new google.maps.LatLng(fLatitude, fLongitude),
-						weight: fWeight
-					});
-			}
-		}
-		
-		if (aHeatmapProcessed.length > 0)
-		{
-			var aPoints = new google.maps.MVCArray(aHeatmapProcessed);
-			var heatmapConfig =
+				var heatmapPoint = aHeatmapData[nHeatmapData];
+				var fLatitude = GetFloatValue(GetValue(heatmapPoint,'latitude'));
+				var fLongitude = GetFloatValue(GetValue(heatmapPoint,'longitude'));
+				var fWeight = GetFloatValue(GetValue(heatmapPoint,'weight'));
+				if (fLatitude != 0 && fLongitude != 0 && fWeight != 0)
 				{
-					data: aPoints,
-				};
+					aHeatmapDataProcessed.push(
+						{
+							location: new google.maps.LatLng(fLatitude, fLongitude),
+							weight: fWeight
+						});
+				}
+			}
 			
-			heatmapConfig.dissipating = true;
+			if (aHeatmapDataProcessed.length > 0)
+			{
+				var aPoints = new google.maps.MVCArray(aHeatmapDataProcessed);
+				var heatmapConfig =
+					{
+						data: aPoints,
+					};
+				
+				heatmapConfig.dissipating = true;
 
-			//var aGradient = [];
-			//heatmapConfig.gradient = aGradient;
-			// heatmapConfig.maxIntensity = 1;
-			
-			heatmapConfig.radius = 20;
-			heatmapConfig.opacity = 0.9;
-			
-			var heatmap = new google.maps.visualization.HeatmapLayer(heatmapConfig);	
-			heatmap.setMap(map);
+				//var aGradient = [];
+				//heatmapConfig.gradient = aGradient;
+				// heatmapConfig.maxIntensity = 1;
+				
+				var nRadius = GetIntegerValue(GetValue(aHeatmaps,nHeatmap,'radius'));
+				if (nRadius == 0)
+				{
+					nRadius = 25;
+				}
+				heatmapConfig.radius = nRadius;
+
+				var fOpacity = GetFloatValue(GetValue(aHeatmaps,nHeatmap,'opacity'));
+				if (fOpacity == 0)
+				{
+					fOpacity = 1.0;
+				}
+				heatmapConfig.opacity = fOpacity;
+				
+				var heatmap = new google.maps.visualization.HeatmapLayer(heatmapConfig);	
+				heatmap.setMap(map);
+			}
 		}	
 		
 		
@@ -477,14 +492,14 @@ console.log("Zoom Level:", zoomLevel.zoom);
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-03-08 12:44:06</sys_created_on>
         <sys_id>aecd83bddb388610f0f1d03cd39619fe</sys_id>
-        <sys_mod_count>111</sys_mod_count>
+        <sys_mod_count>115</sys_mod_count>
         <sys_name>x_snc_reactor.GoogleMaps</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_aecd83bddb388610f0f1d03cd39619fe</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-25 13:07:38</sys_updated_on>
+        <sys_updated_on>2024-03-27 08:37:16</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>

@@ -308,6 +308,13 @@
 			};
 			var aMarkers = [
 				{
+					tooltip: 'Frankfurt',
+					latitude: 50.12,
+					longitude: 8.68,
+					link: 'https://en.wikipedia.org/wiki/Frankfurt',
+					link_new_window: true
+				},				
+				{
 					tooltip: 'Frankfurt International Airport (EDDF)',
 					latitude: 50.033333,
 					longitude: 8.570556,
@@ -370,6 +377,25 @@
 					]
 				}
 			];
+
+			var aHeatmaps = [
+				{
+					opacity: 1,
+					radius: 30,
+					data: [
+						{
+							latitude: 49,
+							longitude: 8,
+							weight: 1
+						},
+						{
+							latitude: 48,
+							longitude: 7,
+							weight: 0.5
+						}
+					]
+				}
+			];
 	
 			aComponents.push(
 				e(GoogleMaps,
@@ -378,6 +404,7 @@
 						//zoom: 3,
 						markers: aMarkers,
 						polylines: aPolylines,
+						heatmaps: aHeatmaps
 					},null)
 			);	
 
@@ -412,14 +439,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:09:30</sys_created_on>
         <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
-        <sys_mod_count>151</sys_mod_count>
+        <sys_mod_count>159</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-25 13:12:37</sys_updated_on>
+        <sys_updated_on>2024-03-27 08:53:16</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
