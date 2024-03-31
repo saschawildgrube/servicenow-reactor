@@ -64,6 +64,7 @@
 		aMenuItems.push({ label: 'Centered', option: 'centered' });
 		aMenuItems.push({ label: 'IFrame', option: 'iframe' });
 		aMenuItems.push({ label: 'Tables', option: 'tables' });
+		aMenuItems.push({ label: 'Google Maps', option: 'googlemaps' });
 		aMenuItems.push({ label: 'Workspace', option: 'workspace' });
 			
 		var aComponents = [];
@@ -295,7 +296,122 @@
 			);	
 
 		}		
-		
+		else if (this.state.state == 'googlemaps')
+		{
+			var iconAirport = {
+				path: 'CIRCLE',
+				fillColor: 'blue',
+				scale: 10,
+				fillOpacity: 1,
+				strokeWeight: 5,
+				strokeColor: 'black',	
+			};
+			var aMarkers = [
+				{
+					tooltip: 'Frankfurt',
+					latitude: 50.12,
+					longitude: 8.68,
+					link: 'https://en.wikipedia.org/wiki/Frankfurt',
+					link_new_window: true
+				},				
+				{
+					tooltip: 'Frankfurt International Airport (EDDF)',
+					latitude: 50.033333,
+					longitude: 8.570556,
+					icon: iconAirport,
+					link: 'https://en.wikipedia.org/wiki/Frankfurt_Airport',
+					link_new_window: true
+				},
+				{
+					tooltip: 'Courchevel Altiport (LFLJ)',
+					latitude: 45.3975,
+					longitude: 6.634444,
+					icon: iconAirport,
+					link: 'https://en.wikipedia.org/wiki/Courchevel_Altiport',
+					link_new_window: true
+				},
+				{
+					tooltip: 'London Heathrow (EGLL)',
+					latitude: 51.4775,
+					longitude: -0.461389,
+					icon: iconAirport,
+					link: 'https://en.wikipedia.org/wiki/Heathrow_Airport',
+					link_new_window: true
+				},
+				{
+					tooltip: 'New York La Guardia (KLGA)',
+					latitude: 40.775,
+					longitude:  -73.875,
+					icon: iconAirport,
+					link: 'https://en.wikipedia.org/wiki/LaGuardia_Airport',
+					link_new_window: true
+				}
+			];
+
+			var iconEnd =
+				{
+					path: 'FORWARD_CLOSED_ARROW',
+					scale: 6,
+					strokeColor: 'black',
+					strokeWeight: 2,
+					fillOpacity: 1,
+					fillColor: 'blue',
+				};
+
+			var aPolylines = [
+				{
+					zIndex: 9999,
+					strokeColor: 'blue',
+					strokeDashRepeat: '30px',
+					strokeDashScale: 7,
+					iconEnd: iconEnd,
+					path: [
+						{
+							latitude: 50.033333,
+							longitude: 8.570556,
+						},
+						{
+							latitude: 45.3975,
+							longitude: 6.634444,
+						}
+					]
+				}
+			];
+
+			var aHeatmaps = [
+				{
+					opacity: 1,
+					radius: 30,
+					data: [
+						{
+							latitude: 49,
+							longitude: 8,
+							weight: 1
+						},
+						{
+							latitude: 48,
+							longitude: 7,
+							weight: 0.5
+						}
+					]
+				}
+			];
+	
+			aComponents.push(
+				e(GoogleMaps,
+					{
+						//center: { latitude: 30, longitude: 20 },
+						//zoom: 3,
+						//type: 'roadmap',
+						//type: 'hybrid',
+						type: 'satellite',
+						markers: aMarkers,
+						polylines: aPolylines,
+						heatmaps: aHeatmaps
+					},null)
+			);	
+
+		}		
 		else if (this.state.state == 'workspace')
 		{
 			return e(Workspace,
@@ -326,14 +442,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:09:30</sys_created_on>
         <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
-        <sys_mod_count>103</sys_mod_count>
+        <sys_mod_count>164</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoApp</sys_name>
-        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-11-27 14:32:09</sys_updated_on>
+        <sys_updated_on>2024-03-31 12:29:32</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>

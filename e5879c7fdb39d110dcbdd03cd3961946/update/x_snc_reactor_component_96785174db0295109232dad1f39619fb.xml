@@ -4,6 +4,7 @@
         <dependencies/>
         <description>A demo component that uses JSX syntax.</description>
         <jsx>true</jsx>
+        <module>false</module>
         <name>ReactorJSXDemo</name>
         <role>element</role>
         <script><![CDATA[class ReactorJSXDemo extends React.Component
@@ -29,14 +30,14 @@
         <sys_id>96785174db0295109232dad1f39619fb</sys_id>
         <sys_mod_count>3</sys_mod_count>
         <sys_name>ReactorJSXDemo</sys_name>
-        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_96785174db0295109232dad1f39619fb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2022-09-18 09:47:40</sys_updated_on>
         <type>script</type>
-        <ui_script display_value="x_snc_reactor.ReactorJSXDemo">f1371df0db0295109232dad1f3961959</ui_script>
+        <ui_script display_value="x_snc_reactor.ReactorJSXDemoController">f1371df0db0295109232dad1f3961959</ui_script>
         <url/>
     </x_snc_reactor_component>
 </record_update>

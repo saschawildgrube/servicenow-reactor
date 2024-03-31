@@ -2,17 +2,31 @@
     <sys_ui_related sys_domain="global" table="x_snc_reactor_component" version="2" view="">
         <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
             <filter/>
-            <list_id display_value="Reactor Component - Default view" name="x_snc_reactor_component" related_list="NULL" sys_domain="global" view="Default view">316b719bdb161510f359c191159619a2</list_id>
+            <list_id display_value="Reactor Component - Default view" name="x_snc_reactor_component" related_list="NULL" sys_domain="global" view="Default view">a969ab39dbb88610f0f1d03cd39619e9</list_id>
             <order_by/>
             <position>0</position>
             <related_list>x_snc_reactor_props.component</related_list>
             <sys_class_name>sys_ui_related_list_entry</sys_class_name>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-10-07 23:34:55</sys_created_on>
-            <sys_id>796b719bdb161510f359c191159619a3</sys_id>
+            <sys_created_on>2024-03-08 14:43:52</sys_created_on>
+            <sys_id>a169ab39dbb88610f0f1d03cd39619eb</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-10-07 23:34:55</sys_updated_on>
+            <sys_updated_on>2024-03-08 14:43:52</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Reactor Component - Default view" name="x_snc_reactor_component" related_list="NULL" sys_domain="global" view="Default view">a969ab39dbb88610f0f1d03cd39619e9</list_id>
+            <order_by/>
+            <position>1</position>
+            <related_list>x_snc_reactor_component.dependencies</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2024-03-08 14:43:52</sys_created_on>
+            <sys_id>e969ab39dbb88610f0f1d03cd39619eb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2024-03-08 14:43:52</sys_updated_on>
         </sys_ui_related_list_entry>
         <sys_ui_related_list action="INSERT_OR_UPDATE">
             <calculated_name>Reactor Component - Default view</calculated_name>
@@ -23,18 +37,18 @@
             <related_list/>
             <sys_class_name>sys_ui_related_list</sys_class_name>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2022-10-07 23:34:55</sys_created_on>
+            <sys_created_on>2024-03-08 14:43:52</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>316b719bdb161510f359c191159619a2</sys_id>
+            <sys_id>a969ab39dbb88610f0f1d03cd39619e9</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>Reactor Component - Default view</sys_name>
-            <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+            <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
             <sys_policy/>
-            <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+            <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
             <sys_update_name>sys_ui_related_x_snc_reactor_component_null</sys_update_name>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2022-10-07 23:34:55</sys_updated_on>
+            <sys_updated_on>2024-03-08 14:43:52</sys_updated_on>
             <sys_user/>
             <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>

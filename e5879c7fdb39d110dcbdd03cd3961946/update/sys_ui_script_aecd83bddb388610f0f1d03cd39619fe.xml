@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>Renders a Google Maps map.</description>
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_snc_reactor.GoogleMaps</name>
+        <script><![CDATA[class GoogleMaps extends ReactorComponent
+{
+
+	constructor(props)
+	{
+		super(props);
+		this.m_strId = 'googlemaps_'+GetRandomInteger(1000);
+
+		// This is to compensate an incompatibility between the Google Maps API and Prototype
+		// Refer to https://issuetracker.google.com/issues/320761260?pli=1
+		const nativeCodeElementRemove = Element.prototype.remove;
+		Element.addMethods({remove: function () { nativeCodeElementRemove.bind(this);} }) //reset with native code
+
+	}
+  
+	render()
+	{
+		return e(
+			'div', 
+			{
+				id: this.m_strId,
+				style:
+				{
+					height: '100%',
+					width: '100%'
+				}
+			},
+			null);
+	}
+
+	componentDidMount()
+	{
+		this.RenderGoogleMaps(''+this.m_strId, this.props);
+	}
+
+ 	// To calculate distance between two points using Haversine formula
+    Haversine(lat1, lon1, lat2, lon2)
+	{
+        const R = 6371; // Radius of the Earth in km
+        const dLat = (lat2 - lat1) * Math.PI / 180; // Convert degrees to radians
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                  Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                  Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const d = R * c; // Distance in km
+        return d;
+    }
+
+	CalculateZoomLevel(aCoordinates)
+	{
+		if (aCoordinates.length < 2)
+		{
+			return 5;
+		}
+
+		// Find the maximum and minimum latitude and longitude
+		let maxLat = GetValue(aCoordinates,0,'latitude');
+		let minLat = GetValue(aCoordinates,0,'latitude');
+		let maxLng = GetValue(aCoordinates,0,'longitude');
+		let minLng = GetValue(aCoordinates,0,'longitude');
+
+		aCoordinates.forEach(coord => {
+			maxLat = Math.max(maxLat, GetValue(coord,'latitude'));
+			minLat = Math.min(minLat, GetValue(coord,'latitude'));
+			maxLng = Math.max(maxLng, GetValue(coord,'longitude'));
+			minLng = Math.min(minLng, GetValue(coord,'longitude'));
+		});
+
+		// Calculate the distance between the farthest points
+		const maxDistance = this.Haversine(maxLat, minLng, minLat, maxLng);
+
+		// Set the zoom level based on the distance (you can adjust this according to your needs)
+		const nZoom = Math.floor(8 - Math.log2(maxDistance / 300));
+
+		return nZoom;
+	}
+
+	DegreesToRadians(fDegrees)
+	{
+		return fDegrees * Math.PI / 180;
+	}
+
+	GetGoogleMapSymbolPath(vPath)
+	{
+		if (vPath == 'CIRCLE')
+		{
+			return google.maps.SymbolPath.CIRCLE;
+		}			
+		if (vPath == 'FORWARD_CLOSED_ARROW' || vPath == 'ARROW')
+		{
+			return google.maps.SymbolPath.FORWARD_CLOSED_ARROW;
+		}
+		return vPath;
+	}
+
+ 	CalculateGeographicalCenter(aCoordinates)
+	{
+		if (aCoordinates.length === 0)
+		{
+			return { longitude: 0, latitude: 50} ; 
+		}
+
+		var totalX = 0;
+		var totalY = 0;
+		var totalZ = 0;
+		
+		for (var nCoordinate = 0; nCoordinate < aCoordinates.length; nCoordinate++)
+		{
+			var coordinate = aCoordinates[nCoordinate];
+			var latRad = this.DegreesToRadians(coordinate.latitude);
+			var lngRad = this.DegreesToRadians(coordinate.longitude);
+
+			totalX += Math.cos(latRad) * Math.cos(lngRad);
+			totalY += Math.cos(latRad) * Math.sin(lngRad);
+			totalZ += Math.sin(latRad);
+		};
+
+		// Average of Cartesian coordinates
+		var avgX = totalX / aCoordinates.length;
+		var avgY = totalY / aCoordinates.length;
+		var avgZ = totalZ / aCoordinates.length;
+
+		// Convert average Cartesian coordinates back to latitude and longitude
+		var lng = Math.atan2(avgY, avgX);
+		var hyp = Math.sqrt(avgX * avgX + avgY * avgY);
+		var lat = Math.atan2(avgZ, hyp);
+
+		// Convert latitude and longitude back to degrees
+		var centerLatitude = lat * 180 / Math.PI;
+		var centerLongitude = lng * 180 / Math.PI;
+
+		return { latitude: centerLatitude, longitude: centerLongitude };
+	}
+
+
+	RenderGoogleMaps(strSelector,aProps)
+	{
+		var center = GetValue(aProps,'center');
+		var fCenterLatitude = GetValue(center,'latitude');
+		var fCenterLongitude = GetValue(center,'longitude');
+		var nZoom = GetValue(aProps,'zoom');
+		var aMarkers = GetValue(aProps,'markers');
+		if (aMarkers == null)
+		{
+			aMarkers = [];
+		}			
+
+		if (fCenterLatitude === null || fCenterLongitude === null || nZoom === null)
+		{
+			var aCoordinates = [];
+			for (var nMarker = 0; nMarker < aMarkers.length; nMarker++)
+			{
+				var marker = aMarkers[nMarker];
+				var fLatitude = GetValue(marker,'latitude');
+				var fLongitude = GetValue(marker,'longitude');
+				if (fLatitude != 0 && fLongitude != 0)
+				{
+					aCoordinates.push( { latitude: fLatitude, longitude: fLongitude } );
+				}
+			}
+
+			if (fCenterLatitude == null || fCenterLatitude == null)
+			{
+				center = this.CalculateGeographicalCenter(aCoordinates);
+			}
+
+
+			if (nZoom == null)
+			{
+				nZoom = this.CalculateZoomLevel(aCoordinates);
+			}
+
+		}
+		
+
+
+			
+		var strType = GetValue(aProps,'type');
+		if (strType === null)
+		{
+			strType = 'roadmap';
+		}
+
+		var bTypeControl = GetValue(aProps,'typecontrol');
+		if (bTypeControl === null)
+		{
+			bTypeControl = true;
+		}
+
+		var bStreetViewControl = GetValue(aProps,'streetviewcontrol');
+		if (bStreetViewControl === null)
+		{
+			bStreetViewControl = true;
+		}
+	
+		var map = new google.maps.Map(
+			document.getElementById(strSelector),
+			{
+				zoom: nZoom, 
+				center: new google.maps.LatLng(center.latitude,center.longitude),  
+				mapTypeId: strType,
+				mapTypeControl: bTypeControl,
+				streetViewControl: bStreetViewControl
+			});
+
+
+		// MARKERS
+	
+		var aGoogleMapsMarkers = [];
+		for (var nMarker = 0; nMarker < aMarkers.length; nMarker++)
+		{
+			var marker = aMarkers[nMarker];
+			
+			function CreateMarker(THIS,marker)
+			{
+				var strToolTip = GetStringValue(GetValue(marker,'tooltip'));
+				var strLink = GetStringValue(GetValue(marker,'link'));
+				var bLinkNewWindow = GetBoolValue(GetValue(marker,'link_new_window'));
+				var strInfoWindowHtml = GetStringValue(GetValue(marker,'infowindow_html'));
+				var strId = GetStringValue(GetValue(marker,'id'));
+
+				var position = new google.maps.LatLng(GetValue(marker,'latitude'),GetValue(marker,'longitude'));
+
+				var fSize = GetValue(marker,'size');
+				if (fSize < 0 || fSize > 1)
+				{
+					fSize = 1.0;
+				}
+
+				var fOpacity = GetIntegerValue(GetValue(marker,'opacity'));
+				if (fOpacity < 0 || fOpacity > 1)
+				{
+					fOpacity = 1.0;
+				}
+
+				var fScale = 10.0 + (40.0 * fSize);
+
+/*
+				var strColor = GetStringValue(GetValue(marker,'color'));
+				if (strColor == '')
+				{
+					strColor = 'red';
+				}
+*/
+				
+				var markerConfig =
+					{
+						map: map,
+						position: position,
+						title: strToolTip
+					};
+				
+				var icon = GetValue(marker,'icon');
+				if (IsObject(icon) == true)
+				{
+					icon.path = THIS.GetGoogleMapSymbolPath(GetValue(icon,'path'));
+					markerConfig.icon = icon;
+				}
+				
+				var gm_marker = new google.maps.Marker(markerConfig);
+
+				if (strLink != '')
+				{
+					gm_marker.link = strLink;
+				}
+
+				var callbackOnClickMarker = THIS.props.callbackOnClickMarker;
+				var infoWindow = new google.maps.InfoWindow();
+
+				if (strInfoWindowHtml != '')
+				{
+					gm_marker.addListener('click', function(event)
+						{
+							infoWindow.setContent(strInfoWindowHtml);
+							infoWindow.open(map, gm_marker);
+						});
+
+				}
+				else if (IsValidUrl(strLink) == true)
+				{
+					gm_marker.addListener('click', function(event)
+						{
+							RedirectToUrl(strLink,bLinkNewWindow);
+						});
+				}
+				else if (IsFunction(callbackOnClickMarker) == true)
+				{
+					gm_marker.addListener('click', function(event)
+						{
+							callbackOnClickMarker(strId);
+						});				
+				}
+			}
+			CreateMarker(this,marker);
+		}
+		
+		
+		// HEATMAPS
+		// https://developers.google.com/maps/documentation/javascript/heatmaplayer
+		
+		var aHeatmaps = GetValue(aProps,'heatmaps');
+		if (aHeatmaps == null)
+		{
+			aHeatmaps = [];
+		}	
+		
+		for (var nHeatmap = 0; nHeatmap < aHeatmaps.length; nHeatmap++)
+		{
+			var aHeatmapData = GetValue(aHeatmaps,nHeatmap,'data');
+			var aHeatmapDataProcessed = [];
+			for (var nHeatmapData = 0; nHeatmapData < aHeatmapData.length; nHeatmapData++)
+			{
+				var heatmapPoint = aHeatmapData[nHeatmapData];
+				var fLatitude = GetFloatValue(GetValue(heatmapPoint,'latitude'));
+				var fLongitude = GetFloatValue(GetValue(heatmapPoint,'longitude'));
+				var fWeight = GetFloatValue(GetValue(heatmapPoint,'weight'));
+				if (fLatitude != 0 && fLongitude != 0 && fWeight != 0)
+				{
+					aHeatmapDataProcessed.push(
+						{
+							location: new google.maps.LatLng(fLatitude, fLongitude),
+							weight: fWeight
+						});
+				}
+			}
+			
+			if (aHeatmapDataProcessed.length > 0)
+			{
+				var aPoints = new google.maps.MVCArray(aHeatmapDataProcessed);
+				var heatmapConfig =
+					{
+						data: aPoints,
+					};
+				
+				heatmapConfig.dissipating = true;
+
+				//var aGradient = [];
+				//heatmapConfig.gradient = aGradient;
+				// heatmapConfig.maxIntensity = 1;
+				
+				var nRadius = GetIntegerValue(GetValue(aHeatmaps,nHeatmap,'radius'));
+				if (nRadius == 0)
+				{
+					nRadius = 25;
+				}
+				heatmapConfig.radius = nRadius;
+
+				var fOpacity = GetFloatValue(GetValue(aHeatmaps,nHeatmap,'opacity'));
+				if (fOpacity == 0)
+				{
+					fOpacity = 1.0;
+				}
+				heatmapConfig.opacity = fOpacity;
+				
+				var heatmap = new google.maps.visualization.HeatmapLayer(heatmapConfig);	
+				heatmap.setMap(map);
+			}
+		}	
+		
+		
+		// POLYLINES
+		// https://developers.google.com/maps/documentation/javascript/examples/polyline-simple
+		
+		var aPolylines = GetValue(aProps,'polylines');
+		if (aPolylines == null)
+		{
+			aPolylines = [];
+		}	
+	
+		for (var nPolyline = 0; nPolyline < aPolylines.length; nPolyline++)
+		{
+			var polylineData = aPolylines[nPolyline];
+			
+			var aPath = GetArrayValue(GetValue(polylineData,'path'));
+			var aPathProcessed = [];
+			if (aPath.length > 1)
+			{
+				for (var nPoint = 0; nPoint < aPath.length; nPoint++)
+				{
+					var pathPoint = aPath[nPoint];
+					var fLatitude = GetFloatValue(GetValue(pathPoint,'latitude'));
+					var fLongitude = GetFloatValue(GetValue(pathPoint,'longitude'));
+					if (fLatitude != 0 && fLongitude != 0)
+					{
+						aPathProcessed.push(new google.maps.LatLng(fLatitude, fLongitude));
+					}				
+				}
+				if (aPathProcessed.length > 0)
+				{
+					var aIcons = [];
+					var polylineConfig = {
+						path: aPathProcessed,
+					};
+					polylineConfig.geodesic = true;
+					polylineConfig.strokeColor = GetValue(polylineData,'strokeColor');
+					polylineConfig.strokeOpacity = GetValue(polylineData,'strokeOpacity');
+					polylineConfig.strokeWeight = GetValue(polylineData,'strokeWeight');
+					polylineConfig.zIndex = GetValue(polylineData,'zIndex');
+
+					// Dashed line
+					var strStrokeDashRepeat = GetStringValue(GetValue(polylineData,'strokeDashRepeat'));
+					if (strStrokeDashRepeat != '')
+					{
+						var vStrokeDashScale = GetValue(polylineData,'strokeDashScale');
+						if (vStrokeDashScale == null)
+						{
+							vStrokeDashScale = 4;
+						}
+						Debug('strStrokeDashRepeat: '+strStrokeDashRepeat);
+						const iconLine =
+							{
+								path: 'M 0,-1 0,1',
+								strokeOpacity: 1,
+								strokeColor: polylineConfig.strokeColor,
+								scale: vStrokeDashScale
+							};
+						polylineConfig.strokeOpacity = 0;
+						aIcons.push(
+							{
+								icon: iconLine,
+								repeat: strStrokeDashRepeat,
+								offset: '0'
+							});
+					}
+
+
+					
+					
+					var polyline = new google.maps.Polyline(polylineConfig);
+					polyline.setMap(map);
+
+					var iconEnd = GetValue(polylineData,'iconEnd');
+					if (IsObject(iconEnd) == true)
+					{
+						var iconEndProcessed = iconEnd;
+						var iconpath = GetValue(iconEndProcessed,'path');
+						iconEndProcessed.path = this.GetGoogleMapSymbolPath(iconpath);
+						aIcons.push(
+							{
+								icon: iconEndProcessed,
+								offset: '100%'
+							});
+					}
+
+					if (aIcons.length > 0)
+					{
+						polyline.setOptions(
+							{
+        						icons: aIcons
+							});
+					}
+				}
+			}
+		}		
+	}
+}]]></script>
+        <script_name>GoogleMaps</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-03-08 12:44:06</sys_created_on>
+        <sys_id>aecd83bddb388610f0f1d03cd39619fe</sys_id>
+        <sys_mod_count>125</sys_mod_count>
+        <sys_name>x_snc_reactor.GoogleMaps</sys_name>
+        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_aecd83bddb388610f0f1d03cd39619fe</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-03-31 12:42:05</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+        <x_snc_devtools_global>false</x_snc_devtools_global>
+    </sys_ui_script>
+</record_update>
