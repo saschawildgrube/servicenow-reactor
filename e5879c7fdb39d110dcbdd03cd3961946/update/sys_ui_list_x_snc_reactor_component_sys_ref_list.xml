@@ -33,9 +33,9 @@
             <sys_id>31a763f5dbb88610f0f1d03cd396192f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>x_snc_reactor_component</sys_name>
-            <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+            <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
             <sys_policy/>
-            <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+            <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
             <sys_update_name>sys_ui_list_x_snc_reactor_component_sys_ref_list</sys_update_name>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2024-03-08 14:36:15</sys_updated_on>
