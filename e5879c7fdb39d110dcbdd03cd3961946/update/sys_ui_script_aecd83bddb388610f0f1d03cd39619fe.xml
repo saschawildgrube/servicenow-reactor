@@ -153,7 +153,7 @@
 			aMarkers = [];
 		}			
 
-		if (fCenterLatitude == null || fCenterLatitude == null || nZoom == null)
+		if (fCenterLatitude === null || fCenterLongitude === null || nZoom === null)
 		{
 			var aCoordinates = [];
 			for (var nMarker = 0; nMarker < aMarkers.length; nMarker++)
@@ -467,14 +467,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-03-08 12:44:06</sys_created_on>
         <sys_id>aecd83bddb388610f0f1d03cd39619fe</sys_id>
-        <sys_mod_count>124</sys_mod_count>
+        <sys_mod_count>125</sys_mod_count>
         <sys_name>x_snc_reactor.GoogleMaps</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_aecd83bddb388610f0f1d03cd39619fe</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-31 12:21:43</sys_updated_on>
+        <sys_updated_on>2024-03-31 12:42:05</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
