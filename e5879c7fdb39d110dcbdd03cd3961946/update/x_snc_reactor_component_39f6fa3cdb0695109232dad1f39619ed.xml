@@ -4,6 +4,7 @@
         <dependencies>7b4bc549dbcad510dcbdd03cd396195e</dependencies>
         <description>A react component that renders a header menu.</description>
         <jsx>false</jsx>
+        <module>false</module>
         <name>HeaderMenu</name>
         <role>element</role>
         <script><![CDATA[class HeaderMenu extends React.Component

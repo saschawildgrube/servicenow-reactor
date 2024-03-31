@@ -4,6 +4,7 @@
         <dependencies/>
         <description>This React component renders the containing elements in its vertical and horizontal center.</description>
         <jsx>false</jsx>
+        <module>false</module>
         <name>Centered</name>
         <role>element</role>
         <script><![CDATA[class Centered extends ReactorComponent
@@ -33,9 +34,9 @@
         <sys_id>9861d5311bd7e110cd6153d16b4bcb73</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Centered</sys_name>
-        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_9861d5311bd7e110cd6153d16b4bcb73</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-06-08 17:54:42</sys_updated_on>

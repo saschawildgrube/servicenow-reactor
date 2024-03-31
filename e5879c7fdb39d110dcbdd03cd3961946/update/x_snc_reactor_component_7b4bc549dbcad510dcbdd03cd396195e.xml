@@ -4,6 +4,7 @@
         <dependencies/>
         <description>The styles for the HeaderMenu component.</description>
         <jsx>false</jsx>
+        <module>false</module>
         <name>HeaderMenuCSS</name>
         <role>element</role>
         <script/>

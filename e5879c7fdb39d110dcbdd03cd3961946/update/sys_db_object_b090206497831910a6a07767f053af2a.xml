@@ -9,7 +9,6 @@
         <create_access>false</create_access>
         <create_access_controls>true</create_access_controls>
         <delete_access>false</delete_access>
-        <extension_model/>
         <is_extendable>false</is_extendable>
         <label>Component Properties</label>
         <live_feed_enabled>false</live_feed_enabled>
@@ -18,19 +17,17 @@
         <provider_class/>
         <read_access>true</read_access>
         <scriptable_table>false</scriptable_table>
-        <super_class display_value="Application File" name="sys_metadata">fa7a213321123010c0a0a40cdfd1e488</super_class>
-        <sys_class_code/>
+        <super_class display_value="Application File" name="sys_metadata">267b3011b9103110d0adbb64e3a1e98c</super_class>
         <sys_class_name>sys_db_object</sys_class_name>
-        <sys_class_path/>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-10-07 23:46:31</sys_created_on>
-        <sys_id>63edbd5fdb161510f359c191159619b3</sys_id>
+        <sys_id>b090206497831910a6a07767f053af2a</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Component Properties</sys_name>
-        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
-        <sys_update_name>sys_db_object_63edbd5fdb161510f359c191159619b3</sys_update_name>
+        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_db_object_b090206497831910a6a07767f053af2a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2022-10-07 23:46:31</sys_updated_on>
         <update_access>false</update_access>
