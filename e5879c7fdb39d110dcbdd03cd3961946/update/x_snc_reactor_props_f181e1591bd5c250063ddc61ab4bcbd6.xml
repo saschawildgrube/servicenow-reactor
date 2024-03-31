@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_props">
+    <x_snc_reactor_props action="INSERT_OR_UPDATE">
+        <component display_value="GoogleMaps">f40e87bddb388610f0f1d03cd39619b7</component>
+        <description>Specifies of the Google map should cntain the street view control. Default is true.</description>
+        <mandatory>false</mandatory>
+        <name>streetviewcontrol</name>
+        <sys_class_name>x_snc_reactor_props</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-03-31 12:05:53</sys_created_on>
+        <sys_id>f181e1591bd5c250063ddc61ab4bcbd6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>streetviewcontrol</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_props_f181e1591bd5c250063ddc61ab4bcbd6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-03-31 12:05:53</sys_updated_on>
+        <type>bool</type>
+    </x_snc_reactor_props>
+</record_update>
