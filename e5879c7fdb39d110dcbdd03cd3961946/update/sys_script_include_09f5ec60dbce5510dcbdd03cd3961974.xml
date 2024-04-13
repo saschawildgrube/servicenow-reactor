@@ -7,12 +7,12 @@
         <client_callable>false</client_callable>
         <description>Returns the script of a component.</description>
         <name>GetComponentScript</name>
-        <script><![CDATA[function GetComponentScript(strComponent)
+        <script><![CDATA[function GetComponentScript(vComponent)
 {
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var IsValidRecord = x_snc_devtools.IsValidRecord;
 	
-	var grComponent = GetComponentRecord(strComponent);
+	var grComponent = GetComponentRecord(vComponent);
 	if (IsValidRecord(grComponent) == true)
 	{
 		var grUIS = x_snc_devtools.GetRecord('sys_ui_script',grComponent.ui_script);
@@ -27,13 +27,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 18:05:39</sys_created_on>
         <sys_id>09f5ec60dbce5510dcbdd03cd3961974</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>GetComponentScript</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_script_include_09f5ec60dbce5510dcbdd03cd3961974</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-16 20:00:49</sys_updated_on>
+        <sys_updated_on>2024-04-13 15:03:21</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -16,6 +16,8 @@
 	var HtmlRenderError = x_snc_devtools.HtmlRenderError;
 	var HtmlRenderScript = x_snc_devtools.HtmlRenderScript;
 	var HtmlRenderScriptUrl = x_snc_devtools.HtmlRenderScriptUrl;
+	var StringReplaceMultiple = x_snc_devtools.StringReplaceMultiple;
+
 	
 	var strScript = '';
 	var bJSX = false;
@@ -31,58 +33,8 @@
 	var strType = GetStringValue(grComponent.type);
 	var strSourceType = GetStringValue(grComponent.source_type);
 
-	var GetProperty = x_snc_devtools.GetProperty;
-	var RunScriptInGlobalScope = x_snc_devtools.RunScriptInGlobalScope;
+	var aTokens = GetComponentTokens(grComponent);
 
-	var aTokens = [];
-	var grTokens = new GlideRecord('x_snc_reactor_component_token');
-	grTokens.addQuery('component','=',grComponent.sys_id)
-	grTokens.query();
-	while (grTokens.next())
-	{
-		var token = { key: '{' + GetStringValue(grTokens.key) + '}'};
-		var strTokenType = GetStringValue(grTokens.type);
-		if (strTokenType == 'text')
-		{
-			token.value = GetStringValue(grTokens.text);
-		}
-		else if (strTokenType == 'property')
-		{
-			token.value = GetStringValue(GetProperty(grTokens.property));
-		}
-		else if (strTokenType == 'script')
-		{
-			var strScript =  GetStringValue(grTokens.script);
-			var strValue = RunScriptInGlobalScope(
-				strScript 
-				+ 'result = GetTokenValue(param1,param2);',
-				grComponent,
-				grTokens);
-			token.value = strValue;
-		}		
-		aTokens.push(token);
-	}
-
-	var GetArrayValue = x_snc_devtools.GetArrayValue;
-	var GetValue = x_snc_devtools.GetValue;
-	var StringReplace = x_snc_devtools.StringReplace;
-	function StringReplaceMultiple(strHaystack,aTokens)
-	{
-		var strResult = strHaystack;
-		aTokens = GetArrayValue(aTokens);
-		for (var nToken = 0; nToken < aTokens.length; nToken++)
-		{
-			var token = aTokens[nToken];
-			var strKey = GetStringValue(GetValue(token,'key'));
-			if (strKey != '')
-			{
-				var strValue = GetStringValue(GetValue(token,'value'));
-				strResult = StringReplace(strResult,strKey,strValue);
-			}
-		}
-		return strResult;
-	}
-		
 	if (strType == 'script')
 	{
 		var bModule = GetBoolValue(grComponent.module);
@@ -176,13 +128,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-17 14:13:55</sys_created_on>
         <sys_id>3afa34bcdb8e55109232dad1f39619ca</sys_id>
-        <sys_mod_count>53</sys_mod_count>
+        <sys_mod_count>55</sys_mod_count>
         <sys_name>HtmlRenderReactorComponent</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_script_include_3afa34bcdb8e55109232dad1f39619ca</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-04-13 08:17:27</sys_updated_on>
+        <sys_updated_on>2024-04-13 15:06:34</sys_updated_on>
     </sys_script_include>
 </record_update>
