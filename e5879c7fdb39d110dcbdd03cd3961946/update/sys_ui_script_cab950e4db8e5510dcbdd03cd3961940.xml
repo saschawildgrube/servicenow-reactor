@@ -41,6 +41,10 @@
 	{
 		DoModalMessage('Reactor','We can respond to the onLoad event of the iFrame:\n'+strUrl);
 	}
+	onFilterChange(filterStates)
+	{
+		this.setState( { filters: filterStates} );
+	}
 	
 	render()
 	{
@@ -65,6 +69,7 @@
 		aMenuItems.push({ label: 'IFrame', option: 'iframe' });
 		aMenuItems.push({ label: 'Tables', option: 'tables' });
 		aMenuItems.push({ label: 'Google Maps', option: 'googlemaps' });
+		aMenuItems.push({ label: 'Filters', option: 'filters' });
 		aMenuItems.push({ label: 'Workspace', option: 'workspace' });
 			
 		var aComponents = [];
@@ -412,6 +417,132 @@
 			);	
 
 		}		
+		else if (this.state.state == 'filters')
+		{
+			var compFilters = e(Filters,
+				{
+					callbackOnChange: this.onFilterChange,
+					filters: 
+						[
+							{
+								table: 'incident',
+								field: 'number',
+								caption: 'Number',
+								type: 'text'
+							},
+							{
+								table: 'incident',
+								field: 'short_description',
+								caption: 'Short Description',
+								type: 'text'
+							},
+							/*{
+								table: 'incident',
+								field: 'active',
+								caption: 'Active',
+								type: 'bool'
+							},*/
+							/*{
+								table: 'incident',
+								field: 'contact_type',
+								caption: 'Contact Type',
+								type: 'dropdown',
+								options: [
+										{
+											value: 'email',
+											caption: 'Email'
+										},
+										{
+											value: 'chat',
+											caption: 'Chat'
+										},
+									]
+							}*/
+						]
+				},null);
+
+
+			var filters = this.state.filters;
+
+			var incidentFilters = GetValue(filters,'incident');
+			Debug(incidentFilters);
+
+			var strQuery = '';
+
+			var aFields = GetKeys(incidentFilters);
+			for (var nField = 0; nField < aFields.length; nField++)
+			{
+				var strField = aFields[nField];
+				var strValue = GetStringValue(GetValue(incidentFilters,strField));
+				if (strValue != '')
+				{
+					if (strQuery != '')
+					{
+						strQuery += '^';
+					}
+					strQuery += strField + 'CONTAINS' + strValue;
+				}
+			}
+
+			var strQueryEncoded = encodeURIComponent(strQuery);
+
+			//var compContent = RenderValue(this.state.filters);
+			var compContent = e(IFrame,
+					{
+						key: 'incident',
+						url: '/incident_list.do?sysparm_query='+strQueryEncoded
+					},null);
+
+			var compLeft = e('div', { 
+
+				style: 
+				{
+					flex: '0 1 auto',
+					minWidth: '250px',
+					maxWidth: '400px',
+					height: '100%',
+					//overflowY: 'auto',
+					
+					display: 'flex',
+					flexDirection: 'column',
+					
+					backgroundColor: '#dddddd'
+				}
+
+			}, compFilters);
+
+			var compRight = e('div',{
+
+				style:
+				{
+					flex: '1 1 auto',
+					height: '100%',
+					
+					display: 'flex',
+					flexDirection: 'column'
+				}
+
+			},compContent);
+
+
+			aComponents.push( e('div',{
+
+				style:
+				{
+					flex: '1 1 auto',
+					width: '100%',
+					height: '100%',
+					
+					display: 'flex',
+					flexDirection: 'row',
+					
+					backgroundColor: '#ebebeb'
+				}
+
+			},
+				[compLeft,
+				compRight]));
+		}			
 		else if (this.state.state == 'workspace')
 		{
 			return e(Workspace,
@@ -442,14 +573,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:09:30</sys_created_on>
         <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
-        <sys_mod_count>164</sys_mod_count>
+        <sys_mod_count>183</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-31 12:29:32</sys_updated_on>
+        <sys_updated_on>2024-04-10 08:15:38</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>

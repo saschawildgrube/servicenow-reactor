@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-04-13 06:40:40</sys_created_on>
+        <sys_id>520497911b2d4690063ddc61ab4bcb4c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_reactor_component_token.x_snc_reactor.developer</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_security_acl display_value="x_snc_reactor_component_token">8e0497911b2d4690063ddc61ab4bcb47</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_520497911b2d4690063ddc61ab4bcb4c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-04-13 06:40:40</sys_updated_on>
+        <sys_user_role display_value="x_snc_reactor.developer" name="x_snc_reactor.developer">3ca0f3d0db0e5510dcbdd03cd39619e1</sys_user_role>
+    </sys_security_acl_role>
+</record_update>

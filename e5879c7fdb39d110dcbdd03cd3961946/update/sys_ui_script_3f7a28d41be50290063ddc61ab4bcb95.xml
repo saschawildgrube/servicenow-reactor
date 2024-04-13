@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>The Filters component renders a form with filter options and reports back whenever the user changes their selection. </description>
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_snc_reactor.Filters</name>
+        <script><![CDATA[class Filters extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+		this.state = { filters: {} };
+	}
+
+	componentDidMount()
+	{
+	}
+
+	componentWillUnmount()
+	{
+	}
+
+	onChange()
+	{
+		var strTable = GetStringValue(event.target.getAttribute('table'));
+		var strField = GetStringValue(event.target.getAttribute('field'));
+		var strValue = GetStringValue(event.target.value);
+		//console.log('Filters.onChange: '+strTable+'.'+strField+': '+strValue);
+		var filterStates = this.state.filters;
+		filterStates = SetValue(strValue,filterStates,strTable,strField);
+		this.setState ({ filters: filterStates });
+
+		if (typeof this.props.callbackOnChange == 'function')
+		{
+			this.props.callbackOnChange(filterStates);
+		}
+	}
+
+	render()
+	{
+		var aFilters = GetArrayValue(this.props.filters);
+		
+		var aComponents = [];
+
+		for (var nFilter = 0; nFilter < aFilters.length; nFilter++)
+		{
+			var filter = aFilters[nFilter];
+			var strTable = GetStringValue(GetValue(filter,'table'));
+			var strField = GetStringValue(GetValue(filter,'field'));
+			var strType =  GetStringValue(GetValue(filter,'type'));
+			var strCaption = GetStringValue(GetValue(filter,'caption'));
+			var strValue = GetStringValue(GetValue(this.state.filters,strTable,strField));
+
+			if (strCaption == '')
+			{
+				strCaption = strTable + '.' + strField;
+			}
+
+			if (strType == 'text')
+			{
+				var aComponentsText = [];
+				aComponentsText.push(e('label',{},strCaption+':'));
+
+				aComponentsText.push(e('input',{
+					style: { width: '100%'},
+					value: strValue,
+					table: strTable,
+					field: strField,
+					onChange: this.onChange,
+					},null));
+
+				aComponents.push(aComponentsText);
+			}
+			
+		}
+
+		return e('div',
+			{},
+			aComponents);	
+	}	
+}]]></script>
+        <script_name>Filters</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-04-09 15:55:31</sys_created_on>
+        <sys_id>3f7a28d41be50290063ddc61ab4bcb95</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>x_snc_reactor.Filters</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_3f7a28d41be50290063ddc61ab4bcb95</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-04-09 16:56:24</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+        <x_snc_devtools_global>false</x_snc_devtools_global>
+    </sys_ui_script>
+</record_update>
