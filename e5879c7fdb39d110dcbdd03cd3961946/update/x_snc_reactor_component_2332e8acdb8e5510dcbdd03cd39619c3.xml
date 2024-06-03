@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
     <x_snc_reactor_component action="INSERT_OR_UPDATE">
         <content_css/>
-        <dependencies>e7d38ca0db4e5510dcbdd03cd3961911,cf54ac20dbce5510dcbdd03cd396197a,b11cdde0db829510dcbdd03cd39619f3,96785174db0295109232dad1f39619fb,39f6fa3cdb0695109232dad1f39619ed,1fb0773edb92d110f359c1911596194d,2c0168dfdbded110f359c1911596195f,2edf5ac6476a1110a4b0d4fe536d433c,acf063451b1469905b76777d8b4bcbb2,59aa28661b4fa510cd6153d16b4bcb38,099c24e61b4fa510cd6153d16b4bcb7a,8572ee00971fed10a6a07767f053af21,f5be6c2c97d36110a6a07767f053afa5,9861d5311bd7e110cd6153d16b4bcb73,95aa25b11b1be110cd6153d16b4bcb0f,e38da2d697d36910a6a07767f053afc1,f40e87bddb388610f0f1d03cd39619b7</dependencies>
+        <dependencies>e7d38ca0db4e5510dcbdd03cd3961911,cf54ac20dbce5510dcbdd03cd396197a,b11cdde0db829510dcbdd03cd39619f3,96785174db0295109232dad1f39619fb,39f6fa3cdb0695109232dad1f39619ed,1fb0773edb92d110f359c1911596194d,2c0168dfdbded110f359c1911596195f,2edf5ac6476a1110a4b0d4fe536d433c,acf063451b1469905b76777d8b4bcbb2,59aa28661b4fa510cd6153d16b4bcb38,099c24e61b4fa510cd6153d16b4bcb7a,8572ee00971fed10a6a07767f053af21,f5be6c2c97d36110a6a07767f053afa5,9861d5311bd7e110cd6153d16b4bcb73,95aa25b11b1be110cd6153d16b4bcb0f,e38da2d697d36910a6a07767f053afc1,f40e87bddb388610f0f1d03cd39619b7,0cecec581be50290063ddc61ab4bcb76</dependencies>
         <description>Demonstrates the capability of Reactor to embedd React components into a ServiceNow UI Page.</description>
         <jsx>false</jsx>
         <module>false</module>
@@ -67,6 +67,7 @@
 		aMenuItems.push({ label: 'IFrame', option: 'iframe' });
 		aMenuItems.push({ label: 'Tables', option: 'tables' });
 		aMenuItems.push({ label: 'Google Maps', option: 'googlemaps' });
+		aMenuItems.push({ label: 'Filters', option: 'filters' });
 		aMenuItems.push({ label: 'Workspace', option: 'workspace' });
 			
 		var aComponents = [];
@@ -298,7 +299,139 @@
 			);	
 
 		}		
-		
+		else if (this.state.state == 'googlemaps')
+		{
+			var iconAirport = {
+				path: 'CIRCLE',
+				fillColor: 'blue',
+				scale: 10,
+				fillOpacity: 1,
+				strokeWeight: 5,
+				strokeColor: 'black',	
+			};
+			var aMarkers = [
+				{
+					tooltip: 'Frankfurt',
+					latitude: 50.12,
+					longitude: 8.68,
+					link: 'https://en.wikipedia.org/wiki/Frankfurt',
+					link_new_window: true
+				},				
+				{
+					tooltip: 'Frankfurt International Airport (EDDF)',
+					latitude: 50.033333,
+					longitude: 8.570556,
+					icon: iconAirport,
+					link: 'https://en.wikipedia.org/wiki/Frankfurt_Airport',
+					link_new_window: true
+				},
+				{
+					tooltip: 'Courchevel Altiport (LFLJ)',
+					latitude: 45.3975,
+					longitude: 6.634444,
+					icon: iconAirport,
+					link: 'https://en.wikipedia.org/wiki/Courchevel_Altiport',
+					link_new_window: true
+				},
+				{
+					tooltip: 'London Heathrow (EGLL)',
+					latitude: 51.4775,
+					longitude: -0.461389,
+					icon: iconAirport,
+					link: 'https://en.wikipedia.org/wiki/Heathrow_Airport',
+					link_new_window: true
+				},
+				{
+					tooltip: 'New York La Guardia (KLGA)',
+					latitude: 40.775,
+					longitude:  -73.875,
+					icon: iconAirport,
+					link: 'https://en.wikipedia.org/wiki/LaGuardia_Airport',
+					link_new_window: true
+				}
+			];
+
+			var iconEnd =
+				{
+					path: 'FORWARD_CLOSED_ARROW',
+					scale: 6,
+					strokeColor: 'black',
+					strokeWeight: 2,
+					fillOpacity: 1,
+					fillColor: 'blue',
+				};
+
+			var aPolylines = [
+				{
+					zIndex: 9999,
+					strokeColor: 'blue',
+					strokeDashRepeat: '30px',
+					strokeDashScale: 7,
+					iconEnd: iconEnd,
+					path: [
+						{
+							latitude: 50.033333,
+							longitude: 8.570556,
+						},
+						{
+							latitude: 45.3975,
+							longitude: 6.634444,
+						}
+					]
+				}
+			];
+
+			var aHeatmaps = [
+				{
+					opacity: 1,
+					radius: 30,
+					data: [
+						{
+							latitude: 49,
+							longitude: 8,
+							weight: 1
+						},
+						{
+							latitude: 48,
+							longitude: 7,
+							weight: 0.5
+						}
+					]
+				}
+			];
+	
+			aComponents.push(
+				e(GoogleMaps,
+					{
+						//center: { latitude: 30, longitude: 20 },
+						//zoom: 3,
+						//type: 'roadmap',
+						//type: 'hybrid',
+						type: 'satellite',
+						markers: aMarkers,
+						polylines: aPolylines,
+						heatmaps: aHeatmaps
+					},null)
+			);	
+
+		}		
+		else if (this.state.state == 'filters')
+		{
+			return e(Filters,
+				{
+					filters: 
+						[
+							{
+								table: 'incident',
+								field: 'number'
+							},
+							{
+								table: 'incident',
+								field: 'short_description'
+							}
+						]
+				},null);	
+		}			
 		else if (this.state.state == 'workspace')
 		{
 			return e(Workspace,
@@ -329,14 +462,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:46:33</sys_created_on>
         <sys_id>2332e8acdb8e5510dcbdd03cd39619c3</sys_id>
-        <sys_mod_count>24</sys_mod_count>
+        <sys_mod_count>25</sys_mod_count>
         <sys_name>ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_2332e8acdb8e5510dcbdd03cd39619c3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-08 12:45:42</sys_updated_on>
+        <sys_updated_on>2024-04-09 16:01:36</sys_updated_on>
         <type>script</type>
         <ui_script display_value="x_snc_reactor.ReactorDemoApp">cab950e4db8e5510dcbdd03cd3961940</ui_script>
         <url/>

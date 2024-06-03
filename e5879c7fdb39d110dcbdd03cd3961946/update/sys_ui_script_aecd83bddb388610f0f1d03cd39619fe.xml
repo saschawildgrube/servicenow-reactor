@@ -67,12 +67,13 @@
 		let maxLng = GetValue(aCoordinates,0,'longitude');
 		let minLng = GetValue(aCoordinates,0,'longitude');
 
-		aCoordinates.forEach(coord => {
-			maxLat = Math.max(maxLat, GetValue(coord,'latitude'));
-			minLat = Math.min(minLat, GetValue(coord,'latitude'));
-			maxLng = Math.max(maxLng, GetValue(coord,'longitude'));
-			minLng = Math.min(minLng, GetValue(coord,'longitude'));
-		});
+		for (var nCoord = 0; nCoord < aCoordinates.length; nCoord++)
+		{
+			maxLat = Math.max(maxLat, GetValue(aCoordinates[nCoord],'latitude'));
+			minLat = Math.min(minLat, GetValue(aCoordinates[nCoord],'latitude'));
+			maxLng = Math.max(maxLng, GetValue(aCoordinates[nCoord],'longitude'));
+			minLng = Math.min(minLng, GetValue(aCoordinates[nCoord],'longitude'));
+		}
 
 		// Calculate the distance between the farthest points
 		const maxDistance = this.Haversine(maxLat, minLng, minLat, maxLng);
@@ -467,14 +468,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-03-08 12:44:06</sys_created_on>
         <sys_id>aecd83bddb388610f0f1d03cd39619fe</sys_id>
-        <sys_mod_count>125</sys_mod_count>
+        <sys_mod_count>126</sys_mod_count>
         <sys_name>x_snc_reactor.GoogleMaps</sys_name>
         <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_aecd83bddb388610f0f1d03cd39619fe</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-31 12:42:05</sys_updated_on>
+        <sys_updated_on>2024-06-03 13:47:30</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>

@@ -16,6 +16,8 @@
 	var HtmlRenderError = x_snc_devtools.HtmlRenderError;
 	var HtmlRenderScript = x_snc_devtools.HtmlRenderScript;
 	var HtmlRenderScriptUrl = x_snc_devtools.HtmlRenderScriptUrl;
+	var StringReplaceMultiple = x_snc_devtools.StringReplaceMultiple;
+
 	
 	var strScript = '';
 	var bJSX = false;
@@ -30,7 +32,9 @@
 	
 	var strType = GetStringValue(grComponent.type);
 	var strSourceType = GetStringValue(grComponent.source_type);
-		
+
+	var aTokens = GetComponentTokens(grComponent);
+
 	if (strType == 'script')
 	{
 		var bModule = GetBoolValue(grComponent.module);
@@ -42,10 +46,14 @@
 				return HtmlRenderError('The component "'+strComponent+'" refers to a UI Script that could not be loaded.');
 			}
 			strScript = GetStringValue(grUIS.script);
+			strScript = StringReplaceMultiple(strScript,aTokens);
+
 		}
 		else if (strSourceType == 'url')
 		{
-			strHtml += HtmlRenderScriptUrl(grComponent.url,bModule);
+			var strUrl = GetStringValue(grComponent.url);
+			strUrl = StringReplaceMultiple(strUrl,aTokens);
+			strHtml += HtmlRenderScriptUrl(strUrl,bModule);
 		}
 		else
 		{
@@ -87,11 +95,15 @@
 			var strStyleSheetType = GetStringValue(grCSS.type);
 			if (strStyleSheetType == 'local')
 			{
+				var strStyles = GetStringValue(grCSS.style);
+				strStyles = StringReplaceMultiple(strStyles,aTokens);
 				strHtml += '<style>'+grCSS.style+'</style>\n';
 			}
 			else if (strStyleSheetType == 'link')
 			{
-				strHtml += '<link type="text/css" rel="stylesheet" href="'+grCSS.url+'"></link>\n';
+				var strUrl = GetStringValue(grCSS.url);
+				strUrl = StringReplaceMultiple(strUrl,aTokens);
+				strHtml += '<link type="text/css" rel="stylesheet" href="'+strUrl+'"></link>\n';
 				
 			}
 			else
@@ -116,13 +128,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-17 14:13:55</sys_created_on>
         <sys_id>3afa34bcdb8e55109232dad1f39619ca</sys_id>
-        <sys_mod_count>41</sys_mod_count>
+        <sys_mod_count>55</sys_mod_count>
         <sys_name>HtmlRenderReactorComponent</sys_name>
         <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_script_include_3afa34bcdb8e55109232dad1f39619ca</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-08-05 08:14:57</sys_updated_on>
+        <sys_updated_on>2024-04-13 15:06:34</sys_updated_on>
     </sys_script_include>
 </record_update>

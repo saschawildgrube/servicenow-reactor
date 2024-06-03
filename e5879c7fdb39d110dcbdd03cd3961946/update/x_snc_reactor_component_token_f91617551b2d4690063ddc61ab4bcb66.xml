@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component_token">
+    <x_snc_reactor_component_token action="INSERT_OR_UPDATE">
+        <component display_value="GoogleMapsAPI">e407e7b5dbb88610f0f1d03cd3961934</component>
+        <key>{authentication}</key>
+        <name>authentication</name>
+        <property>google.maps.client</property>
+        <script><![CDATA[function GetTokenValue(grComponent,grToken)
+{
+	var strMethod = x_snc_devtools.GetProperty('google.maps.method');
+	if (strMethod == 'key')
+	{
+		return 'key='+x_snc_devtools.GetProperty('google.maps.key');
+	}
+	if (strMethod == 'client-id')
+	{
+		return 'client='+x_snc_devtools.GetProperty('google.maps.client');
+	}
+	return '';
+}]]></script>
+        <sys_class_name>x_snc_reactor_component_token</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-04-13 06:49:45</sys_created_on>
+        <sys_id>f91617551b2d4690063ddc61ab4bcb66</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>{authentication}</sys_name>
+        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_component_token_f91617551b2d4690063ddc61ab4bcb66</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-06-03 21:22:22</sys_updated_on>
+        <text>client=gme-servicenow</text>
+        <type>script</type>
+    </x_snc_reactor_component_token>
+</record_update>

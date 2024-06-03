@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Run Server Side Validation Script</description>
+        <display_name>Run Server Side Script</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>1</order>
+        <step_config display_value="Run Server Side Script">41de4a935332120028bc29cac2dc349a</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-04-13 15:44:43</sys_created_on>
+        <sys_id>828091e11b258690063ddc61ab4bcbfc</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Run Server Side Script</sys_name>
+        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_atf_step_828091e11b258690063ddc61ab4bcbfc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-04-13 15:50:25</sys_updated_on>
+        <table/>
+        <test display_value="Reactor - GetComponentTokens">888051e11b258690063ddc61ab4bcb19</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=828091e11b258690063ddc61ab4bcbfc"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>828091e11b258690063ddc61ab4bcbfc</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-04-13 15:44:43</sys_created_on>
+        <sys_id>2b80d1e11b258690063ddc61ab4bcb07</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-04-13 15:44:43</sys_updated_on>
+        <value>3.1</value>
+        <variable display_value="Jasmine version">42f2564b73031300440211d8faf6a777</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>828091e11b258690063ddc61ab4bcbfc</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-04-13 15:44:43</sys_created_on>
+        <sys_id>ef80d1e11b258690063ddc61ab4bcb07</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-04-13 15:50:25</sys_updated_on>
+        <value>(function(outputs, steps, stepResult, assertEqual)&#13;
+{&#13;
+	var test = new x_snc_devtools.TestAPI(outputs, steps, stepResult, assertEqual);&#13;
+	&#13;
+	test.SetResult(true);&#13;
+&#13;
+	function TestCase_GetComponentTokens(vComponent, vExpected)&#13;
+	{&#13;
+		function TestCase_GetComponentTokens_CheckResult(vInput,vExpected,vResult)&#13;
+		{&#13;
+			return x_snc_devtools.IsEqual(vExpected,vResult);&#13;
+		}&#13;
+&#13;
+		test.TestCase(&#13;
+			'Function GetComponentTokens()',&#13;
+			GetComponentTokens,&#13;
+			{&#13;
+				'Component': vComponent&#13;
+			},&#13;
+			vExpected,&#13;
+			TestCase_GetComponentTokens_CheckResult);&#13;
+	}&#13;
+&#13;
+	TestCase_GetComponentTokens(null,[]);&#13;
+	TestCase_GetComponentTokens('ReactorDemoApp',&#13;
+		[&#13;
+			{&#13;
+				key: '{demo1}', value: 'This is a text token.'&#13;
+			},&#13;
+			{&#13;
+				key: '{demo2}', value: AppGetProperty('logging.verbosity')&#13;
+			},&#13;
+			{&#13;
+				key: '{demo3}', value: 'This is a scripted token.'&#13;
+			}&#13;
+		]);&#13;
+	&#13;
+	return test.GetResult();&#13;
+	&#13;
+})(outputs, steps, stepResult, assertEqual);</value>
+        <variable display_value="Test script">989d9e235324220002c6435723dc3484</variable>
+    </sys_variable_value>
+</record_update>
