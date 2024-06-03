@@ -117,6 +117,12 @@
 	
 	<h2>Release Notes</h2>
 
+	<h3>1.9.0 - TODO</h3>
+	<ol>
+		<li>TODO: Document changes here...</li>
+	</ol>
+
+
 	<h3>1.8.0 - 2024-06-03</h3>
 	<ol>
 		<li>DevTools 1.86.0 is now required because of StringReplaceMultiple().</li>
@@ -221,9 +227,9 @@
         <sys_id>ed7de710db0e5510dcbdd03cd39619cb</sys_id>
         <sys_mod_count>93</sys_mod_count>
         <sys_name>manual</sys_name>
-        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_page_ed7de710db0e5510dcbdd03cd39619cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2024-06-03 21:43:59</sys_updated_on>
