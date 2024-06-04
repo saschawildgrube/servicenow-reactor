@@ -2,9 +2,7 @@
     <x_snc_reactor_component action="INSERT_OR_UPDATE">
         <content_css/>
         <dependencies/>
-        <description>Loads the Google Maps API&#13;
-loading=async&amp;callback=initMap&#13;
-https://maps.googleapis.com/maps/api/js?client=gme-servicenow&amp;libraries=visualization&amp;v=weekly</description>
+        <description>Loads the Google Maps API.</description>
         <jsx>false</jsx>
         <module>false</module>
         <name>GoogleMapsAPI</name>
@@ -15,14 +13,14 @@ https://maps.googleapis.com/maps/api/js?client=gme-servicenow&amp;libraries=visu
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-03-08 14:33:54</sys_created_on>
         <sys_id>e407e7b5dbb88610f0f1d03cd3961934</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>GoogleMapsAPI</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_e407e7b5dbb88610f0f1d03cd3961934</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-04-13 08:17:00</sys_updated_on>
+        <sys_updated_on>2024-06-04 07:22:26</sys_updated_on>
         <type>script</type>
         <ui_script/>
         <url>https://maps.googleapis.com/maps/api/js?{authentication}&amp;libraries=visualization&amp;v=weekly</url>
