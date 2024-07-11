@@ -16,32 +16,36 @@
 		};
 	}
 
-	onHeaderMenuClick(strOption)
+	onClickHeaderMenu(strOption)
 	{
 		this.setState( {state: strOption } );
 	}
 	
-	onButtonClick()
+	onClickButton()
 	{
 		DoModalMessage('Reactor','The button has been clicked!',function(){});		
 	}
-	onToolBarClick(strValue)
+	onClickButtonSelection(strValue)
+	{
+		DoModalMessage('Reactor','Selected option: '+strValue,function(){});		
+	}
+	onClickToolBar(strValue)
 	{
 		DoModalMessage('Reactor','The Tool has been clicked: '+strValue,function(){});		
 	}
-	onTreeNavigationClick(strValue)
+	onClickTreeNavigation(strValue)
 	{
 		DoModalMessage('Reactor','The following TreeNavigation item has been clicked: '+strValue,function(){});		
 	}	
-	onRulerChange(nNewValue)
+	onChangeRuler(nNewValue)
 	{
 		this.setState( { ruler_value: nNewValue} );
 	}	
-	onIFrameLoad(strUrl)
+	onLoadIFrame(strUrl)
 	{
 		DoModalMessage('Reactor','We can respond to the onLoad event of the iFrame:\n'+strUrl);
 	}
-	onFilterChange(filterStates)
+	onChangeFilter(filterStates)
 	{
 		this.setState( { filters: filterStates} );
 	}
@@ -58,6 +62,7 @@
 		var aMenuItems = [];
 		aMenuItems.push({ label: 'Home', option: 'home' });
 		aMenuItems.push({ label: 'Button', option: 'button' });
+		aMenuItems.push({ label: 'ButtonSelection', option: 'buttonselection' });
 		aMenuItems.push({ label: 'ToolBar', option: 'toolbar' });
 		aMenuItems.push({ label: 'TreeNavigation', option: 'treenavigation' });
 		aMenuItems.push({ label: 'Messages', option: 'messages' });
@@ -79,7 +84,7 @@
 				key: 'header_menu',
 				items: aMenuItems,
 				active: this.state.state,
-				callbackOnClick: this.onHeaderMenuClick
+				callbackOnClick: this.onClickHeaderMenu
 			}, null));
 	
 		
@@ -94,9 +99,30 @@
 					key: 'button',
 					text: 'Please click this button',
 					className: 'btn btn-primary',
-					callbackOnClick: this.onButtonClick 
+					callbackOnClick: this.onClickButton 
 				}, null));
 		}
+		else if (this.state.state == 'buttonselection')
+		{
+			aComponents.push(e(ButtonSelection,
+				{
+					items: [
+						{
+							label: 'Option 1',
+							value: '1'
+						},
+						{
+							label: 'Option 2',
+							value: '2'
+						},
+						{
+							label: 'Option 3',
+							value: '3'
+						}
+					],
+					callbackOnClick: this.onClickButtonSelection 
+				}, null));
+		}		
 		else if (this.state.state == 'toolbar')
 		{
 			var aTools = [];
@@ -123,7 +149,7 @@
 			aComponents.push(e(ToolBar,
 				{
 					tools: aTools,
-					callbackOnClick: this.onToolBarClick 
+					callbackOnClick: this.onClickToolBar 
 				}, null));
 		}		
 		else if (this.state.state == 'treenavigation')
@@ -162,7 +188,7 @@
 			aComponents.push(e(TreeNavigation,
 				{
 					treenavigation: treenavigation,
-					callbackOnClick: this.onTreeNavigationClick 
+					callbackOnClick: this.onClickTreeNavigation 
 				}, null));
 		}		
 		else if (this.state.state == 'messages')
@@ -242,7 +268,7 @@
 					key: 'ruler', 
 					max: 100,
 					value: this.state.ruler_value,
-					callbackOnChange: this.onRulerChange
+					callbackOnChange: this.onChangeRuler
 				}, null));
 			aComponents.push(e('div',{ key: 'ruler_value' },'The value is '+this.state.ruler_value));	
 		}
@@ -287,7 +313,7 @@
 					{
 						key: 'iframe',
 						url: '/incident_list.do',
-						callbackOnLoad: this.onIFrameLoad
+						callbackOnLoad: this.onLoadIFrame
 					},null)
 			);	
 
@@ -466,7 +492,6 @@
 			var filters = this.state.filters;
 
 			var incidentFilters = GetValue(filters,'incident');
-			Debug(incidentFilters);
 
 			var strQuery = '';
 
@@ -583,14 +608,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:09:30</sys_created_on>
         <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
-        <sys_mod_count>185</sys_mod_count>
+        <sys_mod_count>189</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-06-03 15:11:54</sys_updated_on>
+        <sys_updated_on>2024-07-11 07:55:57</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
