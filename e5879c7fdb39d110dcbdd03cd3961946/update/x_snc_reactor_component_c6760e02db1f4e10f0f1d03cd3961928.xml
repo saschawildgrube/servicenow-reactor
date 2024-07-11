@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
+    <x_snc_reactor_component action="INSERT_OR_UPDATE">
+        <content_css/>
+        <dependencies/>
+        <description>A component that renders a tab navigation.</description>
+        <jsx>false</jsx>
+        <module>false</module>
+        <name>TabNavigation</name>
+        <role>element</role>
+        <script/>
+        <source_type>ui_script</source_type>
+        <sys_class_name>x_snc_reactor_component</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-07-11 08:47:34</sys_created_on>
+        <sys_id>c6760e02db1f4e10f0f1d03cd3961928</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>TabNavigation</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_component_c6760e02db1f4e10f0f1d03cd3961928</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-07-11 08:47:34</sys_updated_on>
+        <type>script</type>
+        <ui_script display_value="x_snc_reactor.TabNavigation">05368ecedbdb4e10f0f1d03cd396195b</ui_script>
+        <url/>
+    </x_snc_reactor_component>
+</record_update>
