@@ -15,9 +15,9 @@ At least one of "text" and "icon" should be provided.&#13;
         <sys_id>41eaa5b11b1be110cd6153d16b4bcbb6</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>tools</sys_name>
-        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_props_41eaa5b11b1be110cd6153d16b4bcbb6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-06-08 19:48:53</sys_updated_on>
