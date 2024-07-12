@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>A component that renders a tab navigation.</description>
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_snc_reactor.TabNavigation</name>
+        <script><![CDATA[class TabNavigation extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+	}
+
+	onClick(event)
+	{
+		var strValue = GetStringValue(event.target.attributes.value.value);
+		if (typeof this.props.callbackOnClick == 'function')
+		{
+			this.props.callbackOnClick(strValue);
+		}
+	}
+
+	render()
+	{
+		var aComponents = [];
+		
+		var aItems = GetArrayValue(this.props.items);
+		var strCurrentValue = GetStringValue(this.props.value);
+		
+		for (var nItem = 0; nItem < aItems.length; nItem++)
+		{
+			var item = aItems[nItem];
+			var strValue = GetStringValue(GetValue(item,'value'));
+			var strLabel = GetStringValue(GetValue(item,'label'));
+			if (strValue != '')
+			{
+				var aComponentsPerTab = [];
+
+				if (strValue == strCurrentValue)
+				{
+					/*
+						strHtml += '<span mandatory="true" aria-hidden="true" class="label_description" style="margin-right: 2px; visibility: hidden; display: none;">*</span>';
+						strHtml += '<span class="tab_caption_text">' + strText + '</span>';
+*/
+					var aComponentsInner = [];
+
+					aComponentsInner.push(e('span',{
+						mandatory: 'true',
+						ariaHidden: 'true',
+						className: 'label_description',
+						styles: {
+							marginRight: '2px',
+							visibility: 'hidden',
+							display: 'none'
+							}
+						}));
+						
+					aComponentsInner.push(e('span',{ className: 'tab_caption_text' },strLabel));				
+
+					var componentActiveTab = e('span',
+						{ 
+							className: 'tabs2_tab tabs2_active',
+							tabIndex: '0',
+							ariaSelected: 'true'
+						},aComponentsInner);
+					
+					aComponentsPerTab.push(componentActiveTab);
+				}
+				else
+				{
+					var aComponentsInner = [];
+					
+					aComponentsInner.push(e('span',{
+						mandatory: 'true',
+						ariaHidden: 'true',
+						className: 'label_description',
+						styles: {
+							marginRight: '2px',
+							visibility: 'hidden',
+							display: 'none'
+							}
+						}));
+
+					var componentLink = e('a',
+						{
+							onClick: this.onClick,
+							value: strValue
+						},strLabel);
+					aComponentsInner.push(e('span',
+						{
+							className: 'tab_caption_text'
+						},componentLink));				
+
+					var componentActiveTab = e('span',
+						{ 
+							className: 'tabs2_tab',
+							tabIndex: '-1',
+							role: 'tab',
+							ariaSelected: 'false'
+						},aComponentsInner);
+					
+					aComponentsPerTab.push(componentActiveTab);
+
+				}
+				
+				aComponentsPerTab.push(e('img',
+					{
+						className: 'tab_spacer',
+						src: 'images/s.gifx',
+						width: '4',
+						height: '24'
+					}));
+
+				var componentTabHeader = e('span',{ className: 'tab_header'}, aComponentsPerTab);
+
+				aComponents.push(componentTabHeader);
+			}
+		}
+		
+		return e('div',
+			{
+				className: 'tabs2_strip tabs2_strip_default',
+				styles:
+				{
+					display: 'block'
+				},
+				role: 'tablist'
+			},
+			aComponents);	
+	}	
+}]]></script>
+        <script_name>TabNavigation</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-07-11 08:46:19</sys_created_on>
+        <sys_id>05368ecedbdb4e10f0f1d03cd396195b</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>x_snc_reactor.TabNavigation</sys_name>
+        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_05368ecedbdb4e10f0f1d03cd396195b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-07-11 13:26:51</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+        <x_snc_devtools_global>false</x_snc_devtools_global>
+    </sys_ui_script>
+</record_update>
