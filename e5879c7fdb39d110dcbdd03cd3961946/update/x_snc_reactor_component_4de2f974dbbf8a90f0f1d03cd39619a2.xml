@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
+    <x_snc_reactor_component action="INSERT_OR_UPDATE">
+        <content_css/>
+        <dependencies/>
+        <description>Renders a rounded box.</description>
+        <jsx>false</jsx>
+        <module>false</module>
+        <name>RoundedBox</name>
+        <role>element</role>
+        <script><![CDATA[class RoundedBox extends ReactorComponent
+{
+	render()
+	{
+		return e('dev',
+			{
+				styles:
+				{
+					marginLeft: '10px',
+					marginRight: '10px',
+					marginBottom: '5px',
+					paddingTop: '5px',
+					paddingBottom: '2px',
+					paddingLeft: '20px',
+					paddingRight: '15px',
+					borderRadius: '10px',
+					backgroundColor: 'rgb(var(--now-color_surface--neutral-3))'
+				}
+			},
+			this.props.children);	
+	}	
+}]]></script>
+        <source_type>ui_script</source_type>
+        <sys_class_name>x_snc_reactor_component</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-01 06:41:00</sys_created_on>
+        <sys_id>4de2f974dbbf8a90f0f1d03cd39619a2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RoundedBox</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_component_4de2f974dbbf8a90f0f1d03cd39619a2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-01 06:41:00</sys_updated_on>
+        <type>script</type>
+        <ui_script display_value="x_snc_reactor.RoundedBox">07f17d34dbbf8a90f0f1d03cd39619d4</ui_script>
+        <url/>
+    </x_snc_reactor_component>
+</record_update>
