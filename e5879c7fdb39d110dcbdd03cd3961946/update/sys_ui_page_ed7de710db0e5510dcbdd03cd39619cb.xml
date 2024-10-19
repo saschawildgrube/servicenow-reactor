@@ -31,7 +31,7 @@
 	<ul>
 		<g2:no_escape>$[
 			docapi.RenderSystemRequirements(
-				'Vancouver,Washington',
+				'Washington,Xanadu',
 				true,
 				AppGetDependencies());
 		]</g2:no_escape>	
@@ -119,8 +119,11 @@
 
 	<h3>1.10.0 - TODO</h3>
 	<ol>
+		<li>Reactor is fully tested with Xanadu.</li>
+		<li>Vancouver is no longer actively supported.</li>
 		<li>Added component RoundedBox.</li>
 		<li>Component Workspace no longer uses hard-wired background colors.</li>
+		<li>Component Button now uses the Polaris css class names for styling.</li>
 	</ol>
 
 
@@ -233,13 +236,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 13:55:46</sys_created_on>
         <sys_id>ed7de710db0e5510dcbdd03cd39619cb</sys_id>
-        <sys_mod_count>99</sys_mod_count>
+        <sys_mod_count>100</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_page_ed7de710db0e5510dcbdd03cd39619cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-10-19 17:40:16</sys_updated_on>
+        <sys_updated_on>2024-10-19 20:51:49</sys_updated_on>
     </sys_ui_page>
 </record_update>
