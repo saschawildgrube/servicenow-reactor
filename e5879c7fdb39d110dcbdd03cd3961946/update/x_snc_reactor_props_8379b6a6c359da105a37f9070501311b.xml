@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_props">
+    <x_snc_reactor_props action="INSERT_OR_UPDATE">
+        <component display_value="TabContainer">9d00ba2ec319da105a37f907050131d0</component>
+        <description>An array of objects containing "label", "value" and "content" fields to specify the tabbed containers.</description>
+        <mandatory>true</mandatory>
+        <name>items</name>
+        <sys_class_name>x_snc_reactor_props</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-20 11:53:05</sys_created_on>
+        <sys_id>8379b6a6c359da105a37f9070501311b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>items</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_props_8379b6a6c359da105a37f9070501311b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-20 11:53:05</sys_updated_on>
+        <type>array</type>
+    </x_snc_reactor_props>
+</record_update>

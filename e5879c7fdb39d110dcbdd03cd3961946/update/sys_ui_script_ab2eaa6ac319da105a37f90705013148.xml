@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>A component that renders a tabbed container with a the TabNavigation and a content area.</description>
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_snc_reactor.TabContainer</name>
+        <script><![CDATA[class TabContainer extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+		this.state = { value: props.value };
+	}
+
+	onChange(strValue)
+	{
+		var strValue = GetStringValue(strValue);
+		
+		if (typeof this.props.callbackOnChange == 'function')
+		{
+			this.props.callbackOnChange(strValue);
+		}
+		this.setState( { value: strValue } );
+	}
+
+	render()
+	{
+		var aComponents = [];
+
+		var aItems = GetArrayValue(this.props.items);
+		var strCurrentValue = GetStringValue(this.state.value);
+
+		Debug(strCurrentValue);
+
+		var tabnav = e(TabNavigation,
+			{
+				items: aItems,
+				value: strCurrentValue,
+				callbackOnClick: this.onChange
+			});
+
+		aComponents.push(tabnav);
+
+		//var aContainers = [];
+		for (var nItem = 0; nItem < aItems.length; nItem++)
+		{
+			var item = aItems[nItem];
+
+			var strValue = GetStringValue(GetValue(item,'value'));
+			var strDisplay = 'none';
+			if (strValue == strCurrentValue)
+			{
+				strDisplay = 'flex';
+			}
+			var content = GetValue(item,'content');
+			var container = e('div',
+				{
+					style:
+					{
+						display: strDisplay,
+
+						flex: '1 1 auto',
+						
+						//display: 'flex',
+						flexDirection: 'column'
+				
+					}
+				}, content);
+			//aContainers.push(container);
+			aComponents.push(container);
+		}
+
+		//aComponents.push(e('div',{},aContainers));
+
+		return e('div',
+			{
+				/*style:
+				{
+					flex: '1 1 auto',
+					
+					display: 'flex',
+					flexDirection: 'column'
+				}*/
+			},
+			aComponents);
+				
+	}	
+}]]></script>
+        <script_name>TabContainer</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-20 11:03:08</sys_created_on>
+        <sys_id>ab2eaa6ac319da105a37f90705013148</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>x_snc_reactor.TabContainer</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_ab2eaa6ac319da105a37f90705013148</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-20 11:42:47</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+        <x_snc_devtools_global>false</x_snc_devtools_global>
+    </sys_ui_script>
+</record_update>
