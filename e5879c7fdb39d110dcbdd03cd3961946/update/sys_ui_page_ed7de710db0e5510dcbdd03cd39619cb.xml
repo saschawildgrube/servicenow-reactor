@@ -101,16 +101,6 @@
 	<g2:no_escape>$[docapi.RenderScriptIncludes()]</g2:no_escape>
 
 
-<!--	
-	<h3>Test step configurations</h3>
-	<g2:no_escape>$[docapi.RenderTestStepConfigurations()]</g2:no_escape>
-	
-	<h3>Extension Points</h3>
-	<g2:no_escape>$[docapi.RenderExtensionPoints()]</g2:no_escape>		
-
-	<h3>Business Rules</h3>
-	<g2:no_escape>$[docapi.RenderBusinessRules()]</g2:no_escape>	
--->	
 	<h2>License</h2>
 	<g2:no_escape>$[docapi.RenderCopyright(2022,'Sascha Wildgrube')]</g2:no_escape>
 	<g2:no_escape>$[docapi.RenderLicense()]</g2:no_escape>
@@ -123,9 +113,10 @@
 		<li>Vancouver is no longer actively supported.</li>
 		<li>Added component RoundedBox.</li>
 		<li>Added component TabContainer.</li>
-		<li>TabNavigation now also supports ReactorComponents as labels (not only strings).</li>
+		<li>Component TabNavigation now also supports ReactorComponents as labels (not only strings).</li>
 		<li>Component Workspace no longer uses hard-wired background colors.</li>
 		<li>Component Button now uses the Polaris css class names for styling.</li>
+		<li>Component Icon no longer intercepts pointer events.</li>
 	</ol>
 
 
@@ -238,13 +229,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 13:55:46</sys_created_on>
         <sys_id>ed7de710db0e5510dcbdd03cd39619cb</sys_id>
-        <sys_mod_count>102</sys_mod_count>
+        <sys_mod_count>103</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_page_ed7de710db0e5510dcbdd03cd39619cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-11-10 13:03:51</sys_updated_on>
+        <sys_updated_on>2024-11-10 18:16:53</sys_updated_on>
     </sys_ui_page>
 </record_update>
