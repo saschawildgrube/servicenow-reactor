@@ -32,7 +32,7 @@
 		{
 			var item = aItems[nItem];
 			var strValue = GetStringValue(GetValue(item,'value'));
-			var strLabel = GetStringValue(GetValue(item,'label'));
+			var label = GetValue(item,'label');
 			if (strValue != '')
 			{
 				var aComponentsPerTab = [];
@@ -52,7 +52,7 @@
 							}
 						}));
 						
-					aComponentsInner.push(e('span',{ className: 'tab_caption_text' },strLabel));				
+					aComponentsInner.push(e('span',{ className: 'tab_caption_text' },label));				
 
 					var componentActiveTab = e('span',
 						{ 
@@ -131,14 +131,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-07-11 08:46:19</sys_created_on>
         <sys_id>05368ecedbdb4e10f0f1d03cd396195b</sys_id>
-        <sys_mod_count>17</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_name>x_snc_reactor.TabNavigation</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_05368ecedbdb4e10f0f1d03cd396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-11-10 12:13:59</sys_updated_on>
+        <sys_updated_on>2024-11-10 13:00:58</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
