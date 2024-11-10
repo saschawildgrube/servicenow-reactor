@@ -18,7 +18,7 @@
 		var strValue = GetStringValue(strTab);
 		if (IsFunction(this.props.callbackOnSelect) == true)
 		{
-			this.props.callbackOnClickSelect(strTab);
+			this.props.callbackOnSelect(strTab);
 		}
 		else
 		{
@@ -51,8 +51,8 @@
 			{
 				items: aItems,
 				value: strCurrentValue,
-				callbackOnClick: this.onSelect,
-				callbackOnClickClose: (IsFunction(this.props.callbackOnClickClose)) ? (this.onClose) : (null)
+				callbackOnSelect: this.onSelect,
+				callbackOnClose: (IsFunction(this.props.callbackOnClose)) ? (this.onClose) : (null)
 			});
 
 		aComponents.push(tabnav);
@@ -98,14 +98,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-10-20 11:03:08</sys_created_on>
         <sys_id>ab2eaa6ac319da105a37f90705013148</sys_id>
-        <sys_mod_count>34</sys_mod_count>
+        <sys_mod_count>35</sys_mod_count>
         <sys_name>x_snc_reactor.TabContainer</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_ab2eaa6ac319da105a37f90705013148</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-11-10 19:18:06</sys_updated_on>
+        <sys_updated_on>2024-11-10 19:32:42</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>

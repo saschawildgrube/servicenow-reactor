@@ -12,21 +12,21 @@
 		super(props);
 	}
 
-	onClick(event)
+	onSelect(event)
 	{
 		var strValue = GetStringValue(event.target.attributes.value.value);
-		if (IsFunction(this.props.callbackOnClick) == true)
+		if (IsFunction(this.props.callbackOnSelect) == true)
 		{
-			this.props.callbackOnClick(strValue);
+			this.props.callbackOnSelect(strValue);
 		}
 	}
 
-	onClickClose(event)
+	onClose(event)
 	{
 		var strValue = GetStringValue(event.target.attributes.value.value);
-		if (IsFunction(this.props.callbackOnClickClose) == true)
+		if (IsFunction(this.props.callbackOnClose) == true)
 		{
-			this.props.callbackOnClickClose(strValue);
+			this.props.callbackOnClose(strValue);
 		}
 	}	
 
@@ -38,7 +38,7 @@
 		var strCurrentValue = GetStringValue(this.props.value);
 
 		var componentCloseIcon = null;
-		if (IsFunction(this.props.callbackOnClickClose) == true)
+		if (IsFunction(this.props.callbackOnClose) == true)
 		{
 			componentCloseIcon = e(Icon, { icon: 'close'} );
 		}
@@ -51,11 +51,11 @@
 			if (strValue != '')
 			{
 				var componentCloseLink = null;
-				if (IsFunction(this.props.callbackOnClickClose) == true)
+				if (IsFunction(this.props.callbackOnClose) == true)
 				{
 					componentCloseLink = e('a',
 						{
-							onClick: this.onClickClose,
+							onClick: this.onClose,
 							value: strValue
 						},componentCloseIcon);
 				}
@@ -79,7 +79,7 @@
 						
 					aComponentsInner.push(e('span',{ className: 'tab_caption_text' },label));		
 
-					if (IsFunction(this.props.callbackOnClickClose) == true)
+					if (IsFunction(this.props.callbackOnClose) == true)
 					{
 						aComponentsInner.push(componentCloseLink);	
 					}		
@@ -118,7 +118,7 @@
 						{
 							className: 'tab_caption_text'
 						},componentLink));				
-					if (IsFunction(this.props.callbackOnClickClose) == true)
+					if (IsFunction(this.props.callbackOnClose) == true)
 					{
 						aComponentsInner.push(componentCloseLink);	
 					}		
@@ -167,14 +167,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-07-11 08:46:19</sys_created_on>
         <sys_id>05368ecedbdb4e10f0f1d03cd396195b</sys_id>
-        <sys_mod_count>27</sys_mod_count>
+        <sys_mod_count>28</sys_mod_count>
         <sys_name>x_snc_reactor.TabNavigation</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_05368ecedbdb4e10f0f1d03cd396195b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-11-10 18:20:16</sys_updated_on>
+        <sys_updated_on>2024-11-10 19:34:20</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
