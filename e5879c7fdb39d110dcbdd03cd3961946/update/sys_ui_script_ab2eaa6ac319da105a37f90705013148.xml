@@ -10,18 +10,20 @@
 	constructor(props)
 	{
 		super(props);
-		this.state = { value: props.value };
+		this.state = { value: '' };
 	}
 
-	onChange(strValue)
+	onChange(strTab)
 	{
-		var strValue = GetStringValue(strValue);
-		
+		var strValue = GetStringValue(strTab);
 		if (typeof this.props.callbackOnChange == 'function')
 		{
-			this.props.callbackOnChange(strValue);
+			this.props.callbackOnChange(strTab);
 		}
-		this.setState( { value: strValue } );
+		else
+		{
+			this.setState( { value: strTab } );
+		}
 	}
 
 	render()
@@ -30,8 +32,10 @@
 
 		var aItems = GetArrayValue(this.props.items);
 		var strCurrentValue = GetStringValue(this.state.value);
-
-		Debug(strCurrentValue);
+		if (strCurrentValue == '')
+		{
+			strCurrentValue = GetStringValue(this.props.value);
+		}
 
 		var tabnav = e(TabNavigation,
 			{
@@ -83,14 +87,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-10-20 11:03:08</sys_created_on>
         <sys_id>ab2eaa6ac319da105a37f90705013148</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name>x_snc_reactor.TabContainer</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_ab2eaa6ac319da105a37f90705013148</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-11-09 16:28:30</sys_updated_on>
+        <sys_updated_on>2024-11-10 12:08:42</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
