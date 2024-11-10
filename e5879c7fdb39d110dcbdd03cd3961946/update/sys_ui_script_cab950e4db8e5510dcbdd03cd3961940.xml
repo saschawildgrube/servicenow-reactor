@@ -16,6 +16,7 @@
 			tabnavigation_value: 'beta',
 			tabcontainer_value: 'incident'
 		};
+		this.title = 'Reactor';
 	}
 
 	onClickHeaderMenu(strOption)
@@ -25,27 +26,33 @@
 	
 	onClickButton()
 	{
-		DoModalMessage('Reactor','The button has been clicked!',function(){});		
+		DoModalMessage(this.title,'The button has been clicked!',function(){});		
 	}
 	onClickButtonSelection(strValue)
 	{
-		DoModalMessage('Reactor','Selected option: '+strValue,function(){});		
+		DoModalMessage(this.title,'Selected option: '+strValue,function(){});		
 	}
 	onClickToolBar(strValue)
 	{
-		DoModalMessage('Reactor','The Tool has been clicked: '+strValue,function(){});		
+		DoModalMessage(this.title,'The Tool has been clicked: '+strValue,function(){});		
 	}
 	onClickTabNavigation(strValue)
 	{
-		this.setState( { tabnavigation_value: strValue } );		
+		this.setState( { tabnavigation_value: strValue } );
 	}	
+	onClickTabNavigationClose(strValue)
+	{	
+		console.log(strValue);
+		DoModalMessage(this.title,'The tab close icon has been clicked: '+strValue,function(){});	
+	}	
+
 	onClickTabContainer(strValue)
 	{
 		this.setState( { tabcontainer_value: strValue } );		
 	}		
 	onClickTreeNavigation(strValue)
 	{
-		DoModalMessage('Reactor','The following TreeNavigation item has been clicked: '+strValue,function(){});		
+		DoModalMessage(this.title,'The following TreeNavigation item has been clicked: '+strValue,function(){});		
 	}	
 	onChangeRuler(nNewValue)
 	{
@@ -53,7 +60,7 @@
 	}	
 	onLoadIFrame(strUrl)
 	{
-		DoModalMessage('Reactor','We can respond to the onLoad event of the iFrame:\n'+strUrl);
+		DoModalMessage(this.title,'We can respond to the onLoad event of the iFrame:\n'+strUrl);
 	}
 	onChangeFilter(filterStates)
 	{
@@ -184,7 +191,8 @@
 				{
 					items: aItems,
 					value: this.state.tabnavigation_value,
-					callbackOnClick: this.onClickTabNavigation 
+					callbackOnClick: this.onClickTabNavigation,
+					callbackOnClickClose: this.onClickTabNavigationClose 
 				}, null));
 			aComponents.push(e('p',{},'Selected Tab: '+this.state.tabnavigation_value));
 		}				
@@ -206,15 +214,21 @@
 				value: 'change',
 				content: e(IFrame, { url: '/change_request_list.do'} )
 				});
-			aComponents.push(e(TabContainer,
+			var tabcontainer = e(TabContainer,
 				{
 					items: aItems,
 					value: this.state.tabcontainer_value,
-					callbackOnChange: this.onChangeTabContainer 
-				}, null));
+					callbackOnChange: this.onChangeTabContainer,
+				}, null);
+
+			aComponents.push(e('div',
+				{
+					style:
+					{
+						minHeight: '50vh'
+					}
+				},tabcontainer));
 		}				
-
-
 		else if (this.state.state == 'treenavigation')
 		{
 			var treenavigation = {
@@ -672,14 +686,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:09:30</sys_created_on>
         <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
-        <sys_mod_count>207</sys_mod_count>
+        <sys_mod_count>216</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-10-20 11:55:13</sys_updated_on>
+        <sys_updated_on>2024-11-10 18:30:05</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
