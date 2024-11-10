@@ -36,19 +36,19 @@
 	{
 		DoModalMessage(this.title,'The Tool has been clicked: '+strValue,function(){});		
 	}
-	onClickTabNavigationSelect(strValue)
+	onTabNavigationSelect(strValue)
 	{
 		this.setState( { tabnavigation_value: strValue } );
 	}	
-	onClickTabNavigationClose(strValue)
+	onTabNavigationClose(strValue)
 	{	
 		DoModalMessage(this.title,'The tab close icon has been clicked: '+strValue,function(){});	
 	}	
-	onClickTabContainer(strValue)
+	onTabContainerSelect(strValue)
 	{
 		this.setState( { tabcontainer_value: strValue } );		
 	}		
-	onClickTabContainerClose(strValue)
+	onTabContainerClose(strValue)
 	{
 		DoModalMessage(this.title,'The tab close icon has been clicked: '+strValue,function(){});	
 	}		
@@ -193,8 +193,8 @@
 				{
 					items: aItems,
 					value: this.state.tabnavigation_value,
-					callbackOnClick: this.onClickTabNavigationSelect,
-					callbackOnClickClose: this.onClickTabNavigationClose 
+					callbackOnSelect: this.onTabNavigationSelect,
+					callbackOnClose: this.onTabNavigationClose 
 				}, null));
 			aComponents.push(e('p',{},'Selected Tab: '+this.state.tabnavigation_value));
 		}				
@@ -220,8 +220,8 @@
 				{
 					items: aItems,
 					value: this.state.tabcontainer_value,
-					callbackOnChange: this.onClickTabContainer,
-					callbackOnClose: this.onClickTabContainerClose,
+					callbackOnChange: this.onTabContainerSelect,
+					callbackOnClose: this.onTabContainerClose,
 				}, null);
 
 			aComponents.push(e('div',
@@ -689,14 +689,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:09:30</sys_created_on>
         <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
-        <sys_mod_count>220</sys_mod_count>
+        <sys_mod_count>224</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-11-10 19:19:27</sys_updated_on>
+        <sys_updated_on>2024-11-10 19:46:10</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
