@@ -31,6 +31,14 @@
 			this.props.callbackOnClick(strValue);
 		}
 	}
+
+	onFilterReset()
+	{
+		if (typeof this.props.callbackOnFilterReset == 'function')
+		{
+			this.props.callbackOnFilterReset();
+		}
+	}
 	
 	onClickCollapse()
 	{
@@ -46,6 +54,8 @@
 	
 	setCollapsed(strValue,bCollapsed)
 	{
+		this.onFilterReset();
+
 		var aPath = GetArrayValue(strValue);
 		for (var nKey = 0; nKey < aPath.length; nKey++)
 		{
@@ -136,17 +146,20 @@
 	
 	onClickCollapseAll()
 	{
-		this.setState( { collapse_mode: 'all' });
+		this.onFilterReset();
+		this.setState( { collapse_mode: 'all', filter: '' });
 	}	
 	
 	onClickExpandAll()
 	{
-		this.setState( { collapse_mode: 'none' });
+		this.onFilterReset();
+		this.setState( { collapse_mode: 'none', filter: '' });
 	}	
 	
 	onClickRecover()
 	{
-		this.setState( { collapse_mode: 'user' });
+		this.onFilterReset();
+		this.setState( { collapse_mode: 'user', filter: '' });
 	}
 	
 	onInputFilter()
@@ -207,7 +220,12 @@
 			strFilter = GetStringValue(this.props.filter); 
 			strFilter = strFilter.toLowerCase();	
 		}
-		
+
+		var strCollapseMode = this.state.collapse_mode;
+		if (strFilter != '')
+		{
+			strCollapseMode = 'none';
+		}
 
 		var componentLinkCollapseAll = e('a',
 			{
@@ -223,15 +241,15 @@
 			}, this.renderIconCollapsed());		
 		
 		var aTools = [];
-		if (this.state.collapse_mode != 'all')
+		if (strCollapseMode != 'all')
 		{
 			aTools.push(componentLinkCollapseAll);
 		}
-		if (this.state.collapse_mode != 'user')
+		if (strCollapseMode != 'user')
 		{
 			aTools.push(componentLinkRecover);
 		}
-		if (this.state.collapse_mode != 'none')
+		if (strCollapseMode != 'none')
 		{
 			aTools.push(componentLinkExpandAll);
 		}		
@@ -306,11 +324,11 @@
 							bVisibleItems = true;
 						}
 					}
-					else
+					else // has sub items
 					{
 						var componentLinkCollapse = null;
 						var bCollapsed = GetBoolValue(GetValue(item,'collapsed'));
-						if (THIS.state.collapse_mode == 'all')
+						if (strCollapseMode == 'all')
 						{
 							bCollapsed = true;
 							if (GetIntegerValue(THIS.state.collapse_all_level) > nLevel)
@@ -318,7 +336,7 @@
 								bCollapsed = false;
 							}
 						}
-						if (THIS.state.collapse_mode == 'none')
+						if (strCollapseMode == 'none')
 						{
 							bCollapsed = false;
 						}						
@@ -397,14 +415,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-10 13:52:45</sys_created_on>
         <sys_id>ecc8aa5297d36910a6a07767f053af4f</sys_id>
-        <sys_mod_count>155</sys_mod_count>
+        <sys_mod_count>163</sys_mod_count>
         <sys_name>x_snc_reactor.TreeNavigation</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_ecc8aa5297d36910a6a07767f053af4f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-11-28 14:35:12</sys_updated_on>
+        <sys_updated_on>2024-11-28 15:48:26</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
