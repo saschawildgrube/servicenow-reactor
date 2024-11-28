@@ -25,7 +25,7 @@
 
 	onClick()
 	{
-		var strValue = GetStringValue(event.target.parentElement.attributes.value.value);
+		var strValue = GetStringValue(event.target.attributes.value.value);
 		if (typeof this.props.callbackOnClick == 'function')
 		{
 			this.props.callbackOnClick(strValue);
@@ -34,13 +34,13 @@
 	
 	onClickCollapse()
 	{
-		var strValue = GetStringValue(event.target.parentElement.attributes.value.value);
+		var strValue = GetStringValue(event.target.attributes.value.value);
 		this.setCollapsed(strValue,true);
 	}	
 	
 	onClickExpand()
 	{
-		var strValue = GetStringValue(event.target.parentElement.attributes.value.value);
+		var strValue = GetStringValue(event.target.attributes.value.value);
 		this.setCollapsed(strValue,false);
 	}
 	
@@ -55,7 +55,6 @@
 				
 		function SetTreeNavigationCollapsed(THIS,treenavigation,bCollapsed,nLevel)
 		{
-			//console.log('SetTreeNavigationCollapsed: '+nLevel);
 			nLevel = GetIntegerValue(nLevel);
 			var aItems = GetArrayValue(GetValue(treenavigation,'items'));
 			for (var nItem = 0; nItem < aItems.length; nItem++)
@@ -240,25 +239,17 @@
 
 		var componentToolsInner = e('div',
 			{
-				style: {   zIndex: '1', /*float: 'right',*/ position: 'fixed' }
+				style: { zIndex: '1', position: 'fixed' }
 			},
 			aTools);		
 		
 		var componentToolsOuter = e('div',
 			{
 				style: { width: '100%', height: '20px', textAlign: 'right' }
-				//style: { flex: '0 0 auto' }
 			},
 			componentToolsInner);	
 			
-
-
-		
-		//aComponents.push(componentToolsBackground);
 		aComponents.push(componentToolsOuter);
-		
-		
-		
 		
 		function RenderNavigationTree(THIS,treenavigation,nLevel,aPath)
 		{
@@ -273,7 +264,8 @@
 				
 				var item = aItems[nItem];
 				var strLabel = GetStringValue(GetValue(item,'label'));
-				var componentLabel = e('span',{},strLabel);
+				var componentLabel = strLabel;
+
 				if (strLabel != '')
 				{
 					var bHasSubItems = false;
@@ -371,8 +363,7 @@
 							THIS.renderNavigationRow(
 								nLevel,
 								componentLinkCollapse));
-														
-						componentLinkCollapse
+						
 						if (bCollapsed == false)
 						{
 							RenderNavigationTree(THIS,item,nLevel+1,aPathClone);							
@@ -406,14 +397,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-10 13:52:45</sys_created_on>
         <sys_id>ecc8aa5297d36910a6a07767f053af4f</sys_id>
-        <sys_mod_count>151</sys_mod_count>
+        <sys_mod_count>155</sys_mod_count>
         <sys_name>x_snc_reactor.TreeNavigation</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_ecc8aa5297d36910a6a07767f053af4f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-11-10 23:09:19</sys_updated_on>
+        <sys_updated_on>2024-11-28 14:35:12</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
