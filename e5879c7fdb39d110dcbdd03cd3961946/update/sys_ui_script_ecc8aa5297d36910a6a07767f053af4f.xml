@@ -269,8 +269,18 @@
 			
 		aComponents.push(componentToolsOuter);
 		
+		/*
+		function NavigationTreeUpdateVisibility(treenavigation,nLevel,aPath)
+		{
+			var tn = Clone(treenavigation);
+			retrn tn;
+		}
+		treenavigation = NavigationTreeUpdateVisibility(treenavigation);
+		*/
+
 		function RenderNavigationTree(THIS,treenavigation,nLevel,aPath)
 		{
+			var aComponents = [];
 			var bVisibleItems = false;
 			nLevel = GetIntegerValue(nLevel);
 			aPath = GetArrayValue(aPath);
@@ -384,15 +394,16 @@
 						
 						if (bCollapsed == false)
 						{
-							RenderNavigationTree(THIS,item,nLevel+1,aPathClone);							
+							aComponents = ArrayAppend(aComponents,RenderNavigationTree(THIS,item,nLevel+1,aPathClone));							
 						}
 					}
 				}
 			}
-			return bVisibleItems;
+			//return bVisibleItems;
+			return aComponents;
 		}
 		
-		RenderNavigationTree(this,treenavigation);
+		aComponents = ArrayAppend(aComponents,RenderNavigationTree(this,treenavigation));
 		
 		return e('div',
 			{
@@ -415,14 +426,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-10 13:52:45</sys_created_on>
         <sys_id>ecc8aa5297d36910a6a07767f053af4f</sys_id>
-        <sys_mod_count>163</sys_mod_count>
+        <sys_mod_count>165</sys_mod_count>
         <sys_name>x_snc_reactor.TreeNavigation</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_ecc8aa5297d36910a6a07767f053af4f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-11-28 15:48:26</sys_updated_on>
+        <sys_updated_on>2024-11-28 16:26:21</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
