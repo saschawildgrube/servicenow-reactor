@@ -138,9 +138,11 @@
 				'items',GetValue(aPath,3),
 				'collapsed');
 		}		
-		this.setState( {
+		this.onFilterReset();
+		this.setState({
 			treenavigation: treenavigation,
-			collapse_mode: 'user'
+			collapse_mode: 'user',
+			filter: ''
 			});	
 	}
 	
@@ -268,15 +270,6 @@
 			componentToolsInner);	
 			
 		aComponents.push(componentToolsOuter);
-		
-		/*
-		function NavigationTreeUpdateVisibility(treenavigation,nLevel,aPath)
-		{
-			var tn = Clone(treenavigation);
-			retrn tn;
-		}
-		treenavigation = NavigationTreeUpdateVisibility(treenavigation);
-		*/
 
 		function RenderNavigationTree(THIS,treenavigation,nLevel,aPath)
 		{
@@ -287,6 +280,8 @@
 			var aItems = GetArrayValue(GetValue(treenavigation,'items'));
 			for (var nItem = 0; nItem < aItems.length; nItem++)
 			{
+				var aItemComponents = [];
+				var aSubComponents = [];
 				var aPathClone = Clone(aPath);
 				aPathClone.push(nItem);				
 				
@@ -319,7 +314,7 @@
 						{
 							
 							var strValue = GetStringValue(GetValue(item,'value'));
-							aComponents.push(
+							aItemComponents.push(
 								THIS.renderNavigationRow(
 									nLevel,
 									e('a',
@@ -387,19 +382,23 @@
 								 );
 						}
 
-						aComponents.push(
-							THIS.renderNavigationRow(
-								nLevel,
-								componentLinkCollapse));
-						
 						if (bCollapsed == false)
 						{
-							aComponents = ArrayAppend(aComponents,RenderNavigationTree(THIS,item,nLevel+1,aPathClone));							
+							aSubComponents = RenderNavigationTree(THIS,item,nLevel+1,aPathClone);
+						}
+
+						if (strFilter == '' || aSubComponents.length > 0)
+						{
+							aItemComponents.push(
+								THIS.renderNavigationRow(
+									nLevel,
+									componentLinkCollapse));
+							aItemComponents = ArrayAppend(aItemComponents,aSubComponents);
 						}
 					}
 				}
+				aComponents = ArrayAppend(aComponents,aItemComponents);
 			}
-			//return bVisibleItems;
 			return aComponents;
 		}
 		
@@ -426,14 +425,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-10 13:52:45</sys_created_on>
         <sys_id>ecc8aa5297d36910a6a07767f053af4f</sys_id>
-        <sys_mod_count>165</sys_mod_count>
+        <sys_mod_count>177</sys_mod_count>
         <sys_name>x_snc_reactor.TreeNavigation</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_ecc8aa5297d36910a6a07767f053af4f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-11-28 16:26:21</sys_updated_on>
+        <sys_updated_on>2024-11-29 09:48:51</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
