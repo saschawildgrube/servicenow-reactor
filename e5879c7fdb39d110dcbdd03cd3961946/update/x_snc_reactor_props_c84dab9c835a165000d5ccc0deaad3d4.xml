@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_props">
+    <x_snc_reactor_props action="INSERT_OR_UPDATE">
+        <component display_value="Button">cf54ac20dbce5510dcbdd03cd396197a</component>
+        <description>The text to be used in the tooltip that shows when the mouse hovers over the button.</description>
+        <mandatory>false</mandatory>
+        <name>tooltip</name>
+        <sys_class_name>x_snc_reactor_props</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-02 08:55:39</sys_created_on>
+        <sys_id>c84dab9c835a165000d5ccc0deaad3d4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>tooltip</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_props_c84dab9c835a165000d5ccc0deaad3d4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-02 08:55:39</sys_updated_on>
+        <type>string</type>
+    </x_snc_reactor_props>
+</record_update>
