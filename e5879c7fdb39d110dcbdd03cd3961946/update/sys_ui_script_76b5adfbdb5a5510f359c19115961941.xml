@@ -12,7 +12,41 @@ This component is always loaded, even if no other component defines a dependency
 	{
 		super(props);
 		BindAllFunctionsToThis(this);
+		this.m_interval = null;
 	}
+
+	startTimer(nMilliseconds = 1000)
+	{
+		if (this.m_interval != null)
+		{
+			this.stopTimer();	
+		}
+		nMilliseconds = GetIntegerValue(nMilliseconds);
+		this.m_interval = setInterval(() => { this.onTimer() },nMilliseconds);
+	}
+	
+	stopTimer()
+	{
+		if (this.m_interval != null)
+		{
+			clearInterval(this.m_interval);
+			this.m_interval = null;	
+		}
+	}
+	
+	isTimerActive()
+	{
+		if (this.m_interval != null)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	onTimer()
+	{
+	}
+
 }
 const e = React.createElement;]]></script>
         <script_name>Reactor</script_name>
@@ -20,14 +54,14 @@ const e = React.createElement;]]></script>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-10-09 11:18:27</sys_created_on>
         <sys_id>76b5adfbdb5a5510f359c19115961941</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>x_snc_reactor.Reactor</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_76b5adfbdb5a5510f359c19115961941</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-11-27 14:29:52</sys_updated_on>
+        <sys_updated_on>2024-12-03 10:21:03</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
