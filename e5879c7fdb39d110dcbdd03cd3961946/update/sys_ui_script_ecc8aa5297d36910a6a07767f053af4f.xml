@@ -25,39 +25,46 @@
 
 	onClick()
 	{
-		var strValue = GetStringValue(event.target.parentElement.attributes.value.value);
+		var strValue = GetStringValue(event.target.attributes.value.value);
 		if (typeof this.props.callbackOnClick == 'function')
 		{
 			this.props.callbackOnClick(strValue);
 		}
 	}
+
+	onFilterReset()
+	{
+		if (typeof this.props.callbackOnFilterReset == 'function')
+		{
+			this.props.callbackOnFilterReset();
+		}
+	}
 	
 	onClickCollapse()
 	{
-		var strValue = GetStringValue(event.target.parentElement.attributes.value.value);
+		var strValue = GetStringValue(event.target.attributes.value.value);
 		this.setCollapsed(strValue,true);
 	}	
 	
 	onClickExpand()
 	{
-		var strValue = GetStringValue(event.target.parentElement.attributes.value.value);
+		var strValue = GetStringValue(event.target.attributes.value.value);
 		this.setCollapsed(strValue,false);
 	}
 	
 	setCollapsed(strValue,bCollapsed)
 	{
+		this.onFilterReset();
+
 		var aPath = GetArrayValue(strValue);
 		for (var nKey = 0; nKey < aPath.length; nKey++)
 		{
 			aPath[nKey] = GetIntegerValue(aPath[nKey]);
 		}
 		var treenavigation = this.state.treenavigation;
-		
-		
-		
+				
 		function SetTreeNavigationCollapsed(THIS,treenavigation,bCollapsed,nLevel)
 		{
-			//console.log('SetTreeNavigationCollapsed: '+nLevel);
 			nLevel = GetIntegerValue(nLevel);
 			var aItems = GetArrayValue(GetValue(treenavigation,'items'));
 			for (var nItem = 0; nItem < aItems.length; nItem++)
@@ -131,25 +138,30 @@
 				'items',GetValue(aPath,3),
 				'collapsed');
 		}		
-		this.setState( {
+		this.onFilterReset();
+		this.setState({
 			treenavigation: treenavigation,
-			collapse_mode: 'user'
+			collapse_mode: 'user',
+			filter: ''
 			});	
 	}
 	
 	onClickCollapseAll()
 	{
-		this.setState( { collapse_mode: 'all' });
+		this.onFilterReset();
+		this.setState( { collapse_mode: 'all', filter: '' });
 	}	
 	
 	onClickExpandAll()
 	{
-		this.setState( { collapse_mode: 'none' });
+		this.onFilterReset();
+		this.setState( { collapse_mode: 'none', filter: '' });
 	}	
 	
 	onClickRecover()
 	{
-		this.setState( { collapse_mode: 'user' });
+		this.onFilterReset();
+		this.setState( { collapse_mode: 'user', filter: '' });
 	}
 	
 	onInputFilter()
@@ -210,7 +222,12 @@
 			strFilter = GetStringValue(this.props.filter); 
 			strFilter = strFilter.toLowerCase();	
 		}
-		
+
+		var strCollapseMode = this.state.collapse_mode;
+		if (strFilter != '')
+		{
+			strCollapseMode = 'none';
+		}
 
 		var componentLinkCollapseAll = e('a',
 			{
@@ -226,15 +243,15 @@
 			}, this.renderIconCollapsed());		
 		
 		var aTools = [];
-		if (this.state.collapse_mode != 'all')
+		if (strCollapseMode != 'all')
 		{
 			aTools.push(componentLinkCollapseAll);
 		}
-		if (this.state.collapse_mode != 'user')
+		if (strCollapseMode != 'user')
 		{
 			aTools.push(componentLinkRecover);
 		}
-		if (this.state.collapse_mode != 'none')
+		if (strCollapseMode != 'none')
 		{
 			aTools.push(componentLinkExpandAll);
 		}		
@@ -242,40 +259,36 @@
 
 		var componentToolsInner = e('div',
 			{
-				style: {   zIndex: '1', /*float: 'right',*/ position: 'fixed' }
+				style: { zIndex: '1', position: 'fixed' }
 			},
 			aTools);		
 		
 		var componentToolsOuter = e('div',
 			{
 				style: { width: '100%', height: '20px', textAlign: 'right' }
-				//style: { flex: '0 0 auto' }
 			},
 			componentToolsInner);	
 			
-
-
-		
-		//aComponents.push(componentToolsBackground);
 		aComponents.push(componentToolsOuter);
-		
-		
-		
-		
+
 		function RenderNavigationTree(THIS,treenavigation,nLevel,aPath)
 		{
+			var aComponents = [];
 			var bVisibleItems = false;
 			nLevel = GetIntegerValue(nLevel);
 			aPath = GetArrayValue(aPath);
 			var aItems = GetArrayValue(GetValue(treenavigation,'items'));
 			for (var nItem = 0; nItem < aItems.length; nItem++)
 			{
+				var aItemComponents = [];
+				var aSubComponents = [];
 				var aPathClone = Clone(aPath);
 				aPathClone.push(nItem);				
 				
 				var item = aItems[nItem];
 				var strLabel = GetStringValue(GetValue(item,'label'));
-				var componentLabel = e('span',{},strLabel);
+				var componentLabel = strLabel;
+
 				if (strLabel != '')
 				{
 					var bHasSubItems = false;
@@ -301,7 +314,7 @@
 						{
 							
 							var strValue = GetStringValue(GetValue(item,'value'));
-							aComponents.push(
+							aItemComponents.push(
 								THIS.renderNavigationRow(
 									nLevel,
 									e('a',
@@ -316,11 +329,11 @@
 							bVisibleItems = true;
 						}
 					}
-					else
+					else // has sub items
 					{
 						var componentLinkCollapse = null;
 						var bCollapsed = GetBoolValue(GetValue(item,'collapsed'));
-						if (THIS.state.collapse_mode == 'all')
+						if (strCollapseMode == 'all')
 						{
 							bCollapsed = true;
 							if (GetIntegerValue(THIS.state.collapse_all_level) > nLevel)
@@ -328,7 +341,7 @@
 								bCollapsed = false;
 							}
 						}
-						if (THIS.state.collapse_mode == 'none')
+						if (strCollapseMode == 'none')
 						{
 							bCollapsed = false;
 						}						
@@ -369,24 +382,27 @@
 								 );
 						}
 
-						aComponents.push(
-							THIS.renderNavigationRow(
-								nLevel,
-								componentLinkCollapse));
-														
-						componentLinkCollapse
 						if (bCollapsed == false)
 						{
-							RenderNavigationTree(THIS,item,nLevel+1,aPathClone);							
+							aSubComponents = RenderNavigationTree(THIS,item,nLevel+1,aPathClone);
+						}
+
+						if (strFilter == '' || aSubComponents.length > 0)
+						{
+							aItemComponents.push(
+								THIS.renderNavigationRow(
+									nLevel,
+									componentLinkCollapse));
+							aItemComponents = ArrayAppend(aItemComponents,aSubComponents);
 						}
 					}
 				}
+				aComponents = ArrayAppend(aComponents,aItemComponents);
 			}
-			return bVisibleItems;
+			return aComponents;
 		}
 		
-		RenderNavigationTree(this,treenavigation);
-
+		aComponents = ArrayAppend(aComponents,RenderNavigationTree(this,treenavigation));
 		
 		return e('div',
 			{
@@ -409,14 +425,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-10 13:52:45</sys_created_on>
         <sys_id>ecc8aa5297d36910a6a07767f053af4f</sys_id>
-        <sys_mod_count>150</sys_mod_count>
+        <sys_mod_count>177</sys_mod_count>
         <sys_name>x_snc_reactor.TreeNavigation</sys_name>
         <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_ecc8aa5297d36910a6a07767f053af4f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-11-27 14:32:45</sys_updated_on>
+        <sys_updated_on>2024-11-29 09:48:51</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>

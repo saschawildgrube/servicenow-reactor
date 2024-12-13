@@ -3,6 +3,8 @@
         <cleared>false</cleared>
         <disabled>ignore</disabled>
         <field>content_css</field>
+        <field_message/>
+        <field_message_type/>
         <mandatory>true</mandatory>
         <sys_class_name>sys_ui_policy_action</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -18,6 +20,9 @@
         <sys_updated_on>2022-09-18 10:02:34</sys_updated_on>
         <table>x_snc_reactor_component</table>
         <ui_policy display_value="Component Source Type Stylesheet">06da4149dbcad510dcbdd03cd39619d5</ui_policy>
+        <value/>
+        <value_action/>
         <visible>true</visible>
     </sys_ui_policy_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=f53bc549dbcad510dcbdd03cd3961942"/>
 </record_update>

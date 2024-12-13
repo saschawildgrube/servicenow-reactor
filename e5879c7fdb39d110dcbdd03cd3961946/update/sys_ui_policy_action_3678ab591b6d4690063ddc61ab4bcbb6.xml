@@ -3,6 +3,8 @@
         <cleared>false</cleared>
         <disabled>ignore</disabled>
         <field>script</field>
+        <field_message/>
+        <field_message_type/>
         <mandatory>ignore</mandatory>
         <sys_class_name>sys_ui_policy_action</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -18,6 +20,9 @@
         <sys_updated_on>2024-04-13 08:10:13</sys_updated_on>
         <table>x_snc_reactor_component_token</table>
         <ui_policy display_value="Component Token Script">632867591b6d4690063ddc61ab4bcb32</ui_policy>
+        <value/>
+        <value_action/>
         <visible>true</visible>
     </sys_ui_policy_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=3678ab591b6d4690063ddc61ab4bcbb6"/>
 </record_update>

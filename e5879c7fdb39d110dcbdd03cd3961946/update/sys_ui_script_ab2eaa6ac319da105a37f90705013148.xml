@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>A component that renders a tabbed container with a the TabNavigation and a content area.</description>
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_snc_reactor.TabContainer</name>
+        <script><![CDATA[class TabContainer extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+		this.state = { value: '' };
+	}
+
+	onSelect(strTab)
+	{
+		var strValue = GetStringValue(strTab);
+		if (IsFunction(this.props.callbackOnSelect) == true)
+		{
+			this.props.callbackOnSelect(strTab);
+		}
+		else
+		{
+			this.setState( { value: strTab } );
+		}
+	}
+
+	onClose(strTab)
+	{
+		var strValue = GetStringValue(strTab);
+		if (IsFunction(this.props.callbackOnClose) == true)
+		{
+			this.props.callbackOnClose(strTab);
+		}
+	}
+
+
+	render()
+	{
+		var aComponents = [];
+
+		var aItems = GetArrayValue(this.props.items);
+		var strCurrentValue = GetStringValue(this.state.value);
+		if (strCurrentValue == '')
+		{
+			strCurrentValue = GetStringValue(this.props.value);
+		}
+
+		var tabnav = e(TabNavigation,
+			{
+				items: aItems,
+				value: strCurrentValue,
+				callbackOnSelect: this.onSelect,
+				callbackOnClose: (IsFunction(this.props.callbackOnClose)) ? (this.onClose) : (null)
+			});
+
+		aComponents.push(tabnav);
+
+		for (var nItem = 0; nItem < aItems.length; nItem++)
+		{
+			var item = aItems[nItem];
+
+			var strValue = GetStringValue(GetValue(item,'value'));
+			var strDisplay = 'none';
+			if (strValue == strCurrentValue)
+			{
+				strDisplay = 'flex';
+			}
+			var content = GetValue(item,'content');
+			var container = e('div',
+				{
+					style:
+					{
+						display: strDisplay,
+						flex: '1 1 auto',
+						flexDirection: 'column'
+					}
+				}, content);
+			aComponents.push(container);
+		}
+
+		return e('div',
+			{
+				style:
+				{
+					display: 'flex',
+					flex: '1 1 auto',
+					flexDirection: 'column'
+				}
+			},
+			aComponents);
+				
+	}	
+}]]></script>
+        <script_name>TabContainer</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-20 11:03:08</sys_created_on>
+        <sys_id>ab2eaa6ac319da105a37f90705013148</sys_id>
+        <sys_mod_count>35</sys_mod_count>
+        <sys_name>x_snc_reactor.TabContainer</sys_name>
+        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_ab2eaa6ac319da105a37f90705013148</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-11-10 19:32:42</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+        <x_snc_devtools_global>false</x_snc_devtools_global>
+    </sys_ui_script>
+</record_update>

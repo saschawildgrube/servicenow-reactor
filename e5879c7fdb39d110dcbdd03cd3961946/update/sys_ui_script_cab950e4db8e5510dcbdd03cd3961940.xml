@@ -13,8 +13,10 @@
 		this.state = {
 			state: 'home',
 			ruler_value: 50,
-			tabnavigation_value: 'beta'
+			tabnavigation_value: 'beta',
+			tabcontainer_value: 'incident'
 		};
+		this.title = 'Reactor';
 	}
 
 	onClickHeaderMenu(strOption)
@@ -24,31 +26,56 @@
 	
 	onClickButton()
 	{
-		DoModalMessage('Reactor','The button has been clicked!',function(){});		
+		DoModalMessage(this.title,'The button has been clicked!',function(){});		
 	}
 	onClickButtonSelection(strValue)
 	{
-		DoModalMessage('Reactor','Selected option: '+strValue,function(){});		
+		DoModalMessage(this.title,'Selected option: '+strValue,function(){});		
 	}
 	onClickToolBar(strValue)
 	{
-		DoModalMessage('Reactor','The Tool has been clicked: '+strValue,function(){});		
+		DoModalMessage(this.title,'The Tool has been clicked: '+strValue,function(){});		
 	}
-	onClickTabNavigation(strValue)
+	onTabNavigationSelect(strValue)
 	{
-		this.setState( { tabnavigation_value: strValue } );		
+		this.setState( { tabnavigation_value: strValue } );
 	}	
-	onClickTreeNavigation(strValue)
+	onTabNavigationClose(strValue)
+	{	
+		DoModalMessage(this.title,'The tab close icon has been clicked: '+strValue,function(){});	
+	}	
+	onTabContainerSelect(strValue)
 	{
-		DoModalMessage('Reactor','The following TreeNavigation item has been clicked: '+strValue,function(){});		
+		this.setState( { tabcontainer_value: strValue } );		
+	}		
+	onTabContainerClose(strValue)
+	{
+		DoModalMessage(
+			this.title,
+			'The tab close icon has been clicked: '+strValue,
+			function(){});	
+	}		
+	onTreeNavigationClick(strValue)
+	{
+		DoModalMessage(
+			this.title,
+			'The following TreeNavigation item has been clicked: '+strValue,
+			function(){});		
 	}	
+	onTreeNavigationFilterReset()
+	{
+		//this.setState( { treenavigation_filter: '' } );
+	}
 	onChangeRuler(nNewValue)
 	{
 		this.setState( { ruler_value: nNewValue} );
 	}	
-	onLoadIFrame(strUrl)
+	onLoadIFrame(strUrl,strName)
 	{
-		DoModalMessage('Reactor','We can respond to the onLoad event of the iFrame:\n'+strUrl);
+		DoModalMessage(
+			this.title,
+			'We can respond to the onLoad event of the iFrame (name: "'+strName+'"):\n'+strUrl,
+			function(){});
 	}
 	onChangeFilter(filterStates)
 	{
@@ -70,8 +97,10 @@
 		aMenuItems.push({ label: 'ButtonSelection', option: 'buttonselection' });
 		aMenuItems.push({ label: 'ToolBar', option: 'toolbar' });
 		aMenuItems.push({ label: 'TabNavigation', option: 'tabnavigation' });
+		aMenuItems.push({ label: 'TabContainer', option: 'tabcontainer' });
 		aMenuItems.push({ label: 'TreeNavigation', option: 'treenavigation' });
 		aMenuItems.push({ label: 'Messages', option: 'messages' });
+		aMenuItems.push({ label: 'RoundedBox', option: 'roundedbox' });
 		aMenuItems.push({ label: 'Table', option: 'table' });
 		aMenuItems.push({ label: 'Clock', option: 'clock' });
 		aMenuItems.push({ label: 'Ruler', option: 'ruler' });
@@ -134,21 +163,25 @@
 			var aTools = [];
 			aTools.push({
 				text: 'Rocket',
+				tooltip: 'Lift off the rocket',
 				icon: 'rocket',
 				value: 'rocket'
 				});
 			aTools.push({
 				text: 'Car',
+				tooltip: 'Start your engine',
 				icon: 'car',
 				value: 'car'
 				});
 			aTools.push({
 				text: '',
+				tooltip: 'Take off on a plane',
 				icon: 'plane',
 				value: 'plane'
 				});
 			aTools.push({
 				text: 'Ship',
+				tooltip: 'Sail away on a ship',
 				icon: '',
 				value: 'ship'
 				});
@@ -177,14 +210,48 @@
 				{
 					items: aItems,
 					value: this.state.tabnavigation_value,
-					callbackOnClick: this.onClickTabNavigation 
+					callbackOnSelect: this.onTabNavigationSelect,
+					callbackOnClose: this.onTabNavigationClose 
 				}, null));
 			aComponents.push(e('p',{},'Selected Tab: '+this.state.tabnavigation_value));
+		}				
+		else if (this.state.state == 'tabcontainer')
+		{
+			var aItems = [];
+			aItems.push({
+				label: 'Incident',
+				value: 'incident',
+				content: e(IFrame, { url: '/incident_list.do', name: 'incident'} )
+				});
+			aItems.push({
+				label: 'Problem',
+				value: 'problem',
+				content: e(IFrame, { url: '/problem_list.do', name: 'problem'} )
+				});
+			aItems.push({
+				label: 'Change',
+				value: 'change',
+				content: e(IFrame, { url: '/change_request_list.do', name: 'change'} )
+				});
+			var tabcontainer = e(TabContainer,
+				{
+					items: aItems,
+					value: this.state.tabcontainer_value,
+					callbackOnChange: this.onTabContainerSelect,
+					callbackOnClose: this.onTabContainerClose,
+				}, null);
+
+			aComponents.push(e('div',
+				{
+					style:
+					{
+						minHeight: '50vh'
+					}
+				},tabcontainer));
 		}				
 		else if (this.state.state == 'treenavigation')
 		{
 			var treenavigation = {
-				bogus: 'hello world',
 				items: [
 					{
 						label: 'Item 1',
@@ -216,8 +283,10 @@
 			};
 			aComponents.push(e(TreeNavigation,
 				{
+					filter_show: true,
 					treenavigation: treenavigation,
-					callbackOnClick: this.onClickTreeNavigation 
+					callbackOnClick: this.onTreeNavigationClick,
+					callbackOnFilterReset: this.onTreeNavigationFilterReset
 				}, null));
 		}		
 		else if (this.state.state == 'messages')
@@ -235,6 +304,11 @@
 					text: 'This is an info message' 
 				}, null));		
 		}		
+		else if (this.state.state == 'roundedbox')
+		{
+			aComponents.push(e(RoundedBox,{},'This is a rounded box.'));
+			aComponents.push(e(RoundedBox,{},'This is a second rounded box.'));				
+		}			
 		else if (this.state.state == 'table')
 		{
 			var aCells = [];
@@ -315,7 +389,7 @@
 						{
 							width: '600px',
 							height: '500px',
-							backgroundColor: '#cccccc'
+							backgroundColor: 'RGB(var(--now-alert--warning--background-color))'
 						}
 					},
 					e(Centered,{},
@@ -325,7 +399,7 @@
 								{
 									width: '200px',
 									height: '100px',
-									backgroundColor: 'lightblue'
+									backgroundColor: 'RGB(var(--now-alert--critical--background-color))'
 								},
 							},
 							'This DIV is centered!'
@@ -342,6 +416,7 @@
 					{
 						key: 'iframe',
 						url: '/incident_list.do',
+						name: 'incident_list',
 						callbackOnLoad: this.onLoadIFrame
 					},null)
 			);	
@@ -477,7 +552,7 @@
 		{
 			var compFilters = e(Filters,
 				{
-					callbackOnChange: this.onFilterChange,
+					callbackOnChange: this.onChangeFilter,
 					filters: 
 						[
 							{
@@ -560,8 +635,6 @@
 					
 					display: 'flex',
 					flexDirection: 'column',
-					
-					backgroundColor: '#dddddd'
 				}
 
 			}, compFilters);
@@ -590,8 +663,6 @@
 					
 					display: 'flex',
 					flexDirection: 'row',
-					
-					backgroundColor: '#ebebeb'
 				}
 
 			},
@@ -637,14 +708,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:09:30</sys_created_on>
         <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
-        <sys_mod_count>196</sys_mod_count>
+        <sys_mod_count>232</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-07-11 13:26:04</sys_updated_on>
+        <sys_updated_on>2024-12-02 08:57:00</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>

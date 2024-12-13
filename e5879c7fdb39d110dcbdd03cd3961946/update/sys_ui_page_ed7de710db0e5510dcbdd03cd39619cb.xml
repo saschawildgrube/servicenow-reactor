@@ -31,7 +31,7 @@
 	<ul>
 		<g2:no_escape>$[
 			docapi.RenderSystemRequirements(
-				'Vancouver,Washington',
+				'Washington,Xanadu',
 				true,
 				AppGetDependencies());
 		]</g2:no_escape>	
@@ -53,7 +53,10 @@
 		]</g2:no_escape>		
 		<g2:no_escape>$[
 			docapi.RenderInstallationInstructionsAppInstall();
-		]</g2:no_escape>		
+		]</g2:no_escape>	
+		<g2:no_escape>$[
+			docapi.RenderInstallationInstructionsRunTestSuite('f57de710db0e5510dcbdd03cd39619d0');
+		]</g2:no_escape>			
 	</ol>
 
 	<h2>Setting up a new React app</h2>
@@ -89,6 +92,9 @@
 
 	<h3>Configuration Options</h3>
 	<g2:no_escape>$[docapi.RenderProperties()]</g2:no_escape>
+
+	<h3>Tables</h3>
+	<g2:no_escape>$[docapi.RenderTables()]</g2:no_escape>		
 	
 	<h3>Editor Macros</h3>
 	<g2:no_escape>$[docapi.RenderEditorMacros()]</g2:no_escape>		
@@ -100,22 +106,44 @@
 	<h3>Script Includes</h3>
 	<g2:no_escape>$[docapi.RenderScriptIncludes()]</g2:no_escape>
 
+	<h3>Dependencies</h3>
+	<g2:no_escape>$[docapi.RenderDependencies()]</g2:no_escape>		
 
-<!--	
-	<h3>Test step configurations</h3>
-	<g2:no_escape>$[docapi.RenderTestStepConfigurations()]</g2:no_escape>
-	
-	<h3>Extension Points</h3>
-	<g2:no_escape>$[docapi.RenderExtensionPoints()]</g2:no_escape>		
+	<h3>Technical Debts</h3>
+	<g2:no_escape>$[docapi.RenderTechnicalDebts()]</g2:no_escape>		
 
-	<h3>Business Rules</h3>
-	<g2:no_escape>$[docapi.RenderBusinessRules()]</g2:no_escape>	
--->	
+
 	<h2>License</h2>
 	<g2:no_escape>$[docapi.RenderCopyright(2022,'Sascha Wildgrube')]</g2:no_escape>
 	<g2:no_escape>$[docapi.RenderLicense()]</g2:no_escape>
 	
 	<h2>Release Notes</h2>
+
+	<h3>1.10.0 - 2024-12-13</h3>
+	<ol>
+		<li>Reactor is fully tested with Xanadu.</li>
+		<li>Vancouver is no longer actively supported.</li>
+		<li>DevTools 1.108.0 is now required.</li>
+		<li>Added component RoundedBox.</li>
+		<li>Added component TabContainer.</li>
+		<li>Added the capability to the ReactorComponent to call the onTimer() function continuously in a given interval.</li>
+		<li>Component TabNavigation now also supports ReactorComponents as labels (not only strings).</li>
+		<li>Component TabNavigation now also supports closing of tabs via callback function.</li>
+		<li>Component TabNavigation property callbackOnClick was renamed to callbackOnSelect.</li>
+		<li>Component TreeNavigation is now clearing the filter if collapse options are clicked and calls the callbackOnFilterReset function if provided.</li>
+		<li>Component TreeNavigation now only shows items that have sub items that match the filter.</li> 
+		<li>Component Workspace no longer uses hard-wired background colors.</li>
+		<li>Component Button now uses the Polaris css class names for styling.</li>
+		<li>Component Icon no longer intercepts pointer events.</li>
+		<li>Component Button now supports a tooltip.</li>
+		<li>Component ToolBar now supports tooltips for its buttons.</li>
+		<li>Component Clock now uses the ReactorComponent startTimer() function.</li> 
+		<li>ReactorComponent no longer uses arrow function syntax.</li>
+		<li>Installation instructions now also include running the Test Suite.</li>
+		<li>Added Table, Dependencies and Technical Debt chapters to the manual.</li>
+		<li>Added ATF tests for HtmlRenderReactorComponent() and Render().</li>
+	</ol>
+
 
 	<h3>1.9.0 - 2024-07-11</h3>
 	<ol>
@@ -226,13 +254,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 13:55:46</sys_created_on>
         <sys_id>ed7de710db0e5510dcbdd03cd39619cb</sys_id>
-        <sys_mod_count>97</sys_mod_count>
+        <sys_mod_count>121</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_page_ed7de710db0e5510dcbdd03cd39619cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-07-11 19:39:29</sys_updated_on>
+        <sys_updated_on>2024-12-13 12:55:13</sys_updated_on>
     </sys_ui_page>
 </record_update>

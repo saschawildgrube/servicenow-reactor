@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="update_synch=true" db_object_id="5993df511b2d4690063ddc61ab4bcbab" extends="sys_metadata" label="Component Token" max_length="40" name="x_snc_reactor_component_token" type="collection">
-        <element label="component" max_length="32" name="component" read_only="true" reference="x_snc_reactor_component" type="reference"/>
-        <element display="true" label="Key" mandatory="true" max_length="20" name="key" type="string"/>
-        <element label="Name" mandatory="true" max_length="20" name="name" type="string"/>
-        <element label="System Property" max_length="200" name="property" type="string"/>
         <element default="function GetTokenValue(grComponent,grToken)&#13;&#10;{&#13;&#10;   return 'add your code here';&#13;&#10;}" label="Script" mandatory="true" max_length="2000" name="script" type="script"/>
+        <element label="Name" mandatory="true" max_length="20" name="name" type="string"/>
+        <element label="component" max_length="32" name="component" read_only="true" reference="x_snc_reactor_component" type="reference"/>
         <element label="Text" max_length="200" name="text" type="string"/>
+        <element display="true" label="Key" mandatory="true" max_length="20" name="key" type="string"/>
+        <element label="System Property" max_length="200" name="property" type="string"/>
         <element choice="1" label="Type" mandatory="true" max_length="40" name="type" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Text" sequence="1" value="text"/>

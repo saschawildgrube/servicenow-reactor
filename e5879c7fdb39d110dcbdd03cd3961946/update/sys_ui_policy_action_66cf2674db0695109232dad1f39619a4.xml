@@ -3,6 +3,8 @@
         <cleared>false</cleared>
         <disabled>ignore</disabled>
         <field>ui_script</field>
+        <field_message/>
+        <field_message_type/>
         <mandatory>true</mandatory>
         <sys_class_name>sys_ui_policy_action</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -18,6 +20,9 @@
         <sys_updated_on>2022-09-17 22:50:02</sys_updated_on>
         <table>x_snc_reactor_component</table>
         <ui_policy display_value="Component Source Type UI Script">2ecf2674db0695109232dad1f39619a1</ui_policy>
+        <value/>
+        <value_action/>
         <visible>true</visible>
     </sys_ui_policy_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=66cf2674db0695109232dad1f39619a4"/>
 </record_update>

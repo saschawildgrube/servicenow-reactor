@@ -20,13 +20,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 23:15:25</sys_created_on>
         <sys_id>bb2d6da0dbc29510dcbdd03cd396198f</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>GetUIPageDemoScript</sys_name>
         <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
-        <sys_policy>read</sys_policy>
+        <sys_policy/>
         <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_script_include_bb2d6da0dbc29510dcbdd03cd396198f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-02-17 21:33:32</sys_updated_on>
+        <sys_updated_on>2024-12-13 12:58:20</sys_updated_on>
     </sys_script_include>
 </record_update>
