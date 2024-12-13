@@ -4,20 +4,20 @@
         <documentation_url>https://www.wildgrube.com/servicenow-devtools</documentation_url>
         <name>DevTools</name>
         <package_class>sys_app</package_class>
-        <reason>1.86.0 is required due to StringReplaceMultiple()</reason>
+        <reason>Reactor is based on DevTools and uses many of its functions.</reason>
         <repo_url>https://github.com/saschawildgrube/servicenow-devtools.git</repo_url>
         <sys_class_name>x_snc_devtools_dependency</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-12-13 18:27:44</sys_created_on>
         <sys_id>02973d38db7bd5106a03dad1f3961949</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_name>DevTools</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_devtools_dependency_02973d38db7bd5106a03dad1f3961949</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-04-14 08:51:14</sys_updated_on>
-        <versions>1.86.0</versions>
+        <sys_updated_on>2024-12-13 11:34:37</sys_updated_on>
+        <versions>1.108.0</versions>
     </x_snc_devtools_dependency>
 </record_update>

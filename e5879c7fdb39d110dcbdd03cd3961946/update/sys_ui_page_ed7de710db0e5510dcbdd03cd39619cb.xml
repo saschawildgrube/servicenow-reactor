@@ -123,6 +123,7 @@
 	<ol>
 		<li>Reactor is fully tested with Xanadu.</li>
 		<li>Vancouver is no longer actively supported.</li>
+		<li>DevTools 1.108.0 is now required.</li>
 		<li>Added component RoundedBox.</li>
 		<li>Added component TabContainer.</li>
 		<li>Added the capability to the ReactorComponent to call the onTimer() function continuously in a given interval.</li>
@@ -250,13 +251,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 13:55:46</sys_created_on>
         <sys_id>ed7de710db0e5510dcbdd03cd39619cb</sys_id>
-        <sys_mod_count>115</sys_mod_count>
+        <sys_mod_count>117</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_page_ed7de710db0e5510dcbdd03cd39619cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-12-13 11:32:22</sys_updated_on>
+        <sys_updated_on>2024-12-13 11:35:45</sys_updated_on>
     </sys_ui_page>
 </record_update>
