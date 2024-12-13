@@ -6,9 +6,9 @@
         <sys_id>746304a0db4e5510dcbdd03cd39619a2</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_snc_reactor_component.x_snc_reactor.developer</sys_name>
-        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_security_acl display_value="x_snc_reactor_component">746304a0db4e5510dcbdd03cd396199f</sys_security_acl>
         <sys_update_name>sys_security_acl_role_746304a0db4e5510dcbdd03cd39619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
