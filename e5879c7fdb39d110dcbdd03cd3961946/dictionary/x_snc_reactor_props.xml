@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="update_synch=true" db_object_id="b090206497831910a6a07767f053af2a" extends="sys_metadata" label="Component Properties" max_length="40" name="x_snc_reactor_props" type="collection">
-        <element label="Component" mandatory="true" max_length="32" name="component" read_only="true" reference="x_snc_reactor_component" type="reference"/>
-        <element label="Description" max_length="2000" name="description" type="string_full_utf8"/>
         <element label="Mandatory" max_length="40" name="mandatory" type="boolean"/>
-        <element display="true" label="Name" mandatory="true" max_length="40" name="name" type="string"/>
+        <element label="Component" mandatory="true" max_length="32" name="component" read_only="true" reference="x_snc_reactor_component" type="reference"/>
         <element choice="3" label="Type" mandatory="true" max_length="40" name="type" type="choice">
             <choice>
-                <element inactive_on_update="false" label="String" sequence="1" value="string"/>
                 <element inactive_on_update="false" label="Integer" sequence="2" value="integer"/>
-                <element inactive_on_update="false" label="Boolean" sequence="3" value="bool"/>
-                <element inactive_on_update="false" label="Float" sequence="4" value="float"/>
-                <element inactive_on_update="false" label="Array" sequence="5" value="array"/>
                 <element inactive_on_update="false" label="Object" sequence="6" value="object"/>
+                <element inactive_on_update="false" label="Boolean" sequence="3" value="bool"/>
                 <element inactive_on_update="false" label="Function" sequence="7" value="function"/>
+                <element inactive_on_update="false" label="Float" sequence="4" value="float"/>
                 <element inactive_on_update="false" label="Component" sequence="8" value="component"/>
+                <element inactive_on_update="false" label="Array" sequence="5" value="array"/>
+                <element inactive_on_update="false" label="String" sequence="1" value="string"/>
             </choice>
         </element>
+        <element display="true" label="Name" mandatory="true" max_length="40" name="name" type="string"/>
+        <element label="Description" max_length="2000" name="description" type="string_full_utf8"/>
         <index name="index">
             <element name="component"/>
         </index>
