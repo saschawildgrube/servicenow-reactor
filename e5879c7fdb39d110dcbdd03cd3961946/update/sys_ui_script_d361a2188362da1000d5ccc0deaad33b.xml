@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>A text input element with a clear icon button to reset its contents. </description>
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_snc_reactor.FilterInput</name>
+        <script><![CDATA[class FilterInput extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+		this.state = { value: this.props.value };
+	}
+
+	onChange()
+	{
+		var strValue = GetStringValue(event.target.value);
+		if (IsFunction(this.props.callbackOnChange) == true)
+		{
+			this.props.callbackOnChange(strValue);
+		}
+		this.setState( { value: strValue });
+	}
+
+	onReset()
+	{
+		if (IsFunction(this.props.callbackOnChange) == true)
+		{
+			this.props.callbackOnChange('');
+		}
+		this.setState( { value: '' });
+	}	
+
+	render()
+	{
+		var strValue = GetStringValue(this.state.value); 
+		var aComponents = [];
+
+		var componentFilterInput = e('input',{
+			style: { flex: '1'},
+			value: strValue,
+			onInput: this.onChange,
+			},null);
+		aComponents.push(componentFilterInput);
+
+		if (strValue != '')
+		{
+			var componentIcon = e(Icon, { icon: 'times-circle-o'});
+			var componentLinkFilterReset = e('a', { onClick: this.onReset, style: { flexShrink: '0' } }, componentIcon);
+			aComponents.push(componentLinkFilterReset);
+		}
+
+		return e('div', { width: '100%', display: 'flex' }, aComponents);
+	}	
+}]]></script>
+        <script_name>FilterInput</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-14 13:48:24</sys_created_on>
+        <sys_id>d361a2188362da1000d5ccc0deaad33b</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>x_snc_reactor.FilterInput</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_d361a2188362da1000d5ccc0deaad33b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-14 14:09:45</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+        <x_snc_devtools_global>false</x_snc_devtools_global>
+    </sys_ui_script>
+</record_update>

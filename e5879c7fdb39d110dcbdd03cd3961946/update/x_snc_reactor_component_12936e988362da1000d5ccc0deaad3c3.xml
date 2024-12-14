@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
+    <x_snc_reactor_component action="INSERT_OR_UPDATE">
+        <content_css/>
+        <dependencies>b9f7f157db161510f359c191159619e1</dependencies>
+        <description>A text input element with a clear icon button to reset its contents. </description>
+        <jsx>false</jsx>
+        <module>false</module>
+        <name>FilterInput</name>
+        <role>element</role>
+        <script><![CDATA[class FilterInput extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+		this.state = { value: this.props.value };
+	}
+
+	onChange()
+	{
+		var strValue = GetStringValue(event.target.value);
+		if (IsFunction(this.props.callbackOnChange) == true)
+		{
+			this.props.callbackOnChange(strValue);
+		}
+		this.setState( { value: strValue });
+	}
+
+	render()
+	{
+		var strValue = GetStringValue(this.state.value); 
+		var aComponents = [];
+
+		var componentFilterInput = e('input',{
+			style: { width: '100%'},
+			value: strValue,
+			onInput: this.onChange,
+			},null);
+		aComponents.push(componentFilterInput);
+
+		if (strValue != '')
+		{
+			var componentIcon = e(Icon, { icon: 'times-circle-o'});
+			aComponents.push(componentIcon);
+		}
+
+		return e('div', {}, aComponents);
+	}	
+}]]></script>
+        <source_type>ui_script</source_type>
+        <sys_class_name>x_snc_reactor_component</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-14 13:49:42</sys_created_on>
+        <sys_id>12936e988362da1000d5ccc0deaad3c3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FilterInput</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_component_12936e988362da1000d5ccc0deaad3c3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-14 13:49:42</sys_updated_on>
+        <type>script</type>
+        <ui_script display_value="x_snc_reactor.FilterInput">d361a2188362da1000d5ccc0deaad33b</ui_script>
+        <url/>
+    </x_snc_reactor_component>
+</record_update>
