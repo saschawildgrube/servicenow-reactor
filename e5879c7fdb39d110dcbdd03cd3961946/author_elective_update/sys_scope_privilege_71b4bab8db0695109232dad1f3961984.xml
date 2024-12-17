@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="DELETE">
+        <operation>execute</operation>
+        <source_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-17 23:04:48</sys_created_on>
+        <sys_id>71b4bab8db0695109232dad1f3961984</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HtmlRenderScriptURL</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_scope_privilege_71b4bab8db0695109232dad1f3961984</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-17 23:04:48</sys_updated_on>
+        <target_name>HtmlRenderScriptURL</target_name>
+        <target_scope display_value="DevTools WORK IN PROGRESS">d689f6901bd38450a89720a8ec4bcbfd</target_scope>
+        <target_type>sys_script_include</target_type>
+    </sys_scope_privilege>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</application>
+        <file_path/>
+        <instance_id>00dfd44b1b640a14a43dcb7b234bcbf2</instance_id>
+        <instance_name>wildwashington</instance_name>
+        <name>sys_scope_privilege_71b4bab8db0695109232dad1f3961984</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="INSERT_OR_UPDATE">
+        <operation>execute</operation>
+        <source_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-17 23:04:48</sys_created_on>
+        <sys_id>71b4bab8db0695109232dad1f3961984</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HtmlRenderScriptURL</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_scope_privilege_71b4bab8db0695109232dad1f3961984</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-17 23:04:48</sys_updated_on>
+        <target_name>HtmlRenderScriptURL</target_name>
+        <target_scope display_value="DevTools WORK IN PROGRESS">d689f6901bd38450a89720a8ec4bcbfd</target_scope>
+        <target_type>sys_script_include</target_type>
+    </sys_scope_privilege>
+</record_update>]]></payload>
+        <payload_hash>2049228423</payload_hash>
+        <record_name>HtmlRenderScriptURL</record_name>
+        <reverted_from/>
+        <source>ef81cfa0c39c5e505a37f9070501314f</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-25 14:17:31</sys_created_on>
+        <sys_id>49a14fe0c39c5e505a37f90705013125</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19189e638030000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-25 14:17:31</sys_updated_on>
+        <type>Cross scope privilege</type>
+        <update_guid>05a14fe0b89c5e50dcaae01f289bda25</update_guid>
+        <update_guid_history>05a14fe0b89c5e50dcaae01f289bda25:0,b9fd9b16ea1746909e983dc9e9235598:0,e65b5412e51b069059e1815ba33504a1:0,e9dc0182892a82107af00404998463e2:0,196b0102c72a82107645cf0a87f29e27:0,8f52b1dda5d1c690d6636c6f6a4367cc:0,ab22799d90d1c69083ce15de151d2060:0,12cee95965d1c690762a66907cfdbed7:-722943431</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-17 13:49:57</sys_created_on>
+        <sys_db_object display_value="" name="sys_scope_privilege">sys_scope_privilege</sys_db_object>
+        <sys_id>c237cb344f204464b5776eea261fb790</sys_id>
+        <sys_metadata>71b4bab8db0695109232dad1f3961984</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HtmlRenderScriptURL</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_scope_delete display_value="">15e7e2e9ba6d4c1aa140dfcee66950e9</sys_scope_delete>
+        <sys_update_name>sys_scope_privilege_71b4bab8db0695109232dad1f3961984</sys_update_name>
+        <sys_update_version display_value="sys_scope_privilege_71b4bab8db0695109232dad1f3961984">49a14fe0c39c5e505a37f90705013125</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-17 13:49:57</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
