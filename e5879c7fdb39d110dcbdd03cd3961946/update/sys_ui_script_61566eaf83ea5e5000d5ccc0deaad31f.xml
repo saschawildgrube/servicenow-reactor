@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
     <sys_ui_script action="INSERT_OR_UPDATE">
         <active>true</active>
-        <description>Renders a form.</description>
+        <description>Renders a form. Currently support input types "text" and "radio".</description>
         <global>false</global>
         <ignore_in_now_experience>false</ignore_in_now_experience>
         <name>x_snc_reactor.FormComponent</name>
@@ -223,14 +223,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-12-24 16:21:43</sys_created_on>
         <sys_id>61566eaf83ea5e5000d5ccc0deaad31f</sys_id>
-        <sys_mod_count>58</sys_mod_count>
+        <sys_mod_count>59</sys_mod_count>
         <sys_name>x_snc_reactor.FormComponent</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_61566eaf83ea5e5000d5ccc0deaad31f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-12-25 16:45:33</sys_updated_on>
+        <sys_updated_on>2024-12-25 19:39:17</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
