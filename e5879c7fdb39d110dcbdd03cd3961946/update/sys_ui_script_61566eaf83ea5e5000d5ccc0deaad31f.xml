@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>Renders a form.</description>
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_snc_reactor.FormComponent</name>
+        <script><![CDATA[class FormComponent extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+		this.state = {};
+		this.state.formdata = {};
+
+		var aItems = GetArrayValue(this.props.items);
+		for (var nItem = 0; nItem < aItems.length; nItem++)
+		{
+			var item = aItems[nItem];
+			var strId = GetStringValue(GetValue(item,'id'));
+			if (strId != '')
+			{
+				var strValue = GetStringValue(GetValue(item,'value'));
+				this.state.formdata[strId] = strValue;
+			}	
+		}
+	}
+
+	componentDidMount()
+	{
+	}
+
+	componentWillUnmount()
+	{
+	}
+
+	onChange(formdata)
+	{
+		if (IsFunction(this.props.callbackOnChange) == true)
+		{
+			this.props.callbackOnChange(formdata);
+		}
+	}
+
+	onChangeText()
+	{
+		var strValue = event.target.value;
+		var strId = event.target.id;
+		var formdata = this.state.formdata;
+		formdata[strId] = strValue;
+		this.setState( {
+			formdata: formdata
+			});
+		this.onChange(formdata);			
+	}
+
+	onChangeRadio()
+	{
+		var strId = event.target.id;
+		var strValue = event.target.value;
+		var formdata = this.state.formdata;
+		formdata[strId] = strValue;
+		this.setState( {
+			formdata: formdata
+			});
+		this.onChange(formdata);
+	}
+
+	render()
+	{
+
+		var aItems = GetArrayValue(this.props.items);
+
+		var aComponentsFormElements = [];
+
+		for (var nItem = 0; nItem < aItems.length; nItem++)
+		{
+			var item = aItems[nItem];
+			var strId = GetStringValue(GetValue(item,'id'));
+			if (strId != '')
+			{
+				var aFormElementComponents = [];
+				var strType = GetStringValue(GetValue(item,'type'));
+				var strLabel = GetStringValue(GetValue(item,'label'));				
+				var strValue = GetStringValue(GetValue(this.state,'formdata',strId));
+				var strError = GetStringValue(GetValue(item,'error'));
+
+				var componentError = null;
+				if (strError != '')
+				{
+					componentError = e('div',
+						{
+							className: 'row',
+							style:
+							{
+								paddingLeft: '11px',
+								paddingBottom: '5px'
+							}
+						},
+						e(ErrorMessage, { text: strError }));
+				}
+
+			
+				if (strType == 'text')
+				{
+					var componentLabel = e('label',
+						{
+							'for': strId,
+							className: 'col-xs-12 col-md-3 col-lg-4 control-label'
+						},strLabel);
+
+					var nMaxLength = GetIntegerValue(item,'maxlength');
+					if (nMaxLength == 0)
+					{
+						nMaxLength = 100;
+					}
+
+
+					var componentInput = e('input',
+						{
+							id: strId,
+							type: 'text',
+							maxlength: nMaxLength,
+							defaultValue: strValue,
+							onChange: this.onChangeText,
+						});
+
+					var componentDivInput = e('div',
+						{ className: 'col-xs-10 col-sm-9 col-md-6 col-lg-5 form-field input_controls' }, [componentError,componentInput]);
+
+					var componentDivFormGroup = e('div',
+						{ className: 'form-group is-prefilled' },
+						[componentLabel,componentDivInput]);
+
+					var componentDivColumn = e('div',
+						{ className: 'col-xs-12' },
+						componentDivFormGroup);
+
+					var componentDivRow = e('div',{ className: 'row' },componentDivColumn);
+					aComponentsFormElements.push(componentDivRow);
+				}
+				if (strType == 'radio')
+				{
+					var aOptions = GetArrayValue(GetValue(item,'options'));
+					if (aOptions.length > 0)
+					{
+						var componentLabel = e('label',
+							{
+								'for': strId,
+								className: 'col-xs-12 col-md-3 col-lg-4 control-label'
+							},strLabel);
+
+						var aComponentsRadioGroup = [];
+						for (var nOption = 0; nOption < aOptions.length; nOption++)
+						{
+							var option = aOptions[nOption];
+							var strOptionValue = GetStringValue(GetValue(option,'value'));
+							var strOptionLabel = GetStringValue(GetValue(option,'label'));
+							
+							if (strOptionValue != '' && strOptionLabel != '')
+							{
+								var bChecked = false;
+								if (strOptionValue == strValue)
+								{
+									bChecked = true;
+								}
+								var componentRadioInput = e('input',
+									{
+										id: strId,
+										name: strId,
+										value: strOptionValue,
+										type: 'radio',
+										onChange: this.onChangeRadio,
+										checked: bChecked
+										});
+
+								var componentRadioLabel = e('label',
+									{
+										'for': strOptionValue,
+									},strOptionLabel);
+
+								var componentDivRadio = e('div',{},
+									[componentRadioInput,componentRadioLabel]);
+
+								aComponentsRadioGroup.push(componentDivRadio);
+							}
+						}
+
+						var componentDivInput = e('div',
+							{ className: 'col-xs-10 col-sm-9 col-md-6 col-lg-5 input_controls' },
+							[componentError,aComponentsRadioGroup]);
+
+						var componentDivFormGroup = e('div',
+							{ className: 'form-group is-prefilled' },
+							[componentLabel,componentDivInput]);
+
+						var componentDivColumn = e('div',
+							{ className: 'col-xs-12' },
+							componentDivFormGroup);
+
+						var componentDivRow = e('div',{ className: 'row' },componentDivColumn);
+						aComponentsFormElements.push(componentDivRow);											
+
+
+
+						
+
+
+					}
+				}				
+			}
+		}
+		
+		return e('form',
+			{
+				className: 'form_body form-horizontal tabs_disabled'
+			},
+			aComponentsFormElements);	
+	}	
+}]]></script>
+        <script_name>FormComponent</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-24 16:21:43</sys_created_on>
+        <sys_id>61566eaf83ea5e5000d5ccc0deaad31f</sys_id>
+        <sys_mod_count>58</sys_mod_count>
+        <sys_name>x_snc_reactor.FormComponent</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_61566eaf83ea5e5000d5ccc0deaad31f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-25 16:45:33</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+        <x_snc_devtools_global>false</x_snc_devtools_global>
+    </sys_ui_script>
+</record_update>
