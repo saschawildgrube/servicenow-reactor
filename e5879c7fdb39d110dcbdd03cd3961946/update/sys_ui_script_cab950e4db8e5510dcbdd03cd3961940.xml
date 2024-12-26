@@ -13,6 +13,11 @@
 		this.state = {
 			state: 'home',
 			ruler_value: 50,
+			formdata: {
+				text1: 'Default Text 1',
+				text2: 'Default Text 2',
+				radio1: '1'
+			},
 			tabnavigation_value: 'beta',
 			tabcontainer_value: 'incident'
 		};
@@ -66,9 +71,13 @@
 	{
 		//this.setState( { treenavigation_filter: '' } );
 	}
+	onChangeForm(formdata)
+	{
+		this.setState( { formdata: formdata } );
+	}
 	onChangeRuler(nNewValue)
 	{
-		this.setState( { ruler_value: nNewValue} );
+		this.setState( { ruler_value: nNewValue } );
 	}	
 	onLoadIFrame(strUrl,strName)
 	{
@@ -102,6 +111,7 @@
 		aMenuItems.push({ label: 'Messages', option: 'messages' });
 		aMenuItems.push({ label: 'RoundedBox', option: 'roundedbox' });
 		aMenuItems.push({ label: 'Table', option: 'table' });
+		aMenuItems.push({ label: 'Form', option: 'form' });
 		aMenuItems.push({ label: 'Clock', option: 'clock' });
 		aMenuItems.push({ label: 'Ruler', option: 'ruler' });
 		aMenuItems.push({ label: 'ReactorJSXDemo', option: 'jsx' });
@@ -221,24 +231,48 @@
 			aItems.push({
 				label: 'Incident',
 				value: 'incident',
-				content: e(IFrame, { url: '/incident_list.do', name: 'incident'} )
+				content: e('div',
+					{
+						style: { height: '70vh' }
+					},
+					e(IFrame,
+						{
+							url: '/incident_list.do',
+							name: 'incident'
+						}))
 				});
 			aItems.push({
 				label: 'Problem',
 				value: 'problem',
-				content: e(IFrame, { url: '/problem_list.do', name: 'problem'} )
+				content: e('div',
+					{
+						style: { height: '70vh' }
+					},
+					e(IFrame,
+						{
+							url: '/problem_list.do',
+							name: 'problem'
+						}))
 				});
 			aItems.push({
 				label: 'Change',
 				value: 'change',
-				content: e(IFrame, { url: '/change_request_list.do', name: 'change'} )
+				content: e('div',
+					{
+						style: { height: '70vh' }
+					},
+					e(IFrame,
+						{
+							url: '/change_request_list.do',
+							name: 'change'
+						}))
 				});
 			var tabcontainer = e(TabContainer,
 				{
 					items: aItems,
 					value: this.state.tabcontainer_value,
 					callbackOnChange: this.onTabContainerSelect,
-					callbackOnClose: this.onTabContainerClose,
+					callbackOnClose: this.onTabContainerClose
 				}, null);
 
 			aComponents.push(e('div',
@@ -357,12 +391,88 @@
 					classname: ''
 				}, null));
 		}
+		else if (this.state.state == 'form')
+		{
+			var aItems = [];
+			var strValue = '';
+			var strError = '';
+
+			
+			strValue = GetStringValue(GetValue(this.state,'formdata','text1'));
+			strError = '';
+			if (strValue == '')
+			{
+				strError = 'Please enter a text!';
+			}
+
+			aItems.push(
+				{
+					id: 'text1',
+					label: 'Text 1',
+					type: 'text',
+					maxlength: 80,
+					value: strValue,
+					error: strError
+				});	
+
+			strValue = GetStringValue(GetValue(this.state,'formdata','text2'));
+			strError = '';
+			if (strValue == '')
+			{
+				strError = 'Please enter a text!';
+			}
+
+			aItems.push(
+				{
+					id: 'text2',
+					label: 'Text 2',
+					type: 'text',
+					value: strValue,
+					error: strError
+				});
+
+			strValue = GetStringValue(GetValue(this.state,'formdata','radio1'));
+			strError = '';
+			if (strValue == '3')
+			{
+				strError = 'Gamma is not a good choice!';
+			}
+
+			aItems.push(
+				{
+					id: 'radio1',
+					label: 'Radio 1',
+					type: 'radio',
+					value: strValue,
+					error: strError,
+					options: [
+						{
+							value: '1',
+							label: 'Alpha'
+						},
+						{
+							value: '2',
+							label: 'Beta'
+						},
+						{
+							value: '3',
+							label: 'Gamma'
+						},
+					]
+				});				
+
+			aComponents.push(e(FormComponent,
+				{
+					items: aItems,
+					callbackOnChange: this.onChangeForm
+				}));
+		}
 		else if (this.state.state == 'clock')
 		{
 			aComponents.push(e(Clock,
 				{
 					key: 'clock'
-				}, null));
+				}));
 		}
 		else if (this.state.state == 'ruler')
 		{
@@ -372,12 +482,12 @@
 					max: 100,
 					value: this.state.ruler_value,
 					callbackOnChange: this.onChangeRuler
-				}, null));
+				}));
 			aComponents.push(e('div',{ key: 'ruler_value' },'The value is '+this.state.ruler_value));	
 		}
 		else if (this.state.state == 'jsx')
 		{
-			aComponents.push(e(ReactorJSXDemoController,{ key: 'jsx', label: 'A button made with JSX' },null));	
+			aComponents.push(e(ReactorJSXDemoController,{ key: 'jsx', label: 'A button made with JSX' }));	
 
 		}		
 		else if (this.state.state == 'centered')
@@ -418,7 +528,7 @@
 						url: '/incident_list.do',
 						name: 'incident_list',
 						callbackOnLoad: this.onLoadIFrame
-					},null)
+					})
 			);	
 
 		}		
@@ -428,7 +538,7 @@
 				e(AllTablesController,
 					{
 						key: 'tables'
-					},null)
+					})
 			);	
 
 		}		
@@ -708,14 +818,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:09:30</sys_created_on>
         <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
-        <sys_mod_count>232</sys_mod_count>
+        <sys_mod_count>267</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-12-02 08:57:00</sys_updated_on>
+        <sys_updated_on>2024-12-25 16:46:29</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
