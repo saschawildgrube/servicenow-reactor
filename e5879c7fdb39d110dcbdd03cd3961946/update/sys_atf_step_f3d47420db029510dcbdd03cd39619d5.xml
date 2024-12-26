@@ -13,14 +13,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 19:07:53</sys_created_on>
         <sys_id>f3d47420db029510dcbdd03cd39619d5</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_atf_step_f3d47420db029510dcbdd03cd39619d5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-11-30 09:16:55</sys_updated_on>
+        <sys_updated_on>2024-12-26 09:09:36</sys_updated_on>
         <table/>
         <test display_value="Reactor - GetComponentDependencies">e0d4f020db029510dcbdd03cd3961934</test>
         <timeout/>
@@ -35,9 +35,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 19:07:53</sys_created_on>
         <sys_id>65e4b420db029510dcbdd03cd396193c</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-11-30 09:16:55</sys_updated_on>
+        <sys_updated_on>2024-12-26 09:09:36</sys_updated_on>
         <value>(function(outputs, steps, stepResult, assertEqual)&#13;
 {&#13;
 	var test = new x_snc_devtools.TestAPI(outputs, steps, stepResult, assertEqual);&#13;
@@ -62,7 +62,7 @@
 	}&#13;
 &#13;
 	TestCase_GetComponentDependencies(null,0);&#13;
-	TestCase_GetComponentDependencies('ReactorDemoApp',29);&#13;
+	TestCase_GetComponentDependencies('ReactorDemoApp',31);&#13;
 	&#13;
 	return test.GetResult();&#13;
 	&#13;
