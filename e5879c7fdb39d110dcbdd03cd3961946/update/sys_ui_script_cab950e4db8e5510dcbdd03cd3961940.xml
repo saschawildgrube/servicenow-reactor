@@ -115,6 +115,7 @@
 		aMenuItems.push({ label: 'Clock', option: 'clock' });
 		aMenuItems.push({ label: 'Ruler', option: 'ruler' });
 		aMenuItems.push({ label: 'ReactorJSXDemo', option: 'jsx' });
+		aMenuItems.push({ label: 'Columns', option: 'columns' });
 		aMenuItems.push({ label: 'Centered', option: 'centered' });
 		aMenuItems.push({ label: 'IFrame', option: 'iframe' });
 		aMenuItems.push({ label: 'Tables', option: 'tables' });
@@ -351,15 +352,30 @@
 				[
 					{
 						header: true,
-						content: 'Column 1'
+						content: e('div',
+							{
+								style: {
+									backgroundColor: 'red'
+								}
+							}, 'Column 1')
 					},
 					{
 						header: true,
-						content: 'Column 2'
+						content: e('div',
+							{
+								style: {
+									backgroundColor: 'green'
+								}
+							}, 'Column 2')
 					},
 					{
 						header: true,
-						content: 'Column 3'
+						content: e('div',
+							{
+								style: {
+									backgroundColor: 'blue'
+								}
+							}, 'Column 3')
 					}
 				]
 			);
@@ -490,6 +506,47 @@
 			aComponents.push(e(ReactorJSXDemoController,{ key: 'jsx', label: 'A button made with JSX' }));	
 
 		}		
+		else if (this.state.state == 'columns')
+		{
+			aComponents.push(
+				e(Columns,
+					{
+						gap: 10,
+						columns: 
+							[
+								{
+									content: e('div',
+										{
+											style: 
+											{
+												backgroundColor: 'red'
+											}
+										}, 'Column 1 (red)')
+								},
+								{
+									content: e('div',
+										{
+											style: 
+											{
+												backgroundColor: 'green'
+											}
+										}, 'Column 2 (green) - double width'),
+									width_factor: 2
+								},
+								{
+								content: e('div',
+										{
+											style: 
+											{
+												backgroundColor: 'blue'
+											}
+										}, 'Column 3 (blue)')
+								},
+							]	
+					}				
+				)
+			);
+		}					
 		else if (this.state.state == 'centered')
 		{
 			aComponents.push(
@@ -818,14 +875,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:09:30</sys_created_on>
         <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
-        <sys_mod_count>267</sys_mod_count>
+        <sys_mod_count>275</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-12-25 16:46:29</sys_updated_on>
+        <sys_updated_on>2025-01-06 10:46:00</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
