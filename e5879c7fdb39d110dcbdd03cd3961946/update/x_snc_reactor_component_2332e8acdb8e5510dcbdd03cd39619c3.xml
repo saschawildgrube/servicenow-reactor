@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
     <x_snc_reactor_component action="INSERT_OR_UPDATE">
         <content_css/>
-        <dependencies>e7d38ca0db4e5510dcbdd03cd3961911,cf54ac20dbce5510dcbdd03cd396197a,b11cdde0db829510dcbdd03cd39619f3,96785174db0295109232dad1f39619fb,39f6fa3cdb0695109232dad1f39619ed,1fb0773edb92d110f359c1911596194d,2c0168dfdbded110f359c1911596195f,2edf5ac6476a1110a4b0d4fe536d433c,acf063451b1469905b76777d8b4bcbb2,59aa28661b4fa510cd6153d16b4bcb38,099c24e61b4fa510cd6153d16b4bcb7a,8572ee00971fed10a6a07767f053af21,f5be6c2c97d36110a6a07767f053afa5,9861d5311bd7e110cd6153d16b4bcb73,95aa25b11b1be110cd6153d16b4bcb0f,e38da2d697d36910a6a07767f053afc1,f40e87bddb388610f0f1d03cd39619b7,0cecec581be50290063ddc61ab4bcb76,e501ee31dbdf0e10f0f1d03cd3961934,c6760e02db1f4e10f0f1d03cd3961928,4de2f974dbbf8a90f0f1d03cd39619a2,9d00ba2ec319da105a37f907050131d0,9a96a2ef83ea5e5000d5ccc0deaad38e,d252dcf7c3bad2105a37f90705013106</dependencies>
+        <dependencies>e7d38ca0db4e5510dcbdd03cd3961911,cf54ac20dbce5510dcbdd03cd396197a,b11cdde0db829510dcbdd03cd39619f3,96785174db0295109232dad1f39619fb,39f6fa3cdb0695109232dad1f39619ed,1fb0773edb92d110f359c1911596194d,2c0168dfdbded110f359c1911596195f,2edf5ac6476a1110a4b0d4fe536d433c,acf063451b1469905b76777d8b4bcbb2,59aa28661b4fa510cd6153d16b4bcb38,099c24e61b4fa510cd6153d16b4bcb7a,8572ee00971fed10a6a07767f053af21,f5be6c2c97d36110a6a07767f053afa5,9861d5311bd7e110cd6153d16b4bcb73,95aa25b11b1be110cd6153d16b4bcb0f,e38da2d697d36910a6a07767f053afc1,f40e87bddb388610f0f1d03cd39619b7,0cecec581be50290063ddc61ab4bcb76,e501ee31dbdf0e10f0f1d03cd3961934,c6760e02db1f4e10f0f1d03cd3961928,4de2f974dbbf8a90f0f1d03cd39619a2,9d00ba2ec319da105a37f907050131d0,9a96a2ef83ea5e5000d5ccc0deaad38e,d252dcf7c3bad2105a37f90705013106,e548f60633af1a10037396382e5c7bc8</dependencies>
         <description>Demonstrates the capability of Reactor to embedd React components into a ServiceNow UI Page.</description>
         <jsx>false</jsx>
         <module>false</module>
@@ -354,15 +354,30 @@
 				[
 					{
 						header: true,
-						content: 'Column 1'
+						content: e('div',
+							{
+								style: {
+									backgroundColor: 'red'
+								}
+							}, 'Column 1')
 					},
 					{
 						header: true,
-						content: 'Column 2'
+						content: e('div',
+							{
+								style: {
+									backgroundColor: 'green'
+								}
+							}, 'Column 2')
 					},
 					{
 						header: true,
-						content: 'Column 3'
+						content: e('div',
+							{
+								style: {
+									backgroundColor: 'blue'
+								}
+							}, 'Column 3')
 					}
 				]
 			);
@@ -493,6 +508,47 @@
 			aComponents.push(e(ReactorJSXDemoController,{ key: 'jsx', label: 'A button made with JSX' }));	
 
 		}		
+		else if (this.state.state == 'columns')
+		{
+			aComponents.push(
+				e(Columns,
+					{
+						gap: 10,
+						columns: 
+							[
+								{
+									content: e('div',
+										{
+											style: 
+											{
+												backgroundColor: 'red'
+											}
+										}, 'Column 1 (red)')
+								},
+								{
+									content: e('div',
+										{
+											style: 
+											{
+												backgroundColor: 'green'
+											}
+										}, 'Column 2 (green) - double width'),
+									width_factor: 2
+								},
+								{
+								content: e('div',
+										{
+											style: 
+											{
+												backgroundColor: 'blue'
+											}
+										}, 'Column 3 (blue)')
+								},
+							]	
+					}				
+				)
+			);
+		}					
 		else if (this.state.state == 'centered')
 		{
 			aComponents.push(
@@ -821,14 +877,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:46:33</sys_created_on>
         <sys_id>2332e8acdb8e5510dcbdd03cd39619c3</sys_id>
-        <sys_mod_count>31</sys_mod_count>
+        <sys_mod_count>32</sys_mod_count>
         <sys_name>ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_2332e8acdb8e5510dcbdd03cd39619c3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-01-06 10:31:05</sys_updated_on>
+        <sys_updated_on>2025-02-07 19:08:39</sys_updated_on>
         <type>script</type>
         <ui_script display_value="x_snc_reactor.ReactorDemoApp">cab950e4db8e5510dcbdd03cd3961940</ui_script>
         <url/>
