@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
+    <x_snc_reactor_component action="INSERT_OR_UPDATE">
+        <content_css/>
+        <dependencies>3e5718c29378ea10959b7fda2bba1020</dependencies>
+        <description>Renders a 3 dimensional Force-Directed Graph.</description>
+        <jsx>false</jsx>
+        <module>false</module>
+        <name>ForceGraph3d</name>
+        <role>element</role>
+        <script><![CDATA[class ForceGraph3d extends ReactorComponent
+{
+
+	constructor(props)
+	{
+		super(props);
+		this.m_strId = 'forcegraph3d_'+GetRandomInteger(1000);
+	}
+  
+	render()
+	{
+		return e(
+			'div', 
+			{
+				id: this.m_strId
+
+			});
+	}
+
+	componentDidMount()
+	{
+
+	}
+
+}]]></script>
+        <source_type>ui_script</source_type>
+        <sys_class_name>x_snc_reactor_component</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-04-10 12:52:56</sys_created_on>
+        <sys_id>c5c83c4693f8ea10959b7fda2bba10c7</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>ForceGraph3d</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_component_c5c83c4693f8ea10959b7fda2bba10c7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-04-10 12:53:37</sys_updated_on>
+        <type>script</type>
+        <ui_script display_value="x_snc_reactor.ForceGraph3d">0da8784693f8ea10959b7fda2bba10b4</ui_script>
+        <url/>
+    </x_snc_reactor_component>
+</record_update>
