@@ -757,28 +757,51 @@
 				[
 					{
 						id: 1,
-						description: 'Sun'
+						name: 'Sun'
 					},
 					{
 						id: 11,
-						description: 'Mercury'
+						name: 'Mercury'
 					},
 					{
 						id: 12,
-						description: 'Venus'
+						name: 'Venus'
 					},
 					{
 						id: 13,
-						description: 'Earth'
+						name: 'Earth'
 					},		
 					{
 						id: 131,
-						description: 'Moon'
+						name: 'Moon'
 					},									
 					{
 						id: 14,
-						description: 'Mars'
+						name: 'Mars'
 					}					
+				],
+				links:
+				[
+					{
+						source: 1,
+						target: 11
+					},
+					{
+						source: 1,
+						target: 12
+					},					
+					{
+						source: 1,
+						target: 13
+					},						
+					{
+						source: 13,
+						target: 131
+					},						
+					{
+						source: 1,
+						target: 14
+					},					
 				]
 			};
 	
@@ -950,14 +973,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 17:09:30</sys_created_on>
         <sys_id>cab950e4db8e5510dcbdd03cd3961940</sys_id>
-        <sys_mod_count>278</sys_mod_count>
+        <sys_mod_count>280</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoApp</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_cab950e4db8e5510dcbdd03cd3961940</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-04-10 12:50:34</sys_updated_on>
+        <sys_updated_on>2025-04-10 13:03:15</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>
