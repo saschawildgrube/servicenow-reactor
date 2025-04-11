@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_component">
-    <x_snc_reactor_component action="INSERT_OR_UPDATE">
-        <content_css/>
-        <dependencies>9191395fdbd21510f359c191159619ef</dependencies>
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
         <description>The React component loads information on all tables in the instance and displays the tables.</description>
-        <jsx>true</jsx>
-        <module>false</module>
-        <name>ReactorDemoAllTablesController</name>
-        <role>controller</role>
-        <script><![CDATA[class ReactorDemoAllTablesController extends ReactorComponent
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_snc_reactor.ReactorDemoForcedGraph3dCo</name>
+        <script><![CDATA[class AllTablesController extends ReactorComponent
 {
 	constructor(props)
 	{
@@ -101,21 +99,21 @@
 	}	
 }
 var AllTables = AllTablesController;]]></script>
-        <source_type>ui_script</source_type>
-        <sys_class_name>x_snc_reactor_component</sys_class_name>
+        <script_name>ReactorDemoForcedGraph3dController</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2022-10-16 15:22:32</sys_created_on>
-        <sys_id>2edf5ac6476a1110a4b0d4fe536d433c</sys_id>
-        <sys_mod_count>6</sys_mod_count>
-        <sys_name>ReactorDemoAllTablesController</sys_name>
+        <sys_created_on>2025-04-11 07:55:57</sys_created_on>
+        <sys_id>ac6e741e93b06e10959b7fda2bba10f9</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_snc_reactor.ReactorDemoForcedGraph3dCo</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
-        <sys_update_name>x_snc_reactor_component_2edf5ac6476a1110a4b0d4fe536d433c</sys_update_name>
+        <sys_update_name>sys_ui_script_ac6e741e93b06e10959b7fda2bba10f9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-04-11 07:57:47</sys_updated_on>
-        <type>script</type>
-        <ui_script display_value="x_snc_reactor.ReactorDemoAllTablesContro">2d00eac6476a1110a4b0d4fe536d43a6</ui_script>
-        <url/>
-    </x_snc_reactor_component>
+        <sys_updated_on>2025-04-11 07:56:29</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+        <x_snc_devtools_global>false</x_snc_devtools_global>
+    </sys_ui_script>
 </record_update>
