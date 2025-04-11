@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>The ToolStack component renders a stack of buttons with icons and/or text and returns the clicked button via a callback function.</description>
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_snc_reactor.ToolStack</name>
+        <script><![CDATA[class ToolStack extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+	}
+
+	onClick(strValue)
+	{
+		if (typeof this.props.callbackOnClick == 'function') 
+		{
+			this.props.callbackOnClick(strValue);
+		}
+	}
+
+	render()
+	{
+		var aComponents = [];
+		
+		var aTools = GetArrayValue(this.props.tools);
+		var bIconOnly = GetBoolValue(this.props.icononly);
+		
+		for (var nTool = 0; nTool < aTools.length; nTool++)
+		{
+			var tool = aTools[nTool];
+			var strValue = GetStringValue(GetValue(tool,'value'));
+			var strText = GetStringValue(GetValue(tool,'text'));
+			var strToolTip = GetStringValue(GetValue(tool,'tooltip'));
+			var strIcon = GetStringValue(GetValue(tool,'icon'));
+			if (strValue != '')
+			{
+				if (nTool > 0)
+				{
+					aComponents.push(
+						e('span',{ style: { width: '5px', display: 'inline-block' } })
+						);
+				}
+				var inner = [];
+				if (strIcon != '')
+				{
+					inner.push(e(Icon,{ icon: strIcon }));
+					if (strText != '' && bIconOnly == false)
+					{
+						inner.push(e('span',{ style: { width: '5px', display: 'inline-block' } }));
+					}
+				}
+				if (bIconOnly == false)
+				{
+					inner.push(e('span',{},strText));
+				}
+				var button = e(
+					Button,
+					{
+						callbackOnClick: this.onClick,
+						value: strValue,
+						tooltip: strToolTip,
+					},
+					inner);
+				aComponents.push(button);
+				aComponents.push(e('div',{ style: { paddingTop: '2px' } }));
+			}
+		}
+		
+		return e('div',
+			{
+				style:
+				{
+					display: 'inline-flex',
+    				flexDirection: 'column',
+    				alignItems: 'stretch'
+				}
+			},
+			aComponents);	
+	}	
+}]]></script>
+        <script_name>ToolStack</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-02-07 18:48:38</sys_created_on>
+        <sys_id>0397fac233af1a10037396382e5c7b1a</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>x_snc_reactor.ToolStack</sys_name>
+        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_0397fac233af1a10037396382e5c7b1a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-02-07 19:59:02</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+        <x_snc_devtools_global>false</x_snc_devtools_global>
+    </sys_ui_script>
+</record_update>

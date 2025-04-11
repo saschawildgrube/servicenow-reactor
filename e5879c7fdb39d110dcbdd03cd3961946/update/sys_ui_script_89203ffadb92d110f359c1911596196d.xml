@@ -5,49 +5,7 @@
         <global>false</global>
         <ignore_in_now_experience>false</ignore_in_now_experience>
         <name>x_snc_reactor.IFrame</name>
-        <script><![CDATA[/*function IframeInterceptor()
-{
-  const iframeRef = React.useRef(null);
-
-  React.useEffect(() => {
-    const iframe = iframeRef.current;
-
-    const observer = new React.MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'src') {
-          console.log('Iframe navigation detected to:', iframe.src);
-          // Handle navigation logic here
-        }
-      });
-    });
-
-    if (iframe) {
-      observer.observe(iframe, { attributes: true });
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  //return <iframe ref={iframeRef} src="https://example.com" />;
-		return e('iframe',
-			{
-				ref: iframeRef,
-				//name: this.props.name,
-				//src: this.props.url,
-				src: 'https://example.com',
-				frameborder: '0',
-				//onLoad: this.onPageShow,
-				//onPageShow: this.onPageShow,
-				style: { display: 'block', height: '100%', width: '100%' }
-			},
-			null);
-
-}
-*/
-
-class IFrame extends ReactorComponent
+        <script><![CDATA[class IFrame extends ReactorComponent
 {
 	constructor(props)
 	{
@@ -58,35 +16,21 @@ class IFrame extends ReactorComponent
 	{
 		var strUrl = event.target.contentWindow.location.href;
 		var strName = GetStringValue(this.props.name);
-		if (typeof this.props.callbackOnLoad == 'function')
+		if (IsFunction(this.props.callbackOnLoad))
 		{
 			this.props.callbackOnLoad(strUrl,strName);
 		}
 	}
-	
-	/*
-	onPageShow(event)
-	{
-		console.log(event);
-		//var strUrl = event.target.contentWindow.location.href;
-		if (typeof this.props.callbackOnLoad == 'function')
-		{
-			this.props.callbackOnLoad(strUrl);
-		}
-		//DoModalMessage('onPageShow',strUrl);
-	}*/
 
 	render()
 	{
 
 		return e('iframe',
 			{
-				//ref: iframeRef,
 				name: this.props.name,
 				src: this.props.url,
 				frameborder: '0',
 				onLoad: this.onLoad,
-				//onPageShow: this.onPageShow,
 				style: { display: 'block', height: '100%', width: '100%' }
 			},
 			null);
@@ -97,14 +41,14 @@ class IFrame extends ReactorComponent
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-10-06 18:50:22</sys_created_on>
         <sys_id>89203ffadb92d110f359c1911596196d</sys_id>
-        <sys_mod_count>46</sys_mod_count>
+        <sys_mod_count>51</sys_mod_count>
         <sys_name>x_snc_reactor.IFrame</sys_name>
         <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_89203ffadb92d110f359c1911596196d</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-11-28 15:56:18</sys_updated_on>
+        <sys_updated_on>2025-02-06 22:42:11</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>

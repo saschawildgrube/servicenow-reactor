@@ -31,7 +31,7 @@
 	<ul>
 		<g2:no_escape>$[
 			docapi.RenderSystemRequirements(
-				'Washington,Xanadu',
+				'Xanadu,Yokohama',
 				true,
 				AppGetDependencies());
 		]</g2:no_escape>	
@@ -118,6 +118,20 @@
 	<g2:no_escape>$[docapi.RenderLicense()]</g2:no_escape>
 	
 	<h2>Release Notes</h2>
+
+	<h3>1.12.0 - 2025-04-11</h3>
+	<ol>
+		<li>Washington is no longer actively supported.</li>
+		<li>Reactor is fully tested with Yokohama.</li>
+		<li>DevTools 1.119.0 is now required.</li>
+		<li>Added component Columns.</li>
+		<li>Added component ToolStack.</li>
+		<li>Added component ForceGraph3dAPI.</li>
+		<li>Added component ForceGraph3d.</li>
+		<li>The Workspace component no longer sets a minimum width for the "sidebar" - so the width is now only determined by its contents.</li>
+		<li>When saving a Reactor component, the hint regarding the pascal case component name is no longer displayed for url-based components.</li>
+	</ol>
+
 
 	<h3>1.11.0 - 2024-12-26</h3>
 	<ol>
@@ -268,13 +282,24 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 13:55:46</sys_created_on>
         <sys_id>ed7de710db0e5510dcbdd03cd39619cb</sys_id>
-        <sys_mod_count>131</sys_mod_count>
+        <sys_mod_count>139</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_page_ed7de710db0e5510dcbdd03cd39619cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-12-26 09:26:03</sys_updated_on>
+        <sys_updated_on>2025-04-11 14:54:28</sys_updated_on>
     </sys_ui_page>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>ed7de710db0e5510dcbdd03cd39619cb</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-04-10 10:25:43</sys_created_on>
+        <sys_id>601710c29378ea10959b7fda2bba1012</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-04-10 10:25:43</sys_updated_on>
+        <table>sys_ui_page</table>
+        <use_es_latest>false</use_es_latest>
+    </sys_es_latest_script>
 </record_update>

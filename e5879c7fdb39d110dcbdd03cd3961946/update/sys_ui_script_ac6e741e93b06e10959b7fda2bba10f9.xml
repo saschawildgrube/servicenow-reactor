@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>The React component loads information on all tables in the instance and displays the tables.</description>
+        <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
+        <name>x_snc_reactor.ReactorDemoForceGraph3dCon</name>
+        <script><![CDATA[class ReactorDemoForceGraph3dController extends ReactorComponent
+{
+	constructor(props)
+	{
+		super(props);
+		this.state = { loaded: false, tables: {} };
+	}
+
+	onServerRequestGetAllTables(response)
+	{
+		this.setState(
+			{
+				loaded: true,
+				tables: response
+			}
+		);
+	}
+
+	onClickNode(node)
+	{
+		RedirectToRecord('sys_db_object', node.id, '', true);
+	}
+
+
+	
+	render()
+	{
+		if (this.state.loaded == false)
+		{
+			ServerRequest('x_snc_devtools.DevToolsClientAPI','GetAllTables',{ extending_tables: true },this.onServerRequestGetAllTables);
+			return e(Waiting,{ text: 'Loading Data...' });
+		}
+		var tables = this.state.tables;
+		var aTables = GetKeys(tables);
+		if (aTables.length == 0)
+		{
+			return '';
+		}
+
+		var graphnodes = [];
+		var graphlinks = [];
+		for (var nTable = 0; nTable < aTables.length; nTable++)
+		{
+			var strTable = aTables[nTable];
+			var table = tables[strTable];
+			var node = {};
+			node.id = GetStringValue(GetValue(table,'sys_id'));
+			node.name = GetStringValue(GetValue(table,'label')) + ' ('+strTable+')';
+			graphnodes.push(node);
+
+			var strSuperClass = GetStringValue(GetValue(table,'super_class'));
+			if (strSuperClass != '')
+			{
+				var link = {};
+				link.target = node.id;
+				link.source = strSuperClass;
+				graphlinks.push(link);
+			}
+		}
+		var graphdata = {};
+		graphdata.nodes = graphnodes;
+		graphdata.links = graphlinks;
+
+		return e(ForceGraph3d,
+			{
+				data: graphdata,
+				callbackOnClick: this.onClickNode
+			});	
+	}	
+}]]></script>
+        <script_name>ReactorDemoForceGraph3dController</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-04-11 07:55:57</sys_created_on>
+        <sys_id>ac6e741e93b06e10959b7fda2bba10f9</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>x_snc_reactor.ReactorDemoForceGraph3dCon</sys_name>
+        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_ui_script_ac6e741e93b06e10959b7fda2bba10f9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-04-11 09:10:27</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+        <x_snc_devtools_global>false</x_snc_devtools_global>
+    </sys_ui_script>
+</record_update>

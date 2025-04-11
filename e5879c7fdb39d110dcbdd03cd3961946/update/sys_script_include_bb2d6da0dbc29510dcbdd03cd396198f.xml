@@ -6,7 +6,9 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description>Renders the jelly/html source code used for the Reactor demo app.</description>
+        <mobile_callable>false</mobile_callable>
         <name>GetUIPageDemoScript</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[function GetUIPageDemoScript()
 {
 	var strHtml = '';

@@ -22,7 +22,7 @@
         <runtime_access_tracking>permissive</runtime_access_tracking>
         <scope>x_snc_reactor</scope>
         <scoped_administration>false</scoped_administration>
-        <short_description>Create user experiences using React</short_description>
+        <short_description>Create stunning user experiences using React</short_description>
         <source>x_snc_reactor</source>
         <store_correlation_id/>
         <store_url/>
@@ -32,20 +32,22 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-14 09:04:05</sys_created_on>
         <sys_id>e5879c7fdb39d110dcbdd03cd3961946</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-03-31 13:09:18</sys_updated_on>
+        <sys_updated_on>2025-04-11 14:26:27</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
         <user_role/>
         <vendor/>
         <vendor_prefix/>
-        <version>1.11.0</version>
+        <version>1.12.0</version>
         <x_snc_devtools_documentation_url>https://www.wildgrube.com/servicenow-reactor</x_snc_devtools_documentation_url>
         <x_snc_devtools_maintainer>Sascha Wildgrube</x_snc_devtools_maintainer>
         <x_snc_devtools_maintainer_email>sascha.wildgrube@servicenow.com</x_snc_devtools_maintainer_email>
         <x_snc_devtools_repo_url>https://github.com/saschawildgrube/servicenow-reactor.git</x_snc_devtools_repo_url>
+        <x_snc_devtools_showstopper>false</x_snc_devtools_showstopper>
+        <x_snc_devtools_showstopper_details/>
         <x_snc_wildgrubelab_test/>
         <x_snc_wildgrubelab_test2/>
     </sys_app>
