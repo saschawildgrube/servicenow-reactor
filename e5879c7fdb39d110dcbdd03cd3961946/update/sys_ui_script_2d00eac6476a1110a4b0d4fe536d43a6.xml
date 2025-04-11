@@ -69,10 +69,6 @@
 			return e(Waiting,{ text: 'Loading Table Data...' });
 		}
 		var tables = this.state.tables;
-/*		if (IsObject(tables) == false)
-		{
-			return e('div',{ }, 'Error: tables is not an object.');
-		}*/
 		
 		var aTables = GetKeys(tables);
 		if (aTables.length == 0)
@@ -105,14 +101,14 @@ const AllTables = ReactorDemoAllTablesController;]]></script>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-10-16 15:20:58</sys_created_on>
         <sys_id>2d00eac6476a1110a4b0d4fe536d43a6</sys_id>
-        <sys_mod_count>36</sys_mod_count>
+        <sys_mod_count>37</sys_mod_count>
         <sys_name>x_snc_reactor.ReactorDemoAllTablesContro</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_script_2d00eac6476a1110a4b0d4fe536d43a6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-04-11 08:18:15</sys_updated_on>
+        <sys_updated_on>2025-04-11 08:31:21</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
         <x_snc_devtools_global>false</x_snc_devtools_global>

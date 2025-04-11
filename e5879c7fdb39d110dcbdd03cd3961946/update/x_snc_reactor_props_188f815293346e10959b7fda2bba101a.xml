@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_reactor_props">
+    <x_snc_reactor_props action="INSERT_OR_UPDATE">
+        <component display_value="ForceGraph3d">c5c83c4693f8ea10959b7fda2bba10c7</component>
+        <description>The callback function to be called when the user clicks left on a node.&#13;
+The node object is passed as a parameter.</description>
+        <mandatory>false</mandatory>
+        <name>callbackOnClick</name>
+        <sys_class_name>x_snc_reactor_props</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-04-11 09:11:30</sys_created_on>
+        <sys_id>188f815293346e10959b7fda2bba101a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>callbackOnClick</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>x_snc_reactor_props_188f815293346e10959b7fda2bba101a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-04-11 09:11:30</sys_updated_on>
+        <type>function</type>
+    </x_snc_reactor_props>
+</record_update>

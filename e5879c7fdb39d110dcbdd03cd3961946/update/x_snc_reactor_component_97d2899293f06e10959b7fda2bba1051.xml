@@ -5,7 +5,7 @@
         <description>The React component loads information on all tables in the instance and displays the tables.</description>
         <jsx>false</jsx>
         <module>false</module>
-        <name>ReactorDemoForcedGraph3dController</name>
+        <name>ReactorDemoForceGraph3dController</name>
         <role>controller</role>
         <script><![CDATA[class AllTablesController extends ReactorComponent
 {
@@ -106,16 +106,16 @@ var AllTables = AllTablesController;]]></script>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-04-11 08:16:10</sys_created_on>
         <sys_id>97d2899293f06e10959b7fda2bba1051</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>ReactorDemoForcedGraph3dController</sys_name>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>ReactorDemoForceGraph3dController</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_component_97d2899293f06e10959b7fda2bba1051</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-04-11 08:16:10</sys_updated_on>
+        <sys_updated_on>2025-04-11 08:22:30</sys_updated_on>
         <type>script</type>
-        <ui_script display_value="x_snc_reactor.ReactorDemoForcedGraph3dCo">ac6e741e93b06e10959b7fda2bba10f9</ui_script>
+        <ui_script display_value="x_snc_reactor.ReactorDemoForceGraph3dCon">ac6e741e93b06e10959b7fda2bba10f9</ui_script>
         <url/>
     </x_snc_reactor_component>
 </record_update>
