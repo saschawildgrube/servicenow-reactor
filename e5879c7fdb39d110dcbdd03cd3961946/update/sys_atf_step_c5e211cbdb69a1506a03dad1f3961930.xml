@@ -14,18 +14,33 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-17 15:23:31</sys_created_on>
         <sys_id>c5e211cbdb69a1506a03dad1f3961930</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>DevTools - Check app dependencies</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_atf_step_c5e211cbdb69a1506a03dad1f3961930</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-17 15:23:31</sys_updated_on>
+        <sys_updated_on>2025-06-14 09:56:36</sys_updated_on>
         <table/>
         <test display_value="Reactor - Installation">317de710db0e5510dcbdd03cd39619d4</test>
         <timeout/>
         <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=c5e211cbdb69a1506a03dad1f3961930"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>c5e211cbdb69a1506a03dad1f3961930</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-06-14 09:56:36</sys_created_on>
+        <sys_id>a7bf3632938aa610ae97b4aa6aba1005</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-06-14 09:56:36</sys_updated_on>
+        <value>e5879c7fdb39d110dcbdd03cd3961946</value>
+        <variable display_value="Application">abfabdb693e1aa50959b7fda2bba10e4</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_atf_input_variable_e4b8e71e1bbb5d105b76777d8b4bcb35^id=c5e211cbdb69a1506a03dad1f3961930"/>
 </record_update>
