@@ -19,7 +19,7 @@
         <is_rest>false</is_rest>
         <message/>
         <name>component_token - update</name>
-        <order>100</order>
+        <order>42500</order>
         <priority>100</priority>
         <rest_method/>
         <rest_method_text/>
@@ -38,7 +38,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>56421d651b258690063ddc61ab4bcb09</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>component_token - update</sys_name>
         <sys_overrides/>
         <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
@@ -46,10 +46,21 @@
         <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_script_56421d651b258690063ddc61ab4bcb09</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-04-13 15:58:59</sys_updated_on>
+        <sys_updated_on>2025-06-14 10:00:11</sys_updated_on>
         <template/>
         <when>before</when>
         <x_snc_datasilos_created>false</x_snc_datasilos_created>
     </sys_script>
     <sys_translated_text action="delete_multiple" query="documentkey=56421d651b258690063ddc61ab4bcb09"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>56421d651b258690063ddc61ab4bcb09</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-06-14 10:00:11</sys_created_on>
+        <sys_id>8c90c3b2938aa610ae97b4aa6aba10e0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-06-14 10:00:11</sys_updated_on>
+        <table>sys_script</table>
+        <use_es_latest>false</use_es_latest>
+    </sys_es_latest_script>
 </record_update>

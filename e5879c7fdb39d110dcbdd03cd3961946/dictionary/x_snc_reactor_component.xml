@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="update_synch=true" db_object_id="9d840c601b8e151009d2dc61ab4bcb8d" extends="sys_metadata" label="Reactor Component" max_length="40" name="x_snc_reactor_component" type="collection">
+        <element display="true" label="Name" mandatory="true" max_length="100" name="name" type="string"/>
+        <element label="URL" max_length="1024" name="url" type="url"/>
         <element label="Stylesheet" max_length="32" name="content_css" reference="content_css" type="reference"/>
-        <element label="Module" max_length="40" name="module" type="boolean"/>
-        <element choice="1" label="Type" mandatory="true" max_length="40" name="type" type="choice">
-            <choice>
-                <element inactive_on_update="false" label="Script" sequence="1" value="script"/>
-                <element inactive_on_update="false" label="Stylesheet" sequence="2" value="stylesheet"/>
-            </choice>
-        </element>
-        <element label="Description" max_length="2000" name="description" type="string_full_utf8"/>
         <element choice="3" dependent="type" dependent_on_field="type" label="Source Type" mandatory="true" max_length="40" name="source_type" type="choice" use_dependent_field="true">
             <choice>
+                <element dependent_value="script" inactive_on_update="false" label="UI Script" sequence="1" value="ui_script"/>
                 <element dependent_value="script" inactive_on_update="false" label="URL" sequence="2" value="url"/>
                 <element dependent_value="stylesheet" inactive_on_update="false" label="Stylesheet" sequence="1" value="content_css"/>
-                <element dependent_value="script" inactive_on_update="false" label="UI Script" sequence="1" value="ui_script"/>
             </choice>
         </element>
+        <element choice="1" label="Type" mandatory="true" max_length="40" name="type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Stylesheet" sequence="2" value="stylesheet"/>
+                <element inactive_on_update="false" label="Script" sequence="1" value="script"/>
+            </choice>
+        </element>
+        <element label="JSX" max_length="40" name="jsx" type="boolean"/>
+        <element label="Description" max_length="2000" name="description" type="string_full_utf8"/>
+        <element attributes="no_truncate=true" label="Dependencies" max_length="4000" name="dependencies" reference="x_snc_reactor_component" type="glide_list"/>
+        <element label="Module" max_length="40" name="module" type="boolean"/>
+        <element label="UI Script" max_length="32" name="ui_script" reference="sys_ui_script" type="reference"/>
+        <element label="Script" max_length="65000" name="script" read_only="true" type="script_plain"/>
         <element choice="3" label="Role" mandatory="true" max_length="40" name="role" type="choice">
             <choice>
                 <element inactive_on_update="false" label="App" sequence="1" value="app"/>
-                <element inactive_on_update="false" label="API" sequence="6" value="api"/>
-                <element inactive_on_update="false" label="Page" sequence="2" value="page"/>
-                <element inactive_on_update="false" label="Theme / Fonts / CSS" sequence="7" value="theme"/>
                 <element inactive_on_update="false" label="Controller" sequence="3" value="controller"/>
                 <element inactive_on_update="false" label="UI Element" sequence="4" value="element"/>
+                <element inactive_on_update="false" label="API" sequence="6" value="api"/>
+                <element inactive_on_update="false" label="Theme / Fonts / CSS" sequence="7" value="theme"/>
+                <element inactive_on_update="false" label="Page" sequence="2" value="page"/>
             </choice>
         </element>
-        <element label="URL" max_length="1024" name="url" type="url"/>
-        <element label="Script" max_length="65000" name="script" read_only="true" type="script_plain"/>
-        <element display="true" label="Name" mandatory="true" max_length="100" name="name" type="string"/>
-        <element label="UI Script" max_length="32" name="ui_script" reference="sys_ui_script" type="reference"/>
-        <element label="JSX" max_length="40" name="jsx" type="boolean"/>
-        <element attributes="no_truncate=true" label="Dependencies" max_length="4000" name="dependencies" reference="x_snc_reactor_component" type="glide_list"/>
         <index name="index">
             <element name="content_css"/>
         </index>
