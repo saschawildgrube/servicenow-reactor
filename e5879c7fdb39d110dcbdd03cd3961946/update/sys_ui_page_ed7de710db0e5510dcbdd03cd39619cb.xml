@@ -16,6 +16,14 @@
 	
 	<p>Welcome to Reactor - created and maintained by&#160;<a href="mailto:sascha.wildgrube@servicenow.com">Sascha Wildgrube</a>.</p>
 
+	<h2>Overview</h2> 
+	<g2:no_escape>$[
+		docapi.RenderDescription();
+	]</g2:no_escape>
+
+	<h2>Table of Contents</h2>
+	<g2:no_escape>$[x_snc_devtools.HtmlRenderTableOfContents()]</g2:no_escape>		
+
 	<h2>Features</h2> 
 	<p>Use Reactor to create React based applications in ServiceNow. Check out the&#160;<a href="/x_snc_reactor_demo.do" target="_blank">Demo</a>!</p>
 	<p>In React its all about React components. With Reactor its all about Reactor components.</p>
@@ -82,7 +90,7 @@
 		<li><a href="https://babeljs.io/repl" target="_blank">Babel</a></li>
 	</ul>
 
-	<h2>React(or) Components</h2>
+	<h2 toc-ignore-children="true">React(or) Components</h2>
 	<g2:no_escape>$[HtmlRenderReactorComponents('x_snc_reactor')]</g2:no_escape>			
 
 	<h2>Reference</h2>
@@ -117,7 +125,7 @@
 	<g2:no_escape>$[docapi.RenderCopyright(2022,'Sascha Wildgrube')]</g2:no_escape>
 	<g2:no_escape>$[docapi.RenderLicense()]</g2:no_escape>
 	
-	<h2>Release Notes</h2>
+	<h2 toc-ignore-children="true">Release Notes</h2>
 
 	<h3>1.13.0 - TODO</h3>
 	<ol>
@@ -291,14 +299,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-16 13:55:46</sys_created_on>
         <sys_id>ed7de710db0e5510dcbdd03cd39619cb</sys_id>
-        <sys_mod_count>145</sys_mod_count>
+        <sys_mod_count>148</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
         <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_ui_page_ed7de710db0e5510dcbdd03cd39619cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-16 08:23:37</sys_updated_on>
+        <sys_updated_on>2025-09-16 08:28:51</sys_updated_on>
     </sys_ui_page>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>ed7de710db0e5510dcbdd03cd39619cb</id>
