@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_wizard_answer">
+    <sys_wizard_answer action="DELETE">
+        <active>true</active>
+        <answer>Component Properties</answer>
+        <button_label/>
+        <dependent_value/>
+        <element/>
+        <name>Component Properties</name>
+        <next_question/>
+        <order>100</order>
+        <payload_name/>
+        <question display_value="">9ef6b0438320021000d5ccc0deaad364</question>
+        <roles/>
+        <script/>
+        <sys_class_name>sys_wizard_answer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-25 14:17:25</sys_created_on>
+        <sys_id>5f910be0c39c5e505a37f90705013173</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Component Properties</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_wizard_answer_5f910be0c39c5e505a37f90705013173</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-25 14:17:25</sys_updated_on>
+        <table/>
+        <target_url>x_snc_reactor_props.do</target_url>
+        <type>1</type>
+    </sys_wizard_answer>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</application>
+        <file_path/>
+        <instance_id>a8cbb5133b6b5e540fd412c5e4e45a1f</instance_id>
+        <instance_name>wildyokohama</instance_name>
+        <name>sys_wizard_answer_5f910be0c39c5e505a37f90705013173</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_wizard_answer">
+    <sys_wizard_answer action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <answer>Component Properties</answer>
+        <button_label/>
+        <dependent_value/>
+        <element/>
+        <name>Component Properties</name>
+        <next_question/>
+        <order>100</order>
+        <payload_name/>
+        <question display_value="">9ef6b0438320021000d5ccc0deaad364</question>
+        <roles/>
+        <script/>
+        <sys_class_name>sys_wizard_answer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-25 14:17:25</sys_created_on>
+        <sys_id>5f910be0c39c5e505a37f90705013173</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Component Properties</sys_name>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_update_name>sys_wizard_answer_5f910be0c39c5e505a37f90705013173</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-25 14:17:25</sys_updated_on>
+        <table/>
+        <target_url>x_snc_reactor_props.do</target_url>
+        <type>1</type>
+    </sys_wizard_answer>
+</record_update>]]></payload>
+        <payload_hash>-755652798</payload_hash>
+        <record_name>Component Properties</record_name>
+        <reverted_from/>
+        <source>aeba4d7c3b676a1062bf612c95e45a0c</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2025-08-21 09:52:07</sys_created_on>
+        <sys_id>01dac1bc3b676a1062bf612c95e45a52</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>198cc0af8a80000001</sys_recorded_at>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-08-21 09:52:07</sys_updated_on>
+        <type>Answer</type>
+        <update_guid>49dac1bc03676a10ab4ff48762380c51</update_guid>
+        <update_guid_history>49dac1bc03676a10ab4ff48762380c51:0,17f1661a823066103d85f789f0eeaaf2:0,4baa0181effc2a10b61ccca370e297f3:-755652798</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-25 14:17:40</sys_created_on>
+        <sys_db_object display_value="" name="sys_wizard_answer">sys_wizard_answer</sys_db_object>
+        <sys_id>37ce1d9b22934a36a13b4e839c242a51</sys_id>
+        <sys_metadata>5f910be0c39c5e505a37f90705013173</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Component Properties</sys_name>
+        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_scope_delete display_value="">15e7e2e9ba6d4c1aa140dfcee66950e9</sys_scope_delete>
+        <sys_update_name>sys_wizard_answer_5f910be0c39c5e505a37f90705013173</sys_update_name>
+        <sys_update_version display_value="sys_wizard_answer_5f910be0c39c5e505a37f90705013173">01dac1bc3b676a1062bf612c95e45a52</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-25 14:17:40</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
