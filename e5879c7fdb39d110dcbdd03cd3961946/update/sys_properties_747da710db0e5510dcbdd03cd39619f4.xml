@@ -13,9 +13,9 @@
         <sys_id>747da710db0e5510dcbdd03cd39619f4</sys_id>
         <sys_mod_count>4</sys_mod_count>
         <sys_name>x_snc_reactor.logging.verbosity</sys_name>
-        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>sys_properties_747da710db0e5510dcbdd03cd39619f4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2024-12-13 12:58:21</sys_updated_on>
