@@ -14,9 +14,9 @@ The object can contain the "content", "horizontal" and "header" fields.&#13;
         <sys_id>1ae107261b57a510cd6153d16b4bcb54</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>cells</sys_name>
-        <sys_package display_value="Reactor" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
+        <sys_package display_value="Reactor WORK IN PROGRESS" source="x_snc_reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Reactor">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
+        <sys_scope display_value="Reactor WORK IN PROGRESS">e5879c7fdb39d110dcbdd03cd3961946</sys_scope>
         <sys_update_name>x_snc_reactor_props_1ae107261b57a510cd6153d16b4bcb54</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-06-11 10:04:05</sys_updated_on>
