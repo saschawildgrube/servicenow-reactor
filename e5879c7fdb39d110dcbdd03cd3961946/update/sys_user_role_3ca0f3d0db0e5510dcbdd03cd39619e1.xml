@@ -4,6 +4,7 @@
         <can_delegate>true</can_delegate>
         <description>The Reactor developer user has access to the React(or) components.</description>
         <elevated_privilege>false</elevated_privilege>
+        <federated_id>ogz5e28Zhb+o7Cn0B6QGCS4+7xtm0DvRFXnwh9XjQWI=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_snc_reactor.developer</name>
